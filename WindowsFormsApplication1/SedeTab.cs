@@ -28,6 +28,8 @@ namespace WindowsFormsApplication1
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            // TODO: esta línea de código carga datos en la tabla 'grupo10DBDataSet.Sede' Puede moverla o quitarla según sea necesario.
+            MostrarSedes();
 
         }
 
@@ -60,7 +62,7 @@ namespace WindowsFormsApplication1
                             line = reader.ReadLine();
                             try
                             {
-                                Sede sede = new Sede(line);
+                                Sede sede = new Sede((String) line);
                             }
                             catch (Exception)
                             {
@@ -71,17 +73,29 @@ namespace WindowsFormsApplication1
                     }
                     MessageBox.Show("Se procesaron" + (n_line) + " líneas.", "File Content at path: " + filePath, MessageBoxButtons.OK);
                 }
+                seleccionado = null;
                 MostrarSedes();
             }
         }
 
         private void bBorrarSede_Click(object sender, EventArgs e)
         {
-            seleccionado.borrarSede();
-            seleccionado = null;
-            MostrarSedes();
+            
+            if (seleccionado != null)
+            {
+                seleccionado.borrarSede();
+                seleccionado = null;
+                MostrarSedes();
+            }
+            else
+            {
+                MessageBox.Show("Selecciona una sede para borrar", "Error", MessageBoxButtons.OK);
+            }
+            
+            
         }
-        private void dataGridView1_SelectionChanged(object sender, EventArgs e)
+
+        private void dataGridView1_SelectionChanged_1(object sender, EventArgs e)
         {
             try
             {

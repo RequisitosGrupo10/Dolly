@@ -8,15 +8,121 @@ using System.Threading.Tasks;
 
 namespace WindowsFormsApplication1
 {
-    internal class Sede
+    class Sede
     {
         private MySqlBD miDB = new MySqlBD();
-    
-        public Sede()
+        private int idSede;
+        private string nombre;
+        private Usuario responsable;
+
+        public static List<Sede> ListaSede()
         {
-            miDB.Select("SELECT * FROM Sede;");
-            miDB.Insert("INSERT INTO Rol(nombre) VALUES ('admin')");
+            List<Sede> lista = new List<Sede>();
+            MySqlBD miBD = new MySqlBD();
+
+            foreach (Object[] tupla in miBD.Select("SELECT idSede FROM Sede;"))
+            {
+
+                Sede aux = new Sede((int)tupla[0]);
+                lista.Add(aux);
+            }
+            return lista;
+            
         }
-    
+
+        public Sede(int idSede)
+        {
+            MySqlBD miBD = new MySqlBD();
+            try
+            {
+                Object[] tupla = miBD.Select("SELECT * FROM Sede WHERE idSede=" + idSede + ";")[0];
+
+                this.idSede = (int)tupla[0];
+                this.nombre = (String)tupla[1];
+                if((int)tupla[2]>0)
+                {
+                    this.responsable = new Usuario((int)tupla[2]);
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
+
+        }
+
+        public Sede(String nombre)
+        {
+            MySqlBD miBD = new MySqlBD();
+            try
+            {
+                if (miBD.Select("SELECT nombre FROM Sede WHERE nombre = '" + nombre + "';").Count == 0)
+                {
+                    miBD.Insert("INSERT INTO Sede(nombre) VALUES ('" + nombre + "');");
+                    Console.WriteLine("Se insertó correctamente");
+                    this.idSede = (int)miBD.SelectScalar("SELECT MAX(idSede) FROM Sede");
+                    this.nombre = nombre;
+                    this.responsable = null; 
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
+
+        }
+
+        public int IdSede
+        {
+            get { return idSede; }
+        }
+
+        public string Nombre
+        {
+            get { return nombre; }
+        }
+
+        public Usuario Responsable
+        {
+            get { return responsable; }
+            set
+            {
+                MySqlBD miBD = new MySqlBD();
+                miBD.Update("UPDATE Sede SET responsable = " + responsable.IdUsuario + " WHERE idSede =" + this.idSede + ";");
+
+                responsable = value;
+            }
+        }
+
+        public void borrarSede()
+        {
+            MySqlBD miBD = new MySqlBD();
+            miBD.Delete("DELETE FROM Sede WHERE idSede =" + this.idSede + ";");
+            idSede = -1;
+            nombre = null;
+            responsable = null;
+        }
+
+        public override string ToString()
+        {
+            string res = this.idSede + ";" + this.nombre + ";";
+            if (this.responsable != null) {
+                res += responsable.ToString();
+            }
+
+            return res;
+        }
+
+        public override bool Equals(object obj)
+        {
+            return obj is Sede
+                && (((Sede)obj).idSede == this.idSede);
+        }
+
+        public override int GetHashCode()
+        {
+            return this.idSede.GetHashCode();
+        }
     }
+    
 }

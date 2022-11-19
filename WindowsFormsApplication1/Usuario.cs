@@ -45,6 +45,11 @@ namespace WindowsFormsApplication1
             }
             return lista;
         }
+
+        public int IdUsuario
+        {
+            get { return idUsuario; }
+        }
     }
 
 }

@@ -17,10 +17,6 @@ namespace BDLibrary
 
         public MySqlBD()
         {
-            
-                //origen_datos = pathBD;
-                //cadenaConexion = "Provider=Microsoft.ACE.OLEDB.12.0; "
-                //        + "Data Source=" + pathBD;
             MySqlConnector.MySqlConnectionStringBuilder builder = new MySqlConnectionStringBuilder();
             builder.Port = 3306;
             builder.Server = "database-pevau.cobadwnzalab.eu-central-1.rds.amazonaws.com";
