@@ -39,18 +39,20 @@
             // 
             // bImportar
             // 
-            this.bImportar.Location = new System.Drawing.Point(40, 27);
+            this.bImportar.Location = new System.Drawing.Point(30, 22);
+            this.bImportar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.bImportar.Name = "bImportar";
-            this.bImportar.Size = new System.Drawing.Size(396, 51);
+            this.bImportar.Size = new System.Drawing.Size(297, 41);
             this.bImportar.TabIndex = 0;
             this.bImportar.Text = "Importar sedes";
             this.bImportar.UseVisualStyleBackColor = true;
             // 
             // bBorrar
             // 
-            this.bBorrar.Location = new System.Drawing.Point(40, 98);
+            this.bBorrar.Location = new System.Drawing.Point(30, 80);
+            this.bBorrar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.bBorrar.Name = "bBorrar";
-            this.bBorrar.Size = new System.Drawing.Size(396, 52);
+            this.bBorrar.Size = new System.Drawing.Size(297, 42);
             this.bBorrar.TabIndex = 1;
             this.bBorrar.Text = "Borrar Sede";
             this.bBorrar.UseVisualStyleBackColor = true;
@@ -58,51 +60,56 @@
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(472, 27);
+            this.dataGridView1.Location = new System.Drawing.Point(354, 22);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(661, 336);
+            this.dataGridView1.Size = new System.Drawing.Size(496, 273);
             this.dataGridView1.TabIndex = 2;
             // 
             // bInserResponsable
             // 
-            this.bInserResponsable.Location = new System.Drawing.Point(217, 177);
+            this.bInserResponsable.Location = new System.Drawing.Point(163, 144);
+            this.bInserResponsable.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.bInserResponsable.Name = "bInserResponsable";
-            this.bInserResponsable.Size = new System.Drawing.Size(219, 79);
+            this.bInserResponsable.Size = new System.Drawing.Size(164, 64);
             this.bInserResponsable.TabIndex = 3;
             this.bInserResponsable.Text = "Asignar Responsable de Sede";
             this.bInserResponsable.UseVisualStyleBackColor = true;
+            this.bInserResponsable.Click += new System.EventHandler(this.bInserResponsable_Click);
             // 
             // listBox1
             // 
             this.listBox1.FormattingEnabled = true;
-            this.listBox1.ItemHeight = 16;
-            this.listBox1.Location = new System.Drawing.Point(40, 177);
+            this.listBox1.Location = new System.Drawing.Point(30, 144);
+            this.listBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(148, 180);
+            this.listBox1.Size = new System.Drawing.Size(112, 147);
             this.listBox1.TabIndex = 4;
             // 
             // bBorrarResponsable
             // 
-            this.bBorrarResponsable.Location = new System.Drawing.Point(217, 276);
+            this.bBorrarResponsable.Location = new System.Drawing.Point(163, 224);
+            this.bBorrarResponsable.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.bBorrarResponsable.Name = "bBorrarResponsable";
-            this.bBorrarResponsable.Size = new System.Drawing.Size(219, 81);
+            this.bBorrarResponsable.Size = new System.Drawing.Size(164, 66);
             this.bBorrarResponsable.TabIndex = 5;
             this.bBorrarResponsable.Text = "Eliminar Responsable de Sede";
             this.bBorrarResponsable.UseVisualStyleBackColor = true;
             // 
-            // Sedes
+            // SedeTab
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1158, 414);
+            this.ClientSize = new System.Drawing.Size(868, 336);
             this.Controls.Add(this.bBorrarResponsable);
             this.Controls.Add(this.listBox1);
             this.Controls.Add(this.bInserResponsable);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.bBorrar);
             this.Controls.Add(this.bImportar);
-            this.Name = "Sedes";
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Name = "SedeTab";
             this.Text = "Sedes";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();

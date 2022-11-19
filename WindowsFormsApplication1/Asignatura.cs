@@ -9,9 +9,6 @@ namespace WindowsFormsApplication1
 {
     class Asignatura
     {
-        private static string BD_SERVER = "database-pevau.cobadwnzalab.eu-central-1.rds.amazonaws.com";
-        private static string BD_NAME = "grupo10";
-
         private int idAsignatura;
         private string nombre;
 
@@ -36,15 +33,17 @@ namespace WindowsFormsApplication1
             this.nombre = (String)tupla[1];
         }
 
-        public Asignatura(int idAsignatura, String nombre)
+        public Asignatura(String nombre)
         {
             MySqlBD miBD = new MySqlBD();
-            try {
-                miBD.Insert("INSERT INTO Asignatura VALUES ('" + nombre + "');");
-               this.idAsignatura = idAsignatura;
-               this.nombre = nombre;
-            } catch (Exception e) {
-                // Ya estaba insertada, no hago nada
+            foreach (Object[] tupla in miBD.Select("SELECT nombre FROM Asignatura;"))
+            {
+                if ((String) tupla[0] != nombre)
+                {
+                    miBD.Insert("INSERT INTO Asignatura VALUES ('" + nombre + "');");
+                    this.idAsignatura = (int) miBD.SelectScalar("SELECT MAX(idAsignatura) FROM Asignatura");
+                    this.nombre = nombre;
+                }
             }
         }
 
@@ -90,7 +89,7 @@ namespace WindowsFormsApplication1
         public override bool Equals(object obj)
         {
             return obj is Asignatura
-                && (((Asignatura)obj).idAsignatura == this.idAsignatura);
+                && (((Asignatura)obj).nombre == this.nombre);
         }
 
         public override int GetHashCode()
