@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -9,9 +10,6 @@ namespace WindowsFormsApplication1
 {
     class Asignatura
     {
-        private static string BD_SERVER = "database-pevau.cobadwnzalab.eu-central-1.rds.amazonaws.com";
-        private static string BD_NAME = "grupo10";
-
         private int idAsignatura;
         private string nombre;
 
@@ -30,22 +28,36 @@ namespace WindowsFormsApplication1
         public Asignatura(int idAsignatura)
         {
             MySqlBD miBD = new MySqlBD();
-            Object[] tupla = miBD.Select("SELECT * FROM Asignatura WHERE idAsignatura=" + this.idAsignatura + ";")[0];
+            try
+            {
+                Object[] tupla = miBD.Select("SELECT * FROM Asignatura WHERE idAsignatura=" + this.idAsignatura + ";")[0];
 
-            this.idAsignatura = (int)tupla[0];
-            this.nombre = (String)tupla[1];
+                this.idAsignatura = (int)tupla[0];
+                this.nombre = (String)tupla[1];
+            } catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
+            
         }
 
-        public Asignatura(int idAsignatura, String nombre)
+        public Asignatura(String nombre)
         {
             MySqlBD miBD = new MySqlBD();
-            try {
-                miBD.Insert("INSERT INTO Asignatura VALUES ('" + nombre + "');");
-               this.idAsignatura = idAsignatura;
-               this.nombre = nombre;
-            } catch (Exception e) {
-                // Ya estaba insertada, no hago nada
+            try
+            {
+                if (miBD.Select("SELECT nombre FROM Asignatura WHERE nombre = '" + nombre + "';").Count == 0)
+                {
+                    miBD.Insert("INSERT INTO Asignatura(nombre) VALUES ('" + nombre + "');");
+                    Console.WriteLine("Se insertó correctamente");
+                    this.idAsignatura = (int)miBD.SelectScalar("SELECT MAX(idAsignatura) FROM Asignatura");
+                    this.nombre = nombre;
+                }
+            } catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
             }
+
         }
 
         public int IdAsignatura
@@ -90,7 +102,7 @@ namespace WindowsFormsApplication1
         public override bool Equals(object obj)
         {
             return obj is Asignatura
-                && (((Asignatura)obj).idAsignatura == this.idAsignatura);
+                && (((Asignatura)obj).nombre == this.nombre);
         }
 
         public override int GetHashCode()

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BDLibrary;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,19 +14,22 @@ namespace WindowsFormsApplication1
 {
     public partial class AsignaturaTab : Form
     {
+        Asignatura seleccionado;
         public AsignaturaTab()
         {
             InitializeComponent();
+            MostrarAsignaturas();
+            seleccionado = null;
+        }
+
+        private void MostrarAsignaturas()
+        {
+            dataGridView1.DataSource = Asignatura.ListaAsignatura();
         }
 
         private void bExit_Click(object sender, EventArgs e)
         {
             this.Close();
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void bImport_Click(object sender, EventArgs e)
@@ -52,16 +56,12 @@ namespace WindowsFormsApplication1
                     {
                         string line;
 
-                        // Se lee la primera línea
-                        if (!reader.EndOfStream)
-                            line = reader.ReadLine();
                         while (!reader.EndOfStream)
                         {
                             line = reader.ReadLine();
                             try
                             {
-                                // select top 1 * from table order by id desc
-                                // Asignatura asignatura = new Asignatura(n_line, line);
+                                Asignatura asignatura = new Asignatura(line);
                             }
                             catch (Exception)
                             {
@@ -70,20 +70,34 @@ namespace WindowsFormsApplication1
                             n_line++;
                         }
                     }
-                    MessageBox.Show("Se procesaron" + (n_line - 1) + " líneas.", "File Content at path: " + filePath, MessageBoxButtons.OK);
+                    MessageBox.Show("Se procesaron" + (n_line) + " líneas.", "File Content at path: " + filePath, MessageBoxButtons.OK);
                 }
+                MostrarAsignaturas();
             }
         }
 
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void dataGridView1_SelectionChanged(object sender, EventArgs e)
         {
-
+            try
+            {
+                if (dataGridView1.SelectedRows.Count > 0)
+                {
+                    int idAsignatura = (int)dataGridView1.SelectedRows[0].Cells[0].Value;
+                    string nombre = (string)dataGridView1.SelectedRows[0].Cells[1].Value;
+                    seleccionado = new Asignatura(idAsignatura);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("ERROR: " + ex.Message);
+            }
         }
 
-        private void bExport_Click(object sender, EventArgs e)
+        private void bBorrarAsignatura_Click(object sender, EventArgs e)
         {
-            // seleccionado.Borrar
-            // MostrarAsignaturas();
+            seleccionado.borrarAsignatura();
+            seleccionado = null;
+            MostrarAsignaturas();
         }
     }
 }
