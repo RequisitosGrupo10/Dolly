@@ -44,16 +44,43 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="SedesTab.cs">
+    <Compile Include="Asignaturas.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SedesTab.Designer.cs">
-      <DependentUpon>SedesTab.cs</DependentUpon>
+    <Compile Include="Asignaturas.Designer.cs">
+      <DependentUpon>Asignaturas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Menu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Menu.Designer.cs">
+      <DependentUpon>Menu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Sedes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sedes.Designer.cs">
+      <DependentUpon>Sedes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Estudiantes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Estudiantes.Designer.cs">
+      <DependentUpon>Estudiantes.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="SedesTab.resx">
-      <DependentUpon>SedesTab.cs</DependentUpon>
+    <EmbeddedResource Include="Asignaturas.resx">
+      <DependentUpon>Asignaturas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Menu.resx">
+      <DependentUpon>Menu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sedes.resx">
+      <DependentUpon>Sedes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Estudiantes.resx">
+      <DependentUpon>Estudiantes.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
