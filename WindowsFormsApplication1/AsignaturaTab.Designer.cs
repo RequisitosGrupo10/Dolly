@@ -1,6 +1,6 @@
 ﻿namespace WindowsFormsApplication1
 {
-    partial class Asignaturas
+    partial class AsignaturaTab
     {
         /// <summary>
         /// Required designer variable.

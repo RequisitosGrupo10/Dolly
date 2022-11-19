@@ -11,24 +11,19 @@ using System.Windows.Forms;
 
 namespace WindowsFormsApplication1
 {
-    public partial class Asignaturas : Form
+    public partial class EstudianteTab : Form
     {
-        public Asignaturas()
+        public EstudianteTab()
         {
             InitializeComponent();
         }
 
-        private void bExit_Click(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
-        private void button2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void bImport_Click(object sender, EventArgs e)
+        private void button1_Click_1(object sender, EventArgs e)
         {
             int n_line = 0;
             var fileContent = string.Empty;
@@ -37,7 +32,7 @@ namespace WindowsFormsApplication1
             using (OpenFileDialog openFileDialog = new OpenFileDialog())
             {
                 openFileDialog.InitialDirectory = "c:\\";
-                openFileDialog.Filter = "txt files (*.tx)|*.txt";
+                openFileDialog.Filter = "csv files (*.csv)|*.csv";
                 openFileDialog.FilterIndex = 1;
                 openFileDialog.RestoreDirectory = true;
 
@@ -58,10 +53,27 @@ namespace WindowsFormsApplication1
                         while (!reader.EndOfStream)
                         {
                             line = reader.ReadLine();
+                            string[] attributes = line.Split(';');
                             try
                             {
-                                // select top 1 * from table order by id desc
-                                // Asignatura asignatura = new Asignatura(n_line, line);
+                                if (attributes.Length == 6)
+                                {
+                                    string centro = attributes[0];
+                                    string nombre = attributes[1];
+                                    string apellido1 = attributes[2];
+                                    string apellido2 = (attributes[3].Equals("0")) ? "" : attributes[3];
+                                    string dni_nif = attributes[4];
+                                    string[] materias = attributes[5].Split(',');
+                                    for (int i = 0; i < materias.Length; i++ )
+                                    {
+                                        materias[i] = materias[i].Trim(); 
+                                    }
+                                    Console.WriteLine("Centro:" + centro + "; Nombre:" + nombre
+                                        + ";Apellido1:" + apellido1 + "; Apelliido2:" + apellido2
+                                        + ";DNI/NIF" + dni_nif + "; Materias: " + materias[0]);
+                                }
+                                else
+                                    throw new Exception("Not enough arguments in the line " + n_line);
                             }
                             catch (Exception)
                             {
@@ -78,12 +90,6 @@ namespace WindowsFormsApplication1
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
-        }
-
-        private void bExport_Click(object sender, EventArgs e)
-        {
-            // seleccionado.Borrar
-            // MostrarAsignaturas();
         }
     }
 }

@@ -1,6 +1,6 @@
 ﻿namespace WindowsFormsApplication1
 {
-    partial class Sedes
+    partial class SedeTab
     {
         /// <summary>
         /// Required designer variable.

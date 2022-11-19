@@ -16,8 +16,7 @@ namespace WindowsFormsApplication1
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new SedesTab());
-            Sede sede = new Sede();
+            Application.Run(new Menu());
         }
     }
 }

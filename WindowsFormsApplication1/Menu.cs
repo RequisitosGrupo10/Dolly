@@ -8,7 +8,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-using MySQL.Data.MySQLClient;
 
 namespace WindowsFormsApplication1
 {
@@ -26,28 +25,17 @@ namespace WindowsFormsApplication1
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Asignaturas ventana = new Asignaturas();
-            ventana.ShowDialog();
+
         }
 
         private void button5_Click(object sender, EventArgs e)
         {
-            MySql.Data.MySqlClient.MySqlConnection conn;
-            string myConnectionString;
+            
+        }
 
-            myConnectionString = "server=database-pevau.cobadwnzalab.eu-central-1.rds.amazonaws.com;uid=grupo10;" +
-                "pwd=6A9WnAAEaNcuYQfe;database=test";
+        private void Menu_Load(object sender, EventArgs e)
+        {
 
-            try
-            {
-                conn = new MySql.Data.MySqlClient.MySqlConnection();
-                conn.ConnectionString = myConnectionString;
-                conn.Open();
-            }
-            catch (MySql.Data.MySqlClient.MySqlException ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
         }
     }
 }

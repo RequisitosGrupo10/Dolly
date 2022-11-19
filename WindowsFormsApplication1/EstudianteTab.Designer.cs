@@ -1,6 +1,6 @@
 ﻿namespace WindowsFormsApplication1
 {
-    partial class Estudiantes
+    partial class EstudianteTab
     {
         /// <summary>
         /// Variable del diseñador requerida.

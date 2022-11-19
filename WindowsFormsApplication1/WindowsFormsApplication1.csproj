@@ -72,18 +72,43 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="MySqlBD.cs" />
-    <Compile Include="Sede.cs" />
-    <Compile Include="SedesTab.cs">
+    <Compile Include="Asignatura.cs" />
+    <Compile Include="AsignaturaTab.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SedesTab.Designer.cs">
-      <DependentUpon>SedesTab.cs</DependentUpon>
+    <Compile Include="AsignaturaTab.Designer.cs">
+      <DependentUpon>AsignaturaTab.cs</DependentUpon>
     </Compile>
+    <Compile Include="EstudianteTab.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EstudianteTab.Designer.cs">
+      <DependentUpon>EstudianteTab.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Menu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Menu.Designer.cs">
+      <DependentUpon>Menu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MySqlBD.cs" />
+    <Compile Include="Sede.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="SedesTab.resx">
-      <DependentUpon>SedesTab.cs</DependentUpon>
+    <Compile Include="SedeTab.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SedeTab.Designer.cs">
+      <DependentUpon>SedeTab.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="AsignaturaTab.resx">
+      <DependentUpon>AsignaturaTab.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EstudianteTab.resx">
+      <DependentUpon>EstudianteTab.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Menu.resx">
+      <DependentUpon>Menu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -95,6 +120,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="SedeTab.resx">
+      <DependentUpon>SedeTab.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

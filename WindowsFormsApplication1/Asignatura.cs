@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BDLibrary;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -17,7 +18,7 @@ namespace WindowsFormsApplication1
         public static List<Asignatura> ListaAsignatura()
         {
             List<Asignatura> lista = new List<Asignatura>();
-            SQLSERVERDB miBD = new SQLSERVERDB(BD_SERVER, BD_NAME);
+            MySqlBD miBD = new MySqlBD();
 
             foreach (Object[] tupla in miBD.Select("SELECT idAsignatura FROM Asignatura;"))
             {
@@ -28,7 +29,7 @@ namespace WindowsFormsApplication1
 
         public Asignatura(int idAsignatura)
         {
-            SQLSERVERDB miBD = new SQLSERVERDB(BD_SERVER, BD_NAME);
+            MySqlBD miBD = new MySqlBD();
             Object[] tupla = miBD.Select("SELECT * FROM Asignatura WHERE idAsignatura=" + this.idAsignatura + ";")[0];
 
             this.idAsignatura = (int)tupla[0];
@@ -37,7 +38,7 @@ namespace WindowsFormsApplication1
 
         public Asignatura(int idAsignatura, String nombre)
         {
-            SQLSERVERDB miBD = new SQLSERVERDB(BD_SERVER, BD_NAME);
+            MySqlBD miBD = new MySqlBD();
             try {
                 miBD.Insert("INSERT INTO Asignatura VALUES ('" + nombre + "');");
                this.idAsignatura = idAsignatura;
@@ -52,7 +53,7 @@ namespace WindowsFormsApplication1
             get { return idAsignatura; }
             set
             {
-                SQLSERVERDB miBD = new SQLSERVERDB(BD_SERVER, BD_NAME);
+                MySqlBD miBD = new MySqlBD();
                 miBD.Update("UPDATE Grupo SET idAsignatura = " + value + " WHERE idAsignatura =" + this.idAsignatura + ";");
 
                 idAsignatura = value;
@@ -64,7 +65,7 @@ namespace WindowsFormsApplication1
             get { return nombre; }
             set
             {
-                SQLSERVERDB miBD = new SQLSERVERDB(BD_SERVER, BD_NAME);
+                MySqlBD miBD = new MySqlBD();
                 miBD.Update("UPDATE Grupo SET nombre = '" + value + "' WHERE idAsignatura =" + this.idAsignatura + ";");
 
                 nombre = value;
@@ -73,7 +74,7 @@ namespace WindowsFormsApplication1
 
         public void borrarAsignatura()
         {
-            SQLSERVERDB miBD = new SQLSERVERDB(BD_SERVER, BD_NAME);
+            MySqlBD miBD = new MySqlBD();
             miBD.Delete("DELETE FROM Asignatura WHERE idAsignatura =" + this.idAsignatura + ";");
             idAsignatura = -1;
             nombre = null;
@@ -96,6 +97,5 @@ namespace WindowsFormsApplication1
         {
             return this.idAsignatura.GetHashCode();
         }
-    }
     }
 }

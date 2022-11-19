@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace WindowsFormsApplication1
 {
-    public partial class Sedes : Form
+    public partial class SedeTab : Form
     {
-        public Sedes()
+        public SedeTab()
         {
             InitializeComponent();
         }
