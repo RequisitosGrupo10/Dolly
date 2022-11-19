@@ -36,14 +36,11 @@ namespace WindowsFormsApplication1
         public Asignatura(String nombre)
         {
             MySqlBD miBD = new MySqlBD();
-            foreach (Object[] tupla in miBD.Select("SELECT nombre FROM Asignatura;"))
+            if (miBD.Select("SELECT nombre FROM Asignatura WHERE nombre = '" + nombre + "';") == null)
             {
-                if ((String) tupla[0] != nombre)
-                {
-                    miBD.Insert("INSERT INTO Asignatura VALUES ('" + nombre + "');");
-                    this.idAsignatura = (int) miBD.SelectScalar("SELECT MAX(idAsignatura) FROM Asignatura");
-                    this.nombre = nombre;
-                }
+                miBD.Insert("INSERT INTO Asignatura VALUES ('" + nombre + "');");
+                this.idAsignatura = (int) miBD.SelectScalar("SELECT MAX(idAsignatura) FROM Asignatura");
+                this.nombre = nombre;
             }
         }
 
