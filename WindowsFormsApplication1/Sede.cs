@@ -22,7 +22,6 @@ namespace WindowsFormsApplication1
 
             foreach (Object[] tupla in miBD.Select("SELECT idSede FROM Sede;"))
             {
-
                 Sede aux = new Sede((int)tupla[0]);
                 lista.Add(aux);
             }
@@ -38,15 +37,16 @@ namespace WindowsFormsApplication1
                 Object[] tupla = miBD.Select("SELECT * FROM Sede WHERE idSede=" + idSede + ";")[0];
 
                 this.idSede = (int)tupla[0];
-                this.nombre = (String)tupla[1];
-                if((int)tupla[2]>0)
-                {
-                    this.responsable = new Usuario((int)tupla[2]);
-                }
+                this.nombre = (string)tupla[1];
+                int responsableID;
+                //responsableID = Int32.Parse(tupla[2].ToString());
+                responsableID = -1;
+                if (responsableID > 0)
+                    this.responsable = new Usuario(responsableID);
             }
             catch (Exception e)
             {
-                Console.WriteLine(e.Message);
+               Console.WriteLine(e.Message);
             }
 
         }
@@ -60,7 +60,7 @@ namespace WindowsFormsApplication1
                 {
                     miBD.Insert("INSERT INTO Sede(nombre) VALUES ('" + nombre + "');");
                     Console.WriteLine("Se insertó correctamente");
-                    this.idSede = (int)miBD.SelectScalar("SELECT MAX(idSede) FROM Sede");
+                    this.idSede = Int32.Parse(miBD.SelectScalar("SELECT MAX(idSede) FROM Sede").ToString());
                     this.nombre = nombre;
                     this.responsable = null; 
                 }

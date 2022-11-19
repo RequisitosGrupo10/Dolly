@@ -32,26 +32,26 @@
             this.bImportar = new System.Windows.Forms.Button();
             this.bBorrar = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.listBox1 = new System.Windows.Forms.ListBox();
-            this.bBorrarResponsable = new System.Windows.Forms.Button();
-            this.bInserResponsable = new System.Windows.Forms.Button();
-            this.grupo10DBDataSet = new WindowsFormsApplication1.grupo10DBDataSet();
-            this.sedeBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.sedeTableAdapter = new WindowsFormsApplication1.grupo10DBDataSetTableAdapters.SedeTableAdapter();
             this.idSedeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nombreDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.responsableDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sedeBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.grupo10DBDataSet = new WindowsFormsApplication1.grupo10DBDataSet();
+            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.bBorrarResponsable = new System.Windows.Forms.Button();
+            this.bInserResponsable = new System.Windows.Forms.Button();
+            this.sedeTableAdapter = new WindowsFormsApplication1.grupo10DBDataSetTableAdapters.SedeTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.grupo10DBDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.sedeBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grupo10DBDataSet)).BeginInit();
             this.SuspendLayout();
             // 
             // bImportar
             // 
-            this.bImportar.Location = new System.Drawing.Point(30, 22);
-            this.bImportar.Margin = new System.Windows.Forms.Padding(2);
+            this.bImportar.Location = new System.Drawing.Point(40, 27);
+            this.bImportar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.bImportar.Name = "bImportar";
-            this.bImportar.Size = new System.Drawing.Size(297, 41);
+            this.bImportar.Size = new System.Drawing.Size(396, 50);
             this.bImportar.TabIndex = 0;
             this.bImportar.Text = "Importar sedes";
             this.bImportar.UseVisualStyleBackColor = true;
@@ -59,10 +59,10 @@
             // 
             // bBorrar
             // 
-            this.bBorrar.Location = new System.Drawing.Point(30, 80);
-            this.bBorrar.Margin = new System.Windows.Forms.Padding(2);
+            this.bBorrar.Location = new System.Drawing.Point(40, 98);
+            this.bBorrar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.bBorrar.Name = "bBorrar";
-            this.bBorrar.Size = new System.Drawing.Size(297, 42);
+            this.bBorrar.Size = new System.Drawing.Size(396, 52);
             this.bBorrar.TabIndex = 1;
             this.bBorrar.Text = "Borrar Sede";
             this.bBorrar.UseVisualStyleBackColor = true;
@@ -77,94 +77,102 @@
             this.nombreDataGridViewTextBoxColumn,
             this.responsableDataGridViewTextBoxColumn});
             this.dataGridView1.DataSource = this.sedeBindingSource;
-            this.dataGridView1.Location = new System.Drawing.Point(354, 22);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(2);
+            this.dataGridView1.Location = new System.Drawing.Point(472, 27);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(496, 273);
+            this.dataGridView1.Size = new System.Drawing.Size(661, 336);
             this.dataGridView1.TabIndex = 2;
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             this.dataGridView1.SelectionChanged += new System.EventHandler(this.dataGridView1_SelectionChanged_1);
             // 
-            // listBox1
+            // idSedeDataGridViewTextBoxColumn
             // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.Location = new System.Drawing.Point(30, 144);
-            this.listBox1.Margin = new System.Windows.Forms.Padding(2);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(112, 147);
-            this.listBox1.TabIndex = 4;
+            this.idSedeDataGridViewTextBoxColumn.DataPropertyName = "idSede";
+            this.idSedeDataGridViewTextBoxColumn.HeaderText = "idSede";
+            this.idSedeDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.idSedeDataGridViewTextBoxColumn.Name = "idSedeDataGridViewTextBoxColumn";
+            this.idSedeDataGridViewTextBoxColumn.Width = 125;
             // 
-            // bBorrarResponsable
+            // nombreDataGridViewTextBoxColumn
             // 
-            this.bBorrarResponsable.Location = new System.Drawing.Point(163, 224);
-            this.bBorrarResponsable.Margin = new System.Windows.Forms.Padding(2);
-            this.bBorrarResponsable.Name = "bBorrarResponsable";
-            this.bBorrarResponsable.Size = new System.Drawing.Size(164, 66);
-            this.bBorrarResponsable.TabIndex = 5;
-            this.bBorrarResponsable.Text = "Eliminar Responsable de Sede";
-            this.bBorrarResponsable.UseVisualStyleBackColor = true;
+            this.nombreDataGridViewTextBoxColumn.DataPropertyName = "nombre";
+            this.nombreDataGridViewTextBoxColumn.HeaderText = "nombre";
+            this.nombreDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.nombreDataGridViewTextBoxColumn.Name = "nombreDataGridViewTextBoxColumn";
+            this.nombreDataGridViewTextBoxColumn.Width = 125;
             // 
-            // bInserResponsable
+            // responsableDataGridViewTextBoxColumn
             // 
-            this.bInserResponsable.Location = new System.Drawing.Point(163, 144);
-            this.bInserResponsable.Margin = new System.Windows.Forms.Padding(2);
-            this.bInserResponsable.Name = "bInserResponsable";
-            this.bInserResponsable.Size = new System.Drawing.Size(164, 64);
-            this.bInserResponsable.TabIndex = 3;
-            this.bInserResponsable.Text = "Asignar Responsable de Sede";
-            this.bInserResponsable.UseVisualStyleBackColor = true;
-            // 
-            // grupo10DBDataSet
-            // 
-            this.grupo10DBDataSet.DataSetName = "grupo10DBDataSet";
-            this.grupo10DBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            this.responsableDataGridViewTextBoxColumn.DataPropertyName = "responsable";
+            this.responsableDataGridViewTextBoxColumn.HeaderText = "responsable";
+            this.responsableDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.responsableDataGridViewTextBoxColumn.Name = "responsableDataGridViewTextBoxColumn";
+            this.responsableDataGridViewTextBoxColumn.Width = 125;
             // 
             // sedeBindingSource
             // 
             this.sedeBindingSource.DataMember = "Sede";
             this.sedeBindingSource.DataSource = this.grupo10DBDataSet;
             // 
+            // grupo10DBDataSet
+            // 
+            this.grupo10DBDataSet.DataSetName = "grupo10DBDataSet";
+            this.grupo10DBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // listBox1
+            // 
+            this.listBox1.FormattingEnabled = true;
+            this.listBox1.ItemHeight = 16;
+            this.listBox1.Location = new System.Drawing.Point(40, 177);
+            this.listBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.listBox1.Name = "listBox1";
+            this.listBox1.Size = new System.Drawing.Size(148, 180);
+            this.listBox1.TabIndex = 4;
+            // 
+            // bBorrarResponsable
+            // 
+            this.bBorrarResponsable.Location = new System.Drawing.Point(217, 276);
+            this.bBorrarResponsable.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.bBorrarResponsable.Name = "bBorrarResponsable";
+            this.bBorrarResponsable.Size = new System.Drawing.Size(219, 81);
+            this.bBorrarResponsable.TabIndex = 5;
+            this.bBorrarResponsable.Text = "Eliminar Responsable de Sede";
+            this.bBorrarResponsable.UseVisualStyleBackColor = true;
+            // 
+            // bInserResponsable
+            // 
+            this.bInserResponsable.Location = new System.Drawing.Point(217, 177);
+            this.bInserResponsable.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.bInserResponsable.Name = "bInserResponsable";
+            this.bInserResponsable.Size = new System.Drawing.Size(219, 79);
+            this.bInserResponsable.TabIndex = 3;
+            this.bInserResponsable.Text = "Asignar Responsable de Sede";
+            this.bInserResponsable.UseVisualStyleBackColor = true;
+            // 
             // sedeTableAdapter
             // 
             this.sedeTableAdapter.ClearBeforeFill = true;
             // 
-            // idSedeDataGridViewTextBoxColumn
-            // 
-            this.idSedeDataGridViewTextBoxColumn.DataPropertyName = "idSede";
-            this.idSedeDataGridViewTextBoxColumn.HeaderText = "idSede";
-            this.idSedeDataGridViewTextBoxColumn.Name = "idSedeDataGridViewTextBoxColumn";
-            // 
-            // nombreDataGridViewTextBoxColumn
-            // 
-            this.nombreDataGridViewTextBoxColumn.DataPropertyName = "nombre";
-            this.nombreDataGridViewTextBoxColumn.HeaderText = "nombre";
-            this.nombreDataGridViewTextBoxColumn.Name = "nombreDataGridViewTextBoxColumn";
-            // 
-            // responsableDataGridViewTextBoxColumn
-            // 
-            this.responsableDataGridViewTextBoxColumn.DataPropertyName = "responsable";
-            this.responsableDataGridViewTextBoxColumn.HeaderText = "responsable";
-            this.responsableDataGridViewTextBoxColumn.Name = "responsableDataGridViewTextBoxColumn";
-            // 
             // SedeTab
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(868, 336);
+            this.ClientSize = new System.Drawing.Size(1157, 414);
             this.Controls.Add(this.bBorrarResponsable);
             this.Controls.Add(this.listBox1);
             this.Controls.Add(this.bInserResponsable);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.bBorrar);
             this.Controls.Add(this.bImportar);
-            this.Margin = new System.Windows.Forms.Padding(2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "SedeTab";
             this.Text = "Sedes";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.grupo10DBDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.sedeBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grupo10DBDataSet)).EndInit();
             this.ResumeLayout(false);
 
         }

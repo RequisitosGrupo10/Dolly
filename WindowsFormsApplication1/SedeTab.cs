@@ -62,7 +62,7 @@ namespace WindowsFormsApplication1
                             line = reader.ReadLine();
                             try
                             {
-                                Sede sede = new Sede((String) line);
+                                Sede sede = new Sede(line);
                             }
                             catch (Exception)
                             {
@@ -111,6 +111,11 @@ namespace WindowsFormsApplication1
             {
                 MessageBox.Show("ERROR: " + ex.Message);
             }
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }
