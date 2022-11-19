@@ -60,7 +60,8 @@ namespace WindowsFormsApplication1
                             line = reader.ReadLine();
                             try
                             {
-                                // Asignatura asignatura = new Asignatura(line);
+                                // select top 1 * from table order by id desc
+                                // Asignatura asignatura = new Asignatura(n_line, line);
                             }
                             catch (Exception)
                             {
@@ -72,6 +73,17 @@ namespace WindowsFormsApplication1
                     MessageBox.Show("Se procesaron" + (n_line - 1) + " líneas.", "File Content at path: " + filePath, MessageBoxButtons.OK);
                 }
             }
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void bExport_Click(object sender, EventArgs e)
+        {
+            // seleccionado.Borrar
+            // MostrarAsignaturas();
         }
     }
 }
