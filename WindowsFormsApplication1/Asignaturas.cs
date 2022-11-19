@@ -11,19 +11,24 @@ using System.Windows.Forms;
 
 namespace WindowsFormsApplication1
 {
-    public partial class SedesTab : Form
+    public partial class Asignaturas : Form
     {
-        public SedesTab()
+        public Asignaturas()
         {
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void bExit_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
-        private void button1_Click_1(object sender, EventArgs e)
+        private void button2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void bImport_Click(object sender, EventArgs e)
         {
             int n_line = 0;
             var fileContent = string.Empty;
@@ -32,7 +37,7 @@ namespace WindowsFormsApplication1
             using (OpenFileDialog openFileDialog = new OpenFileDialog())
             {
                 openFileDialog.InitialDirectory = "c:\\";
-                openFileDialog.Filter = "csv files (*.csv)|*.csv";
+                openFileDialog.Filter = "txt files (*.tx)|*.txt";
                 openFileDialog.FilterIndex = 1;
                 openFileDialog.RestoreDirectory = true;
 
@@ -53,23 +58,9 @@ namespace WindowsFormsApplication1
                         while (!reader.EndOfStream)
                         {
                             line = reader.ReadLine();
-                            string[] attributes = line.Split(';');
                             try
                             {
-                                if (attributes.Length == 6)
-                                {
-                                    string centro = attributes[0];
-                                    string nombre = attributes[1];
-                                    string apellido1 = attributes[2];
-                                    string apellido2 = (attributes[3].Equals("0")) ? "" : attributes[3];
-                                    string dni_nif = attributes[4];
-                                    string[] materias = attributes[5].Split(',');
-                                    Console.WriteLine("Centro:" + centro + "; Nombre:" + nombre
-                                        + ";Apellido1:" + apellido1 + "; Apelliido2:" + apellido2
-                                        + ";DNI/NIF" + dni_nif + "; Materias: " + materias[0]);
-                                }
-                                else
-                                    throw new Exception("Not enough arguments in the line " + n_line);
+                                // Asignatura asignatura = new Asignatura(line);
                             }
                             catch (Exception)
                             {
