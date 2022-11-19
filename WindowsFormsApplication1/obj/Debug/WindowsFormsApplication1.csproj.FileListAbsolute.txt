@@ -16,3 +16,6 @@ C:\Users\jmsan\Documents\Visual Studio 2013\Projects\Dolly\WindowsFormsApplicati
 C:\Users\jmsan\Documents\Visual Studio 2013\Projects\Dolly\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.SedesTab.resources
 C:\Users\jmsan\Documents\Visual Studio 2013\Projects\Dolly\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Properties.Resources.resources
 C:\Users\jmsan\Documents\Visual Studio 2013\Projects\Dolly\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.csproj.GenerateResource.Cache
+X:\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.exe.config
+X:\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.exe
+X:\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.pdb
