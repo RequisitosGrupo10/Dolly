@@ -79,6 +79,7 @@
     <Compile Include="AsignaturaTab.Designer.cs">
       <DependentUpon>AsignaturaTab.cs</DependentUpon>
     </Compile>
+    <Compile Include="Usuario.cs" />
     <Compile Include="EstudianteTab.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -100,6 +101,12 @@
     </Compile>
     <Compile Include="SedeTab.Designer.cs">
       <DependentUpon>SedeTab.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UsersTab.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UsersTab.Designer.cs">
+      <DependentUpon>UsersTab.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="AsignaturaTab.resx">
       <DependentUpon>AsignaturaTab.cs</DependentUpon>
@@ -123,6 +130,9 @@
     <EmbeddedResource Include="SedeTab.resx">
       <DependentUpon>SedeTab.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UsersTab.resx">
+      <DependentUpon>UsersTab.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -136,6 +146,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Properties\DataSources\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
