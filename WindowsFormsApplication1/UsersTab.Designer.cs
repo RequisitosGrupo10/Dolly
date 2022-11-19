@@ -32,9 +32,7 @@
             this.btnImportar = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.btnSalir = new System.Windows.Forms.Button();
-            this.mySqlBulkCopyColumnMappingBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.mySqlBulkCopyColumnMappingBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // btnImportar
@@ -65,10 +63,6 @@
             this.btnSalir.UseVisualStyleBackColor = true;
             this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
             // 
-            // mySqlBulkCopyColumnMappingBindingSource
-            // 
-            this.mySqlBulkCopyColumnMappingBindingSource.DataSource = typeof(MySqlConnector.MySqlBulkCopyColumnMapping);
-            // 
             // UsersTab
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -80,7 +74,6 @@
             this.Name = "UsersTab";
             this.Text = "Users";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.mySqlBulkCopyColumnMappingBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -90,6 +83,5 @@
         private System.Windows.Forms.Button btnImportar;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button btnSalir;
-        private System.Windows.Forms.BindingSource mySqlBulkCopyColumnMappingBindingSource;
     }
 }

@@ -50,5 +50,11 @@ namespace WindowsFormsApplication1
             SedeTab ventana = new SedeTab();
             ventana.ShowDialog();
         }
+
+        private void btnUsuario_Click(object sender, EventArgs e)
+        {
+            UsersTab ventana = new UsersTab();
+            ventana.ShowDialog();
+        }
     }
 }

@@ -64,6 +64,7 @@ namespace WindowsFormsApplication1
                             } catch (Exception ex) 
                             {
                                 Console.WriteLine("The line alredy exist");
+                                Console.WriteLine(ex.Message); Console.WriteLine(ex.StackTrace);
                             }
                             Console.WriteLine(line);
                         }
