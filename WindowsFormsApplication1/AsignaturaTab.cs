@@ -14,12 +14,12 @@ namespace WindowsFormsApplication1
 {
     public partial class AsignaturaTab : Form
     {
-        Asignatura seleccion;
+        Asignatura seleccionado;
         public AsignaturaTab()
         {
             InitializeComponent();
             MostrarAsignaturas();
-            seleccion = null;
+            seleccionado = null;
         }
 
         private void MostrarAsignaturas()
@@ -30,11 +30,6 @@ namespace WindowsFormsApplication1
         private void bExit_Click(object sender, EventArgs e)
         {
             this.Close();
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void bImport_Click(object sender, EventArgs e)
@@ -77,24 +72,32 @@ namespace WindowsFormsApplication1
                     }
                     MessageBox.Show("Se procesaron" + (n_line) + " líneas.", "File Content at path: " + filePath, MessageBoxButtons.OK);
                 }
-                //dataGridView1.DataSource = Asignatura.ListaAsignatura();
+                MostrarAsignaturas();
             }
-        }
-
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        private void bExport_Click(object sender, EventArgs e)
-        {
-            // seleccionado.Borrar
-            // MostrarAsignaturas();
         }
 
         private void dataGridView1_SelectionChanged(object sender, EventArgs e)
         {
-            
+            try
+            {
+                if (dataGridView1.SelectedRows.Count > 0)
+                {
+                    int idAsignatura = (int)dataGridView1.SelectedRows[0].Cells[0].Value;
+                    string nombre = (string)dataGridView1.SelectedRows[0].Cells[1].Value;
+                    seleccionado = new Asignatura(idAsignatura);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("ERROR: " + ex.Message);
+            }
+        }
+
+        private void bBorrarAsignatura_Click(object sender, EventArgs e)
+        {
+            seleccionado.borrarAsignatura();
+            seleccionado = null;
+            MostrarAsignaturas();
         }
     }
 }
