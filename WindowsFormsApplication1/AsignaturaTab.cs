@@ -76,28 +76,16 @@ namespace WindowsFormsApplication1
             }
         }
 
-        private void dataGridView1_SelectionChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                if (dataGridView1.SelectedRows.Count > 0)
-                {
-                    int idAsignatura = (int)dataGridView1.SelectedRows[0].Cells[0].Value;
-                    string nombre = (string)dataGridView1.SelectedRows[0].Cells[1].Value;
-                    seleccionado = new Asignatura(idAsignatura);
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("ERROR: " + ex.Message);
-            }
-        }
-
         private void bBorrarAsignatura_Click(object sender, EventArgs e)
         {
             seleccionado.borrarAsignatura();
             seleccionado = null;
             MostrarAsignaturas();
+        }
+
+        private void dataGridView1_SelectionChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
