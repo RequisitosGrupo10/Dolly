@@ -28,13 +28,22 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.bImportar = new System.Windows.Forms.Button();
             this.bBorrar = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.bBorrarResponsable = new System.Windows.Forms.Button();
             this.bInserResponsable = new System.Windows.Forms.Button();
+            this.grupo10DBDataSet = new WindowsFormsApplication1.grupo10DBDataSet();
+            this.sedeBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.sedeTableAdapter = new WindowsFormsApplication1.grupo10DBDataSetTableAdapters.SedeTableAdapter();
+            this.idSedeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nombreDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.responsableDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grupo10DBDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sedeBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // bImportar
@@ -61,7 +70,13 @@
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AutoGenerateColumns = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.idSedeDataGridViewTextBoxColumn,
+            this.nombreDataGridViewTextBoxColumn,
+            this.responsableDataGridViewTextBoxColumn});
+            this.dataGridView1.DataSource = this.sedeBindingSource;
             this.dataGridView1.Location = new System.Drawing.Point(354, 22);
             this.dataGridView1.Margin = new System.Windows.Forms.Padding(2);
             this.dataGridView1.Name = "dataGridView1";
@@ -69,6 +84,7 @@
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.Size = new System.Drawing.Size(496, 273);
             this.dataGridView1.TabIndex = 2;
+            this.dataGridView1.SelectionChanged += new System.EventHandler(this.dataGridView1_SelectionChanged_1);
             // 
             // listBox1
             // 
@@ -99,6 +115,38 @@
             this.bInserResponsable.Text = "Asignar Responsable de Sede";
             this.bInserResponsable.UseVisualStyleBackColor = true;
             // 
+            // grupo10DBDataSet
+            // 
+            this.grupo10DBDataSet.DataSetName = "grupo10DBDataSet";
+            this.grupo10DBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // sedeBindingSource
+            // 
+            this.sedeBindingSource.DataMember = "Sede";
+            this.sedeBindingSource.DataSource = this.grupo10DBDataSet;
+            // 
+            // sedeTableAdapter
+            // 
+            this.sedeTableAdapter.ClearBeforeFill = true;
+            // 
+            // idSedeDataGridViewTextBoxColumn
+            // 
+            this.idSedeDataGridViewTextBoxColumn.DataPropertyName = "idSede";
+            this.idSedeDataGridViewTextBoxColumn.HeaderText = "idSede";
+            this.idSedeDataGridViewTextBoxColumn.Name = "idSedeDataGridViewTextBoxColumn";
+            // 
+            // nombreDataGridViewTextBoxColumn
+            // 
+            this.nombreDataGridViewTextBoxColumn.DataPropertyName = "nombre";
+            this.nombreDataGridViewTextBoxColumn.HeaderText = "nombre";
+            this.nombreDataGridViewTextBoxColumn.Name = "nombreDataGridViewTextBoxColumn";
+            // 
+            // responsableDataGridViewTextBoxColumn
+            // 
+            this.responsableDataGridViewTextBoxColumn.DataPropertyName = "responsable";
+            this.responsableDataGridViewTextBoxColumn.HeaderText = "responsable";
+            this.responsableDataGridViewTextBoxColumn.Name = "responsableDataGridViewTextBoxColumn";
+            // 
             // SedeTab
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -115,6 +163,8 @@
             this.Text = "Sedes";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grupo10DBDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sedeBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -127,5 +177,11 @@
         private System.Windows.Forms.ListBox listBox1;
         private System.Windows.Forms.Button bBorrarResponsable;
         private System.Windows.Forms.Button bInserResponsable;
+        private grupo10DBDataSet grupo10DBDataSet;
+        private System.Windows.Forms.BindingSource sedeBindingSource;
+        private grupo10DBDataSetTableAdapters.SedeTableAdapter sedeTableAdapter;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idSedeDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nombreDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn responsableDataGridViewTextBoxColumn;
     }
 }

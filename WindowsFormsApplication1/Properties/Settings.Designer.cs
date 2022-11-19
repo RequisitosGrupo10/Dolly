@@ -22,5 +22,16 @@ namespace WindowsFormsApplication1.Properties {
                 return defaultInstance;
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("User Id=grupo10;Password=6A9WnAAEaNcuYQfe;Host=database-pevau.cobadwnzalab.eu-cen" +
+            "tral-1.rds.amazonaws.com;Database=grupo10DB")]
+        public string grupo10DBConnectionString {
+            get {
+                return ((string)(this["grupo10DBConnectionString"]));
+            }
+        }
     }
 }
