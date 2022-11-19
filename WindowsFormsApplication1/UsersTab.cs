@@ -74,5 +74,15 @@ namespace WindowsFormsApplication1
             MostrarUsuarios();
         }
 
+        private void UsersTab_Load(object sender, EventArgs e)
+        {
+            // TODO: esta línea de código carga datos en la tabla 'grupo10DBDataSet7.Usuario' Puede moverla o quitarla según sea necesario.
+            this.usuarioTableAdapter2.Fill(this.grupo10DBDataSet7.Usuario);
+            // TODO: esta línea de código carga datos en la tabla 'grupo10DBDataSet6.Usuario' Puede moverla o quitarla según sea necesario.
+            this.usuarioTableAdapter1.Fill(this.grupo10DBDataSet6.Usuario);
+            // TODO: esta línea de código carga datos en la tabla 'grupo10DBDataSet1.Usuario' Puede moverla o quitarla según sea necesario.
+            this.usuarioTableAdapter.Fill(this.grupo10DBDataSet1.Usuario);
+
+        }
     }
 }

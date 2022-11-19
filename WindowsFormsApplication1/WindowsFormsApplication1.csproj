@@ -86,6 +86,31 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>grupo10DBDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="grupo10DBDataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>grupo10DBDataSet1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="grupo10DBDataSet2.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>grupo10DBDataSet2.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="grupo10DBDataSet3.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>grupo10DBDataSet3.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="grupo10DBDataSet4.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>grupo10DBDataSet4.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="grupo10DBDataSet5.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>grupo10DBDataSet5.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Usuario.cs" />
     <Compile Include="EstudianteTab.cs">
       <SubType>Form</SubType>
@@ -150,6 +175,61 @@
     </None>
     <None Include="grupo10DBDataSet.xss">
       <DependentUpon>grupo10DBDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="grupo10DBDataSet1.xsc">
+      <DependentUpon>grupo10DBDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="grupo10DBDataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>grupo10DBDataSet1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="grupo10DBDataSet1.xss">
+      <DependentUpon>grupo10DBDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="grupo10DBDataSet2.xsc">
+      <DependentUpon>grupo10DBDataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="grupo10DBDataSet2.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>grupo10DBDataSet2.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="grupo10DBDataSet2.xss">
+      <DependentUpon>grupo10DBDataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="grupo10DBDataSet3.xsc">
+      <DependentUpon>grupo10DBDataSet3.xsd</DependentUpon>
+    </None>
+    <None Include="grupo10DBDataSet3.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>grupo10DBDataSet3.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="grupo10DBDataSet3.xss">
+      <DependentUpon>grupo10DBDataSet3.xsd</DependentUpon>
+    </None>
+    <None Include="grupo10DBDataSet4.xsc">
+      <DependentUpon>grupo10DBDataSet4.xsd</DependentUpon>
+    </None>
+    <None Include="grupo10DBDataSet4.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>grupo10DBDataSet4.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="grupo10DBDataSet4.xss">
+      <DependentUpon>grupo10DBDataSet4.xsd</DependentUpon>
+    </None>
+    <None Include="grupo10DBDataSet5.xsc">
+      <DependentUpon>grupo10DBDataSet5.xsd</DependentUpon>
+    </None>
+    <None Include="grupo10DBDataSet5.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>grupo10DBDataSet5.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="grupo10DBDataSet5.xss">
+      <DependentUpon>grupo10DBDataSet5.xsd</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
