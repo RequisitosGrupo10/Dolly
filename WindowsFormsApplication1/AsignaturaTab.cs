@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BDLibrary;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,9 +14,17 @@ namespace WindowsFormsApplication1
 {
     public partial class AsignaturaTab : Form
     {
+        Asignatura seleccion;
         public AsignaturaTab()
         {
             InitializeComponent();
+            MostrarAsignaturas();
+            seleccion = null;
+        }
+
+        private void MostrarAsignaturas()
+        {
+            dataGridView1.DataSource = Asignatura.ListaAsignatura();
         }
 
         private void bExit_Click(object sender, EventArgs e)
@@ -52,16 +61,12 @@ namespace WindowsFormsApplication1
                     {
                         string line;
 
-                        // Se lee la primera línea
-                        if (!reader.EndOfStream)
-                            line = reader.ReadLine();
                         while (!reader.EndOfStream)
                         {
                             line = reader.ReadLine();
                             try
                             {
-                                // select top 1 * from table order by id desc
-                                // Asignatura asignatura = new Asignatura(n_line, line);
+                                Asignatura asignatura = new Asignatura(line);
                             }
                             catch (Exception)
                             {
@@ -70,8 +75,9 @@ namespace WindowsFormsApplication1
                             n_line++;
                         }
                     }
-                    MessageBox.Show("Se procesaron" + (n_line - 1) + " líneas.", "File Content at path: " + filePath, MessageBoxButtons.OK);
+                    MessageBox.Show("Se procesaron" + (n_line) + " líneas.", "File Content at path: " + filePath, MessageBoxButtons.OK);
                 }
+                //dataGridView1.DataSource = Asignatura.ListaAsignatura();
             }
         }
 
@@ -84,6 +90,11 @@ namespace WindowsFormsApplication1
         {
             // seleccionado.Borrar
             // MostrarAsignaturas();
+        }
+
+        private void dataGridView1_SelectionChanged(object sender, EventArgs e)
+        {
+            
         }
     }
 }

@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -27,21 +28,36 @@ namespace WindowsFormsApplication1
         public Asignatura(int idAsignatura)
         {
             MySqlBD miBD = new MySqlBD();
-            Object[] tupla = miBD.Select("SELECT * FROM Asignatura WHERE idAsignatura=" + this.idAsignatura + ";")[0];
+            try
+            {
+                Object[] tupla = miBD.Select("SELECT * FROM Asignatura WHERE idAsignatura=" + this.idAsignatura + ";")[0];
 
-            this.idAsignatura = (int)tupla[0];
-            this.nombre = (String)tupla[1];
+                this.idAsignatura = (int)tupla[0];
+                this.nombre = (String)tupla[1];
+            } catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
+            
         }
 
         public Asignatura(String nombre)
         {
             MySqlBD miBD = new MySqlBD();
-            if (miBD.Select("SELECT nombre FROM Asignatura WHERE nombre = '" + nombre + "';") == null)
+            try
             {
-                miBD.Insert("INSERT INTO Asignatura VALUES ('" + nombre + "');");
-                this.idAsignatura = (int) miBD.SelectScalar("SELECT MAX(idAsignatura) FROM Asignatura");
-                this.nombre = nombre;
+                if (miBD.Select("SELECT nombre FROM Asignatura WHERE nombre = '" + nombre + "';").Count == 0)
+                {
+                    miBD.Insert("INSERT INTO Asignatura(nombre) VALUES ('" + nombre + "');");
+                    Console.WriteLine("Se insertó correctamente");
+                    this.idAsignatura = (int)miBD.SelectScalar("SELECT MAX(idAsignatura) FROM Asignatura");
+                    this.nombre = nombre;
+                }
+            } catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
             }
+
         }
 
         public int IdAsignatura

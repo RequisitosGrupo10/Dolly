@@ -21,5 +21,30 @@ namespace WindowsFormsApplication1
         {
 
         }
+
+        private void bImportar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void bBorrar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void bInserResponsable_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void bBorrarResponsable_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
