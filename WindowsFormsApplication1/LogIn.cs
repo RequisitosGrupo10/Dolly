@@ -19,32 +19,36 @@ namespace WindowsFormsApplication1
             InitializeComponent();
         }
 
+        private void tNombre_Click(object sender, EventArgs e)
+        {
+            tNombre.SelectAll();
+        }
+
+        private void tContrasena_Click(object sender, EventArgs e)
+        {
+            tContrasena.SelectAll();
+        }
+
         private void bIniciarSesion_Click(object sender, EventArgs e)
         {
-            Console.WriteLine("He llegado al handler");
             try
             {
-                List<Usuario> users = Usuario.ListaUsuarios();
-                foreach (Usuario user in users)
-                {
-                    Console.WriteLine(user.ToString());
-                    if (user.Username.Equals(tNombre.Text))
+                usuario = new Usuario(tNombre.Text);
+                if (usuario != null)
+                {                           
+                    if (usuario.checkPassword(tContrasena.Text))
                     {
-                        MySqlBD miBD = new MySqlBD();
-                        String pwd = (String) miBD.SelectScalar("SELECT password FROM Usuario WHERE idUsuario = " + user.IdUsuario + ";");
-                        if (pwd.Equals(tContraseña.Text))
-                        {
-                            usuario = new Usuario(user.IdUsuario);
-                            loginCorrecto();
-                            Console.WriteLine("Login correcto");
-                            break;
-                            // Comenzar a usar la aplicación
-                        }
-
+                        loginCorrecto();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Nombre o contraseña incorrecta");
                     }
                 }
-                
-                
+                else
+                {
+                    MessageBox.Show("Nombre o contraseña incorrecta");
+                }
             }
             catch (Exception ex)
             {
@@ -92,8 +96,8 @@ namespace WindowsFormsApplication1
         }
         private void cbVer_CheckedChanged(object sender, EventArgs e)
         {
-            if (tContraseña.PasswordChar == '*') tContraseña.PasswordChar = '\0';
-            else tContraseña.PasswordChar = '*';
+            if (tContrasena.PasswordChar == '*') tContrasena.PasswordChar = '\0';
+            else tContrasena.PasswordChar = '*';
         }
     }
 }

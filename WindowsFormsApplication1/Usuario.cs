@@ -28,7 +28,16 @@ namespace WindowsFormsApplication1
             this.rol = rol;
         }
 
-
+        public Usuario (string nombre)
+        {
+            List<Object[]> list = miBD.Select("Select * from Usuario where username = '" + nombre + "';");
+            foreach (Object[] user in list)
+            {
+                this.idUsuario = (int)user[0];
+                this.username = user[1].ToString();
+                this.rol = (int) user[3];
+            }
+        }
 
         public static List<Usuario> ListaUsuarios()
         {
@@ -51,6 +60,10 @@ namespace WindowsFormsApplication1
             get { return username; }
         }
 
+        public bool checkPassword(string password)
+        {
+            return password.Equals((String)miBD.SelectScalar("SELECT password FROM Usuario WHERE idUsuario = " + IdUsuario + ";"));
+        }
 
         public int Rol
         {

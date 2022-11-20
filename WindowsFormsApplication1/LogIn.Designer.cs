@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.tNombre = new System.Windows.Forms.TextBox();
-            this.tContraseña = new System.Windows.Forms.TextBox();
+            this.tContrasena = new System.Windows.Forms.TextBox();
             this.lContraseña = new System.Windows.Forms.Label();
             this.lNombre = new System.Windows.Forms.Label();
             this.bIniciarSesion = new System.Windows.Forms.Button();
@@ -44,15 +44,19 @@
             this.tNombre.Name = "tNombre";
             this.tNombre.Size = new System.Drawing.Size(100, 20);
             this.tNombre.TabIndex = 0;
+            this.tNombre.Click += new System.EventHandler(this.tNombre_Click);
+            this.tNombre.Enter += new System.EventHandler(this.tNombre_Click);
             // 
-            // tContraseña
+            // tContrasena
             // 
-            this.tContraseña.AccessibleName = "password";
-            this.tContraseña.Location = new System.Drawing.Point(500, 200);
-            this.tContraseña.Name = "tContraseña";
-            this.tContraseña.PasswordChar = '*';
-            this.tContraseña.Size = new System.Drawing.Size(100, 20);
-            this.tContraseña.TabIndex = 1;
+            this.tContrasena.AccessibleName = "password";
+            this.tContrasena.Location = new System.Drawing.Point(500, 200);
+            this.tContrasena.Name = "tContrasena";
+            this.tContrasena.PasswordChar = '*';
+            this.tContrasena.Size = new System.Drawing.Size(100, 20);
+            this.tContrasena.TabIndex = 1;
+            this.tContrasena.Click += new System.EventHandler(this.tContrasena_Click);
+            this.tContrasena.Enter += new System.EventHandler(this.tContrasena_Click);
             // 
             // lContraseña
             // 
@@ -114,7 +118,7 @@
             this.Controls.Add(this.bIniciarSesion);
             this.Controls.Add(this.lNombre);
             this.Controls.Add(this.lContraseña);
-            this.Controls.Add(this.tContraseña);
+            this.Controls.Add(this.tContrasena);
             this.Controls.Add(this.tNombre);
             this.Name = "LogIn";
             this.Text = "DOLLY";
@@ -126,7 +130,7 @@
         #endregion
 
         private System.Windows.Forms.TextBox tNombre;
-        private System.Windows.Forms.TextBox tContraseña;
+        private System.Windows.Forms.TextBox tContrasena;
         private System.Windows.Forms.Label lContraseña;
         private System.Windows.Forms.Label lNombre;
         private System.Windows.Forms.Button bIniciarSesion;
