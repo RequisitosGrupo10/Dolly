@@ -26,7 +26,19 @@ namespace WindowsFormsApplication1
                 lista.Add(aux);
             }
             return lista;
+        }
 
+        public static List<Aula> ListaAula(Sede sede)
+        {
+            List<Aula> lista = new List<Aula>();
+            MySqlBD miBD = new MySqlBD();
+
+            foreach (Object[] tupla in miBD.Select("SELECT idAula FROM Aula WHERE idSede = " + sede.IdSede + ";"))
+            {
+                Aula aux = new Aula((int)tupla[0]);
+                lista.Add(aux);
+            }
+            return lista;
         }
 
         public Aula(int idAula)
@@ -80,6 +92,11 @@ namespace WindowsFormsApplication1
         public string Nombre
         {
             get { return nombre; }
+        }
+
+        public int Aforo
+        {
+            get { return aforo; }
         }
 
         public Sede Sede

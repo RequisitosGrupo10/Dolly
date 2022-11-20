@@ -114,8 +114,6 @@ namespace WindowsFormsApplication1
                 if (dataGridView1.SelectedRows.Count > 0)
                 {
                     int idSede = (int)dataGridView1.SelectedRows[0].Cells[0].Value;
-                    string nombre = (string)dataGridView1.SelectedRows[0].Cells[1].Value;
-                    string responsable = (string)dataGridView1.SelectedRows[0].Cells[2].Value;
                     seleccionado = new Sede(idSede);
                 }
             }

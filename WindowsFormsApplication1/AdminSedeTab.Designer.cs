@@ -37,10 +37,10 @@
             this.tAforo = new System.Windows.Forms.TextBox();
             this.tDisponible = new System.Windows.Forms.TextBox();
             this.tResponsable = new System.Windows.Forms.TextBox();
-            this.lSede = new System.Windows.Forms.Label();
             this.bInserResponsable = new System.Windows.Forms.Button();
             this.bBorrarResponsable = new System.Windows.Forms.Button();
             this.listResponsable = new System.Windows.Forms.ListBox();
+            this.lSede = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -125,15 +125,6 @@
             this.tResponsable.Size = new System.Drawing.Size(192, 20);
             this.tResponsable.TabIndex = 11;
             // 
-            // lSede
-            // 
-            this.lSede.AutoSize = true;
-            this.lSede.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lSede.Location = new System.Drawing.Point(65, 47);
-            this.lSede.Name = "lSede";
-            this.lSede.Size = new System.Drawing.Size(0, 42);
-            this.lSede.TabIndex = 12;
-            // 
             // bInserResponsable
             // 
             this.bInserResponsable.Location = new System.Drawing.Point(23, 218);
@@ -166,15 +157,25 @@
             this.listResponsable.TabIndex = 15;
             this.listResponsable.SelectedIndexChanged += new System.EventHandler(this.lResponsable_SelectedIndexChanged);
             // 
+            // lSede
+            // 
+            this.lSede.AutoSize = true;
+            this.lSede.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lSede.Location = new System.Drawing.Point(20, 27);
+            this.lSede.Name = "lSede";
+            this.lSede.Size = new System.Drawing.Size(154, 25);
+            this.lSede.TabIndex = 16;
+            this.lSede.Text = "Nombre Sede";
+            // 
             // AdminSedeTab
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.lSede);
             this.Controls.Add(this.listResponsable);
             this.Controls.Add(this.bBorrarResponsable);
             this.Controls.Add(this.bInserResponsable);
-            this.Controls.Add(this.lSede);
             this.Controls.Add(this.tResponsable);
             this.Controls.Add(this.tDisponible);
             this.Controls.Add(this.tAforo);
@@ -203,9 +204,9 @@
         private System.Windows.Forms.TextBox tAforo;
         private System.Windows.Forms.TextBox tDisponible;
         private System.Windows.Forms.TextBox tResponsable;
-        private System.Windows.Forms.Label lSede;
         private System.Windows.Forms.Button bInserResponsable;
         private System.Windows.Forms.Button bBorrarResponsable;
         private System.Windows.Forms.ListBox listResponsable;
+        private System.Windows.Forms.Label lSede;
     }
 }

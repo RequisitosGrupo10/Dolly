@@ -32,6 +32,7 @@ namespace WindowsFormsApplication1
             lSede.Text = sede.Nombre;
             tAforo.Text = Aforo();
             tDisponible.Text = Disponible();
+            tResponsable.Clear();
             tResponsable.Text = Responsable();
             listResponsable.DataSource = Usuario.ListaResponsablesDisponibles();
         }
@@ -39,7 +40,10 @@ namespace WindowsFormsApplication1
         private String Aforo()
         {
             int aforo = 0;
-            //aula.listaAulaSede(sede);
+            foreach (Aula aula in Aula.ListaAula(sede))
+            {
+                aforo += aula.Aforo;
+            }
             return aforo.ToString();
         }
 
@@ -49,7 +53,7 @@ namespace WindowsFormsApplication1
             int disponible = int.Parse(tAforo.Text);
             for (int i = 0; i < rows; i++)
             {
-                disponible -= (int)dataGridView1.SelectedRows[i].Cells[1].Value;//seleccionar numero estudiantes de un centro
+                //disponible -= (int)dataGridView1.SelectedRows[i].Cells[1].Value; //seleccionar numero estudiantes de un centro
             }
             return disponible.ToString();
         }
@@ -69,9 +73,9 @@ namespace WindowsFormsApplication1
             {
                 if (dataGridView1.SelectedRows.Count > 0)
                 {
-                    int idCentro = (int)dataGridView1.SelectedRows[0].Cells[0].Value;
-                    string nombre = (string)dataGridView1.SelectedRows[0].Cells[1].Value;
-                    int idSede = (int)dataGridView1.SelectedRows[0].Cells[2].Value;
+                    int idSede = (int)dataGridView1.SelectedRows[0].Cells[0].Value;
+                    String nombre = (String)dataGridView1.SelectedRows[0].Cells[1].Value;
+                    int idCentro = (int)dataGridView1.SelectedRows[0].Cells[2].Value;
                     centroSeleccionado = new Centro(idCentro);
                 }
             }
@@ -113,12 +117,9 @@ namespace WindowsFormsApplication1
 
         private void bBorrarResponsable_Click(object sender, EventArgs e)
         {
-            if (responsableSeleccionado != null)
-            {
-                Console.WriteLine("Eliminando a " + sede.Responsable);
-                sede.Responsable = null;
-                Mostrar();
-            }
+            Console.WriteLine("Eliminando a " + sede.Responsable);
+            sede.Responsable = null;
+            Mostrar();
         }
     }
 }
