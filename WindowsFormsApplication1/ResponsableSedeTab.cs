@@ -36,8 +36,10 @@ namespace WindowsFormsApplication1
 
         private void bInsertarAula_Click(object sender, EventArgs e)
         {
-            AulaTab ventana = new AulaTab(new Aula("Nueva Aula")); //Crear tab insertar aula
+            Aula aula = new Aula("Nueva aula",0, sede.IdSede);
+            AulaTab ventana = new AulaTab(aula); //Crear tab insertar aula
             ventana.ShowDialog();
+            Mostrar();
         }
 
         private void bModificarAula_Click(object sender, EventArgs e)
@@ -45,8 +47,9 @@ namespace WindowsFormsApplication1
 
             if (seleccionado != null)
             {
-                //AdminSedeTab ventana = new AdminSedeTab(seleccionado); //Crear tab modificar aula
-                //ventana.ShowDialog();
+                AulaTab ventana = new AulaTab(seleccionado); //Crear tab insertar aula
+                ventana.ShowDialog();
+                Mostrar();
             }
             else
             {

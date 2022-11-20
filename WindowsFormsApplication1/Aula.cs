@@ -57,27 +57,17 @@ namespace WindowsFormsApplication1
 
         }
 
-        public Aula(String nombre)
+        public Aula(String nombre, int aforo, int idSede)
         {
+            Console.WriteLine("Nombre = " + nombre + ", aforo = "+aforo + ", idSede = " + idSede);
             try
             {
-                if (miBD.Select("SELECT idAula FROM Aula WHERE nombre = '" + nombre + "';").Count == 0)
-                {
-                    miBD.Insert("INSERT INTO Aula(nombre) VALUES ('" + nombre + "');");
-                    Console.WriteLine("Se insertó correctamente");
-                    this.idAula = (int)miBD.SelectScalar("SELECT MAX(idAula) FROM Aula");
-                    this.nombre = nombre;
-                    this.aforo = 0;
-                    this.sede = null;
-                }
-                else
-                {
-                    Object[] aula = miBD.Select("SELECT * FROM Aula WHERE nombre = '" + nombre + "';")[0];
-                    this.idAula = (int)aula[0];
-                    this.nombre = (String)aula[1];
-                    this.aforo = (int)aula[2];
-                    this.sede = new Sede((int)aula[3]);
-                }
+                miBD.Insert("INSERT INTO Aula (nombre,aforo, idSede) VALUES ('" + nombre + "', "+aforo+", "+ idSede + ");");
+                Console.WriteLine("Se insertó correctamente");
+                this.idAula = (int)miBD.SelectScalar("SELECT MAX(idAula) FROM Aula");
+                this.nombre = nombre;
+                this.aforo = 0;
+                this.sede = new Sede(idSede);
             }
             catch (Exception e)
             {
@@ -96,6 +86,7 @@ namespace WindowsFormsApplication1
             get { return nombre; }
             set
             {
+                miBD.Update("UPDATE Aula SET nombre = '" + value + "' WHERE idAula =" + this.idAula + ";");
                 nombre = value;
             }
         }
@@ -103,7 +94,11 @@ namespace WindowsFormsApplication1
         public int Aforo
         {
             get { return aforo; }
-            set { aforo = value; }
+            set 
+            {
+                miBD.Update("UPDATE Aula SET aforo = " + value + " WHERE idAula =" + this.idAula + ";");
+                aforo = value; 
+            }
         }
 
         public Sede Sede
@@ -111,7 +106,7 @@ namespace WindowsFormsApplication1
             get { return sede; }
             set
             {
-                miBD.Update("UPDATE Aula SET sede = " + sede.IdSede + " WHERE idAula =" + this.idAula + ";");
+                miBD.Update("UPDATE Aula SET sede = " + value.IdSede + " WHERE idAula =" + this.idAula + ";");
 
                 sede = value;
             }
