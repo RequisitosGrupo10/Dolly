@@ -66,7 +66,7 @@ namespace WindowsFormsApplication1
                                 new Usuario(line, role);
                                 added++;
                             }
-                            catch (Exception ex)
+                            catch (Exception)
                             {
                                 errors++;
                                 int idx = added + errors;

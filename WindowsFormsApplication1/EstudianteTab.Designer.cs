@@ -31,16 +31,17 @@
             this.bAtras = new System.Windows.Forms.Button();
             this.bImportarEstudiantes = new System.Windows.Forms.Button();
             this.dataGridView = new System.Windows.Forms.DataGridView();
+            this.bBorrar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // bAtras
             // 
             this.bAtras.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.bAtras.Location = new System.Drawing.Point(688, 285);
-            this.bAtras.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.bAtras.Location = new System.Drawing.Point(917, 351);
+            this.bAtras.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.bAtras.Name = "bAtras";
-            this.bAtras.Size = new System.Drawing.Size(67, 27);
+            this.bAtras.Size = new System.Drawing.Size(89, 33);
             this.bAtras.TabIndex = 0;
             this.bAtras.Text = "ATRÁS";
             this.bAtras.UseVisualStyleBackColor = true;
@@ -48,10 +49,10 @@
             // 
             // bImportarEstudiantes
             // 
-            this.bImportarEstudiantes.Location = new System.Drawing.Point(26, 106);
-            this.bImportarEstudiantes.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.bImportarEstudiantes.Location = new System.Drawing.Point(23, 12);
+            this.bImportarEstudiantes.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.bImportarEstudiantes.Name = "bImportarEstudiantes";
-            this.bImportarEstudiantes.Size = new System.Drawing.Size(119, 61);
+            this.bImportarEstudiantes.Size = new System.Drawing.Size(159, 75);
             this.bImportarEstudiantes.TabIndex = 1;
             this.bImportarEstudiantes.Text = "Importar Estudiantes";
             this.bImportarEstudiantes.UseVisualStyleBackColor = true;
@@ -60,22 +61,33 @@
             // dataGridView
             // 
             this.dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView.Location = new System.Drawing.Point(172, 10);
-            this.dataGridView.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dataGridView.Location = new System.Drawing.Point(229, 12);
+            this.dataGridView.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dataGridView.Name = "dataGridView";
             this.dataGridView.RowTemplate.Height = 24;
-            this.dataGridView.Size = new System.Drawing.Size(582, 251);
+            this.dataGridView.Size = new System.Drawing.Size(776, 309);
             this.dataGridView.TabIndex = 2;
+            // 
+            // bBorrar
+            // 
+            this.bBorrar.Location = new System.Drawing.Point(23, 239);
+            this.bBorrar.Name = "bBorrar";
+            this.bBorrar.Size = new System.Drawing.Size(159, 82);
+            this.bBorrar.TabIndex = 3;
+            this.bBorrar.Text = "Borrar Estudiantes";
+            this.bBorrar.UseVisualStyleBackColor = true;
+            this.bBorrar.Click += new System.EventHandler(this.bBorrar_Click);
             // 
             // EstudianteTab
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(778, 322);
+            this.ClientSize = new System.Drawing.Size(1037, 396);
+            this.Controls.Add(this.bBorrar);
             this.Controls.Add(this.dataGridView);
             this.Controls.Add(this.bImportarEstudiantes);
             this.Controls.Add(this.bAtras);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "EstudianteTab";
             this.Text = "Estudiantes";
             this.Load += new System.EventHandler(this.EstudianteTab_Load);
@@ -89,6 +101,7 @@
         private System.Windows.Forms.Button bAtras;
         private System.Windows.Forms.Button bImportarEstudiantes;
         private System.Windows.Forms.DataGridView dataGridView;
+        private System.Windows.Forms.Button bBorrar;
     }
 }
 

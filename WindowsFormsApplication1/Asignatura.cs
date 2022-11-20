@@ -21,6 +21,33 @@ namespace WindowsFormsApplication1
             return lista;
         }
 
+        public static List<string> ListaAsignaturaNombre()
+        {
+            List<string> lista = new List<string>();
+
+            foreach (Object[] tupla in miBD.Select("select nombre from Asignatura;"))
+            {
+                lista.Add((string)tupla[0]);
+            }
+            return lista;
+        }
+
+        public static List<Asignatura> ListaAsignaturaAlumno(Alumno alumno)
+        {
+            List<Asignatura> lista = new List<Asignatura>();
+
+            foreach (Object[] tupla in miBD.Select("Select Asignatura.idAsignatura from Asignatura join AlumnoAsignatura on (Asignatura.idAsignatura = AlumnoAsignatura.idAsignatura) Where AlumnoAsignatura.DNI = '"+ alumno.DNI +"';"))
+            {
+                lista.Add(new Asignatura((int)tupla[0]));
+            }
+            return lista;
+        }
+
+        private Asignatura()
+        {
+            // Por motivos de eficiencia, se podrá crear una asignatura vacía
+        }
+
         public Asignatura(int idAsignatura)
         {
             try
@@ -36,7 +63,7 @@ namespace WindowsFormsApplication1
             
         }
 
-        public Asignatura(String nombre)
+        public Asignatura(string nombre)
         {
             try
             {
@@ -51,7 +78,6 @@ namespace WindowsFormsApplication1
             {
                 Console.WriteLine(e.Message);
             }
-
         }
 
         public int IdAsignatura
@@ -100,5 +126,26 @@ namespace WindowsFormsApplication1
         {
             return this.idAsignatura.GetHashCode();
         }
+        public static Asignatura getAsignaturaByName(string nombre)
+        {
+            Asignatura res = new Asignatura();
+            res.idAsignatura = -1;
+            res.nombre = "";
+            try
+            {
+                var query = miBD.Select("SELECT idAsignatura FROM Asignatura WHERE nombre = '" + nombre + "';");
+                if (query.Count > 0)
+                {
+                    res.idAsignatura = (int) query[0][0];
+                    res.nombre = nombre;
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
+            return res;
+        }
     }
+
 }
