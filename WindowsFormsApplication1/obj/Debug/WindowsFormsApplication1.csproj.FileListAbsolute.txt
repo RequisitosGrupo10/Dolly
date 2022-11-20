@@ -48,10 +48,7 @@ C:\Users\lucia\Documents\GitHub\Dolly\WindowsFormsApplication1\bin\Debug\System.
 C:\Users\lucia\Documents\GitHub\Dolly\WindowsFormsApplication1\bin\Debug\System.Numerics.Vectors.xml
 C:\Users\lucia\Documents\GitHub\Dolly\WindowsFormsApplication1\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
 C:\Users\lucia\Documents\GitHub\Dolly\WindowsFormsApplication1\bin\Debug\System.Threading.Tasks.Extensions.xml
-C:\Users\jmsan\Documents\Visual Studio 2013\Projects\Dolly\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.csproj.AssemblyReference.cache
-C:\Users\jmsan\Documents\Visual Studio 2013\Projects\Dolly\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.csproj.SuggestedBindingRedirects.cache
 C:\Users\jmsan\Documents\Visual Studio 2013\Projects\Dolly\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Menu.resources
-C:\Users\jmsan\Documents\Visual Studio 2013\Projects\Dolly\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.csproj.CoreCompileInputs.cache
 C:\Users\jmsan\Documents\Visual Studio 2013\Projects\Dolly\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.AsignaturaTab.resources
 C:\Users\jmsan\Documents\Visual Studio 2013\Projects\Dolly\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.EstudianteTab.resources
 C:\Users\jmsan\Documents\Visual Studio 2013\Projects\Dolly\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.SedeTab.resources
@@ -77,7 +74,6 @@ C:\Users\jmsan\Documents\Visual Studio 2013\Projects\Dolly\WindowsFormsApplicati
 C:\Users\jmsan\Documents\Visual Studio 2013\Projects\Dolly\WindowsFormsApplication1\bin\Debug\System.Numerics.Vectors.xml
 C:\Users\jmsan\Documents\Visual Studio 2013\Projects\Dolly\WindowsFormsApplication1\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
 C:\Users\jmsan\Documents\Visual Studio 2013\Projects\Dolly\WindowsFormsApplication1\bin\Debug\System.Threading.Tasks.Extensions.xml
-C:\Users\jmsan\Documents\Visual Studio 2013\Projects\Dolly\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.csproj.CopyComplete
 C:\Users\Usuario\Documents\GitHub\Dolly\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.csproj.AssemblyReference.cache
 C:\Users\Usuario\Documents\GitHub\Dolly\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.csproj.SuggestedBindingRedirects.cache
 C:\Users\Usuario\Documents\GitHub\Dolly\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.AsignaturaTab.resources
@@ -95,3 +91,11 @@ C:\Users\lucia\Documents\GitHub\Dolly\WindowsFormsApplication1\obj\Debug\Windows
 C:\Users\lucia\Documents\GitHub\Dolly\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.UsersTab.resources
 C:\Users\lucia\Documents\GitHub\Dolly\WindowsFormsApplication1\bin\Debug\Devart.Data.dll
 C:\Users\lucia\Documents\GitHub\Dolly\WindowsFormsApplication1\bin\Debug\Devart.Data.MySql.dll
+C:\Users\jmsan\Documents\Visual Studio 2013\Projects\Dolly\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.csprojResolveAssemblyReference.cache
+C:\Users\jmsan\Documents\Visual Studio 2013\Projects\Dolly\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.UsersTab.resources
+C:\Users\jmsan\Documents\Visual Studio 2013\Projects\Dolly\WindowsFormsApplication1\bin\Debug\Devart.Data.dll
+C:\Users\jmsan\Documents\Visual Studio 2013\Projects\Dolly\WindowsFormsApplication1\bin\Debug\Devart.Data.MySql.dll
+C:\Users\jmsan\Documents\Visual Studio 2013\Projects\Dolly\WindowsFormsApplication1\bin\Debug\Microsoft.Win32.Registry.dll
+C:\Users\jmsan\Documents\Visual Studio 2013\Projects\Dolly\WindowsFormsApplication1\bin\Debug\System.Diagnostics.PerformanceCounter.dll
+C:\Users\jmsan\Documents\Visual Studio 2013\Projects\Dolly\WindowsFormsApplication1\bin\Debug\System.Security.AccessControl.dll
+C:\Users\jmsan\Documents\Visual Studio 2013\Projects\Dolly\WindowsFormsApplication1\bin\Debug\System.Security.Principal.Windows.dll

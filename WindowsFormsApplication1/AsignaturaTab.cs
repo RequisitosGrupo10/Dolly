@@ -103,7 +103,6 @@ namespace WindowsFormsApplication1
         private void AsignaturaTab_Load(object sender, EventArgs e)
         {
             // TODO: esta línea de código carga datos en la tabla 'grupo10DBDataSet3.Asignatura' Puede moverla o quitarla según sea necesario.
-            this.asignaturaTableAdapter.Fill(this.grupo10DBDataSet3.Asignatura);
 
         }
     }
