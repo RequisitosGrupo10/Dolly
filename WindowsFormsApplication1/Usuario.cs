@@ -27,6 +27,8 @@ namespace WindowsFormsApplication1
             this.rol = rol;
         }
 
+
+
         public static List<Usuario> ListaUsuarios()
         {
             List <Usuario> lista = new List<Usuario>();
@@ -48,6 +50,7 @@ namespace WindowsFormsApplication1
             get { return username; }
         }
 
+<<<<<<< Updated upstream
         public int Rol
         {
             get { return rol; }
@@ -56,6 +59,16 @@ namespace WindowsFormsApplication1
         public override string ToString()
         {
             return idUsuario + ";" + username + ";" + rol + ";";
+=======
+        public String Password
+        {
+            get { return password; }
+        }
+
+        public int Rol
+        {
+            get { return rol; }
+>>>>>>> Stashed changes
         }
 
         internal static object ListaResponsablesDisponibles()

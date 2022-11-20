@@ -129,6 +129,7 @@ C:\Users\Usuario\Documents\GitHub\Dolly\WindowsFormsApplication1\bin\Debug\Syste
 C:\Users\Usuario\Documents\GitHub\Dolly\WindowsFormsApplication1\bin\Debug\System.Threading.Tasks.Extensions.xml
 C:\Users\Usuario\Documents\GitHub\Dolly\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.csproj.CopyComplete
 C:\Users\Usuario\Documents\GitHub\Dolly\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.pdb
+<<<<<<< Updated upstream
 D:\Estudios\3_Curso\302_RequirementsEngineering\casoPractico\sourcecode\Dolly\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.exe.config
 D:\Estudios\3_Curso\302_RequirementsEngineering\casoPractico\sourcecode\Dolly\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.exe
 D:\Estudios\3_Curso\302_RequirementsEngineering\casoPractico\sourcecode\Dolly\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.pdb
@@ -174,3 +175,11 @@ D:\Estudios\3_Curso\302_RequirementsEngineering\casoPractico\sourcecode\Dolly\Wi
 D:\Estudios\3_Curso\302_RequirementsEngineering\casoPractico\sourcecode\Dolly\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.csproj.CopyComplete
 D:\Estudios\3_Curso\302_RequirementsEngineering\casoPractico\sourcecode\Dolly\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.exe
 D:\Estudios\3_Curso\302_RequirementsEngineering\casoPractico\sourcecode\Dolly\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.pdb
+=======
+C:\Users\lucia\Documents\GitHub\Dolly\WindowsFormsApplication1\bin\Debug\Microsoft.Win32.Registry.dll
+C:\Users\lucia\Documents\GitHub\Dolly\WindowsFormsApplication1\bin\Debug\System.Diagnostics.PerformanceCounter.dll
+C:\Users\lucia\Documents\GitHub\Dolly\WindowsFormsApplication1\bin\Debug\System.Security.AccessControl.dll
+C:\Users\lucia\Documents\GitHub\Dolly\WindowsFormsApplication1\bin\Debug\System.Security.Principal.Windows.dll
+C:\Users\lucia\Documents\GitHub\Dolly\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.AdminSedeTab.resources
+C:\Users\lucia\Documents\GitHub\Dolly\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.LogIn.resources
+>>>>>>> Stashed changes

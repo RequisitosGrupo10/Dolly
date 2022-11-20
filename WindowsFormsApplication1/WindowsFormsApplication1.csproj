@@ -90,6 +90,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AdminCentroTab.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminCentroTab.Designer.cs">
+      <DependentUpon>AdminCentroTab.cs</DependentUpon>
+    </Compile>
     <Compile Include="AdminSedeTab.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -104,8 +110,26 @@
       <DependentUpon>AsignaturaTab.cs</DependentUpon>
     </Compile>
     <Compile Include="Aula.cs" />
+    <Compile Include="AulaTab.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AulaTab.Designer.cs">
+      <DependentUpon>AulaTab.cs</DependentUpon>
+    </Compile>
     <Compile Include="Centro.cs" />
     <Compile Include="Alumno.cs" />
+    <Compile Include="LogIn.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LogIn.Designer.cs">
+      <DependentUpon>LogIn.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ResponsableSedeTab.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ResponsableSedeTab.Designer.cs">
+      <DependentUpon>ResponsableSedeTab.cs</DependentUpon>
+    </Compile>
     <Compile Include="Usuario.cs" />
     <Compile Include="EstudianteTab.cs">
       <SubType>Form</SubType>
@@ -143,6 +167,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="EstudianteTab.resx">
       <DependentUpon>EstudianteTab.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LogIn.resx">
+      <DependentUpon>LogIn.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Menu.resx">
       <DependentUpon>Menu.cs</DependentUpon>
