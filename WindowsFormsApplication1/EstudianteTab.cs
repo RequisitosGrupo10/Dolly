@@ -16,6 +16,12 @@ namespace WindowsFormsApplication1
         public EstudianteTab()
         {
             InitializeComponent();
+            MostrarEstudiantes();
+        }
+
+        private void MostrarEstudiantes()
+        {
+            dataGridEstudiantes.DataSource = Alumno.ListaEstudiantes();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -68,9 +74,7 @@ namespace WindowsFormsApplication1
                                     {
                                         materias[i] = materias[i].Trim(); 
                                     }
-                                    Console.WriteLine("Centro:" + centro + "; Nombre:" + nombre
-                                        + ";Apellido1:" + apellido1 + "; Apelliido2:" + apellido2
-                                        + ";DNI/NIF" + dni_nif + "; Materias: " + materias[0]);
+                                    Alumno newEstudiante = new Alumno(centro, nombre, apellido1, apellido2, dni_nif, materias);
                                 }
                                 else
                                     throw new Exception("Not enough arguments in the line " + n_line);
@@ -83,6 +87,7 @@ namespace WindowsFormsApplication1
                         }
                     }
                     MessageBox.Show("Se procesaron" + (n_line - 1) + " líneas.", "File Content at path: " + filePath, MessageBoxButtons.OK);
+                    MostrarEstudiantes();
                 }
             }
         }
@@ -94,7 +99,11 @@ namespace WindowsFormsApplication1
 
         private void EstudianteTab_Load(object sender, EventArgs e)
         {
-            // TODO: esta línea de código carga datos en la tabla 'grupo10DBDataSet4.Alumno' Puede moverla o quitarla según sea necesario.
+            
+        }
+
+        private void dataGridView1_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
+        {
 
         }
     }

@@ -31,10 +31,8 @@
             this.components = new System.ComponentModel.Container();
             this.buttonExit = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.alumnoBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.alumnoBindingSource)).BeginInit();
+            this.dataGridEstudiantes = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridEstudiantes)).BeginInit();
             this.SuspendLayout();
             // 
             // buttonExit
@@ -54,47 +52,38 @@
             this.button1.Location = new System.Drawing.Point(12, 12);
             this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(143, 91);
+            this.button1.Size = new System.Drawing.Size(143, 57);
             this.button1.TabIndex = 1;
             this.button1.Text = "Importar";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click_1);
             // 
-            // dataGridView1
-            // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(228, 12);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(779, 322);
-            this.dataGridView1.TabIndex = 2;
-            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
-            // 
             // alumnoBindingSource
             // 
-            this.alumnoBindingSource.DataMember = "Alumno";
             // 
-            // grupo10DBDataSet4
+            // dataGridEstudiantes
             // 
-            // 
-            // alumnoTableAdapter
-            // 
+            this.dataGridEstudiantes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridEstudiantes.Location = new System.Drawing.Point(230, 12);
+            this.dataGridEstudiantes.Name = "dataGridEstudiantes";
+            this.dataGridEstudiantes.RowTemplate.Height = 24;
+            this.dataGridEstudiantes.Size = new System.Drawing.Size(776, 309);
+            this.dataGridEstudiantes.TabIndex = 2;
+            this.dataGridEstudiantes.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick_1);
             // 
             // EstudianteTab
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1037, 396);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dataGridEstudiantes);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.buttonExit);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "EstudianteTab";
             this.Text = "Estudiantes";
             this.Load += new System.EventHandler(this.EstudianteTab_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.alumnoBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridEstudiantes)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -103,8 +92,7 @@
 
         private System.Windows.Forms.Button buttonExit;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.BindingSource alumnoBindingSource;
+        private System.Windows.Forms.DataGridView dataGridEstudiantes;
     }
 }
 

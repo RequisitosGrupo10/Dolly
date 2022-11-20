@@ -23,7 +23,7 @@ namespace WindowsFormsApplication1
             foreach (Object[] tupla in miBD.Select("SELECT idSede FROM Sede;"))
             {
                 Sede aux = new Sede((int)tupla[0]);
-                // Usuario carga = aux.responsable;
+                Usuario carga = aux.responsable;
                 lista.Add(aux);
             }
             return lista;
