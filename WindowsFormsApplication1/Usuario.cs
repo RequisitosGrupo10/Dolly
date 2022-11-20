@@ -6,6 +6,7 @@ namespace WindowsFormsApplication1
 {
     public class Usuario
     {
+        private static MySqlBD miBD = new MySqlBD();
         private int idUsuario;
         private string username;
         private string password;
@@ -13,7 +14,6 @@ namespace WindowsFormsApplication1
 
         public Usuario(int idUsuario)
         {
-            MySqlBD miBD = new MySqlBD();
             Object[] tupla = miBD.Select("SELECT * FROM Usuario WHERE idUsuario = " + idUsuario + ";")[0];
             this.idUsuario = idUsuario;
             this.username = tupla[1].ToString();
@@ -23,7 +23,6 @@ namespace WindowsFormsApplication1
 
         public Usuario(string username, int rol)
         {
-            MySqlBD miBD = new MySqlBD();
             miBD.Insert("INSERT INTO Usuario (username, password, rol) VALUES ('" + username + "', '" + "" + "', " + rol + ");");
             this.idUsuario = (int) miBD.Select("SELECT MAX(idUsuario) from Usuario where username = '" + username + " and rol = " + rol + ";")[0][0];
             this.username = username;
@@ -34,7 +33,6 @@ namespace WindowsFormsApplication1
         public static List<Usuario> ListaUsuarios()
         {
             List <Usuario> lista = new List<Usuario>();
-            MySqlBD miBD = new MySqlBD();
             List<Object[]> users = miBD.Select("Select idUsuario from Usuario");
             foreach (Object[] user in users)
             {
@@ -55,7 +53,6 @@ namespace WindowsFormsApplication1
 
         internal static object ListaResponsablesDisponibles()
         {
-            MySqlBD miBD = new MySqlBD();
             List<Usuario> res = new List<Usuario>();
             foreach (object[] tupla in miBD.Select("SELECT Usuario.idUsuario FROM Usuario Join Rol On (Usuario.rol = Rol.idRol) WHERE Rol.nombre LIKE 'responsable' AND (Usuario.idUsuario Not in (Select responsable from Sede where responsable is not null));"))
             {

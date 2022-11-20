@@ -1,22 +1,18 @@
 ﻿using BDLibrary;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Linq.Expressions;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace WindowsFormsApplication1
 {
     public class Asignatura
     {
+        private static MySqlBD miBD = new MySqlBD();
         private int idAsignatura;
         private string nombre;
 
         public static List<Asignatura> ListaAsignatura()
         {
             List<Asignatura> lista = new List<Asignatura>();
-            MySqlBD miBD = new MySqlBD();
 
             foreach (Object[] tupla in miBD.Select("SELECT idAsignatura FROM Asignatura;"))
             {
@@ -27,7 +23,6 @@ namespace WindowsFormsApplication1
 
         public Asignatura(int idAsignatura)
         {
-            MySqlBD miBD = new MySqlBD();
             try
             {
                 Object[] tupla = miBD.Select("SELECT * FROM Asignatura WHERE idAsignatura=" + idAsignatura + ";")[0];
@@ -43,7 +38,6 @@ namespace WindowsFormsApplication1
 
         public Asignatura(String nombre)
         {
-            MySqlBD miBD = new MySqlBD();
             try
             {
                 if (miBD.Select("SELECT nombre FROM Asignatura WHERE nombre = '" + nombre + "';").Count == 0)
@@ -65,7 +59,6 @@ namespace WindowsFormsApplication1
             get { return idAsignatura; }
             set
             {
-                MySqlBD miBD = new MySqlBD();
                 miBD.Update("UPDATE Grupo SET idAsignatura = " + value + " WHERE idAsignatura =" + this.idAsignatura + ";");
 
                 idAsignatura = value;
@@ -77,7 +70,6 @@ namespace WindowsFormsApplication1
             get { return nombre; }
             set
             {
-                MySqlBD miBD = new MySqlBD();
                 miBD.Update("UPDATE Grupo SET nombre = '" + value + "' WHERE idAsignatura =" + this.idAsignatura + ";");
 
                 nombre = value;
@@ -86,7 +78,6 @@ namespace WindowsFormsApplication1
 
         public void borrarAsignatura()
         {
-            MySqlBD miBD = new MySqlBD();
             miBD.Delete("DELETE FROM Asignatura WHERE idAsignatura =" + this.idAsignatura + ";");
             idAsignatura = -1;
             nombre = null;

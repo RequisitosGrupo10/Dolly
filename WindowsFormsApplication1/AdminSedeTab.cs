@@ -1,14 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Windows.Forms.VisualStyles;
 
 namespace WindowsFormsApplication1
 {
@@ -32,7 +23,6 @@ namespace WindowsFormsApplication1
             lSede.Text = sede.Nombre;
             tAforo.Text = Aforo();
             tDisponible.Text = Disponible();
-            tResponsable.Clear();
             tResponsable.Text = Responsable();
             listResponsable.DataSource = Usuario.ListaResponsablesDisponibles();
         }
