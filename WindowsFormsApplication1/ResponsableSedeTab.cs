@@ -6,9 +6,11 @@ namespace WindowsFormsApplication1
     public partial class ResponsableSedeTab : Form
     {
         Aula seleccionado;
-        //Sede sede =  //Obtener el Usuario que está conectado, hace falta login. De ahí obtener la sede a la que está asignado
-        public ResponsableSedeTab()
+        Sede sede; 
+            //Obtener el Usuario que está conectado, hace falta login. De ahí obtener la sede a la que está asignado
+        public ResponsableSedeTab(Sede sede)
         {
+            this.sede = sede;
             InitializeComponent();
             Mostrar();
             seleccionado = null;
@@ -16,17 +18,17 @@ namespace WindowsFormsApplication1
 
         private void Mostrar()
         {
-            //dataGridView1.DataSource = Aula.ListaSede(responsableSede.Sede);
-            //lSede.Text = sede.Nombre;
+            dataGridView1.DataSource = Aula.ListaAula(sede);
+            lSede.Text = sede.Nombre;
             tAforo.Text = Aforo();
-            //tResponsable.Text = Responsable();
+            tResponsable.Text = sede.Responsable.Username;
         }
         private String Aforo()
         {
             int aforo = 0;
-            //foreach (Aula aula in Aula.ListaAula(sede))
+            foreach (Aula aula in Aula.ListaAula(sede))
             {
-                //aforo += aula.Aforo;
+                aforo += aula.Aforo;
             }
             return aforo.ToString();
         }

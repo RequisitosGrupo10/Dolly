@@ -132,5 +132,10 @@ namespace WindowsFormsApplication1
         {
             return this.Nombre.GetHashCode();
         }
+
+        internal static object ListaSede(object sede)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

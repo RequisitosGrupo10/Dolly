@@ -62,10 +62,12 @@ namespace WindowsFormsApplication1
             }else if (this.usuario.Rol == 2)
             {
                 Sede sede = checkSede();
-                ResponsableSedeTab responsableSedeTab = new ResponsableSedeTab();
-                this.Hide();
-                responsableSedeTab.ShowDialog();
-                
+                if (sede != null)
+                {
+                    ResponsableSedeTab responsableSedeTab = new ResponsableSedeTab(sede);
+                    this.Hide();
+                    responsableSedeTab.ShowDialog();
+                }
             }
         }
 
