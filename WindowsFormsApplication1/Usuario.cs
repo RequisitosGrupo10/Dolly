@@ -48,6 +48,11 @@ namespace WindowsFormsApplication1
             get { return username; }
         }
 
+        public int Rol
+        {
+            get { return rol; }
+        }
+
         public override string ToString()
         {
             return idUsuario + ";" + username + ";" + rol + ";";

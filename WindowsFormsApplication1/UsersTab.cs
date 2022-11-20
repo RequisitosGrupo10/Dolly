@@ -2,6 +2,8 @@
 using System;
 using System.IO;
 using System.Windows.Forms;
+using System.Collections.Generic;
+using System.Text;
 
 namespace WindowsFormsApplication1
 {
@@ -15,7 +17,14 @@ namespace WindowsFormsApplication1
 
         private void MostrarUsuarios()
         {
-            dataGridView1.DataSource = Usuario.ListaUsuarios();
+            MySqlBD miDB = new MySqlBD();
+            List<Object[]> list = miDB.Select("Select idUsuario, username, nombre from Usuario join Rol on (Usuario.rol = Rol.idRol);");
+            foreach (Object[] u in list)
+            {
+                dataGridView1.Rows.Add(new object[] { u[0], u[1], u[2] });
+            }
+            
+            //dataGridView1.DataSource = Usuario.ListaUsuarios();
         }
 
         private void btnSalir_Click(object sender, EventArgs e)
@@ -25,15 +34,18 @@ namespace WindowsFormsApplication1
 
         private void btnImportar_Click(object sender, EventArgs e)
         {
+            int added = 0;
+            int errors = 0;
+            StringBuilder sb = new StringBuilder();
             string filePath = null;
-            MySqlBD miDB = new MySqlBD();            
+            MySqlBD miDB = new MySqlBD();
             List<Object[]> tupla = miDB.Select("Select idRol from Rol where Lower(nombre) like 'responsable'");
             if (tupla.Count == 0)
             {
                 miDB.Insert("Insert into Rol (nombre) values ('responsable');");
                 tupla = miDB.Select("Select idRol from Rol where Lower(nombre) like 'responsable'");
             }
-            
+
             int role = (int)tupla[0][0];
             Console.WriteLine("Responsable ID = " + role);
             using (OpenFileDialog openFileDialog = new OpenFileDialog())
@@ -57,17 +69,33 @@ namespace WindowsFormsApplication1
                             try
                             {
                                 new Usuario(line, role);
-                            } catch (Exception ex) 
-                            {
-                                Console.WriteLine("The line alredy exist");
-                                Console.WriteLine(ex.Message); Console.WriteLine(ex.StackTrace);
+                                added++;
                             }
-                            Console.WriteLine(line);
+                            catch (Exception ex)
+                            {
+                                errors++;
+                                int idx = added + errors;
+                                sb.Append(idx + ". Usuario " + line + " probablemente ya existe en la base de datos\n");
+                            }
                         }
                     }
                 }
             }
             MostrarUsuarios();
+
+            string filename = @".\Errores en importar usuarios.txt";
+
+            string msg = errors == 0 ? "Se ha añadido " + added + " usuarios nuevos." : "Se ha añadido " + added + " usuarios nuevos.\nNo he podido importar " + errors + " usuarios.\nConsulte el fichero:\n" + filename;
+            MessageBox.Show(msg);
+
+            if (errors > 0)
+            {
+                Log.hacerLog(sb.ToString(), filename);
+            }
+            else
+            {
+                Log.EliminarLog(filename);
+            }
         }
     }
 }

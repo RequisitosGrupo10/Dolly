@@ -36,6 +36,9 @@
             this.grupo10DBDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.usuarioBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.usuarioBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.idUsuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.rol = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.usuarioBindingSource2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grupo10DBDataSetBindingSource)).BeginInit();
@@ -55,7 +58,12 @@
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AllowUserToOrderColumns = true;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.idUsuario,
+            this.nombre,
+            this.rol});
             this.dataGridView1.Location = new System.Drawing.Point(233, 47);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(453, 312);
@@ -82,6 +90,23 @@
             // usuarioBindingSource1
             // 
             this.usuarioBindingSource1.DataMember = "Usuario";
+            // 
+            // idUsuario
+            // 
+            this.idUsuario.HeaderText = "idUsuario";
+            this.idUsuario.Name = "idUsuario";
+            this.idUsuario.Width = 60;
+            // 
+            // nombre
+            // 
+            this.nombre.HeaderText = "nombre";
+            this.nombre.Name = "nombre";
+            this.nombre.Width = 150;
+            // 
+            // rol
+            // 
+            this.rol.HeaderText = "rol";
+            this.rol.Name = "rol";
             // 
             // UsersTab
             // 
@@ -113,5 +138,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn idUsuarioDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn usernameDataGridViewTextBoxColumn;
         private System.Windows.Forms.BindingSource usuarioBindingSource2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idUsuario;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nombre;
+        private System.Windows.Forms.DataGridViewTextBoxColumn rol;
     }
 }
