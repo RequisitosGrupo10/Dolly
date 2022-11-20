@@ -1,9 +1,6 @@
 ﻿using BDLibrary;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 
 namespace WindowsFormsApplication1
@@ -87,7 +84,14 @@ namespace WindowsFormsApplication1
             {
                 try
                 {
-                    miBD.Update("UPDATE Sede SET responsable = " + value.IdUsuario + " WHERE idSede =" + this.idSede + ";");
+                    if (value == null)
+                    {
+                        miBD.Update("UPDATE Sede SET responsable = " + null + " WHERE idSede =" + this.idSede + ";");
+                    }
+                    else
+                    {
+                        miBD.Update("UPDATE Sede SET responsable = " + value.IdUsuario + " WHERE idSede =" + this.idSede + ";");
+                    }
                     responsable = value;
                 } catch (Exception ex)
                 {
