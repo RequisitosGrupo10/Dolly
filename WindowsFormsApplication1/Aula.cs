@@ -1,15 +1,12 @@
 ﻿using BDLibrary;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace WindowsFormsApplication1
 {
     public class Aula
     {
-        private MySqlBD miDB = new MySqlBD();
+        private static MySqlBD miBD = new MySqlBD();
         private int idAula;
         private string nombre;
         private int aforo;
@@ -18,8 +15,7 @@ namespace WindowsFormsApplication1
         public static List<Aula> ListaAula()
         {
             List<Aula> lista = new List<Aula>();
-            MySqlBD miBD = new MySqlBD();
-
+            
             foreach (Object[] tupla in miBD.Select("SELECT idAula FROM Aula;"))
             {
                 Aula aux = new Aula((int)tupla[0]);
@@ -31,8 +27,7 @@ namespace WindowsFormsApplication1
         public static List<Aula> ListaAula(Sede sede)
         {
             List<Aula> lista = new List<Aula>();
-            MySqlBD miBD = new MySqlBD();
-
+            
             foreach (Object[] tupla in miBD.Select("SELECT idAula FROM Aula WHERE idSede = " + sede.IdSede + ";"))
             {
                 Aula aux = new Aula((int)tupla[0]);
@@ -43,7 +38,6 @@ namespace WindowsFormsApplication1
 
         public Aula(int idAula)
         {
-            MySqlBD miBD = new MySqlBD();
             try
             {
                 Object[] tupla = miBD.Select("SELECT * FROM Aula WHERE idAula=" + idAula + ";")[0];
@@ -65,7 +59,6 @@ namespace WindowsFormsApplication1
 
         public Aula(String nombre)
         {
-            MySqlBD miBD = new MySqlBD();
             try
             {
                 if (miBD.Select("SELECT nombre FROM Aula WHERE nombre = '" + nombre + "';").Count == 0)
@@ -104,7 +97,6 @@ namespace WindowsFormsApplication1
             get { return sede; }
             set
             {
-                MySqlBD miBD = new MySqlBD();
                 miBD.Update("UPDATE Aula SET sede = " + sede.IdSede + " WHERE idAula =" + this.idAula + ";");
 
                 sede = value;
@@ -113,7 +105,6 @@ namespace WindowsFormsApplication1
 
         public void borrarAula()
         {
-            MySqlBD miBD = new MySqlBD();
             miBD.Delete("DELETE FROM Aula WHERE idAula =" + this.idAula + ";");
             idAula = -1;
             nombre = null;
