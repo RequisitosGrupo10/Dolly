@@ -23,6 +23,7 @@ namespace WindowsFormsApplication1
             foreach (Object[] tupla in miBD.Select("SELECT idSede FROM Sede;"))
             {
                 Sede aux = new Sede((int)tupla[0]);
+                // Usuario carga = aux.responsable;
                 lista.Add(aux);
             }
             return lista;
@@ -88,9 +89,16 @@ namespace WindowsFormsApplication1
             set
             {
                 MySqlBD miBD = new MySqlBD();
-                miBD.Update("UPDATE Sede SET responsable = " + responsable.IdUsuario + " WHERE idSede =" + this.idSede + ";");
+                try
+                {
+                    miBD.Update("UPDATE Sede SET responsable = " + value.IdUsuario + " WHERE idSede =" + this.idSede + ";");
+                    responsable = value;
+                } catch (Exception ex)
+                {
+                    Console.WriteLine("ERROR: " + ex.Message);
+                }
 
-                responsable = value;
+                
             }
         }
 
