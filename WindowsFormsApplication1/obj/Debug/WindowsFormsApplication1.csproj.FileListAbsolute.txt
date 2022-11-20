@@ -44,3 +44,4 @@ C:\Users\jmsan\Documents\Visual Studio 2013\Projects\Dolly\WindowsFormsApplicati
 C:\Users\jmsan\Documents\Visual Studio 2013\Projects\Dolly\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.csproj.GenerateResource.Cache
 C:\Users\jmsan\Documents\Visual Studio 2013\Projects\Dolly\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.exe
 C:\Users\jmsan\Documents\Visual Studio 2013\Projects\Dolly\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.pdb
+C:\Users\jmsan\Documents\Visual Studio 2013\Projects\Dolly\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.csprojResolveAssemblyReference.cache
