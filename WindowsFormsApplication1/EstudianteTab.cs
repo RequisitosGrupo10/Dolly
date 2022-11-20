@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Windows.Forms;
 
@@ -9,10 +10,10 @@ namespace WindowsFormsApplication1
         public EstudianteTab()
         {
             InitializeComponent();
-            Mostrar();
+            MostrarEstudiantes();
         }
 
-        private void Mostrar()
+        private void MostrarEstudiantes()
         {
             dataGridView.DataSource = Alumno.ListaEstudiantes();
         }
@@ -44,6 +45,8 @@ namespace WindowsFormsApplication1
                         // Se lee la primera línea
                         if (!reader.EndOfStream)
                             line = reader.ReadLine();
+                        // Comprobar para insertar nuevos Centros
+                        var centros = Centro.ListaCentro();
                         while (!reader.EndOfStream)
                         {
                             line = reader.ReadLine();
@@ -52,17 +55,35 @@ namespace WindowsFormsApplication1
                             {
                                 if (attributes.Length == 6)
                                 {
-                                    string centro = attributes[0];
+                                    string s_centro = attributes[0];
+                                    Centro centro;
+                                    /* A continuación se comprueba si el nombre está en la lista de centros para insertarlo o no*/
+                                        var i = 0;
+                                        while(i < centros.Count)
+                                        {
+                                            if (s_centro.Equals(centros[i].Nombre))
+                                                break;
+                                            i++;
+                                        }
+                                        if (i == centros.Count)
+                                        {
+                                            centro = new Centro(s_centro);
+                                            centros.Add(centro);
+                                        }
+                                        else
+                                            centro = centros[i];
+                                    /**/
                                     string nombre = attributes[1];
                                     string apellido1 = attributes[2];
                                     string apellido2 = (attributes[3].Equals("0")) ? "" : attributes[3];
                                     string dni_nif = attributes[4];
                                     string[] materias = attributes[5].Split(',');
-                                    for (int i = 0; i < materias.Length; i++ )
+                                    for (int m = 0; m < materias.Length; m++)
                                     {
-                                        materias[i] = materias[i].Trim(); 
+                                        materias[m] = materias[m].Trim();
                                     }
-                                    Alumno newEstudiante = new Alumno(centro, nombre, apellido1, apellido2, dni_nif, materias);
+                                    Alumno newEstudiante = new Alumno(centro.IdCentro, nombre, apellido1, apellido2, dni_nif, materias);
+                                    
                                 }
                                 else
                                     throw new Exception("Not enough arguments in the line " + n_line);
@@ -74,8 +95,8 @@ namespace WindowsFormsApplication1
                             n_line++;
                         }
                     }
-                    MessageBox.Show("Se procesaron" + (n_line - 1) + " líneas.", "File Content at path: " + filePath, MessageBoxButtons.OK);
-                    Mostrar();
+                    MessageBox.Show("Se procesaron " + (n_line - 1) + " líneas.", "File Content at path: " + filePath, MessageBoxButtons.OK);
+                    MostrarEstudiantes();
                 }
             }
         }
@@ -88,6 +109,13 @@ namespace WindowsFormsApplication1
         private void EstudianteTab_Load(object sender, EventArgs e)
         {
             
+        }
+
+        private void bBorrar_Click(object sender, EventArgs e)
+        {
+            foreach (var estudiante in Alumno.ListaEstudiantes())
+                estudiante.borrarAlumno();
+            MostrarEstudiantes();
         }
     }
 }

@@ -39,19 +39,20 @@ namespace WindowsFormsApplication1
             this.materias = null;
         }
 
-        public Alumno(string centro, string nombre, string apellido1, string apellido2, string dni_nif, string[] materias)
+        public Alumno(int idCentro, string nombre, string apellido1, string apellido2, string dni_nif, string[] materias)
         {
             // TODO: Complete member initialization
             try
             {
-                Centro centrado = new Centro(centro);
-                miBD.Insert("Insert Into Alumno(idCentro, DNI, nombre, apellido1, apellido2) VALUES ('"+ centrado.IdCentro +"', '" + dni_nif + "',' " + nombre + "', '" + apellido1 + "', '"+ apellido2+"');");
-                this.centro = null;
+                miBD.Insert("Insert Into Alumno(idCentro, DNI, nombre, apellido1, apellido2) VALUES ('"+ idCentro +"', '" + dni_nif + "',' " + nombre + "', '" + apellido1 + "', '"+ apellido2+"');");
+                this.centro = new Centro(idCentro);
                 this.nombre = nombre;
                 this.apellido1 = apellido1;
                 this.apellido2 = apellido2;
                 this.dni_nif = dni_nif;
                 this.materias = null;
+                foreach (var materia in materias)
+                    this.addAsignatura(materia);
             } catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
@@ -79,8 +80,32 @@ namespace WindowsFormsApplication1
             }
         }
 
+        public List<Asignatura> Materias
+        {
+            get {
+                if (materias == null)
+                    materias = Asignatura.ListaAsignaturaAlumno(this);
+                return materias;
+            }
+        }
+
+        public void addAsignatura(string s_asignatura)
+        {
+            if (Asignatura.ListaAsignaturaNombre().Contains(s_asignatura))
+            {
+                var asignatura = Asignatura.getAsignaturaByName(s_asignatura);
+                miBD.Insert("Insert into AlumnoAsignatura(idAsignatura, DNI) values ("+asignatura.IdAsignatura+ ", '"+ this.dni_nif +"');");
+                Materias.Add(asignatura);
+            }
+            else
+            {
+                throw new Exception("Una materia desconocida se intentó insertar en un estudiante: " + s_asignatura);
+            }
+        }
+
         public void borrarAlumno()
         {
+            miBD.Delete("Delete from AlumnoAsignatura where DNI='" + this.DNI + "';");
             miBD.Delete("DELETE FROM Alumno WHERE DNI ='" + this.DNI + "';");
             dni_nif = null;
             nombre = null;
