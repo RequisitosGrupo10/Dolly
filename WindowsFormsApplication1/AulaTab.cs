@@ -31,8 +31,6 @@ namespace WindowsFormsApplication1
                     franjas.SetItemChecked(franjas.Items.Count, true);
                 }
             }
-            
-
         }
 
         private void bConfirmar_Click(object sender, EventArgs e)
