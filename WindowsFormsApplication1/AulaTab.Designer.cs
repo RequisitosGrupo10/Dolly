@@ -28,24 +28,24 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
+            this.lAula = new System.Windows.Forms.Label();
             this.name = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
+            this.lAforo = new System.Windows.Forms.Label();
             this.aforo = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.franjas = new System.Windows.Forms.CheckedListBox();
-            this.bConfirmar = new System.Windows.Forms.Button();
+            this.lFranjaHoraria = new System.Windows.Forms.Label();
+            this.cbFranjasHorarias = new System.Windows.Forms.CheckedListBox();
+            this.bConfirmarCambios = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // label1
+            // lAula
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.label1.Location = new System.Drawing.Point(283, 41);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(36, 17);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Aula";
+            this.lAula.AutoSize = true;
+            this.lAula.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.lAula.Location = new System.Drawing.Point(283, 41);
+            this.lAula.Name = "lAula";
+            this.lAula.Size = new System.Drawing.Size(36, 17);
+            this.lAula.TabIndex = 0;
+            this.lAula.Text = "Aula";
             // 
             // name
             // 
@@ -54,15 +54,15 @@
             this.name.Size = new System.Drawing.Size(100, 20);
             this.name.TabIndex = 1;
             // 
-            // label2
+            // lAforo
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.label2.Location = new System.Drawing.Point(281, 78);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(42, 17);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "Aforo";
+            this.lAforo.AutoSize = true;
+            this.lAforo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.lAforo.Location = new System.Drawing.Point(281, 78);
+            this.lAforo.Name = "lAforo";
+            this.lAforo.Size = new System.Drawing.Size(42, 17);
+            this.lAforo.TabIndex = 2;
+            this.lAforo.Text = "Aforo";
             // 
             // aforo
             // 
@@ -71,47 +71,46 @@
             this.aforo.Size = new System.Drawing.Size(100, 20);
             this.aforo.TabIndex = 3;
             // 
-            // label3
+            // lFranjaHoraria
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.label3.Location = new System.Drawing.Point(136, 118);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(185, 17);
-            this.label3.TabIndex = 4;
-            this.label3.Text = "Franja Horaria (seleccionar)";
+            this.lFranjaHoraria.AutoSize = true;
+            this.lFranjaHoraria.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.lFranjaHoraria.Location = new System.Drawing.Point(136, 118);
+            this.lFranjaHoraria.Name = "lFranjaHoraria";
+            this.lFranjaHoraria.Size = new System.Drawing.Size(185, 17);
+            this.lFranjaHoraria.TabIndex = 4;
+            this.lFranjaHoraria.Text = "Franja Horaria (seleccionar)";
             // 
-            // franjas
+            // cbFranjasHorarias
             // 
-            this.franjas.FormattingEnabled = true;
-            this.franjas.Location = new System.Drawing.Point(330, 118);
-            this.franjas.Name = "franjas";
-            this.franjas.Size = new System.Drawing.Size(339, 289);
-            this.franjas.TabIndex = 5;
+            this.cbFranjasHorarias.FormattingEnabled = true;
+            this.cbFranjasHorarias.Location = new System.Drawing.Point(330, 118);
+            this.cbFranjasHorarias.Name = "cbFranjasHorarias";
+            this.cbFranjasHorarias.Size = new System.Drawing.Size(339, 289);
+            this.cbFranjasHorarias.TabIndex = 5;
             // 
-            // bConfirmar
+            // bConfirmarCambios
             // 
-            this.bConfirmar.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
-            this.bConfirmar.Location = new System.Drawing.Point(174, 299);
-            this.bConfirmar.Name = "bConfirmar";
-            this.bConfirmar.Size = new System.Drawing.Size(115, 64);
-            this.bConfirmar.TabIndex = 6;
-            this.bConfirmar.Text = "Confirmar Cambios";
-            this.bConfirmar.UseVisualStyleBackColor = true;
-            this.bConfirmar.Click += new System.EventHandler(this.bConfirmar_Click);
+            this.bConfirmarCambios.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
+            this.bConfirmarCambios.Location = new System.Drawing.Point(174, 299);
+            this.bConfirmarCambios.Name = "bConfirmarCambios";
+            this.bConfirmarCambios.Size = new System.Drawing.Size(115, 64);
+            this.bConfirmarCambios.TabIndex = 6;
+            this.bConfirmarCambios.Text = "Confirmar Cambios";
+            this.bConfirmarCambios.UseVisualStyleBackColor = true;
             // 
             // AulaTab
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.bConfirmar);
-            this.Controls.Add(this.franjas);
-            this.Controls.Add(this.label3);
+            this.Controls.Add(this.bConfirmarCambios);
+            this.Controls.Add(this.cbFranjasHorarias);
+            this.Controls.Add(this.lFranjaHoraria);
             this.Controls.Add(this.aforo);
-            this.Controls.Add(this.label2);
+            this.Controls.Add(this.lAforo);
             this.Controls.Add(this.name);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lAula);
             this.Name = "AulaTab";
             this.Text = "AulaTab";
             this.ResumeLayout(false);
@@ -121,12 +120,12 @@
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lAula;
         private System.Windows.Forms.TextBox name;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lAforo;
         private System.Windows.Forms.TextBox aforo;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.CheckedListBox franjas;
-        private System.Windows.Forms.Button bConfirmar;
+        private System.Windows.Forms.Label lFranjaHoraria;
+        private System.Windows.Forms.CheckedListBox cbFranjasHorarias;
+        private System.Windows.Forms.Button bConfirmarCambios;
     }
 }

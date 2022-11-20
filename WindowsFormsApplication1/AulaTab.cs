@@ -24,15 +24,15 @@ namespace WindowsFormsApplication1
             List<DateTime> datesAssigned = Aula.DisponibilidadHorarias(aula);
             foreach (DateTime date in dates)
             {
-                franjas.Items.Add(date);
+                cbFranjasHorarias.Items.Add(date);
                 if (datesAssigned.Contains(date))
                 {
-                    franjas.SetItemChecked(franjas.Items.Count-1, true);
+                    cbFranjasHorarias.SetItemChecked(cbFranjasHorarias.Items.Count-1, true);
                 }
             }
         }
 
-        private void bConfirmar_Click(object sender, EventArgs e)
+        private void bConfirmarCambios_Click(object sender, EventArgs e)
         {
             if (aula.Nombre == null)
             {
@@ -43,18 +43,18 @@ namespace WindowsFormsApplication1
                 aula.Nombre = name.Text;
             }
 
-            
+
             if (aula.Aforo != int.Parse(aforo.Text))
             {
                 aula.Aforo = int.Parse(aforo.Text);
             }
 
-            
+
             List<DateTime> dates = FranjaHoraria.ListarFranjas();
             MySqlBD myBD = new MySqlBD();
             foreach (DateTime date in dates)
             {
-                if (franjas.CheckedItems.Contains(date))
+                if (cbFranjasHorarias.CheckedItems.Contains(date))
                 {
                     myBD.Insert("INSERT INTO DisponibilidadAulas VALUES (" + aula.IdAula + ", '" + FranjaHoraria.toSQLFormat(date) + "' )");
                 }
@@ -64,9 +64,8 @@ namespace WindowsFormsApplication1
                 }
             }
 
-            franjas.Items.Clear();
+            cbFranjasHorarias.Items.Clear();
             Mostrar();
-            
         }
     }
 }
