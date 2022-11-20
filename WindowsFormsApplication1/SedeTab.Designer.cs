@@ -97,6 +97,7 @@
             this.bModificar.TabIndex = 7;
             this.bModificar.Text = "Modificar Sede";
             this.bModificar.UseVisualStyleBackColor = true;
+            this.bModificar.Click += new System.EventHandler(this.bModificarSede_Click);
             // 
             // SedeTab
             // 

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace WindowsFormsApplication1
 {
-    class Usuario
+    public class Usuario
     {
         private int idUsuario;
         private string username;

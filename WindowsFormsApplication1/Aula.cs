@@ -7,35 +7,38 @@ using System.Threading.Tasks;
 
 namespace WindowsFormsApplication1
 {
-    public class Centro
+    public class Aula
     {
         private MySqlBD miDB = new MySqlBD();
-        private int idCentro;
+        private int idAula;
         private string nombre;
+        private int aforo;
         private Sede sede;
 
-        public static List<Centro> ListaCentro()
+        public static List<Aula> ListaAula()
         {
-            List<Centro> lista = new List<Centro>();
+            List<Aula> lista = new List<Aula>();
             MySqlBD miBD = new MySqlBD();
 
-            foreach (Object[] tupla in miBD.Select("SELECT idCentro FROM Centro;"))
+            foreach (Object[] tupla in miBD.Select("SELECT idAula FROM Aula;"))
             {
-                Centro aux = new Centro((int)tupla[0]);
+                Aula aux = new Aula((int)tupla[0]);
                 lista.Add(aux);
             }
             return lista;
+
         }
 
-        public Centro(int idCentro)
+        public Aula(int idAula)
         {
             MySqlBD miBD = new MySqlBD();
             try
             {
-                Object[] tupla = miBD.Select("SELECT * FROM Centro WHERE idCentro=" + idCentro + ";")[0];
+                Object[] tupla = miBD.Select("SELECT * FROM Aula WHERE idAula=" + idAula + ";")[0];
 
-                this.idCentro = (int)tupla[0];
+                this.idAula = (int)tupla[0];
                 this.nombre = (string)tupla[1];
+                this.aforo = (int)tupla[2];
                 int sedeID;
                 sedeID = -1;
                 if (sedeID > 0)
@@ -48,16 +51,16 @@ namespace WindowsFormsApplication1
 
         }
 
-        public Centro(String nombre)
+        public Aula(String nombre)
         {
             MySqlBD miBD = new MySqlBD();
             try
             {
-                if (miBD.Select("SELECT nombre FROM Centro WHERE nombre = '" + nombre + "';").Count == 0)
+                if (miBD.Select("SELECT nombre FROM Aula WHERE nombre = '" + nombre + "';").Count == 0)
                 {
-                    miBD.Insert("INSERT INTO Centro(nombre) VALUES ('" + nombre + "');");
+                    miBD.Insert("INSERT INTO Aula(nombre) VALUES ('" + nombre + "');");
                     Console.WriteLine("Se insertó correctamente");
-                    this.idCentro = (int)miBD.SelectScalar("SELECT MAX(idCentro) FROM Centro");
+                    this.idAula = (int)miBD.SelectScalar("SELECT MAX(idAula) FROM Aula");
                     this.nombre = nombre;
                     this.sede = null;
                 }
@@ -69,9 +72,9 @@ namespace WindowsFormsApplication1
 
         }
 
-        public int IdCentro
+        public int IdAula
         {
-            get { return idCentro; }
+            get { return idAula; }
         }
 
         public string Nombre
@@ -85,24 +88,24 @@ namespace WindowsFormsApplication1
             set
             {
                 MySqlBD miBD = new MySqlBD();
-                miBD.Update("UPDATE Centro SET sede = " + sede.IdSede + " WHERE idCentro =" + this.idCentro + ";");
+                miBD.Update("UPDATE Aula SET sede = " + sede.IdSede + " WHERE idAula =" + this.idAula + ";");
 
                 sede = value;
             }
         }
 
-        public void borrarCentro()
+        public void borrarAula()
         {
             MySqlBD miBD = new MySqlBD();
-            miBD.Delete("DELETE FROM Centro WHERE idCentro =" + this.idCentro + ";");
-            idCentro = -1;
+            miBD.Delete("DELETE FROM Aula WHERE idAula =" + this.idAula + ";");
+            idAula = -1;
             nombre = null;
             sede = null;
         }
 
         public override string ToString()
         {
-            string res = this.idCentro + ";" + this.nombre + ";";
+            string res = this.idAula + ";" + this.nombre + ";";
             if (this.sede != null)
             {
                 res += sede.ToString();
@@ -113,8 +116,8 @@ namespace WindowsFormsApplication1
 
         public override bool Equals(object obj)
         {
-            return obj is Centro
-                && (((Centro)obj).Nombre.Equals(this.Nombre));
+            return obj is Aula
+                && (((Aula)obj).Nombre.Equals(this.Nombre));
         }
 
         public override int GetHashCode()
