@@ -5,9 +5,10 @@ namespace WindowsFormsApplication1
 {
     public partial class ResponsableSedeTab : Form
     {
+        //FALTA HACER MODIFICAR AULA Y RELLENAR DISPONIBLE
         Aula seleccionado;
         Sede sede; 
-            //Obtener el Usuario que está conectado, hace falta login. De ahí obtener la sede a la que está asignado
+        //Obtener el Usuario que está conectado, hace falta login. De ahí obtener la sede a la que está asignado
         public ResponsableSedeTab(Sede sede)
         {
             this.sede = sede;
@@ -18,10 +19,10 @@ namespace WindowsFormsApplication1
 
         private void Mostrar()
         {
-            dataGridView1.DataSource = Aula.ListaAula(sede);
-            lSede.Text = sede.Nombre;
+            dataGridView.DataSource = Aula.ListaAula(sede);
+            lNombreSede.Text = sede.Nombre;
             tAforo.Text = Aforo();
-            tResponsable.Text = sede.Responsable.Username;
+            tResponsableDeSede.Text = sede.Responsable.Username;
         }
         private String Aforo()
         {
@@ -53,9 +54,8 @@ namespace WindowsFormsApplication1
             }
         }
 
-        private void bBorrarAula_Click(object sender, EventArgs e)
+        private void bEliminarAula_Click(object sender, EventArgs e)
         {
-
             if (seleccionado != null)
             {
                 seleccionado.borrarAula();
@@ -68,13 +68,13 @@ namespace WindowsFormsApplication1
             }
         }
 
-        private void dataGridView1_SelectionChanged_1(object sender, EventArgs e)
+        private void dataGridView_SelectionChanged(object sender, EventArgs e)
         {
             try
             {
-                if (dataGridView1.SelectedRows.Count > 0)
+                if (dataGridView.SelectedRows.Count > 0)
                 {
-                    int idAula = (int)dataGridView1.SelectedRows[0].Cells[0].Value;
+                    int idAula = (int)dataGridView.SelectedRows[0].Cells[0].Value;
                     seleccionado = new Aula(idAula);
                 }
             }
@@ -84,7 +84,7 @@ namespace WindowsFormsApplication1
             }
         }
 
-        private void bExit_Click(object sender, EventArgs e)
+        private void bSalir_Click(object sender, EventArgs e)
         {
             this.Close();
         }

@@ -19,7 +19,7 @@ namespace WindowsFormsApplication1
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void bIniciarSesion_Click(object sender, EventArgs e)
         {
             Console.WriteLine("He llegado al handler");
             try
@@ -28,11 +28,11 @@ namespace WindowsFormsApplication1
                 foreach (Usuario user in users)
                 {
                     Console.WriteLine(user.ToString());
-                    if (user.Username.Equals(nombre.Text))
+                    if (user.Username.Equals(tNombre.Text))
                     {
                         MySqlBD miBD = new MySqlBD();
                         String pwd = (String) miBD.SelectScalar("SELECT password FROM Usuario WHERE idUsuario = " + user.IdUsuario + ";");
-                        if (pwd.Equals(password.Text))
+                        if (pwd.Equals(tContraseña.Text))
                         {
                             usuario = new Usuario(user.IdUsuario);
                             loginCorrecto();
@@ -51,6 +51,7 @@ namespace WindowsFormsApplication1
                 MessageBox.Show(ex.Message);
             }
         }
+
         private void loginCorrecto()
         {
             if (this.usuario.Rol == 1)
@@ -89,10 +90,10 @@ namespace WindowsFormsApplication1
             }
             return null;
         }
-        private void ver_CheckedChanged(object sender, EventArgs e)
+        private void cbVer_CheckedChanged(object sender, EventArgs e)
         {
-            if (password.PasswordChar == '*') password.PasswordChar = '\0';
-            else password.PasswordChar = '*';
+            if (tContraseña.PasswordChar == '*') tContraseña.PasswordChar = '\0';
+            else tContraseña.PasswordChar = '*';
         }
     }
 }

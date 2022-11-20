@@ -29,79 +29,78 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.bExit = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.bAtras = new System.Windows.Forms.Button();
+            this.dataGridView = new System.Windows.Forms.DataGridView();
             this.asignaturaBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.bImport = new System.Windows.Forms.Button();
-            this.bBorrar = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.bImportarAsignaturas = new System.Windows.Forms.Button();
+            this.bEliminarAsignatura = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.asignaturaBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
-            // bExit
+            // bAtras
             // 
-            this.bExit.Location = new System.Drawing.Point(1061, 409);
-            this.bExit.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.bExit.Name = "bExit";
-            this.bExit.Size = new System.Drawing.Size(75, 23);
-            this.bExit.TabIndex = 0;
-            this.bExit.Text = "SALIR";
-            this.bExit.UseVisualStyleBackColor = true;
-            this.bExit.Click += new System.EventHandler(this.bExit_Click);
+            this.bAtras.Location = new System.Drawing.Point(796, 332);
+            this.bAtras.Margin = new System.Windows.Forms.Padding(2);
+            this.bAtras.Name = "bAtras";
+            this.bAtras.Size = new System.Drawing.Size(56, 19);
+            this.bAtras.TabIndex = 0;
+            this.bAtras.Text = "ATRÁS";
+            this.bAtras.UseVisualStyleBackColor = true;
+            this.bAtras.Click += new System.EventHandler(this.bAtras_Click);
             // 
-            // dataGridView1
+            // dataGridView
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(272, 32);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(864, 359);
-            this.dataGridView1.TabIndex = 1;
-            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
-            this.dataGridView1.SelectionChanged += new System.EventHandler(this.dataGridView1_SelectionChanged);
+            this.dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView.Location = new System.Drawing.Point(204, 26);
+            this.dataGridView.Margin = new System.Windows.Forms.Padding(2);
+            this.dataGridView.Name = "dataGridView";
+            this.dataGridView.RowHeadersWidth = 51;
+            this.dataGridView.RowTemplate.Height = 24;
+            this.dataGridView.Size = new System.Drawing.Size(648, 292);
+            this.dataGridView.TabIndex = 1;
+            this.dataGridView.SelectionChanged += new System.EventHandler(this.dataGridView_SelectionChanged);
             // 
             // asignaturaBindingSource
             // 
             this.asignaturaBindingSource.DataMember = "Asignatura";
             // 
-            // bImport
+            // bImportarAsignaturas
             // 
-            this.bImport.Location = new System.Drawing.Point(47, 32);
-            this.bImport.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.bImport.Name = "bImport";
-            this.bImport.Size = new System.Drawing.Size(196, 92);
-            this.bImport.TabIndex = 2;
-            this.bImport.Text = "Importar Asignaturas";
-            this.bImport.UseVisualStyleBackColor = true;
-            this.bImport.Click += new System.EventHandler(this.bImport_Click);
+            this.bImportarAsignaturas.Location = new System.Drawing.Point(35, 87);
+            this.bImportarAsignaturas.Margin = new System.Windows.Forms.Padding(2);
+            this.bImportarAsignaturas.Name = "bImportarAsignaturas";
+            this.bImportarAsignaturas.Size = new System.Drawing.Size(147, 75);
+            this.bImportarAsignaturas.TabIndex = 2;
+            this.bImportarAsignaturas.Text = "Importar Asignaturas";
+            this.bImportarAsignaturas.UseVisualStyleBackColor = true;
+            this.bImportarAsignaturas.Click += new System.EventHandler(this.bImportarAsignaturas_Click);
             // 
-            // bBorrar
+            // bEliminarAsignatura
             // 
-            this.bBorrar.Location = new System.Drawing.Point(47, 149);
-            this.bBorrar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.bBorrar.Name = "bBorrar";
-            this.bBorrar.Size = new System.Drawing.Size(196, 82);
-            this.bBorrar.TabIndex = 3;
-            this.bBorrar.Text = "Borrar Asignatura";
-            this.bBorrar.UseVisualStyleBackColor = true;
-            this.bBorrar.Click += new System.EventHandler(this.bBorrarAsignatura_Click);
+            this.bEliminarAsignatura.Location = new System.Drawing.Point(35, 189);
+            this.bEliminarAsignatura.Margin = new System.Windows.Forms.Padding(2);
+            this.bEliminarAsignatura.Name = "bEliminarAsignatura";
+            this.bEliminarAsignatura.Size = new System.Drawing.Size(147, 75);
+            this.bEliminarAsignatura.TabIndex = 3;
+            this.bEliminarAsignatura.Text = "Eliminar Asignatura";
+            this.bEliminarAsignatura.UseVisualStyleBackColor = true;
+            this.bEliminarAsignatura.Click += new System.EventHandler(this.bEliminarAsignatura_Click);
             // 
             // AsignaturaTab
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1148, 444);
-            this.Controls.Add(this.bBorrar);
-            this.Controls.Add(this.bImport);
-            this.Controls.Add(this.dataGridView1);
-            this.Controls.Add(this.bExit);
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.ClientSize = new System.Drawing.Size(861, 361);
+            this.Controls.Add(this.bEliminarAsignatura);
+            this.Controls.Add(this.bImportarAsignaturas);
+            this.Controls.Add(this.dataGridView);
+            this.Controls.Add(this.bAtras);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "AsignaturaTab";
             this.Text = "Asignaturas";
             this.Load += new System.EventHandler(this.AsignaturaTab_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.asignaturaBindingSource)).EndInit();
             this.ResumeLayout(false);
 
@@ -109,10 +108,10 @@
 
         #endregion
 
-        private System.Windows.Forms.Button bExit;
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.Button bImport;
-        private System.Windows.Forms.Button bBorrar;
+        private System.Windows.Forms.Button bAtras;
+        private System.Windows.Forms.DataGridView dataGridView;
+        private System.Windows.Forms.Button bImportarAsignaturas;
+        private System.Windows.Forms.Button bEliminarAsignatura;
         private System.Windows.Forms.BindingSource asignaturaBindingSource;
     }
 }

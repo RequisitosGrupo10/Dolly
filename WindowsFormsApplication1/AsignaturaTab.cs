@@ -10,21 +10,16 @@ namespace WindowsFormsApplication1
         public AsignaturaTab()
         {
             InitializeComponent();
-            MostrarAsignaturas();
+            Mostrar();
             seleccionado = null;
         }
 
-        private void MostrarAsignaturas()
+        private void Mostrar()
         {
-            dataGridView1.DataSource = Asignatura.ListaAsignatura();
+            dataGridView.DataSource = Asignatura.ListaAsignatura();
         }
 
-        private void bExit_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
-        private void bImport_Click(object sender, EventArgs e)
+        private void bImportarAsignaturas_Click(object sender, EventArgs e)
         {
             int n_line = 0;
             var fileContent = string.Empty;
@@ -64,18 +59,25 @@ namespace WindowsFormsApplication1
                     }
                     MessageBox.Show("Se procesaron" + (n_line) + " líneas.", "File Content at path: " + filePath, MessageBoxButtons.OK);
                 }
-                MostrarAsignaturas();
+                Mostrar();
             }
         }
 
-        private void dataGridView1_SelectionChanged(object sender, EventArgs e)
+        private void bEliminarAsignatura_Click(object sender, EventArgs e)
+        {
+            seleccionado.borrarAsignatura();
+            seleccionado = null;
+            Mostrar();
+        }
+
+        private void dataGridView_SelectionChanged(object sender, EventArgs e)
         {
             try
             {
-                if (dataGridView1.SelectedRows.Count > 0)
+                if (dataGridView.SelectedRows.Count > 0)
                 {
-                    int idAsignatura = (int)dataGridView1.SelectedRows[0].Cells[0].Value;
-                    string nombre = (string)dataGridView1.SelectedRows[0].Cells[1].Value;
+                    int idAsignatura = (int)dataGridView.SelectedRows[0].Cells[0].Value;
+                    string nombre = (string)dataGridView.SelectedRows[0].Cells[1].Value;
                     seleccionado = new Asignatura(idAsignatura);
                 }
             }
@@ -85,22 +87,15 @@ namespace WindowsFormsApplication1
             }
         }
 
-        private void bBorrarAsignatura_Click(object sender, EventArgs e)
+        private void bAtras_Click(object sender, EventArgs e)
         {
-            seleccionado.borrarAsignatura();
-            seleccionado = null;
-            MostrarAsignaturas();
+            this.Close();
         }
 
         private void AsignaturaTab_Load(object sender, EventArgs e)
         {
             // TODO: esta línea de código carga datos en la tabla 'grupo10DBDataSet3.Asignatura' Puede moverla o quitarla según sea necesario.
-            MostrarAsignaturas();
-        }
-
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
+            Mostrar();
         }
     }
 }

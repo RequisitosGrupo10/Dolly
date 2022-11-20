@@ -13,52 +13,48 @@ namespace WindowsFormsApplication1
 {
     public partial class FranjasTab : Form
     {
+        //FALTA HACER EL INSERTAR FRANJA HORARIA
         private FranjaHoraria seleccionado;
         public FranjasTab()
         {
             InitializeComponent();
-            btnInsert.BackColor= SystemColors.Control;
-            MostrarFranjas();
+            bInsertarFranjaHoraria.BackColor= SystemColors.Control;
+            Mostrar();
             seleccionado = null;
         }
 
-        private void MostrarFranjas()
+        private void Mostrar()
         {
-            dataGridView1.Rows.Clear();
+            dataGridView.Rows.Clear();
             List<DateTime> list = FranjaHoraria.ListarFranjas();
             foreach (DateTime date in list)
             {
                 string dia = date.ToString("dd-MM-yyyy");
                 string hora = date.ToString("HH:mm");
-                dataGridView1.Rows.Add(new object[] {hora, dia});
+                dataGridView.Rows.Add(new object[] {hora, dia});
             }
         }
 
-        private void btnExit_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
-        private void dataGridView1_SelectionChanged_1(object sender, EventArgs e)
+        private void dataGridView_SelectionChanged(object sender, EventArgs e)
         {
             try
             {
-                if (dataGridView1.SelectedRows.Count > 0)
+                if (dataGridView.SelectedRows.Count > 0)
                 {
-                    
-                    var cell = (string) dataGridView1.SelectedRows[0].Cells[0].Value;
+
+                    var cell = (string)dataGridView.SelectedRows[0].Cells[0].Value;
                     if (cell != null)
                     {
-                        string hora = dataGridView1.SelectedRows[0].Cells[0].Value.ToString();
-                        string dia = dataGridView1.SelectedRows[0].Cells[1].Value.ToString();
+                        string hora = dataGridView.SelectedRows[0].Cells[0].Value.ToString();
+                        string dia = dataGridView.SelectedRows[0].Cells[1].Value.ToString();
                         string s = dia + ":" + hora;
                         seleccionado = new FranjaHoraria(s);
                     }
                     else
                     {
                         seleccionado = null;
-                    }                       
-                    
+                    }
+
                 }
                 toggleButton();
             }
@@ -68,29 +64,34 @@ namespace WindowsFormsApplication1
             }
         }
 
-        private void toggleButton()
-        {
-            if (seleccionado != null)
-            {
-                btnRemove.Enabled = true;
-                btnRemove.BackColor = SystemColors.Control;
-            }
-            else
-            {
-                btnRemove.Enabled = false;
-                btnRemove.BackColor = SystemColors.ControlDark;
-            }
-        }
-
-        private void btnRemove_Click(object sender, EventArgs e)
+        private void bEliminarFranjaHoraria_Click(object sender, EventArgs e)
         {
             if (seleccionado != null)
             {
                 seleccionado.EliminarFranja();
                 seleccionado = null;
                 toggleButton();
-                MostrarFranjas();
+                Mostrar();
             }
+        }
+
+        private void toggleButton()
+        {
+            if (seleccionado != null)
+            {
+                bEliminarFranjaHoraria.Enabled = true;
+                bEliminarFranjaHoraria.BackColor = SystemColors.Control;
+            }
+            else
+            {
+                bEliminarFranjaHoraria.Enabled = false;
+                bEliminarFranjaHoraria.BackColor = SystemColors.ControlDark;
+            }
+        }
+
+        private void bAtras_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

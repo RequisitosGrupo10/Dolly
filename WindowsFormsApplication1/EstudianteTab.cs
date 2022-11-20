@@ -9,20 +9,15 @@ namespace WindowsFormsApplication1
         public EstudianteTab()
         {
             InitializeComponent();
-            MostrarEstudiantes();
+            Mostrar();
         }
 
-        private void MostrarEstudiantes()
+        private void Mostrar()
         {
-            dataGridEstudiantes.DataSource = Alumno.ListaEstudiantes();
+            dataGridView.DataSource = Alumno.ListaEstudiantes();
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
-        private void button1_Click_1(object sender, EventArgs e)
+        private void bImportarEstudiantes_Click(object sender, EventArgs e)
         {
             int n_line = 0;
             var fileContent = string.Empty;
@@ -80,24 +75,19 @@ namespace WindowsFormsApplication1
                         }
                     }
                     MessageBox.Show("Se procesaron" + (n_line - 1) + " líneas.", "File Content at path: " + filePath, MessageBoxButtons.OK);
-                    MostrarEstudiantes();
+                    Mostrar();
                 }
             }
         }
 
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void bAtras_Click(object sender, EventArgs e)
         {
-
+            this.Close();
         }
 
         private void EstudianteTab_Load(object sender, EventArgs e)
         {
             
-        }
-
-        private void dataGridView1_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
-        {
-
         }
     }
 }

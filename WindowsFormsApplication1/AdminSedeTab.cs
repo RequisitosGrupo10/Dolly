@@ -5,6 +5,7 @@ namespace WindowsFormsApplication1
 {
     public partial class AdminSedeTab : Form
     {
+        //FALTA HACER ASIGNAR CENTROS
         Centro centroSeleccionado;
         Usuario responsableSeleccionado;
         Sede sede;
@@ -19,12 +20,12 @@ namespace WindowsFormsApplication1
 
         private void Mostrar()
         {
-            dataGridView1.DataSource = Centro.ListaCentro();
-            lSede.Text = sede.Nombre;
+            dataGridView.DataSource = Centro.ListaCentro();
+            lNombreSede.Text = sede.Nombre;
             tAforo.Text = Aforo();
             tDisponible.Text = Disponible();
-            tResponsable.Text = Responsable();
-            listResponsable.DataSource = Usuario.ListaResponsablesDisponibles();
+            tResponsableDeSede.Text = Responsable();
+            listResponsableDeSede.DataSource = Usuario.ListaResponsablesDisponibles();
         }
 
         private String Aforo()
@@ -39,7 +40,7 @@ namespace WindowsFormsApplication1
 
         private String Disponible()
         {
-            int rows = dataGridView1.RowCount;
+            int rows = dataGridView.RowCount;
             int disponible = int.Parse(tAforo.Text);
             for (int i = 0; i < rows; i++)
             {
@@ -57,15 +58,15 @@ namespace WindowsFormsApplication1
             return sede.Responsable.Username;
         }
 
-        private void dataGridView1_SelectionChanged_1(object sender, EventArgs e)
+        private void dataGridView_SelectionChanged(object sender, EventArgs e)
         {
             try
             {
-                if (dataGridView1.SelectedRows.Count > 0)
+                if (dataGridView.SelectedRows.Count > 0)
                 {
-                    int idSede = (int)dataGridView1.SelectedRows[0].Cells[0].Value;
-                    String nombre = (String)dataGridView1.SelectedRows[0].Cells[1].Value;
-                    int idCentro = (int)dataGridView1.SelectedRows[0].Cells[2].Value;
+                    int idSede = (int)dataGridView.SelectedRows[0].Cells[0].Value;
+                    String nombre = (String)dataGridView.SelectedRows[0].Cells[1].Value;
+                    int idCentro = (int)dataGridView.SelectedRows[0].Cells[2].Value;
                     centroSeleccionado = new Centro(idCentro);
                 }
             }
@@ -75,27 +76,7 @@ namespace WindowsFormsApplication1
             }
         }
 
-        private void bExit_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
-        private void lResponsable_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                if (listResponsable.SelectedItem != null)
-                {
-                    responsableSeleccionado = (Usuario)listResponsable.SelectedItem;
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("ERROR: " + ex.Message);
-            }
-        }
-
-        private void bInserResponsable_Click(object sender, EventArgs e)
+        private void bAsignarResponsableDeSede_Click(object sender, EventArgs e)
         {
             if (responsableSeleccionado != null)
             {
@@ -105,11 +86,31 @@ namespace WindowsFormsApplication1
             }
         }
 
-        private void bBorrarResponsable_Click(object sender, EventArgs e)
+        private void bQuitarResponsableDeSede_Click(object sender, EventArgs e)
         {
             Console.WriteLine("Eliminando a " + sede.Responsable);
             sede.Responsable = null;
             Mostrar();
+        }
+
+        private void lResponsableDeSede_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                if (listResponsableDeSede.SelectedItem != null)
+                {
+                    responsableSeleccionado = (Usuario)listResponsableDeSede.SelectedItem;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("ERROR: " + ex.Message);
+            }
+        }
+
+        private void bAtras_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
