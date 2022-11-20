@@ -17,8 +17,8 @@ namespace WindowsFormsApplication1
 
         private void Mostrar()
         {
-            name.Text = aula.Nombre;
-            aforo.Text = aula.Aforo.ToString();
+            tAula.Text = aula.Nombre;
+            tAforo.Text = aula.Aforo.ToString();
             
             List<DateTime> dates = FranjaHoraria.ListarFranjas();
             List<DateTime> datesAssigned = Aula.DisponibilidadHorarias(aula);
@@ -36,17 +36,17 @@ namespace WindowsFormsApplication1
         {
             if (aula.Nombre == null)
             {
-                aula.Nombre = name.Text;
+                aula.Nombre = tAula.Text;
             }
-            else if (!aula.Nombre.Equals(name.Text))
+            else if (!aula.Nombre.Equals(tAula.Text))
             {
-                aula.Nombre = name.Text;
+                aula.Nombre = tAula.Text;
             }
 
 
-            if (aula.Aforo != int.Parse(aforo.Text))
+            if (aula.Aforo != int.Parse(tAforo.Text))
             {
-                aula.Aforo = int.Parse(aforo.Text);
+                aula.Aforo = int.Parse(tAforo.Text);
             }
 
 

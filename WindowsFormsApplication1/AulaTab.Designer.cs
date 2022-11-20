@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.lAula = new System.Windows.Forms.Label();
-            this.name = new System.Windows.Forms.TextBox();
+            this.tAula = new System.Windows.Forms.TextBox();
             this.lAforo = new System.Windows.Forms.Label();
-            this.aforo = new System.Windows.Forms.TextBox();
+            this.tAforo = new System.Windows.Forms.TextBox();
             this.lFranjaHoraria = new System.Windows.Forms.Label();
             this.cbFranjasHorarias = new System.Windows.Forms.CheckedListBox();
             this.bConfirmarCambios = new System.Windows.Forms.Button();
@@ -47,12 +47,12 @@
             this.lAula.TabIndex = 0;
             this.lAula.Text = "Aula";
             // 
-            // name
+            // tAula
             // 
-            this.name.Location = new System.Drawing.Point(325, 38);
-            this.name.Name = "name";
-            this.name.Size = new System.Drawing.Size(100, 20);
-            this.name.TabIndex = 1;
+            this.tAula.Location = new System.Drawing.Point(325, 38);
+            this.tAula.Name = "tAula";
+            this.tAula.Size = new System.Drawing.Size(100, 20);
+            this.tAula.TabIndex = 1;
             // 
             // lAforo
             // 
@@ -64,12 +64,12 @@
             this.lAforo.TabIndex = 2;
             this.lAforo.Text = "Aforo";
             // 
-            // aforo
+            // tAforo
             // 
-            this.aforo.Location = new System.Drawing.Point(329, 75);
-            this.aforo.Name = "aforo";
-            this.aforo.Size = new System.Drawing.Size(100, 20);
-            this.aforo.TabIndex = 3;
+            this.tAforo.Location = new System.Drawing.Point(329, 75);
+            this.tAforo.Name = "tAforo";
+            this.tAforo.Size = new System.Drawing.Size(100, 20);
+            this.tAforo.TabIndex = 3;
             // 
             // lFranjaHoraria
             // 
@@ -107,9 +107,9 @@
             this.Controls.Add(this.bConfirmarCambios);
             this.Controls.Add(this.cbFranjasHorarias);
             this.Controls.Add(this.lFranjaHoraria);
-            this.Controls.Add(this.aforo);
+            this.Controls.Add(this.tAforo);
             this.Controls.Add(this.lAforo);
-            this.Controls.Add(this.name);
+            this.Controls.Add(this.tAula);
             this.Controls.Add(this.lAula);
             this.Name = "AulaTab";
             this.Text = "AulaTab";
@@ -121,9 +121,9 @@
         #endregion
 
         private System.Windows.Forms.Label lAula;
-        private System.Windows.Forms.TextBox name;
+        private System.Windows.Forms.TextBox tAula;
         private System.Windows.Forms.Label lAforo;
-        private System.Windows.Forms.TextBox aforo;
+        private System.Windows.Forms.TextBox tAforo;
         private System.Windows.Forms.Label lFranjaHoraria;
         private System.Windows.Forms.CheckedListBox cbFranjasHorarias;
         private System.Windows.Forms.Button bConfirmarCambios;
