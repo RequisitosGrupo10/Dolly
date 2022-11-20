@@ -58,6 +58,7 @@ namespace WindowsFormsApplication1
                 Menu menu = new Menu();
                 this.Hide();
                 menu.ShowDialog();
+                this.Close();
                 
             }else if (this.usuario.Rol == 2)
             {
@@ -67,6 +68,7 @@ namespace WindowsFormsApplication1
                     ResponsableSedeTab responsableSedeTab = new ResponsableSedeTab(sede);
                     this.Hide();
                     responsableSedeTab.ShowDialog();
+                    this.Close();
                 }
             }
         }
@@ -76,10 +78,14 @@ namespace WindowsFormsApplication1
             List<Sede> sedes = Sede.ListaSede();
             foreach(Sede sede in sedes)
             {
-                if(sede.Responsable.IdUsuario==this.usuario.IdUsuario)
+                if (sede.Responsable!= null)
                 {
-                    return sede;
+                    if (sede.Responsable.IdUsuario == this.usuario.IdUsuario)
+                    {
+                        return sede;
+                    }
                 }
+                
             }
             return null;
         }

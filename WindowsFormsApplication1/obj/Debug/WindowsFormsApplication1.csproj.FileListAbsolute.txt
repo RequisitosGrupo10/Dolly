@@ -183,3 +183,4 @@ C:\Users\lucia\Documents\GitHub\Dolly\WindowsFormsApplication1\bin\Debug\System.
 C:\Users\lucia\Documents\GitHub\Dolly\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.AdminSedeTab.resources
 C:\Users\lucia\Documents\GitHub\Dolly\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.LogIn.resources
 >>>>>>> Stashed changes
+C:\Users\lucia\Documents\GitHub\Dolly\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.AulaTab.resources

@@ -166,6 +166,9 @@
     <EmbeddedResource Include="AsignaturaTab.resx">
       <DependentUpon>AsignaturaTab.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="AulaTab.resx">
+      <DependentUpon>AulaTab.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="EstudianteTab.resx">
       <DependentUpon>EstudianteTab.cs</DependentUpon>
     </EmbeddedResource>
