@@ -18,7 +18,6 @@ namespace WindowsFormsApplication1
         public FranjasTab()
         {
             InitializeComponent();
-            bInsertarFranjaHoraria.BackColor= SystemColors.Control;
             Mostrar();
             seleccionado = null;
         }
@@ -92,6 +91,17 @@ namespace WindowsFormsApplication1
         private void bAtras_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void bInsertarFranjaHoraria_Click(object sender, EventArgs e)
+        {
+            AddFranjasTab ventana = new AddFranjasTab();
+            ventana.ShowDialog();
+        }
+
+        private void vActualizar_FocusGain(object sender, EventArgs e)
+        {
+            Mostrar();
         }
     }
 }

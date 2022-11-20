@@ -1,4 +1,6 @@
-﻿namespace WindowsFormsApplication1
+﻿using System.Drawing;
+
+namespace WindowsFormsApplication1
 {
     partial class FranjasTab
     {
@@ -62,12 +64,14 @@
             // 
             // bInsertarFranjaHoraria
             // 
+            this.bInsertarFranjaHoraria.BackColor = System.Drawing.SystemColors.Control;
             this.bInsertarFranjaHoraria.Location = new System.Drawing.Point(276, 299);
             this.bInsertarFranjaHoraria.Name = "bInsertarFranjaHoraria";
             this.bInsertarFranjaHoraria.Size = new System.Drawing.Size(237, 48);
             this.bInsertarFranjaHoraria.TabIndex = 1;
             this.bInsertarFranjaHoraria.Text = "Insertar Franja Horaria";
-            this.bInsertarFranjaHoraria.UseVisualStyleBackColor = true;
+            this.bInsertarFranjaHoraria.UseVisualStyleBackColor = false;
+            this.bInsertarFranjaHoraria.Click += new System.EventHandler(this.bInsertarFranjaHoraria_Click);
             // 
             // bEliminarFranjaHoraria
             // 
@@ -101,6 +105,7 @@
             this.Controls.Add(this.dataGridView);
             this.Name = "FranjasTab";
             this.Text = "Franjas Horarias";
+            this.Activated += new System.EventHandler(this.vActualizar_FocusGain);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).EndInit();
             this.ResumeLayout(false);
 
