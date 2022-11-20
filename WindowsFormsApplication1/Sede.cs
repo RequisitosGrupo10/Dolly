@@ -98,7 +98,7 @@ namespace WindowsFormsApplication1
                 {
                     if (value == null)
                     {
-                        miBD.Update("UPDATE Sede SET responsable = " + null + " WHERE idSede =" + this.idSede + ";");
+                        miBD.Update("UPDATE Sede SET responsable = null WHERE idSede =" + this.idSede + ";");
                     }
                     else
                     {
