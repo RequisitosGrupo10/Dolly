@@ -79,7 +79,19 @@ namespace WindowsFormsApplication1
 
         public Usuario Responsable
         {
-            get { return responsable; }
+            get {
+                if (responsable == null)
+                {
+                    MySqlBD miBD = new MySqlBD();
+                    var query = miBD.Select("SELECT idUsuario FROM Usuario Join Sede ON (Sede.responsable = Usuario.idUsuario) WHERE Sede.idSede = "+this.idSede+";");
+                    if (query.Count > 0)
+                        responsable = new Usuario((int)query[0][0]);
+                    else
+                        responsable = null;
+
+                }
+                return responsable;
+            }
             set
             {
                 try
