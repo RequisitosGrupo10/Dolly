@@ -9,7 +9,7 @@ namespace WindowsFormsApplication1
 {
     internal class Log
     {
-        public static void hacerLog(String text, string filename)
+        public static void HacerLog(string text, string filename)
         {
             try
             {
