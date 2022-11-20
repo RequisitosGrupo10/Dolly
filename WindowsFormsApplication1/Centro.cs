@@ -1,15 +1,12 @@
 ﻿using BDLibrary;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace WindowsFormsApplication1
 {
     public class Centro
     {
-        private MySqlBD miDB = new MySqlBD();
+        private static MySqlBD miBD = new MySqlBD();
         private int idCentro;
         private string nombre;
         private Sede sede;
@@ -17,7 +14,6 @@ namespace WindowsFormsApplication1
         public static List<Centro> ListaCentro()
         {
             List<Centro> lista = new List<Centro>();
-            MySqlBD miBD = new MySqlBD();
 
             foreach (Object[] tupla in miBD.Select("SELECT idCentro FROM Centro;"))
             {
@@ -29,15 +25,13 @@ namespace WindowsFormsApplication1
 
         public Centro(int idCentro)
         {
-            MySqlBD miBD = new MySqlBD();
             try
             {
-                Object[] tupla = miBD.Select("SELECT * FROM Centro WHERE idCentro=" + idCentro + ";")[0];
+                Object[] tupla = miBD.Select("SELECT idCentro,nombre,IFNULL(idSede,-1) FROM Centro WHERE idCentro=" + idCentro + ";")[0];
 
                 this.idCentro = (int)tupla[0];
                 this.nombre = (string)tupla[1];
-                int sedeID;
-                sedeID = -1;
+                int sedeID = Int32.Parse(tupla[2].ToString());
                 if (sedeID > 0)
                     this.sede = new Sede(sedeID);
             }
@@ -50,7 +44,7 @@ namespace WindowsFormsApplication1
 
         public Centro(String nombre)
         {
-            MySqlBD miBD = new MySqlBD();
+           
             try
             {
                 if (miBD.Select("SELECT nombre FROM Centro WHERE nombre = '" + nombre + "';").Count == 0)
@@ -84,16 +78,20 @@ namespace WindowsFormsApplication1
             get { return sede; }
             set
             {
-                MySqlBD miBD = new MySqlBD();
-                miBD.Update("UPDATE Centro SET sede = " + sede.IdSede + " WHERE idCentro =" + this.idCentro + ";");
-
+                if (value == null)
+                {
+                    miBD.Update("UPDATE Centro SET sede = " + -1 + " WHERE idCentro =" + this.idCentro + ";");
+                }
+                else
+                {
+                    miBD.Update("UPDATE Centro SET sede = " + sede.IdSede + " WHERE idCentro =" + this.idCentro + ";");
+                }
                 sede = value;
             }
         }
 
         public void borrarCentro()
         {
-            MySqlBD miBD = new MySqlBD();
             miBD.Delete("DELETE FROM Centro WHERE idCentro =" + this.idCentro + ";");
             idCentro = -1;
             nombre = null;

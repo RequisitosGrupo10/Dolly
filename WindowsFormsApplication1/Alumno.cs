@@ -1,14 +1,12 @@
 ﻿using BDLibrary;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace WindowsFormsApplication1
 {
     public class Alumno
     {
+        private static MySqlBD miBD = new MySqlBD();
         private Centro centro;
         private string nombre;
         private string apellido1;
@@ -19,7 +17,6 @@ namespace WindowsFormsApplication1
         public static List<Alumno> ListaEstudiantes()
         {
             List<Alumno> lista = new List<Alumno>();
-            MySqlBD miBD = new MySqlBD();
 
             foreach (Object[] tupla in miBD.Select("SELECT DNI FROM Alumno;"))
             {
@@ -33,7 +30,6 @@ namespace WindowsFormsApplication1
         public Alumno(string dni_nif)
         {
             // TODO: Complete member initialization
-            MySqlBD miBD = new MySqlBD();
             Object[] tupla = miBD.Select("SELECT DNI, nombre, apellido1, apellido2, idCentro FROM Alumno WHERE DNI = '" + dni_nif + "';")[0];
             this.dni_nif = (string)tupla[0];
             this.nombre = (string)tupla[1];
@@ -46,7 +42,6 @@ namespace WindowsFormsApplication1
         public Alumno(string centro, string nombre, string apellido1, string apellido2, string dni_nif, string[] materias)
         {
             // TODO: Complete member initialization
-            MySqlBD miBD = new MySqlBD();
             try
             {
                 Centro centrado = new Centro(centro);
@@ -86,7 +81,6 @@ namespace WindowsFormsApplication1
 
         public void borrarAlumno()
         {
-            MySqlBD miBD = new MySqlBD();
             miBD.Delete("DELETE FROM Alumno WHERE DNI ='" + this.DNI + "';");
             dni_nif = null;
             nombre = null;

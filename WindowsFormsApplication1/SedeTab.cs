@@ -1,12 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace WindowsFormsApplication1
@@ -114,8 +107,6 @@ namespace WindowsFormsApplication1
                 if (dataGridView1.SelectedRows.Count > 0)
                 {
                     int idSede = (int)dataGridView1.SelectedRows[0].Cells[0].Value;
-                    string nombre = (string)dataGridView1.SelectedRows[0].Cells[1].Value;
-                    string responsable = (string)dataGridView1.SelectedRows[0].Cells[2].Value;
                     seleccionado = new Sede(idSede);
                 }
             }

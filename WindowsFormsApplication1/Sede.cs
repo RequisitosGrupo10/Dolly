@@ -1,16 +1,13 @@
 ﻿using BDLibrary;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 
 namespace WindowsFormsApplication1
 {
     public class Sede
     {
-        private MySqlBD miDB = new MySqlBD();
+        private static MySqlBD miBD = new MySqlBD();
         private int idSede;
         private string nombre;
         private Usuario responsable;
@@ -18,7 +15,6 @@ namespace WindowsFormsApplication1
         public static List<Sede> ListaSede()
         {
             List<Sede> lista = new List<Sede>();
-            MySqlBD miBD = new MySqlBD();
 
             foreach (Object[] tupla in miBD.Select("SELECT idSede FROM Sede;"))
             {
@@ -35,13 +31,11 @@ namespace WindowsFormsApplication1
             MySqlBD miBD = new MySqlBD();
             try
             {
-                Object[] tupla = miBD.Select("SELECT * FROM Sede WHERE idSede=" + idSede + ";")[0];
+                Object[] tupla = miBD.Select("SELECT idSede,nombre,IFNULL(responsable,-1) FROM Sede WHERE idSede=" + idSede + ";")[0];
 
                 this.idSede = (int)tupla[0];
                 this.nombre = (string)tupla[1];
-                int responsableID;
-                //responsableID = Int32.Parse(tupla[2].ToString());
-                responsableID = -1;
+                int responsableID = Int32.Parse(tupla[2].ToString());
                 if (responsableID > 0)
                     this.responsable = new Usuario(responsableID);
             }
@@ -54,7 +48,7 @@ namespace WindowsFormsApplication1
 
         public Sede(String nombre)
         {
-            MySqlBD miBD = new MySqlBD();
+            
             try
             {
                 if (miBD.Select("SELECT nombre FROM Sede WHERE nombre = '" + nombre + "';").Count == 0)
@@ -88,10 +82,16 @@ namespace WindowsFormsApplication1
             get { return responsable; }
             set
             {
-                MySqlBD miBD = new MySqlBD();
                 try
                 {
-                    miBD.Update("UPDATE Sede SET responsable = " + value.IdUsuario + " WHERE idSede =" + this.idSede + ";");
+                    if (value == null)
+                    {
+                        miBD.Update("UPDATE Sede SET responsable = " + null + " WHERE idSede =" + this.idSede + ";");
+                    }
+                    else
+                    {
+                        miBD.Update("UPDATE Sede SET responsable = " + value.IdUsuario + " WHERE idSede =" + this.idSede + ";");
+                    }
                     responsable = value;
                 } catch (Exception ex)
                 {
@@ -104,7 +104,6 @@ namespace WindowsFormsApplication1
 
         public void borrarSede()
         {
-            MySqlBD miBD = new MySqlBD();
             miBD.Delete("DELETE FROM Sede WHERE idSede =" + this.idSede + ";");
             idSede = -1;
             nombre = null;
