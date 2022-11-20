@@ -1,6 +1,7 @@
 ﻿using BDLibrary;
 using System;
 using System.Collections.Generic;
+using System.Security.Cryptography.X509Certificates;
 
 namespace WindowsFormsApplication1
 {
@@ -50,7 +51,7 @@ namespace WindowsFormsApplication1
             get { return username; }
         }
 
-<<<<<<< Updated upstream
+
         public int Rol
         {
             get { return rol; }
@@ -59,19 +60,9 @@ namespace WindowsFormsApplication1
         public override string ToString()
         {
             return idUsuario + ";" + username + ";" + rol + ";";
-=======
-        public String Password
-        {
-            get { return password; }
         }
 
-        public int Rol
-        {
-            get { return rol; }
->>>>>>> Stashed changes
-        }
-
-        internal static object ListaResponsablesDisponibles()
+        public static List<Usuario> ListaResponsablesDisponibles()
         {
             List<Usuario> res = new List<Usuario>();
             foreach (object[] tupla in miBD.Select("SELECT Usuario.idUsuario FROM Usuario Join Rol On (Usuario.rol = Rol.idRol) WHERE Rol.nombre LIKE 'responsable' AND (Usuario.idUsuario Not in (Select responsable from Sede where responsable is not null));"))
