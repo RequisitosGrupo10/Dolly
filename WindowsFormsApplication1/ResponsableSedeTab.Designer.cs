@@ -28,30 +28,30 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.lSede = new System.Windows.Forms.Label();
+            this.lNombreSede = new System.Windows.Forms.Label();
             this.lAforo = new System.Windows.Forms.Label();
             this.tAforo = new System.Windows.Forms.TextBox();
             this.lDisponible = new System.Windows.Forms.Label();
             this.tDisponible = new System.Windows.Forms.TextBox();
-            this.lResponsable = new System.Windows.Forms.Label();
-            this.tResponsable = new System.Windows.Forms.TextBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.lResponsableDeSede = new System.Windows.Forms.Label();
+            this.tResponsableDeSede = new System.Windows.Forms.TextBox();
+            this.dataGridView = new System.Windows.Forms.DataGridView();
             this.bInsertarAula = new System.Windows.Forms.Button();
             this.bModificarAula = new System.Windows.Forms.Button();
             this.bEliminarAula = new System.Windows.Forms.Button();
-            this.bExit = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.bSalir = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             this.SuspendLayout();
             // 
-            // lSede
+            // lNombreSede
             // 
-            this.lSede.AutoSize = true;
-            this.lSede.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lSede.Location = new System.Drawing.Point(22, 26);
-            this.lSede.Name = "lSede";
-            this.lSede.Size = new System.Drawing.Size(154, 25);
-            this.lSede.TabIndex = 17;
-            this.lSede.Text = "Nombre Sede";
+            this.lNombreSede.AutoSize = true;
+            this.lNombreSede.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lNombreSede.Location = new System.Drawing.Point(22, 26);
+            this.lNombreSede.Name = "lNombreSede";
+            this.lNombreSede.Size = new System.Drawing.Size(118, 20);
+            this.lNombreSede.TabIndex = 17;
+            this.lNombreSede.Text = "Nombre Sede";
             // 
             // lAforo
             // 
@@ -85,33 +85,33 @@
             this.tDisponible.Size = new System.Drawing.Size(100, 20);
             this.tDisponible.TabIndex = 21;
             // 
-            // lResponsable
+            // lResponsableDeSede
             // 
-            this.lResponsable.AutoSize = true;
-            this.lResponsable.Location = new System.Drawing.Point(283, 74);
-            this.lResponsable.Name = "lResponsable";
-            this.lResponsable.Size = new System.Drawing.Size(112, 13);
-            this.lResponsable.TabIndex = 22;
-            this.lResponsable.Text = "Responsable de Sede";
+            this.lResponsableDeSede.AutoSize = true;
+            this.lResponsableDeSede.Location = new System.Drawing.Point(283, 74);
+            this.lResponsableDeSede.Name = "lResponsableDeSede";
+            this.lResponsableDeSede.Size = new System.Drawing.Size(112, 13);
+            this.lResponsableDeSede.TabIndex = 22;
+            this.lResponsableDeSede.Text = "Responsable de Sede";
             // 
-            // tResponsable
+            // tResponsableDeSede
             // 
-            this.tResponsable.Location = new System.Drawing.Point(419, 71);
-            this.tResponsable.Name = "tResponsable";
-            this.tResponsable.Size = new System.Drawing.Size(192, 20);
-            this.tResponsable.TabIndex = 23;
+            this.tResponsableDeSede.Location = new System.Drawing.Point(419, 71);
+            this.tResponsableDeSede.Name = "tResponsableDeSede";
+            this.tResponsableDeSede.Size = new System.Drawing.Size(192, 20);
+            this.tResponsableDeSede.TabIndex = 23;
             // 
-            // dataGridView1
+            // dataGridView
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(333, 114);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(2);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(422, 289);
-            this.dataGridView1.TabIndex = 24;
-            this.dataGridView1.SelectionChanged += new System.EventHandler(this.dataGridView1_SelectionChanged_1);
+            this.dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView.Location = new System.Drawing.Point(333, 114);
+            this.dataGridView.Margin = new System.Windows.Forms.Padding(2);
+            this.dataGridView.Name = "dataGridView";
+            this.dataGridView.RowHeadersWidth = 51;
+            this.dataGridView.RowTemplate.Height = 24;
+            this.dataGridView.Size = new System.Drawing.Size(422, 289);
+            this.dataGridView.TabIndex = 24;
+            this.dataGridView.SelectionChanged += new System.EventHandler(this.dataGridView_SelectionChanged);
             // 
             // bInsertarAula
             // 
@@ -144,39 +144,39 @@
             this.bEliminarAula.TabIndex = 27;
             this.bEliminarAula.Text = "Eliminar Aula";
             this.bEliminarAula.UseVisualStyleBackColor = true;
-            this.bEliminarAula.Click += new System.EventHandler(this.bBorrarAula_Click);
+            this.bEliminarAula.Click += new System.EventHandler(this.bEliminarAula_Click);
             // 
-            // bExit
+            // bSalir
             // 
-            this.bExit.Location = new System.Drawing.Point(699, 420);
-            this.bExit.Margin = new System.Windows.Forms.Padding(2);
-            this.bExit.Name = "bExit";
-            this.bExit.Size = new System.Drawing.Size(56, 19);
-            this.bExit.TabIndex = 28;
-            this.bExit.Text = "SALIR";
-            this.bExit.UseVisualStyleBackColor = true;
-            this.bExit.Click += new System.EventHandler(this.bExit_Click);
+            this.bSalir.Location = new System.Drawing.Point(699, 420);
+            this.bSalir.Margin = new System.Windows.Forms.Padding(2);
+            this.bSalir.Name = "bSalir";
+            this.bSalir.Size = new System.Drawing.Size(56, 19);
+            this.bSalir.TabIndex = 28;
+            this.bSalir.Text = "SALIR";
+            this.bSalir.UseVisualStyleBackColor = true;
+            this.bSalir.Click += new System.EventHandler(this.bSalir_Click);
             // 
             // ResponsableSedeTab
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.bExit);
+            this.Controls.Add(this.bSalir);
             this.Controls.Add(this.bEliminarAula);
             this.Controls.Add(this.bModificarAula);
             this.Controls.Add(this.bInsertarAula);
-            this.Controls.Add(this.dataGridView1);
-            this.Controls.Add(this.tResponsable);
-            this.Controls.Add(this.lResponsable);
+            this.Controls.Add(this.dataGridView);
+            this.Controls.Add(this.tResponsableDeSede);
+            this.Controls.Add(this.lResponsableDeSede);
             this.Controls.Add(this.tDisponible);
             this.Controls.Add(this.lDisponible);
             this.Controls.Add(this.tAforo);
             this.Controls.Add(this.lAforo);
-            this.Controls.Add(this.lSede);
+            this.Controls.Add(this.lNombreSede);
             this.Name = "ResponsableSedeTab";
             this.Text = "ResponsableSedeTab";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -184,17 +184,17 @@
 
         #endregion
 
-        private System.Windows.Forms.Label lSede;
+        private System.Windows.Forms.Label lNombreSede;
         private System.Windows.Forms.Label lAforo;
         private System.Windows.Forms.TextBox tAforo;
         private System.Windows.Forms.Label lDisponible;
         private System.Windows.Forms.TextBox tDisponible;
-        private System.Windows.Forms.Label lResponsable;
-        private System.Windows.Forms.TextBox tResponsable;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.Label lResponsableDeSede;
+        private System.Windows.Forms.TextBox tResponsableDeSede;
+        private System.Windows.Forms.DataGridView dataGridView;
         private System.Windows.Forms.Button bInsertarAula;
         private System.Windows.Forms.Button bModificarAula;
         private System.Windows.Forms.Button bEliminarAula;
-        private System.Windows.Forms.Button bExit;
+        private System.Windows.Forms.Button bSalir;
     }
 }

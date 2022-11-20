@@ -167,11 +167,11 @@
     <Compile Include="SedeTab.Designer.cs">
       <DependentUpon>SedeTab.cs</DependentUpon>
     </Compile>
-    <Compile Include="UsersTab.cs">
+    <Compile Include="UsuariosTab.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UsersTab.Designer.cs">
-      <DependentUpon>UsersTab.cs</DependentUpon>
+    <Compile Include="UsuariosTab.Designer.cs">
+      <DependentUpon>UsuariosTab.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="AddFranjasTab.resx">
       <DependentUpon>AddFranjasTab.cs</DependentUpon>
@@ -207,11 +207,14 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="ResponsableSedeTab.resx">
+      <DependentUpon>ResponsableSedeTab.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="SedeTab.resx">
       <DependentUpon>SedeTab.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UsersTab.resx">
-      <DependentUpon>UsersTab.cs</DependentUpon>
+    <EmbeddedResource Include="UsuariosTab.resx">
+      <DependentUpon>UsuariosTab.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

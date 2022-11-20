@@ -28,71 +28,67 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.buttonExit = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.dataGridEstudiantes = new System.Windows.Forms.DataGridView();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridEstudiantes)).BeginInit();
+            this.bAtras = new System.Windows.Forms.Button();
+            this.bImportarEstudiantes = new System.Windows.Forms.Button();
+            this.dataGridView = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             this.SuspendLayout();
             // 
-            // buttonExit
+            // bAtras
             // 
-            this.buttonExit.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.buttonExit.Location = new System.Drawing.Point(917, 351);
-            this.buttonExit.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.buttonExit.Name = "buttonExit";
-            this.buttonExit.Size = new System.Drawing.Size(89, 33);
-            this.buttonExit.TabIndex = 0;
-            this.buttonExit.Text = "SALIR";
-            this.buttonExit.UseVisualStyleBackColor = true;
-            this.buttonExit.Click += new System.EventHandler(this.button1_Click);
+            this.bAtras.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.bAtras.Location = new System.Drawing.Point(688, 285);
+            this.bAtras.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.bAtras.Name = "bAtras";
+            this.bAtras.Size = new System.Drawing.Size(67, 27);
+            this.bAtras.TabIndex = 0;
+            this.bAtras.Text = "ATRÁS";
+            this.bAtras.UseVisualStyleBackColor = true;
+            this.bAtras.Click += new System.EventHandler(this.bAtras_Click);
             // 
-            // button1
+            // bImportarEstudiantes
             // 
-            this.button1.Location = new System.Drawing.Point(12, 12);
-            this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(143, 57);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "Importar";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click_1);
+            this.bImportarEstudiantes.Location = new System.Drawing.Point(26, 106);
+            this.bImportarEstudiantes.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.bImportarEstudiantes.Name = "bImportarEstudiantes";
+            this.bImportarEstudiantes.Size = new System.Drawing.Size(119, 61);
+            this.bImportarEstudiantes.TabIndex = 1;
+            this.bImportarEstudiantes.Text = "Importar Estudiantes";
+            this.bImportarEstudiantes.UseVisualStyleBackColor = true;
+            this.bImportarEstudiantes.Click += new System.EventHandler(this.bImportarEstudiantes_Click);
             // 
-            // alumnoBindingSource
+            // dataGridView
             // 
-            // 
-            // dataGridEstudiantes
-            // 
-            this.dataGridEstudiantes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridEstudiantes.Location = new System.Drawing.Point(230, 12);
-            this.dataGridEstudiantes.Name = "dataGridEstudiantes";
-            this.dataGridEstudiantes.RowTemplate.Height = 24;
-            this.dataGridEstudiantes.Size = new System.Drawing.Size(776, 309);
-            this.dataGridEstudiantes.TabIndex = 2;
-            this.dataGridEstudiantes.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick_1);
+            this.dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView.Location = new System.Drawing.Point(172, 10);
+            this.dataGridView.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dataGridView.Name = "dataGridView";
+            this.dataGridView.RowTemplate.Height = 24;
+            this.dataGridView.Size = new System.Drawing.Size(582, 251);
+            this.dataGridView.TabIndex = 2;
             // 
             // EstudianteTab
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1037, 396);
-            this.Controls.Add(this.dataGridEstudiantes);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.buttonExit);
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.ClientSize = new System.Drawing.Size(778, 322);
+            this.Controls.Add(this.dataGridView);
+            this.Controls.Add(this.bImportarEstudiantes);
+            this.Controls.Add(this.bAtras);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "EstudianteTab";
             this.Text = "Estudiantes";
             this.Load += new System.EventHandler(this.EstudianteTab_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridEstudiantes)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Button buttonExit;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.DataGridView dataGridEstudiantes;
+        private System.Windows.Forms.Button bAtras;
+        private System.Windows.Forms.Button bImportarEstudiantes;
+        private System.Windows.Forms.DataGridView dataGridView;
     }
 }
 

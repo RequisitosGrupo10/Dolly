@@ -19,20 +19,17 @@ namespace WindowsFormsApplication1
         {
             name.Text = aula.Nombre;
             aforo.Text = aula.Aforo.ToString();
-            MySqlBD miBD = new MySqlBD();
 
-            List<Object[]> dates = miBD.Select("SELECT franja FROM FranjaHoraria");
+            List<DateTime> dates = FranjaHoraria.ListarFranjas();
             List<DateTime> datesAssigned = Aula.DisponibilidadHorarias(aula);
-            foreach (Object[] date in dates)
+            foreach (DateTime date in dates)
             {
-                franjas.Items.Add((DateTime)date[0]);
-                if (datesAssigned.Contains((DateTime)date[0]))
+                franjas.Items.Add(date);
+                if (datesAssigned.Contains(date))
                 {
                     franjas.SetItemChecked(franjas.Items.Count, true);
                 }
             }
-            
-
         }
 
         private void bConfirmar_Click(object sender, EventArgs e)
@@ -51,6 +48,19 @@ namespace WindowsFormsApplication1
             {
                 aula.Aforo = int.Parse(aforo.Text);
             }
+
+            
+            List<DateTime> dates = FranjaHoraria.ListarFranjas();
+            MySqlBD myBD = new MySqlBD();
+            foreach (DateTime date in dates)
+            {
+                if (franjas.CheckedItems.Contains(date))
+                {
+                    myBD.Insert("INSERT INTO DisponibilidadAulas VALUES (" + aula.IdAula + ", '" + FranjaHoraria.toSQLFormat(date) + "' )");
+                }
+            }
+
+            Mostrar();
             
         }
     }

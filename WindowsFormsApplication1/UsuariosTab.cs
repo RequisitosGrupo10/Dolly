@@ -7,32 +7,27 @@ using System.Text;
 
 namespace WindowsFormsApplication1
 {
-    public partial class UsersTab : Form
+    public partial class UsuariosTab : Form
     {
-        public UsersTab()
+        public UsuariosTab()
         {
             InitializeComponent();
-            MostrarUsuarios();
+            Mostrar();
         }
 
-        private void MostrarUsuarios()
+        private void Mostrar()
         {
             MySqlBD miDB = new MySqlBD();
             List<Object[]> list = miDB.Select("Select idUsuario, username, nombre from Usuario join Rol on (Usuario.rol = Rol.idRol);");
             foreach (Object[] u in list)
             {
-                dataGridView1.Rows.Add(new object[] { u[0], u[1], u[2] });
+                dataGridView.Rows.Add(new object[] { u[0], u[1], u[2] });
             }
             
-            //dataGridView1.DataSource = Usuario.ListaUsuarios();
+            //dataGridView.DataSource = Usuario.ListaUsuarios();
         }
 
-        private void btnSalir_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
-        private void btnImportar_Click(object sender, EventArgs e)
+        private void bImportarUsuarios_Click(object sender, EventArgs e)
         {
             int added = 0;
             int errors = 0;
@@ -81,7 +76,7 @@ namespace WindowsFormsApplication1
                     }
                 }
             }
-            MostrarUsuarios();
+            Mostrar();
 
             string filename = @".\Errores en importar usuarios.txt";
 
@@ -96,6 +91,11 @@ namespace WindowsFormsApplication1
             {
                 Log.EliminarLog(filename);
             }
+        }
+
+        private void bAtras_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
