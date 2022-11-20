@@ -67,6 +67,7 @@ namespace WindowsFormsApplication1
                     Console.WriteLine("Se insertó correctamente");
                     this.idAula = (int)miBD.SelectScalar("SELECT MAX(idAula) FROM Aula");
                     this.nombre = nombre;
+                    this.aforo = 0;
                     this.sede = null;
                 }
             }
@@ -85,11 +86,16 @@ namespace WindowsFormsApplication1
         public string Nombre
         {
             get { return nombre; }
+            set
+            {
+                nombre = value;
+            }
         }
 
         public int Aforo
         {
             get { return aforo; }
+            set { aforo = value; }
         }
 
         public Sede Sede
@@ -101,6 +107,14 @@ namespace WindowsFormsApplication1
 
                 sede = value;
             }
+        }
+
+        public static List<DateTime> DisponibilidadHorarias(Aula aula)
+        {
+            List<Object[]> datesAssignedAux = miBD.Select("SELECT franja FROM DisponibilidadAulas WHERE idAula = " + aula.IdAula + ";");
+            List<DateTime> datesAssigned = new List<DateTime>();
+            foreach (Object[] date in datesAssignedAux) { datesAssigned.Add((DateTime)date[0]); }
+            return datesAssigned;
         }
 
         public void borrarAula()
