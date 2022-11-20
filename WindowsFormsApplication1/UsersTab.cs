@@ -79,5 +79,10 @@ namespace WindowsFormsApplication1
             // TODO: esta línea de código carga datos en la tabla 'grupo10DBDataSet7.Usuario' Puede moverla o quitarla según sea necesario.
 
         }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

@@ -50,6 +50,22 @@ namespace WindowsFormsApplication1
         {
             get { return idUsuario; }
         }
+
+        internal static object ListaResponsablesDisponibles()
+        {
+            MySqlBD miBD = new MySqlBD();
+            List<Usuario> res = new List<Usuario>();
+            foreach (object[] tupla in miBD.Select("SELECT Usuario.idUsuario FROM Usuario Join Rol On (Usuario.rol = Rol.idRol) WHERE Rol.nombre LIKE 'responsable' AND (Usuario.idUsuario Not in (Select responsable from Sede where responsable is not null));"))
+            {
+                res.Add(new Usuario((int)tupla[0]));
+            }
+            return res;
+        }
+
+        public override string ToString() {
+            return (this.username);
+          }  
+
     }
 
 }

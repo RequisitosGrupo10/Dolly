@@ -13,17 +13,21 @@ namespace WindowsFormsApplication1
 {
     public partial class SedeTab : Form
     {
-        Sede seleccionado;
+        Sede sedeSeleccionada;
+        Usuario responsableSeleccionado;
+
         public SedeTab()
         {
             InitializeComponent();
             MostrarSedes();
-            seleccionado = null;
+            sedeSeleccionada = null;
+            responsableSeleccionado = null;
         }
 
         private void MostrarSedes()
         {
             dataGridView1.DataSource = Sede.ListaSede();
+            listBox1.DataSource = Usuario.ListaResponsablesDisponibles();
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -73,18 +77,19 @@ namespace WindowsFormsApplication1
                     }
                     MessageBox.Show("Se procesaron" + (n_line) + " líneas.", "File Content at path: " + filePath, MessageBoxButtons.OK);
                 }
-                seleccionado = null;
+                sedeSeleccionada = null;
+                responsableSeleccionado = null;
                 MostrarSedes();
             }
         }
 
         private void bBorrarSede_Click(object sender, EventArgs e)
         {
-            
-            if (seleccionado != null)
+
+            if (sedeSeleccionada != null)
             {
-                seleccionado.borrarSede();
-                seleccionado = null;
+                sedeSeleccionada.borrarSede();
+                sedeSeleccionada = null;
                 MostrarSedes();
             }
             else
@@ -104,7 +109,7 @@ namespace WindowsFormsApplication1
                     int idSede = (int)dataGridView1.SelectedRows[0].Cells[0].Value;
                     string nombre = (string)dataGridView1.SelectedRows[0].Cells[1].Value;
                     string responsable = (string)dataGridView1.SelectedRows[0].Cells[2].Value;
-                    seleccionado = new Sede(idSede);
+                    sedeSeleccionada = new Sede(idSede);
                 }
             }
             catch (Exception ex)
@@ -121,6 +126,31 @@ namespace WindowsFormsApplication1
         private void bExit_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                if (listBox1.SelectedItem != null)
+                {
+                    responsableSeleccionado = (Usuario) listBox1.SelectedItem;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("ERROR: " + ex.Message);
+            }
+        }
+
+        private void bInserResponsable_Click(object sender, EventArgs e)
+        {
+            if (responsableSeleccionado != null && sedeSeleccionada != null)
+            {
+                Console.WriteLine("Añadiendo a " + responsableSeleccionado);
+                sedeSeleccionada.Responsable = responsableSeleccionado;
+                MostrarSedes();
+            }
         }
     }
 }

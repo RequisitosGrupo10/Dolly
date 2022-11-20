@@ -37,6 +37,7 @@
             this.bBorrarResponsable = new System.Windows.Forms.Button();
             this.bInserResponsable = new System.Windows.Forms.Button();
             this.bExit = new System.Windows.Forms.Button();
+            this.bModificar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.sedeBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -54,7 +55,7 @@
             // 
             // bBorrar
             // 
-            this.bBorrar.Location = new System.Drawing.Point(40, 98);
+            this.bBorrar.Location = new System.Drawing.Point(40, 171);
             this.bBorrar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.bBorrar.Name = "bBorrar";
             this.bBorrar.Size = new System.Drawing.Size(396, 52);
@@ -84,15 +85,16 @@
             // 
             this.listBox1.FormattingEnabled = true;
             this.listBox1.ItemHeight = 16;
-            this.listBox1.Location = new System.Drawing.Point(40, 177);
+            this.listBox1.Location = new System.Drawing.Point(133, 334);
             this.listBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(148, 180);
+            this.listBox1.Size = new System.Drawing.Size(154, 68);
             this.listBox1.TabIndex = 4;
+            this.listBox1.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
             // 
             // bBorrarResponsable
             // 
-            this.bBorrarResponsable.Location = new System.Drawing.Point(217, 276);
+            this.bBorrarResponsable.Location = new System.Drawing.Point(217, 284);
             this.bBorrarResponsable.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.bBorrarResponsable.Name = "bBorrarResponsable";
             this.bBorrarResponsable.Size = new System.Drawing.Size(219, 81);
@@ -102,13 +104,14 @@
             // 
             // bInserResponsable
             // 
-            this.bInserResponsable.Location = new System.Drawing.Point(217, 177);
+            this.bInserResponsable.Location = new System.Drawing.Point(2, 284);
             this.bInserResponsable.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.bInserResponsable.Name = "bInserResponsable";
             this.bInserResponsable.Size = new System.Drawing.Size(219, 79);
             this.bInserResponsable.TabIndex = 3;
             this.bInserResponsable.Text = "Asignar Responsable de Sede";
             this.bInserResponsable.UseVisualStyleBackColor = true;
+            this.bInserResponsable.Click += new System.EventHandler(this.bInserResponsable_Click);
             // 
             // bExit
             // 
@@ -120,11 +123,21 @@
             this.bExit.UseVisualStyleBackColor = true;
             this.bExit.Click += new System.EventHandler(this.bExit_Click);
             // 
+            // bModificar
+            // 
+            this.bModificar.Location = new System.Drawing.Point(40, 96);
+            this.bModificar.Name = "bModificar";
+            this.bModificar.Size = new System.Drawing.Size(396, 54);
+            this.bModificar.TabIndex = 7;
+            this.bModificar.Text = "Modificar Sede";
+            this.bModificar.UseVisualStyleBackColor = true;
+            // 
             // SedeTab
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1157, 414);
+            this.Controls.Add(this.bModificar);
             this.Controls.Add(this.bExit);
             this.Controls.Add(this.bBorrarResponsable);
             this.Controls.Add(this.listBox1);
@@ -152,5 +165,6 @@
         private System.Windows.Forms.Button bInserResponsable;
         private System.Windows.Forms.BindingSource sedeBindingSource;
         private System.Windows.Forms.Button bExit;
+        private System.Windows.Forms.Button bModificar;
     }
 }
