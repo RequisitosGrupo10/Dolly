@@ -49,5 +49,11 @@ namespace WindowsFormsApplication1
             UsersTab ventana = new UsersTab();
             ventana.ShowDialog();
         }
+
+        private void btnFranjas_Click(object sender, EventArgs e)
+        {
+            FranjasTab ventana = new FranjasTab();
+            ventana.ShowDialog();
+        }
     }
 }

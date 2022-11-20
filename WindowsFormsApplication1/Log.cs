@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace WindowsFormsApplication1
 {
-    internal class Log
+    public class Log
     {
         public static void HacerLog(string text, string filename)
         {

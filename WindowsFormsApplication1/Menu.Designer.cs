@@ -33,12 +33,13 @@
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.btnUsuario = new System.Windows.Forms.Button();
+            this.btnFranjas = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(39, 112);
-            this.button1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button1.Location = new System.Drawing.Point(39, 73);
+            this.button1.Margin = new System.Windows.Forms.Padding(2);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(169, 36);
             this.button1.TabIndex = 0;
@@ -48,8 +49,8 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(39, 153);
-            this.button2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button2.Location = new System.Drawing.Point(39, 114);
+            this.button2.Margin = new System.Windows.Forms.Padding(2);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(169, 35);
             this.button2.TabIndex = 1;
@@ -59,8 +60,8 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(39, 193);
-            this.button3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button3.Location = new System.Drawing.Point(39, 153);
+            this.button3.Margin = new System.Windows.Forms.Padding(2);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(169, 37);
             this.button3.TabIndex = 2;
@@ -71,7 +72,7 @@
             // button4
             // 
             this.button4.Location = new System.Drawing.Point(718, 249);
-            this.button4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button4.Margin = new System.Windows.Forms.Padding(2);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(56, 19);
             this.button4.TabIndex = 3;
@@ -89,17 +90,28 @@
             this.btnUsuario.UseVisualStyleBackColor = true;
             this.btnUsuario.Click += new System.EventHandler(this.btnUsuario_Click);
             // 
+            // btnFranjas
+            // 
+            this.btnFranjas.Location = new System.Drawing.Point(39, 193);
+            this.btnFranjas.Name = "btnFranjas";
+            this.btnFranjas.Size = new System.Drawing.Size(169, 39);
+            this.btnFranjas.TabIndex = 5;
+            this.btnFranjas.Text = "Gestion de Franjas Horarias";
+            this.btnFranjas.UseVisualStyleBackColor = true;
+            this.btnFranjas.Click += new System.EventHandler(this.btnFranjas_Click);
+            // 
             // Menu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(794, 287);
+            this.Controls.Add(this.btnFranjas);
             this.Controls.Add(this.btnUsuario);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Menu";
             this.Text = "MENU";
             this.Load += new System.EventHandler(this.Menu_Load);
@@ -114,5 +126,6 @@
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button btnUsuario;
+        private System.Windows.Forms.Button btnFranjas;
     }
 }
