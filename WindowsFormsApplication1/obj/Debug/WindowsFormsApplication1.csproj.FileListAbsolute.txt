@@ -185,3 +185,5 @@ C:\Users\lucia\Documents\GitHub\Dolly\WindowsFormsApplication1\obj\Debug\Windows
 >>>>>>> Stashed changes
 D:\Estudios\3_Curso\302_RequirementsEngineering\casoPractico\sourcecode\Dolly\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.LogIn.resources
 D:\Estudios\3_Curso\302_RequirementsEngineering\casoPractico\sourcecode\Dolly\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.FranjasTab.resources
+D:\Estudios\3_Curso\302_RequirementsEngineering\casoPractico\sourcecode\Dolly\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.AulaTab.resources
+D:\Estudios\3_Curso\302_RequirementsEngineering\casoPractico\sourcecode\Dolly\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.AddFranjasTab.resources

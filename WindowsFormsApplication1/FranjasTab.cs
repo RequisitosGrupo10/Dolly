@@ -92,5 +92,11 @@ namespace WindowsFormsApplication1
                 MostrarFranjas();
             }
         }
+
+        private void btnInsert_Click(object sender, EventArgs e)
+        {
+            AddFranjasTab ventana = new AddFranjasTab();
+            ventana.ShowDialog();
+        }
     }
 }

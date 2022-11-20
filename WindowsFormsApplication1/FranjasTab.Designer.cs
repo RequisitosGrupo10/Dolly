@@ -29,11 +29,11 @@
         private void InitializeComponent()
         {
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.Hora = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Dia = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnInsert = new System.Windows.Forms.Button();
             this.btnRemove = new System.Windows.Forms.Button();
             this.btnExit = new System.Windows.Forms.Button();
-            this.Hora = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Dia = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -50,6 +50,16 @@
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.SelectionChanged += new System.EventHandler(this.dataGridView1_SelectionChanged_1);
             // 
+            // Hora
+            // 
+            this.Hora.HeaderText = "Hora";
+            this.Hora.Name = "Hora";
+            // 
+            // Dia
+            // 
+            this.Dia.HeaderText = "Dia";
+            this.Dia.Name = "Dia";
+            // 
             // btnInsert
             // 
             this.btnInsert.Location = new System.Drawing.Point(276, 299);
@@ -58,6 +68,7 @@
             this.btnInsert.TabIndex = 1;
             this.btnInsert.Text = "Insertar Franja Horaria";
             this.btnInsert.UseVisualStyleBackColor = true;
+            this.btnInsert.Click += new System.EventHandler(this.btnInsert_Click);
             // 
             // btnRemove
             // 
@@ -79,16 +90,6 @@
             this.btnExit.Text = "SALIR";
             this.btnExit.UseVisualStyleBackColor = true;
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
-            // 
-            // Hora
-            // 
-            this.Hora.HeaderText = "Hora";
-            this.Hora.Name = "Hora";
-            // 
-            // Dia
-            // 
-            this.Dia.HeaderText = "Dia";
-            this.Dia.Name = "Dia";
             // 
             // FranjasTab
             // 

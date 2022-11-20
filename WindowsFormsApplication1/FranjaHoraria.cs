@@ -65,9 +65,9 @@ namespace WindowsFormsApplication1
             db.Delete("Delete from FranjaHoraria where franja = '" + s + "';");
         }
 
-        private string toSQLFormat(DateTime franja)
+        public static string toSQLFormat(DateTime franja)
         {
-            return franja.Year.ToString() + "-" + franja.Month.ToString() + "-" + franja.Day.ToString() + "-" + franja.Hour.ToString() + ":" + franja.Minute.ToString() + ";" + franja.Second.ToString();
+            return franja.Year.ToString() + "-" + franja.Month.ToString() + "-" + franja.Day.ToString() + " " + franja.Hour.ToString() + ":" + franja.Minute.ToString() + ";" + franja.Second.ToString();
         }
         public DateTime Franja
         {
