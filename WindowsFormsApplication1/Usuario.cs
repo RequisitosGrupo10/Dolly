@@ -51,6 +51,11 @@ namespace WindowsFormsApplication1
             get { return idUsuario; }
         }
 
+        public String Username
+        {
+            get { return username; }
+        }
+
         internal static object ListaResponsablesDisponibles()
         {
             MySqlBD miBD = new MySqlBD();

@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace WindowsFormsApplication1
 {
-    class Sede
+    public class Sede
     {
         private MySqlBD miDB = new MySqlBD();
         private int idSede;

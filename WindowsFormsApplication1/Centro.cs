@@ -25,7 +25,6 @@ namespace WindowsFormsApplication1
                 lista.Add(aux);
             }
             return lista;
-
         }
 
         public Centro(int idCentro)

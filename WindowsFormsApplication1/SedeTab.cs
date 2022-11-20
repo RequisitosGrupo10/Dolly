@@ -13,21 +13,18 @@ namespace WindowsFormsApplication1
 {
     public partial class SedeTab : Form
     {
-        Sede sedeSeleccionada;
-        Usuario responsableSeleccionado;
+        Sede seleccionado;
 
         public SedeTab()
         {
             InitializeComponent();
             MostrarSedes();
-            sedeSeleccionada = null;
-            responsableSeleccionado = null;
+            seleccionado = null;
         }
 
         private void MostrarSedes()
         {
             dataGridView1.DataSource = Sede.ListaSede();
-            listBox1.DataSource = Usuario.ListaResponsablesDisponibles();
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -77,27 +74,37 @@ namespace WindowsFormsApplication1
                     }
                     MessageBox.Show("Se procesaron" + (n_line) + " líneas.", "File Content at path: " + filePath, MessageBoxButtons.OK);
                 }
-                sedeSeleccionada = null;
-                responsableSeleccionado = null;
                 MostrarSedes();
+            }
+        }
+
+        private void bModificarSede_Click(object sender, EventArgs e)
+        {
+
+            if (seleccionado != null)
+            {
+                AdminSedeTab ventana = new AdminSedeTab(seleccionado);
+                ventana.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("Selecciona una sede para modificar", "Error", MessageBoxButtons.OK);
             }
         }
 
         private void bBorrarSede_Click(object sender, EventArgs e)
         {
 
-            if (sedeSeleccionada != null)
+            if (seleccionado != null)
             {
-                sedeSeleccionada.borrarSede();
-                sedeSeleccionada = null;
+                seleccionado.borrarSede();
+                seleccionado = null;
                 MostrarSedes();
             }
             else
             {
                 MessageBox.Show("Selecciona una sede para borrar", "Error", MessageBoxButtons.OK);
             }
-            
-            
         }
 
         private void dataGridView1_SelectionChanged_1(object sender, EventArgs e)
@@ -109,48 +116,18 @@ namespace WindowsFormsApplication1
                     int idSede = (int)dataGridView1.SelectedRows[0].Cells[0].Value;
                     string nombre = (string)dataGridView1.SelectedRows[0].Cells[1].Value;
                     string responsable = (string)dataGridView1.SelectedRows[0].Cells[2].Value;
-                    sedeSeleccionada = new Sede(idSede);
+                    seleccionado = new Sede(idSede);
                 }
             }
             catch (Exception ex)
             {
                 MessageBox.Show("ERROR: " + ex.Message);
             }
-        }
-
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
         }
 
         private void bExit_Click(object sender, EventArgs e)
         {
             this.Close();
-        }
-
-        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                if (listBox1.SelectedItem != null)
-                {
-                    responsableSeleccionado = (Usuario) listBox1.SelectedItem;
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("ERROR: " + ex.Message);
-            }
-        }
-
-        private void bInserResponsable_Click(object sender, EventArgs e)
-        {
-            if (responsableSeleccionado != null && sedeSeleccionada != null)
-            {
-                Console.WriteLine("Añadiendo a " + responsableSeleccionado);
-                sedeSeleccionada.Responsable = responsableSeleccionado;
-                MostrarSedes();
-            }
         }
     }
 }

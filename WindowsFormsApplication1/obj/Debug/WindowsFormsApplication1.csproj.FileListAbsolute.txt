@@ -99,3 +99,5 @@ C:\Users\jmsan\Documents\Visual Studio 2013\Projects\Dolly\WindowsFormsApplicati
 C:\Users\jmsan\Documents\Visual Studio 2013\Projects\Dolly\WindowsFormsApplication1\bin\Debug\System.Diagnostics.PerformanceCounter.dll
 C:\Users\jmsan\Documents\Visual Studio 2013\Projects\Dolly\WindowsFormsApplication1\bin\Debug\System.Security.AccessControl.dll
 C:\Users\jmsan\Documents\Visual Studio 2013\Projects\Dolly\WindowsFormsApplication1\bin\Debug\System.Security.Principal.Windows.dll
+C:\Users\Usuario\Documents\GitHub\Dolly\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.AdminSedeTab.resources
+C:\Users\Usuario\Documents\GitHub\Dolly\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.UsersTab.resources
