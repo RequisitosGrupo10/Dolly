@@ -60,7 +60,7 @@ namespace WindowsFormsApplication1
                 {
                     miBD.Insert("INSERT INTO Sede(nombre) VALUES ('" + nombre + "');");
                     Console.WriteLine("Se insertó correctamente");
-                    this.idSede = Int32.Parse(miBD.SelectScalar("SELECT MAX(idSede) FROM Sede").ToString());
+                    this.idSede = (int)miBD.SelectScalar("SELECT MAX(idSede) FROM Sede");
                     this.nombre = nombre;
                     this.responsable = null; 
                 }

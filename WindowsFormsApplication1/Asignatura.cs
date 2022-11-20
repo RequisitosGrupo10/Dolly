@@ -30,10 +30,10 @@ namespace WindowsFormsApplication1
             MySqlBD miBD = new MySqlBD();
             try
             {
-                Object[] tupla = miBD.Select("SELECT * FROM Asignatura WHERE idAsignatura=" + this.idAsignatura + ";")[0];
+                Object[] tupla = miBD.Select("SELECT * FROM Asignatura WHERE idAsignatura=" + idAsignatura + ";")[0];
 
                 this.idAsignatura = (int)tupla[0];
-                this.nombre = (String)tupla[1];
+                this.nombre = (string)tupla[1];
             } catch (Exception e)
             {
                 Console.WriteLine(e.Message);
