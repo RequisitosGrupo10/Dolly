@@ -59,14 +59,12 @@
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.Size = new System.Drawing.Size(864, 359);
             this.dataGridView1.TabIndex = 1;
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             this.dataGridView1.SelectionChanged += new System.EventHandler(this.dataGridView1_SelectionChanged);
             // 
             // asignaturaBindingSource
             // 
             this.asignaturaBindingSource.DataMember = "Asignatura";
-            // 
-            // grupo10DBDataSet3
-            // 
             // 
             // bImport
             // 
@@ -89,9 +87,6 @@
             this.bBorrar.Text = "Borrar Asignatura";
             this.bBorrar.UseVisualStyleBackColor = true;
             this.bBorrar.Click += new System.EventHandler(this.bBorrarAsignatura_Click);
-            // 
-            // asignaturaTableAdapter
-            // 
             // 
             // AsignaturaTab
             // 

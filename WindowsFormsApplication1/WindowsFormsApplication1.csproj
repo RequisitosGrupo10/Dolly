@@ -97,6 +97,8 @@
     <Compile Include="AsignaturaTab.Designer.cs">
       <DependentUpon>AsignaturaTab.cs</DependentUpon>
     </Compile>
+    <Compile Include="Centro.cs" />
+    <Compile Include="Alumno.cs" />
     <Compile Include="Usuario.cs" />
     <Compile Include="EstudianteTab.cs">
       <SubType>Form</SubType>
