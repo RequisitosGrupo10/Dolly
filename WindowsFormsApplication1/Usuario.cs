@@ -59,7 +59,7 @@ namespace WindowsFormsApplication1
 
         public override string ToString()
         {
-            return idUsuario + ";" + username + ";" + rol + ";";
+            return username;
         }
 
         public static List<Usuario> ListaResponsablesDisponibles()
