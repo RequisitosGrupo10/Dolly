@@ -61,7 +61,7 @@ namespace WindowsFormsApplication1
         {
             try
             {
-                if (miBD.Select("SELECT nombre FROM Aula WHERE nombre = '" + nombre + "';").Count == 0)
+                if (miBD.Select("SELECT idAula FROM Aula WHERE nombre = '" + nombre + "';").Count == 0)
                 {
                     miBD.Insert("INSERT INTO Aula(nombre) VALUES ('" + nombre + "');");
                     Console.WriteLine("Se insertó correctamente");
@@ -69,6 +69,14 @@ namespace WindowsFormsApplication1
                     this.nombre = nombre;
                     this.aforo = 0;
                     this.sede = null;
+                }
+                else
+                {
+                    Object[] aula = miBD.Select("SELECT * FROM Aula WHERE nombre = '" + nombre + "';")[0];
+                    this.idAula = (int)aula[0];
+                    this.nombre = (String)aula[1];
+                    this.aforo = (int)aula[2];
+                    this.sede = new Sede((int)aula[3]);
                 }
             }
             catch (Exception e)
