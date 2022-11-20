@@ -19,7 +19,7 @@ namespace WindowsFormsApplication1
         {
             name.Text = aula.Nombre;
             aforo.Text = aula.Aforo.ToString();
-
+            
             List<DateTime> dates = FranjaHoraria.ListarFranjas();
             List<DateTime> datesAssigned = Aula.DisponibilidadHorarias(aula);
             foreach (DateTime date in dates)
@@ -27,7 +27,7 @@ namespace WindowsFormsApplication1
                 franjas.Items.Add(date);
                 if (datesAssigned.Contains(date))
                 {
-                    franjas.SetItemChecked(franjas.Items.Count, true);
+                    franjas.SetItemChecked(franjas.Items.Count-1, true);
                 }
             }
         }
@@ -58,8 +58,13 @@ namespace WindowsFormsApplication1
                 {
                     myBD.Insert("INSERT INTO DisponibilidadAulas VALUES (" + aula.IdAula + ", '" + FranjaHoraria.toSQLFormat(date) + "' )");
                 }
+                else
+                {
+                    myBD.Delete("DELETE FROM DisponibilidadAulas WHERE idAula = " + aula.IdAula + " AND franja = '" + FranjaHoraria.toSQLFormat(date) + "';");
+                }
             }
 
+            franjas.Items.Clear();
             Mostrar();
             
         }

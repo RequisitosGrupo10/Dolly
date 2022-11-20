@@ -190,3 +190,7 @@ C:\Users\Usuario\Documents\GitHub\Dolly\WindowsFormsApplication1\obj\Debug\Windo
 C:\Users\Usuario\Documents\GitHub\Dolly\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.LogIn.resources
 C:\Users\Usuario\Documents\GitHub\Dolly\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.UsuariosTab.resources
 C:\Users\Usuario\Documents\GitHub\Dolly\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.ResponsableSedeTab.resources
+C:\Users\lucia\Documents\GitHub\Dolly\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.AulaTab.resources
+C:\Users\lucia\Documents\GitHub\Dolly\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.FranjasTab.resources
+C:\Users\lucia\Documents\GitHub\Dolly\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.ResponsableSedeTab.resources
+C:\Users\lucia\Documents\GitHub\Dolly\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.UsuariosTab.resources
