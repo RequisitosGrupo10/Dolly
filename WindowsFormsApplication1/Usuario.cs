@@ -11,7 +11,6 @@ namespace WindowsFormsApplication1
     {
         private int idUsuario;
         private string username;
-        private string password;
         private int rol;
 
         public Usuario(int idUsuario)
@@ -20,7 +19,6 @@ namespace WindowsFormsApplication1
             Object[] tupla = miBD.Select("SELECT * FROM Usuario WHERE idUsuario = " + idUsuario + ";")[0];
             this.idUsuario = idUsuario;
             this.username = tupla[1].ToString();
-            this.password = tupla[2].ToString();
             this.rol = (int) tupla[3];
         }
 
@@ -28,9 +26,8 @@ namespace WindowsFormsApplication1
         {
             MySqlBD miBD = new MySqlBD();
             miBD.Insert("INSERT INTO Usuario (username, password, rol) VALUES ('" + username + "', '" + "" + "', " + rol + ");");
-            this.idUsuario = (int) miBD.Select("SELECT MAX(idUsuario) from Usuario where username = '" + username + " and rol = " + rol + ";")[0][0];
+            this.idUsuario = (int) miBD.Select("SELECT MAX(idUsuario) from Usuario where username = '" + username + "' and rol = " + rol + ";")[0][0];
             this.username = username;
-            this.password = "";
             this.rol = rol;
         }
 
@@ -56,6 +53,11 @@ namespace WindowsFormsApplication1
             get { return username; }
         }
 
+        public override string ToString()
+        {
+            return idUsuario + ";" + username + ";" + rol + ";";
+        }
+
         internal static object ListaResponsablesDisponibles()
         {
             MySqlBD miBD = new MySqlBD();
@@ -66,10 +68,6 @@ namespace WindowsFormsApplication1
             }
             return res;
         }
-
-        public override string ToString() {
-            return (this.username);
-          }  
 
     }
 

@@ -31,7 +31,6 @@
             this.components = new System.ComponentModel.Container();
             this.btnImportar = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.nombreRol = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.usuarioBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
             this.btnSalir = new System.Windows.Forms.Button();
             this.grupo10DBDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -46,10 +45,9 @@
             // 
             // btnImportar
             // 
-            this.btnImportar.Location = new System.Drawing.Point(56, 58);
-            this.btnImportar.Margin = new System.Windows.Forms.Padding(4);
+            this.btnImportar.Location = new System.Drawing.Point(42, 47);
             this.btnImportar.Name = "btnImportar";
-            this.btnImportar.Size = new System.Drawing.Size(128, 101);
+            this.btnImportar.Size = new System.Drawing.Size(96, 82);
             this.btnImportar.TabIndex = 0;
             this.btnImportar.Text = "Importar";
             this.btnImportar.UseVisualStyleBackColor = true;
@@ -58,19 +56,10 @@
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.nombreRol});
-            this.dataGridView1.Location = new System.Drawing.Point(311, 58);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4);
+            this.dataGridView1.Location = new System.Drawing.Point(233, 47);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(604, 384);
+            this.dataGridView1.Size = new System.Drawing.Size(453, 312);
             this.dataGridView1.TabIndex = 1;
-            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
-            // 
-            // nombreRol
-            // 
-            this.nombreRol.HeaderText = "nombreRol";
-            this.nombreRol.Name = "nombreRol";
             // 
             // usuarioBindingSource2
             // 
@@ -78,10 +67,9 @@
             // 
             // btnSalir
             // 
-            this.btnSalir.Location = new System.Drawing.Point(921, 486);
-            this.btnSalir.Margin = new System.Windows.Forms.Padding(4);
+            this.btnSalir.Location = new System.Drawing.Point(691, 395);
             this.btnSalir.Name = "btnSalir";
-            this.btnSalir.Size = new System.Drawing.Size(100, 28);
+            this.btnSalir.Size = new System.Drawing.Size(75, 23);
             this.btnSalir.TabIndex = 2;
             this.btnSalir.Text = "Salir";
             this.btnSalir.UseVisualStyleBackColor = true;
@@ -97,16 +85,14 @@
             // 
             // UsersTab
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1067, 554);
+            this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.btnSalir);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.btnImportar);
-            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "UsersTab";
             this.Text = "Users";
-            this.Load += new System.EventHandler(this.UsersTab_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.usuarioBindingSource2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grupo10DBDataSetBindingSource)).EndInit();
@@ -126,7 +112,6 @@
         private System.Windows.Forms.BindingSource usuarioBindingSource1;
         private System.Windows.Forms.DataGridViewTextBoxColumn idUsuarioDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn usernameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nombreRol;
         private System.Windows.Forms.BindingSource usuarioBindingSource2;
     }
 }

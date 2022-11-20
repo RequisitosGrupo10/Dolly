@@ -34,13 +34,19 @@ namespace WindowsFormsApplication1
         {
             string filePath = null;
             MySqlBD miDB = new MySqlBD();            
-            Object[] tupla = miDB.Select("Select idRol from Rol where nombre = 'Responsable de sede'")[0];
-            int role = (int) tupla[0];
+            List<Object[]> tupla = miDB.Select("Select idRol from Rol where Lower(nombre) like 'responsable'");
+            if (tupla.Count == 0)
+            {
+                miDB.Insert("Insert into Rol (nombre) values ('responsable');");
+                tupla = miDB.Select("Select idRol from Rol where Lower(nombre) like 'responsable'");
+            }
+            
+            int role = (int)tupla[0][0];
             Console.WriteLine("Responsable ID = " + role);
             using (OpenFileDialog openFileDialog = new OpenFileDialog())
             {
                 openFileDialog.InitialDirectory = "c\\";
-                //openFileDialog.Filter = "txt files (*.txt)|*.txt";
+                openFileDialog.Filter = "txt files (*.txt)|*.txt";
                 openFileDialog.FilterIndex = 1;
                 openFileDialog.RestoreDirectory = true;
                 if (openFileDialog.ShowDialog() == DialogResult.OK
@@ -58,9 +64,6 @@ namespace WindowsFormsApplication1
                             try
                             {
                                 new Usuario(line, role);
-                                String ins = "Insert into Usuario (username, password, rol) values ('" + line + "', '" + "" + "', " + role + ");";
-                                //Console.WriteLine(ins);
-                                //miDB.Insert(ins);
                             } catch (Exception ex) 
                             {
                                 Console.WriteLine("The line alredy exist");
@@ -72,17 +75,6 @@ namespace WindowsFormsApplication1
                 }
             }
             MostrarUsuarios();
-        }
-
-        private void UsersTab_Load(object sender, EventArgs e)
-        {
-            // TODO: esta línea de código carga datos en la tabla 'grupo10DBDataSet7.Usuario' Puede moverla o quitarla según sea necesario.
-
-        }
-
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
         }
     }
 }
