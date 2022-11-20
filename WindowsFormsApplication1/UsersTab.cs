@@ -90,7 +90,7 @@ namespace WindowsFormsApplication1
 
             if (errors > 0)
             {
-                Log.hacerLog(sb.ToString(), filename);
+                Log.HacerLog(sb.ToString(), filename);
             }
             else
             {

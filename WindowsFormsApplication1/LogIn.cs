@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BDLibrary;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -27,13 +28,19 @@ namespace WindowsFormsApplication1
                 foreach (Usuario user in users)
                 {
                     Console.WriteLine(user.ToString());
-                    if (user.Username.Equals(nombre.Text) && user.Password.Equals(password.Text))
+                    if (user.Username.Equals(nombre.Text))
                     {
-                        usuario = new Usuario(user.IdUsuario);
-                        loginCorrecto();
-                        Console.WriteLine("Login correcto");
-                        break;
-                        // Comenzar a usar la aplicación
+                        MySqlBD miBD = new MySqlBD();
+                        String pwd = (String) miBD.SelectScalar("SELECT password FROM Usuario WHERE idUsuario = " + user.IdUsuario + ";");
+                        if (pwd.Equals(password.Text))
+                        {
+                            usuario = new Usuario(user.IdUsuario);
+                            loginCorrecto();
+                            Console.WriteLine("Login correcto");
+                            break;
+                            // Comenzar a usar la aplicación
+                        }
+
                     }
                 }
                 
@@ -54,6 +61,7 @@ namespace WindowsFormsApplication1
                 
             }else if (this.usuario.Rol == 2)
             {
+                Sede sede = checkSede();
                 ResponsableSedeTab responsableSedeTab = new ResponsableSedeTab();
                 this.Hide();
                 responsableSedeTab.ShowDialog();
@@ -61,6 +69,18 @@ namespace WindowsFormsApplication1
             }
         }
 
+        private Sede checkSede()
+        {
+            List<Sede> sedes = Sede.ListaSede();
+            foreach(Sede sede in sedes)
+            {
+                if(sede.Responsable.IdUsuario==this.usuario.IdUsuario)
+                {
+                    return sede;
+                }
+            }
+            return null;
+        }
         private void ver_CheckedChanged(object sender, EventArgs e)
         {
             if (password.PasswordChar == '*') password.PasswordChar = '\0';
