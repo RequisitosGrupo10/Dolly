@@ -44,7 +44,7 @@ namespace WindowsFormsApplication1
 
         public Centro(String nombre)
         {
-            MySqlBD miBD = new MySqlBD();
+           
             try
             {
                 if (miBD.Select("SELECT nombre FROM Centro WHERE nombre = '" + nombre + "';").Count == 0)
@@ -78,16 +78,20 @@ namespace WindowsFormsApplication1
             get { return sede; }
             set
             {
-                MySqlBD miBD = new MySqlBD();
-                miBD.Update("UPDATE Centro SET sede = " + sede.IdSede + " WHERE idCentro =" + this.idCentro + ";");
-
+                if (value == null)
+                {
+                    miBD.Update("UPDATE Centro SET sede = " + -1 + " WHERE idCentro =" + this.idCentro + ";");
+                }
+                else
+                {
+                    miBD.Update("UPDATE Centro SET sede = " + sede.IdSede + " WHERE idCentro =" + this.idCentro + ";");
+                }
                 sede = value;
             }
         }
 
         public void borrarCentro()
         {
-            MySqlBD miBD = new MySqlBD();
             miBD.Delete("DELETE FROM Centro WHERE idCentro =" + this.idCentro + ";");
             idCentro = -1;
             nombre = null;
