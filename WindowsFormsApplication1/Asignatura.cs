@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace WindowsFormsApplication1
 {
-    class Asignatura
+    public class Asignatura
     {
         private int idAsignatura;
         private string nombre;

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace WindowsFormsApplication1
 {
-    class Centro
+    public class Centro
     {
         private MySqlBD miDB = new MySqlBD();
         private int idCentro;
