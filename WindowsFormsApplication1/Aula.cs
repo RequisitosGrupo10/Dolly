@@ -105,7 +105,7 @@ namespace WindowsFormsApplication1
         {
             string res;
             
-            res ?= this.idAula + ";" + this.nombre + ";";
+            res = this.idAula + ";" + this.nombre + ";";
             if (this.sede != null)
                 res += sede.ToString();
             return res;
