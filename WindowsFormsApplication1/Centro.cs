@@ -69,7 +69,7 @@ namespace WindowsFormsApplication1
             {
                 if (value == null)
                 {
-                    miBD.Update("UPDATE Centro SET idSede = " + -1 + " WHERE idCentro =" + this.idCentro + ";");
+                    miBD.Update("UPDATE Centro SET idSede = null WHERE idCentro =" + this.idCentro + ";");
                 }
                 else
                 {
