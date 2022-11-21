@@ -12,46 +12,20 @@ namespace WindowsFormsApplication1
         private int aforo;
         private Sede sede;
 
-        public static List<Aula> ListaAula()
+        private Aula()
         {
-            List<Aula> lista = new List<Aula>();
-            
-            foreach (Object[] tupla in miBD.Select("SELECT idAula FROM Aula;"))
-            {
-                Aula aux = new Aula((int)tupla[0]);
-                lista.Add(aux);
-            }
-            return lista;
-        }
-
-        public static List<Aula> ListaAula(Sede sede)
-        {
-            List<Aula> lista = new List<Aula>();
-            
-            foreach (Object[] tupla in miBD.Select("SELECT idAula FROM Aula WHERE idSede = " + sede.IdSede + ";"))
-            {
-                Aula aux = new Aula((int)tupla[0]);
-                lista.Add(aux);
-            }
-            return lista;
         }
 
         public Aula(int idAula)
         {
-            try
-            {
-                Object[] tupla = miBD.Select("SELECT * FROM Aula WHERE idAula=" + idAula + ";")[0];
+            try {
+                object[] tupla = miBD.Select("SELECT * FROM Aula WHERE idAula=" + idAula + ";")[0];
 
                 this.idAula = (int)tupla[0];
                 this.nombre = (string)tupla[1];
                 this.aforo = (int)tupla[2];
-                int sedeID;
-                sedeID = -1;
-                if (sedeID > 0)
-                    this.sede = new Sede(sedeID);
-            }
-            catch (Exception e)
-            {
+                this.sede = null;
+            } catch (Exception e) {
                 Console.WriteLine(e.Message);
             }
 
@@ -59,18 +33,14 @@ namespace WindowsFormsApplication1
 
         public Aula(String nombre, int aforo, int idSede)
         {
-            Console.WriteLine("Nombre = " + nombre + ", aforo = "+aforo + ", idSede = " + idSede);
-            try
-            {
+            try {
                 miBD.Insert("INSERT INTO Aula (nombre,aforo, idSede) VALUES ('" + nombre + "', "+aforo+", "+ idSede + ");");
                 Console.WriteLine("Se insertó correctamente");
                 this.idAula = (int)miBD.SelectScalar("SELECT MAX(idAula) FROM Aula");
                 this.nombre = nombre;
                 this.aforo = 0;
                 this.sede = new Sede(idSede);
-            }
-            catch (Exception e)
-            {
+            } catch (Exception e) {
                 Console.WriteLine(e.Message);
             }
 
@@ -86,9 +56,13 @@ namespace WindowsFormsApplication1
             get { return nombre; }
             set
             {
-                miBD.Update("UPDATE Aula SET nombre = '" + value + "' WHERE idAula =" + this.idAula + ";");
-                nombre = value;
-            }
+                try {
+                    miBD.Update("UPDATE Aula SET nombre = '" + value + "' WHERE idAula =" + this.idAula + ";");
+                    nombre = value;
+                } catch (Exception e) {
+                    Console.WriteLine(e.Message);
+                }
+}
         }
 
         public int Aforo
@@ -96,8 +70,12 @@ namespace WindowsFormsApplication1
             get { return aforo; }
             set 
             {
-                miBD.Update("UPDATE Aula SET aforo = " + value + " WHERE idAula =" + this.idAula + ";");
-                aforo = value; 
+                try {
+                    miBD.Update("UPDATE Aula SET aforo = " + value + " WHERE idAula =" + this.idAula + ";");
+                    aforo = value;
+                } catch (Exception e) {
+                    Console.WriteLine(e.Message);
+                }
             }
         }
 
@@ -106,18 +84,13 @@ namespace WindowsFormsApplication1
             get { return sede; }
             set
             {
-                miBD.Update("UPDATE Aula SET sede = " + value.IdSede + " WHERE idAula =" + this.idAula + ";");
-
-                sede = value;
-            }
-        }
-
-        public static List<DateTime> DisponibilidadHorarias(Aula aula)
-        {
-            List<Object[]> datesAssignedAux = miBD.Select("SELECT franja FROM DisponibilidadAulas WHERE idAula = " + aula.IdAula + ";");
-            List<DateTime> datesAssigned = new List<DateTime>();
-            foreach (Object[] date in datesAssignedAux) { datesAssigned.Add((DateTime)date[0]); }
-            return datesAssigned;
+                try {
+                    miBD.Update("UPDATE Aula SET sede = " + value.IdSede + " WHERE idAula =" + this.idAula + ";");
+                    sede = value;
+                } catch (Exception e) {
+                    Console.WriteLine(e.Message);
+                }
+}
         }
 
         public void borrarAula()
@@ -130,12 +103,11 @@ namespace WindowsFormsApplication1
 
         public override string ToString()
         {
-            string res = this.idAula + ";" + this.nombre + ";";
+            string res;
+            
+            res ?= this.idAula + ";" + this.nombre + ";";
             if (this.sede != null)
-            {
                 res += sede.ToString();
-            }
-
             return res;
         }
 
@@ -150,9 +122,42 @@ namespace WindowsFormsApplication1
             return this.Nombre.GetHashCode();
         }
 
-        internal static object ListaSede(object sede)
+        public static List<Aula> ListaAula()
         {
-            throw new NotImplementedException();
+            List<Aula> lista = new List<Aula>();
+
+            foreach (object[] tupla in miBD.Select("SELECT idAula, nombre, aforo FROM Aula;"))
+            {
+                Aula aula = new Aula();
+                aula.idAula = (int)tupla[0];
+                aula.nombre = (string)tupla[1];
+                aula.aforo = (int)tupla[2];
+                lista.Add(aula);
+            }
+            return lista;
+        }
+
+        public static List<Aula> ListaAula(Sede sede)
+        {
+            List<Aula> lista = new List<Aula>();
+
+            foreach (object[] tupla in miBD.Select("SELECT idAula, nombre, aforo FROM Aula WHERE idSede = " + sede.IdSede + ";"))
+            {
+                Aula aula = new Aula();
+                aula.idAula = (int)tupla[0];
+                aula.nombre = (string)tupla[1];
+                aula.aforo = (int)tupla[2];
+                lista.Add(aula);
+            }
+            return lista;
+        }
+
+        public static List<DateTime> DisponibilidadHorarias(Aula aula)
+        {
+            List<object[]> datesAssignedAux = miBD.Select("SELECT franja FROM DisponibilidadAulas WHERE idAula = " + aula.IdAula + ";");
+            List<DateTime> datesAssigned = new List<DateTime>();
+            foreach (object[] date in datesAssignedAux) { datesAssigned.Add((DateTime)date[0]); }
+            return datesAssigned;
         }
     }
 }

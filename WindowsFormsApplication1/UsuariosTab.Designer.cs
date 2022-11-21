@@ -48,9 +48,10 @@
             // 
             // bImportarUsuarios
             // 
-            this.bImportarUsuarios.Location = new System.Drawing.Point(40, 179);
+            this.bImportarUsuarios.Location = new System.Drawing.Point(51, 58);
+            this.bImportarUsuarios.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.bImportarUsuarios.Name = "bImportarUsuarios";
-            this.bImportarUsuarios.Size = new System.Drawing.Size(148, 49);
+            this.bImportarUsuarios.Size = new System.Drawing.Size(197, 86);
             this.bImportarUsuarios.TabIndex = 0;
             this.bImportarUsuarios.Text = "Importar Usuarios";
             this.bImportarUsuarios.UseVisualStyleBackColor = true;
@@ -64,27 +65,33 @@
             this.idUsuario,
             this.nombre,
             this.rol});
-            this.dataGridView.Location = new System.Drawing.Point(233, 47);
+            this.dataGridView.Location = new System.Drawing.Point(311, 58);
+            this.dataGridView.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dataGridView.Name = "dataGridView";
-            this.dataGridView.Size = new System.Drawing.Size(453, 312);
+            this.dataGridView.RowHeadersWidth = 51;
+            this.dataGridView.Size = new System.Drawing.Size(700, 384);
             this.dataGridView.TabIndex = 1;
             // 
             // idUsuario
             // 
             this.idUsuario.HeaderText = "idUsuario";
+            this.idUsuario.MinimumWidth = 6;
             this.idUsuario.Name = "idUsuario";
             this.idUsuario.Width = 60;
             // 
             // nombre
             // 
             this.nombre.HeaderText = "nombre";
+            this.nombre.MinimumWidth = 6;
             this.nombre.Name = "nombre";
             this.nombre.Width = 150;
             // 
             // rol
             // 
             this.rol.HeaderText = "rol";
+            this.rol.MinimumWidth = 6;
             this.rol.Name = "rol";
+            this.rol.Width = 125;
             // 
             // usuarioBindingSource2
             // 
@@ -92,9 +99,10 @@
             // 
             // bAtras
             // 
-            this.bAtras.Location = new System.Drawing.Point(691, 395);
+            this.bAtras.Location = new System.Drawing.Point(921, 486);
+            this.bAtras.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.bAtras.Name = "bAtras";
-            this.bAtras.Size = new System.Drawing.Size(75, 23);
+            this.bAtras.Size = new System.Drawing.Size(100, 28);
             this.bAtras.TabIndex = 2;
             this.bAtras.Text = "ATRÁS";
             this.bAtras.UseVisualStyleBackColor = true;
@@ -108,16 +116,17 @@
             // 
             this.usuarioBindingSource1.DataMember = "Usuario";
             // 
-            // UsersTab
+            // UsuariosTab
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1067, 554);
             this.Controls.Add(this.bAtras);
             this.Controls.Add(this.dataGridView);
             this.Controls.Add(this.bImportarUsuarios);
-            this.Name = "UsersTab";
-            this.Text = "Users";
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Name = "UsuariosTab";
+            this.Text = "Usuarios";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.usuarioBindingSource2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grupo10DBDataSetBindingSource)).EndInit();

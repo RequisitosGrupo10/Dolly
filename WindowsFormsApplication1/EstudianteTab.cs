@@ -7,15 +7,17 @@ namespace WindowsFormsApplication1
 {
     public partial class EstudianteTab : Form
     {
+        Alumno seleccionado;
         public EstudianteTab()
         {
             InitializeComponent();
             MostrarEstudiantes();
+            seleccionado = null;
         }
 
         private void MostrarEstudiantes()
         {
-            dataGridView.DataSource = Alumno.ListaEstudiantes();
+            dataGridView.DataSource = Alumno.ListaAlumno();
         }
 
         private void bImportarEstudiantes_Click(object sender, EventArgs e)
@@ -34,9 +36,9 @@ namespace WindowsFormsApplication1
                 if (openFileDialog.ShowDialog() == DialogResult.OK
                     && !openFileDialog.FileName.Equals(""))
                 {
-                    //Get the path of specified file
+                    // Obetener el Path
                     filePath = openFileDialog.FileName;
-                    //Read the contents of the file into a stream
+                    // Leer del fichero
                     var fileStream = openFileDialog.OpenFile();
                     using (StreamReader reader = new StreamReader(fileStream))
                     {
@@ -55,29 +57,21 @@ namespace WindowsFormsApplication1
                             {
                                 if (attributes.Length == 6)
                                 {
-                                    string s_centro = attributes[0];
+                                    string nombre;
+                                    string apellido1;
+                                    string apellido2;
+                                    string dni_nif;
+                                    string[] materias;
                                     Centro centro;
-                                    /* A continuación se comprueba si el nombre está en la lista de centros para insertarlo o no*/
-                                        var i = 0;
-                                        while(i < centros.Count)
-                                        {
-                                            if (s_centro.Equals(centros[i].Nombre))
-                                                break;
-                                            i++;
-                                        }
-                                        if (i == centros.Count)
-                                        {
-                                            centro = new Centro(s_centro);
-                                            centros.Add(centro);
-                                        }
-                                        else
-                                            centro = centros[i];
-                                    /**/
-                                    string nombre = attributes[1];
-                                    string apellido1 = attributes[2];
-                                    string apellido2 = (attributes[3].Equals("0")) ? "" : attributes[3];
-                                    string dni_nif = attributes[4];
-                                    string[] materias = attributes[5].Split(',');
+                                    string s_centro;
+
+                                    s_centro = attributes[0];
+                                    centro = GetOrAddCentro(s_centro, centros);
+                                    nombre = attributes[1];
+                                    apellido1 = attributes[2];
+                                    apellido2 = (attributes[3].Equals("0")) ? "" : attributes[3];
+                                    dni_nif = attributes[4];
+                                    materias = attributes[5].Split(',');
                                     for (int m = 0; m < materias.Length; m++)
                                     {
                                         materias[m] = materias[m].Trim();
@@ -101,6 +95,30 @@ namespace WindowsFormsApplication1
             }
         }
 
+        private Centro GetOrAddCentro(string s_centro, List<Centro> centros)
+        {
+            Centro centro;
+            int i;
+                
+            i = 0;
+            while (i < centros.Count)
+            {
+                if (s_centro.Equals(centros[i].Nombre))
+                    break;
+                i++;
+            }
+            if (i == centros.Count)
+            {
+                centro = new Centro(s_centro);
+                centros.Add(centro);
+            }
+            else
+            {
+                centro = centros[i];
+            }
+            return (centro);
+        }
+
         private void bAtras_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -111,11 +129,33 @@ namespace WindowsFormsApplication1
             
         }
 
+        /* Borra todos los estudiantes de la base de datos*/
         private void bBorrar_Click(object sender, EventArgs e)
         {
-            foreach (var estudiante in Alumno.ListaEstudiantes())
+            foreach (var estudiante in Alumno.ListaAlumno())
                 estudiante.borrarAlumno();
             MostrarEstudiantes();
+        }
+
+        /* Borra el estudiante seleccionado */
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (seleccionado != null)
+            {
+                seleccionado.borrarAlumno();
+                MostrarEstudiantes();
+            }
+        }
+
+        private void dataGridView_SelectionChanged(object sender, EventArgs e)
+        {
+            string idAlumno;
+
+            if (dataGridView.SelectedRows.Count > 0)
+            {
+                idAlumno = (string)dataGridView.SelectedRows[0].Cells[3].Value;
+                seleccionado = new Alumno(idAlumno);
+            }
         }
     }
 }

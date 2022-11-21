@@ -32,6 +32,7 @@
             this.bImportarEstudiantes = new System.Windows.Forms.Button();
             this.dataGridView = new System.Windows.Forms.DataGridView();
             this.bBorrar = new System.Windows.Forms.Button();
+            this.bBorrarEstudiante = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -64,25 +65,41 @@
             this.dataGridView.Location = new System.Drawing.Point(229, 12);
             this.dataGridView.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dataGridView.Name = "dataGridView";
+            this.dataGridView.RowHeadersWidth = 51;
             this.dataGridView.RowTemplate.Height = 24;
             this.dataGridView.Size = new System.Drawing.Size(776, 309);
             this.dataGridView.TabIndex = 2;
+            this.dataGridView.SelectionChanged += new System.EventHandler(this.dataGridView_SelectionChanged);
             // 
             // bBorrar
             // 
+            this.bBorrar.BackColor = System.Drawing.Color.Gold;
+            this.bBorrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bBorrar.Location = new System.Drawing.Point(23, 239);
             this.bBorrar.Name = "bBorrar";
             this.bBorrar.Size = new System.Drawing.Size(159, 82);
             this.bBorrar.TabIndex = 3;
-            this.bBorrar.Text = "Borrar Estudiantes";
-            this.bBorrar.UseVisualStyleBackColor = true;
+            this.bBorrar.Text = "Borrar todos los estudiantes";
+            this.bBorrar.UseVisualStyleBackColor = false;
             this.bBorrar.Click += new System.EventHandler(this.bBorrar_Click);
+            // 
+            // bBorrarEstudiante
+            // 
+            this.bBorrarEstudiante.Location = new System.Drawing.Point(23, 131);
+            this.bBorrarEstudiante.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.bBorrarEstudiante.Name = "bBorrarEstudiante";
+            this.bBorrarEstudiante.Size = new System.Drawing.Size(159, 75);
+            this.bBorrarEstudiante.TabIndex = 4;
+            this.bBorrarEstudiante.Text = "Borrar Estudiante";
+            this.bBorrarEstudiante.UseVisualStyleBackColor = true;
+            this.bBorrarEstudiante.Click += new System.EventHandler(this.button1_Click);
             // 
             // EstudianteTab
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1037, 396);
+            this.Controls.Add(this.bBorrarEstudiante);
             this.Controls.Add(this.bBorrar);
             this.Controls.Add(this.dataGridView);
             this.Controls.Add(this.bImportarEstudiantes);
@@ -102,6 +119,7 @@
         private System.Windows.Forms.Button bImportarEstudiantes;
         private System.Windows.Forms.DataGridView dataGridView;
         private System.Windows.Forms.Button bBorrar;
+        private System.Windows.Forms.Button bBorrarEstudiante;
     }
 }
 

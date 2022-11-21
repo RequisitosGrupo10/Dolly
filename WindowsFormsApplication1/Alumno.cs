@@ -85,7 +85,7 @@ namespace WindowsFormsApplication1
         {
             if (Asignatura.ListaAsignaturaNombre().Contains(s_asignatura))
             {
-                var asignatura = Asignatura.getAsignaturaByName(s_asignatura);
+                Asignatura asignatura = Asignatura.getAsignaturaByName(s_asignatura);
                 miBD.Insert("Insert into AlumnoAsignatura(idAsignatura, DNI) values ("+asignatura.IdAsignatura+ ", '"+ this.dni_nif +"');");
                 Materias.Add(asignatura);
             }
@@ -111,7 +111,7 @@ namespace WindowsFormsApplication1
             return res;
         }
 
-        public static List<Alumno> ListaEstudiantes()
+        public static List<Alumno> ListaAlumno()
         {
             List<Alumno> lista = new List<Alumno>();
 
@@ -123,7 +123,7 @@ namespace WindowsFormsApplication1
                 aux.apellido1 = (string)tupla[2];
                 aux.apellido2 = (string)tupla[3];
                 aux.centro = null;
-                aux.materias= null;
+                aux.materias = null;
                 lista.Add(aux);
             }
             return lista;

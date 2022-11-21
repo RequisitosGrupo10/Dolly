@@ -13,25 +13,32 @@ namespace WindowsFormsApplication1
         private string username;
         private int rol;
 
-        public Usuario()
+        private Usuario()
         {
         }
 
         public Usuario(int idUsuario)
         {
-            Object[] tupla = miBD.Select("SELECT * FROM Usuario WHERE idUsuario = " + idUsuario + ";")[0];
-            this.idUsuario = idUsuario;
-            this.username = tupla[1].ToString();
-            this.rol = (int) tupla[3];
+            try { 
+                object[] tupla = miBD.Select("SELECT * FROM Usuario WHERE idUsuario = " + idUsuario + ";")[0];
+                this.idUsuario = idUsuario;
+                this.username = tupla[1].ToString();
+                this.rol = (int) tupla[3];
+            } catch (Exception ex){
+                Console.WriteLine("ERROR:" + ex.Message);
+            }
         }
         public Usuario (string nombre)
         {
-            List<Object[]> list = miBD.Select("Select idUsuario, username, rol from Usuario where username = '" + nombre + "';");
-            foreach (Object[] user in list)
-            {
-                this.idUsuario = (int)user[0];
-                this.username = (string)user[1];
-                this.rol = (int)user[2];
+            try { 
+                foreach (object[] user in miBD.Select("Select idUsuario, username, rol from Usuario where username = '" + nombre + "';"))
+                {
+                    this.idUsuario = (int)user[0];
+                    this.username = (string)user[1];
+                    this.rol = (int)user[2];
+                }
+            } catch (Exception ex){
+                Console.WriteLine("ERROR:" + ex.Message);
             }
         }
         public Usuario(string username, int rol)

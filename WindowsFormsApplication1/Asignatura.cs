@@ -14,7 +14,7 @@ namespace WindowsFormsApplication1
         {
             List<Asignatura> lista = new List<Asignatura>();
 
-            foreach (Object[] tupla in miBD.Select("SELECT idAsignatura, nombre FROM Asignatura;"))
+            foreach (object[] tupla in miBD.Select("SELECT idAsignatura, nombre FROM Asignatura;"))
             {
                 Asignatura aux = new Asignatura();
                 aux.idAsignatura = (int)tupla[0];
@@ -39,7 +39,7 @@ namespace WindowsFormsApplication1
         {
             List<Asignatura> lista = new List<Asignatura>();
 
-            foreach (Object[] tupla in miBD.Select("Select Asignatura.idAsignatura, Asignatura.nombre from Asignatura join AlumnoAsignatura on (Asignatura.idAsignatura = AlumnoAsignatura.idAsignatura) Where AlumnoAsignatura.DNI = '" + alumno.DNI +"';"))
+            foreach (object[] tupla in miBD.Select("Select Asignatura.idAsignatura, Asignatura.nombre from Asignatura join AlumnoAsignatura on (Asignatura.idAsignatura = AlumnoAsignatura.idAsignatura) Where AlumnoAsignatura.DNI = '" + alumno.DNI +"';"))
             {
                 Asignatura aux = new Asignatura();
                 aux.idAsignatura = (int)tupla[0];
@@ -58,7 +58,7 @@ namespace WindowsFormsApplication1
         {
             try
             {
-                Object[] tupla = miBD.Select("SELECT idAsignatura, nombre FROM Asignatura WHERE idAsignatura=" + idAsignatura + ";")[0];
+                object[] tupla = miBD.Select("SELECT idAsignatura, nombre FROM Asignatura WHERE idAsignatura=" + idAsignatura + ";")[0];
                 this.idAsignatura = (int)tupla[0];
                 this.nombre = (string)tupla[1];
             } catch (Exception e)
@@ -79,9 +79,8 @@ namespace WindowsFormsApplication1
                     this.idAsignatura = (int)miBD.SelectScalar("SELECT MAX(idAsignatura) FROM Asignatura");
                     this.nombre = nombre;
                 }
-            } catch (Exception e)
-            {
-                Console.WriteLine(e.Message);
+            } catch (Exception e) {
+                Console.WriteLine("ERROR: " + e.Message);
             }
         }
 
@@ -90,9 +89,12 @@ namespace WindowsFormsApplication1
             get { return idAsignatura; }
             set
             {
-                miBD.Update("UPDATE Grupo SET idAsignatura = " + value + " WHERE idAsignatura =" + this.idAsignatura + ";");
-
-                idAsignatura = value;
+                try {
+                    miBD.Update("UPDATE Grupo SET idAsignatura = " + value + " WHERE idAsignatura =" + this.idAsignatura + ";");
+                    idAsignatura = value;
+                } catch (Exception e) {
+                    Console.WriteLine("ERROR: " + e.Message);
+                }
             }
         }
 
@@ -101,9 +103,12 @@ namespace WindowsFormsApplication1
             get { return nombre; }
             set
             {
-                miBD.Update("UPDATE Grupo SET nombre = '" + value + "' WHERE idAsignatura =" + this.idAsignatura + ";");
-
-                nombre = value;
+                try {
+                    miBD.Update("UPDATE Grupo SET nombre = '" + value + "' WHERE idAsignatura =" + this.idAsignatura + ";");
+                    nombre = value;
+                } catch (Exception e) {
+                    Console.WriteLine("ERROR: " + e.Message);
+                }
             }
         }
 
