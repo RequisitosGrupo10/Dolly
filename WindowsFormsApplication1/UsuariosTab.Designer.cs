@@ -48,10 +48,9 @@
             // 
             // bImportarUsuarios
             // 
-            this.bImportarUsuarios.Location = new System.Drawing.Point(51, 58);
-            this.bImportarUsuarios.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.bImportarUsuarios.Location = new System.Drawing.Point(38, 47);
             this.bImportarUsuarios.Name = "bImportarUsuarios";
-            this.bImportarUsuarios.Size = new System.Drawing.Size(197, 86);
+            this.bImportarUsuarios.Size = new System.Drawing.Size(148, 70);
             this.bImportarUsuarios.TabIndex = 0;
             this.bImportarUsuarios.Text = "Importar Usuarios";
             this.bImportarUsuarios.UseVisualStyleBackColor = true;
@@ -65,11 +64,11 @@
             this.idUsuario,
             this.nombre,
             this.rol});
-            this.dataGridView.Location = new System.Drawing.Point(311, 58);
-            this.dataGridView.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dataGridView.Location = new System.Drawing.Point(233, 47);
             this.dataGridView.Name = "dataGridView";
+            this.dataGridView.ReadOnly = true;
             this.dataGridView.RowHeadersWidth = 51;
-            this.dataGridView.Size = new System.Drawing.Size(700, 384);
+            this.dataGridView.Size = new System.Drawing.Size(525, 312);
             this.dataGridView.TabIndex = 1;
             // 
             // idUsuario
@@ -99,10 +98,9 @@
             // 
             // bAtras
             // 
-            this.bAtras.Location = new System.Drawing.Point(921, 486);
-            this.bAtras.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.bAtras.Location = new System.Drawing.Point(691, 395);
             this.bAtras.Name = "bAtras";
-            this.bAtras.Size = new System.Drawing.Size(100, 28);
+            this.bAtras.Size = new System.Drawing.Size(75, 23);
             this.bAtras.TabIndex = 2;
             this.bAtras.Text = "ATRÁS";
             this.bAtras.UseVisualStyleBackColor = true;
@@ -118,13 +116,12 @@
             // 
             // UsuariosTab
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1067, 554);
+            this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.bAtras);
             this.Controls.Add(this.dataGridView);
             this.Controls.Add(this.bImportarUsuarios);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "UsuariosTab";
             this.Text = "Usuarios";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).EndInit();

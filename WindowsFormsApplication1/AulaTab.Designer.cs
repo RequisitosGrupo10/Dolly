@@ -98,6 +98,7 @@
             this.bConfirmarCambios.TabIndex = 6;
             this.bConfirmarCambios.Text = "Confirmar Cambios";
             this.bConfirmarCambios.UseVisualStyleBackColor = true;
+            this.bConfirmarCambios.Click += new System.EventHandler(this.bConfirmarCambios_Click);
             // 
             // AulaTab
             // 

@@ -42,9 +42,14 @@ namespace WindowsFormsApplication1
 
         private String Disponible()
         {
+            int disponible = int.Parse(Aforo());
             int rows = dataGridView.RowCount;
-            int disponible = int.Parse(tAforo.Text);
-            //disponible -= (int)dataGridView1.SelectedRows[i].Cells[1].Value; //seleccionar numero estudiantes de un centro
+            for (int i = 0; i < rows; i++)
+            {
+                int idCentro = (int)dataGridView.Rows[i].Cells[0].Value;
+                Centro aux = new Centro(idCentro);
+                disponible = disponible - aux.aforoCentro();
+            }
             return disponible.ToString();
         }
 

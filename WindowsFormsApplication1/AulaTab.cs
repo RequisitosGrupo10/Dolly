@@ -37,6 +37,7 @@ namespace WindowsFormsApplication1
             if (aula.Nombre == null)
             {
                 aula.Nombre = tAula.Text;
+                
             }
             else if (!aula.Nombre.Equals(tAula.Text))
             {
@@ -65,7 +66,7 @@ namespace WindowsFormsApplication1
             }
 
             cbFranjasHorarias.Items.Clear();
-            Mostrar();
+            this.Close();
         }
     }
 }

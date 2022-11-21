@@ -34,7 +34,7 @@ namespace WindowsFormsApplication1
             try
             {
                 usuario = new Usuario(tNombre.Text);
-                if (usuario != null)
+                if (usuario != null && usuario.Username.Equals(tNombre.Text))
                 {                           
                     if (usuario.checkPassword(tContrasena.Text))
                         loginCorrecto();

@@ -112,14 +112,9 @@ namespace WindowsFormsApplication1
             responsable = null;
         }
 
-        public override string ToString()
+        public override String ToString()
         {
-            string res = this.idSede + ";" + this.nombre + ";";
-            if (this.responsable != null) {
-                res += responsable.ToString();
-            }
-
-            return res;
+            return this.nombre;
         }
 
         public override bool Equals(object obj)

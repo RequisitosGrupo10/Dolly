@@ -6,7 +6,6 @@ namespace WindowsFormsApplication1
 {
     public partial class AdminSedeTab : Form
     {
-        //FALTA HACER QUITAR CENTROS Y DISPONIBLE
         Centro centroSedeSeleccionado;
         Centro centroSeleccionado;
         Usuario responsableSeleccionado;
@@ -46,9 +45,15 @@ namespace WindowsFormsApplication1
 
         private String Disponible()
         {
+
+            int disponible = int.Parse(Aforo());
             int rows = dataGridView.RowCount;
-            int disponible = int.Parse(tAforo.Text);
-            //disponible -= (int)dataGridView1.SelectedRows[i].Cells[1].Value; //seleccionar numero estudiantes de un centro
+            for (int i = 0; i < rows; i++)
+            {
+                int idCentro = (int)dataGridView.Rows[i].Cells[0].Value;
+                Centro aux = new Centro(idCentro);
+                disponible = disponible - aux.aforoCentro();
+            }
             return disponible.ToString();
         }
 
@@ -68,7 +73,6 @@ namespace WindowsFormsApplication1
                 {
                     int idCentro = (int)dataGridView.SelectedRows[0].Cells[0].Value;
                     String nombre = (String)dataGridView.SelectedRows[0].Cells[1].Value;
-                    //int idSede = (int)dataGridView.SelectedRows[0].Cells[2].Value;
                     centroSedeSeleccionado = new Centro(idCentro);
                 }
                 toggleButton();

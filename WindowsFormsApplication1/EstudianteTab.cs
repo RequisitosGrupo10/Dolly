@@ -90,7 +90,7 @@ namespace WindowsFormsApplication1
                             n_line++;
                         }
                     }
-                    MessageBox.Show("Se procesaron " + (n_line - 1) + " líneas.", "File Content at path: " + filePath, MessageBoxButtons.OK);
+                    MessageBox.Show("Se procesaron " + (n_line) + " líneas.", "File Content at path: " + filePath, MessageBoxButtons.OK);
                     Mostrar();
                 }
             }

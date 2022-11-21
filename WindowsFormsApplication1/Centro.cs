@@ -1,6 +1,7 @@
 ﻿using BDLibrary;
 using System;
 using System.Collections.Generic;
+using System.Runtime.InteropServices;
 
 namespace WindowsFormsApplication1
 {
@@ -85,6 +86,11 @@ namespace WindowsFormsApplication1
             idCentro = -1;
             nombre = null;
             sede = null;
+        }
+
+        public int aforoCentro()
+        {
+            return int.Parse(miBD.Select("SELECT COUNT(*) FROM Alumno WHERE idCentro = " + this.idCentro + ";")[0][0].ToString());
         }
 
         public override string ToString()

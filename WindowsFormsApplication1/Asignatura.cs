@@ -134,7 +134,7 @@ namespace WindowsFormsApplication1
 
         public override int GetHashCode()
         {
-            return this.idAsignatura.GetHashCode();
+            return this.nombre.GetHashCode();
         }
         public static Asignatura getAsignaturaByName(string nombre)
         {

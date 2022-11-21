@@ -48,6 +48,7 @@ namespace WindowsFormsApplication1
             this.dataGridView.Location = new System.Drawing.Point(161, 44);
             this.dataGridView.MultiSelect = false;
             this.dataGridView.Name = "dataGridView";
+            this.dataGridView.ReadOnly = true;
             this.dataGridView.Size = new System.Drawing.Size(469, 214);
             this.dataGridView.TabIndex = 0;
             this.dataGridView.SelectionChanged += new System.EventHandler(this.dataGridView_SelectionChanged);
@@ -56,11 +57,13 @@ namespace WindowsFormsApplication1
             // 
             this.Hora.HeaderText = "Hora";
             this.Hora.Name = "Hora";
+            this.Hora.ReadOnly = true;
             // 
             // Dia
             // 
             this.Dia.HeaderText = "Dia";
             this.Dia.Name = "Dia";
+            this.Dia.ReadOnly = true;
             // 
             // bInsertarFranjaHoraria
             // 

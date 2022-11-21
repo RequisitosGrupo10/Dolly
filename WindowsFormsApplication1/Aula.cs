@@ -147,6 +147,7 @@ namespace WindowsFormsApplication1
                 aula.idAula = (int)tupla[0];
                 aula.nombre = (string)tupla[1];
                 aula.aforo = (int)tupla[2];
+                aula.sede = sede;
                 lista.Add(aula);
             }
             return lista;
