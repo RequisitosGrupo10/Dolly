@@ -17,17 +17,10 @@ namespace WindowsFormsApplication1
 
         private void MostrarSedes()
         {
-            dataGridView1.DataSource = Sede.ListaSede();
+            dataGridView.DataSource = Sede.ListaSede();
         }
 
-        private void Form1_Load(object sender, EventArgs e)
-        {
-            // TODO: esta línea de código carga datos en la tabla 'grupo10DBDataSet.Sede' Puede moverla o quitarla según sea necesario.
-            MostrarSedes();
-
-        }
-
-        private void bImport_Click(object sender, EventArgs e)
+        private void bImportarSedes_Click(object sender, EventArgs e)
         {
             int n_line = 0;
             var fileContent = string.Empty;
@@ -85,7 +78,7 @@ namespace WindowsFormsApplication1
             }
         }
 
-        private void bBorrarSede_Click(object sender, EventArgs e)
+        private void bEliminarSede_Click(object sender, EventArgs e)
         {
 
             if (seleccionado != null)
@@ -100,13 +93,13 @@ namespace WindowsFormsApplication1
             }
         }
 
-        private void dataGridView1_SelectionChanged_1(object sender, EventArgs e)
+        private void dataGridView_SelectionChanged(object sender, EventArgs e)
         {
             try
             {
-                if (dataGridView1.SelectedRows.Count > 0)
+                if (dataGridView.SelectedRows.Count > 0)
                 {
-                    int idSede = (int)dataGridView1.SelectedRows[0].Cells[0].Value;
+                    int idSede = (int)dataGridView.SelectedRows[0].Cells[0].Value;
                     seleccionado = new Sede(idSede);
                 }
             }
@@ -116,7 +109,7 @@ namespace WindowsFormsApplication1
             }
         }
 
-        private void bExit_Click(object sender, EventArgs e)
+        private void bAtras_Click(object sender, EventArgs e)
         {
             this.Close();
         }

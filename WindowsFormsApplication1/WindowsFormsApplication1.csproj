@@ -176,6 +176,9 @@
     <EmbeddedResource Include="AddFranjasTab.resx">
       <DependentUpon>AddFranjasTab.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="AdminCentroTab.resx">
+      <DependentUpon>AdminCentroTab.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AdminSedeTab.resx">
       <DependentUpon>AdminSedeTab.cs</DependentUpon>
     </EmbeddedResource>

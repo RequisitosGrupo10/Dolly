@@ -69,11 +69,11 @@ namespace WindowsFormsApplication1
             {
                 if (value == null)
                 {
-                    miBD.Update("UPDATE Centro SET sede = " + -1 + " WHERE idCentro =" + this.idCentro + ";");
+                    miBD.Update("UPDATE Centro SET idSede = " + -1 + " WHERE idCentro =" + this.idCentro + ";");
                 }
                 else
                 {
-                    miBD.Update("UPDATE Centro SET sede = " + sede.IdSede + " WHERE idCentro =" + this.idCentro + ";");
+                    miBD.Update("UPDATE Centro SET idSede = " + value.IdSede + " WHERE idCentro =" + this.idCentro + ";");
                 }
                 sede = value;
             }
@@ -117,6 +117,32 @@ namespace WindowsFormsApplication1
                 Centro centro = new Centro();
                 centro.idCentro = (int)tupla[0];
                 centro.nombre= (string)tupla[1];
+                lista.Add(centro);
+            }
+            return lista;
+        }
+
+        public static List<Centro> ListaCentro(Sede sede)
+        {
+            List<Centro> lista = new List<Centro>();
+
+            foreach (object[] tupla in miBD.Select("SELECT idCentro, nombre FROM Centro WHERE idSede = " + sede.IdSede + ";"))
+            {
+                Centro centro = new Centro();
+                centro.idCentro = (int)tupla[0];
+                centro.nombre = (string)tupla[1];
+                centro.sede = sede;
+                lista.Add(centro);
+            }
+            return lista;
+        }
+
+        public static List<Centro> ListaCentrosDisponibles()
+        {
+            List<Centro> lista = new List<Centro>();
+            foreach (object[] tupla in miBD.Select("SELECT idCentro FROM Centro WHERE idSede is null;"))
+            {
+                Centro centro = new Centro((int)tupla[0]);
                 lista.Add(centro);
             }
             return lista;

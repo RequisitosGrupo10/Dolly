@@ -6,6 +6,7 @@ namespace WindowsFormsApplication1
     public partial class AdminSedeTab : Form
     {
         //FALTA HACER ASIGNAR CENTROS
+        Centro centroSedeSeleccionado;
         Centro centroSeleccionado;
         Usuario responsableSeleccionado;
         Sede sede;
@@ -20,12 +21,13 @@ namespace WindowsFormsApplication1
 
         private void Mostrar()
         {
-            dataGridView.DataSource = Centro.ListaCentro();
+            dataGridView.DataSource = Centro.ListaCentro(sede);
             lNombreSede.Text = sede.Nombre;
             tAforo.Text = Aforo();
             tDisponible.Text = Disponible();
             tResponsableDeSede.Text = Responsable();
             listResponsableDeSede.DataSource = Usuario.ListaResponsablesDisponibles();
+            listCentros.DataSource = Centro.ListaCentrosDisponibles();
         }
 
         private String Aforo()
@@ -60,10 +62,10 @@ namespace WindowsFormsApplication1
             {
                 if (dataGridView.SelectedRows.Count > 0)
                 {
-                    int idSede = (int)dataGridView.SelectedRows[0].Cells[0].Value;
+                    int idCentro = (int)dataGridView.SelectedRows[0].Cells[0].Value;
                     String nombre = (String)dataGridView.SelectedRows[0].Cells[1].Value;
-                    int idCentro = (int)dataGridView.SelectedRows[0].Cells[2].Value;
-                    centroSeleccionado = new Centro(idCentro);
+                    //int idSede = (int)dataGridView.SelectedRows[0].Cells[2].Value;
+                    centroSedeSeleccionado = new Centro(idCentro);
                 }
             }
             catch (Exception ex)
@@ -104,14 +106,44 @@ namespace WindowsFormsApplication1
             }
         }
 
+        private void bAsignarCentro_Click(object sender, EventArgs e)
+        {
+            if (centroSeleccionado != null)
+            {
+                Console.WriteLine("Añadiendo a " + centroSeleccionado);
+                centroSeleccionado.Sede = sede;
+                Mostrar();
+            }
+        }
+
+        private void bQuitarCentro_Click(object sender, EventArgs e)
+        {
+            if (centroSedeSeleccionado != null)
+            {
+                Console.WriteLine("Eliminando " + centroSedeSeleccionado);
+                centroSedeSeleccionado.Sede = null;
+                Mostrar();
+            }
+        }
+
+        private void listCentros_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                if (listCentros.SelectedItem != null)
+                {
+                    centroSeleccionado = (Centro)listCentros.SelectedItem;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("ERROR: " + ex.Message);
+            }
+        }
+
         private void bAtras_Click(object sender, EventArgs e)
         {
             this.Close();
-        }
-
-        private void bAsignarCentros_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }
