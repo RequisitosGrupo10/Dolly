@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
 
@@ -80,6 +81,7 @@ namespace WindowsFormsApplication1
                     string nombre = (string)dataGridView.SelectedRows[0].Cells[1].Value;
                     seleccionado = new Asignatura(idAsignatura);
                 }
+                toggleButton();
             }
             catch (Exception ex)
             {
@@ -87,15 +89,23 @@ namespace WindowsFormsApplication1
             }
         }
 
+        private void toggleButton()
+        {
+            if (seleccionado != null)
+            {
+                bEliminarAsignatura.Enabled = true;
+                bEliminarAsignatura.BackColor = SystemColors.Control;
+            }
+            else
+            {
+                bEliminarAsignatura.Enabled = false;
+                bEliminarAsignatura.BackColor = SystemColors.ControlDark;
+            }
+        }
+
         private void bAtras_Click(object sender, EventArgs e)
         {
             this.Close();
-        }
-
-        private void AsignaturaTab_Load(object sender, EventArgs e)
-        {
-            // TODO: esta línea de código carga datos en la tabla 'grupo10DBDataSet3.Asignatura' Puede moverla o quitarla según sea necesario.
-            Mostrar();
         }
     }
 }

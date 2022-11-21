@@ -1,11 +1,12 @@
 ﻿using System;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace WindowsFormsApplication1
 {
     public partial class AdminSedeTab : Form
     {
-        //FALTA HACER ASIGNAR CENTROS
+        //FALTA HACER QUITAR CENTROS Y DISPONIBLE
         Centro centroSedeSeleccionado;
         Centro centroSeleccionado;
         Usuario responsableSeleccionado;
@@ -24,8 +25,11 @@ namespace WindowsFormsApplication1
             dataGridView.DataSource = Centro.ListaCentro(sede);
             lNombreSede.Text = sede.Nombre;
             tAforo.Text = Aforo();
+            tAforo.Enabled = false;
             tDisponible.Text = Disponible();
+            tDisponible.Enabled = false;
             tResponsableDeSede.Text = Responsable();
+            tResponsableDeSede.Enabled = false;
             listResponsableDeSede.DataSource = Usuario.ListaResponsablesDisponibles();
             listCentros.DataSource = Centro.ListaCentrosDisponibles();
         }
@@ -67,10 +71,25 @@ namespace WindowsFormsApplication1
                     //int idSede = (int)dataGridView.SelectedRows[0].Cells[2].Value;
                     centroSedeSeleccionado = new Centro(idCentro);
                 }
+                toggleButton();
             }
             catch (Exception ex)
             {
                 MessageBox.Show("ERROR: " + ex.Message);
+            }
+        }
+
+        private void toggleButton()
+        {
+            if (centroSedeSeleccionado != null)
+            {
+                bQuitarCentro.Enabled = true;
+                bQuitarCentro.BackColor = SystemColors.Control;
+            }
+            else
+            {
+                bQuitarCentro.Enabled = false;
+                bQuitarCentro.BackColor = SystemColors.ControlDark;
             }
         }
 

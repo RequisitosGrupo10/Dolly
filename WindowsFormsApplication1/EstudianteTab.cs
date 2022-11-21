@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
 
@@ -11,11 +12,11 @@ namespace WindowsFormsApplication1
         public EstudianteTab()
         {
             InitializeComponent();
-            MostrarEstudiantes();
+            Mostrar();
             seleccionado = null;
         }
 
-        private void MostrarEstudiantes()
+        private void Mostrar()
         {
             dataGridView.DataSource = Alumno.ListaAlumno();
         }
@@ -90,7 +91,7 @@ namespace WindowsFormsApplication1
                         }
                     }
                     MessageBox.Show("Se procesaron " + (n_line - 1) + " líneas.", "File Content at path: " + filePath, MessageBoxButtons.OK);
-                    MostrarEstudiantes();
+                    Mostrar();
                 }
             }
         }
@@ -124,26 +125,21 @@ namespace WindowsFormsApplication1
             this.Close();
         }
 
-        private void EstudianteTab_Load(object sender, EventArgs e)
-        {
-            
-        }
-
         /* Borra todos los estudiantes de la base de datos*/
-        private void bBorrar_Click(object sender, EventArgs e)
+        private void bEliminarTodosLosEstudiantes_Click(object sender, EventArgs e)
         {
             foreach (var estudiante in Alumno.ListaAlumno())
                 estudiante.borrarAlumno();
-            MostrarEstudiantes();
+            Mostrar();
         }
 
         /* Borra el estudiante seleccionado */
-        private void button1_Click(object sender, EventArgs e)
+        private void bEliminarEstudiante_Click(object sender, EventArgs e)
         {
             if (seleccionado != null)
             {
                 seleccionado.borrarAlumno();
-                MostrarEstudiantes();
+                Mostrar();
             }
         }
 
@@ -155,6 +151,21 @@ namespace WindowsFormsApplication1
             {
                 idAlumno = (string)dataGridView.SelectedRows[0].Cells[3].Value;
                 seleccionado = new Alumno(idAlumno);
+            }
+            toggleButton();
+        }
+
+        private void toggleButton()
+        {
+            if (seleccionado != null)
+            {
+                bEliminarEstudiante.Enabled = true;
+                bEliminarEstudiante.BackColor = SystemColors.Control;
+            }
+            else
+            {
+                bEliminarEstudiante.Enabled = false;
+                bEliminarEstudiante.BackColor = SystemColors.ControlDark;
             }
         }
     }

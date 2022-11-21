@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace WindowsFormsApplication1
@@ -22,8 +23,13 @@ namespace WindowsFormsApplication1
             dataGridView.DataSource = Aula.ListaAula(sede);
             lNombreSede.Text = sede.Nombre;
             tAforo.Text = Aforo();
+            tAforo.Enabled = false;
+            tDisponible.Text = Disponible();
+            tDisponible.Enabled = false;
             tResponsableDeSede.Text = sede.Responsable.Username;
+            tResponsableDeSede.Enabled = false;
         }
+
         private String Aforo()
         {
             int aforo = 0;
@@ -32,6 +38,14 @@ namespace WindowsFormsApplication1
                 aforo += aula.Aforo;
             }
             return aforo.ToString();
+        }
+
+        private String Disponible()
+        {
+            int rows = dataGridView.RowCount;
+            int disponible = int.Parse(tAforo.Text);
+            //disponible -= (int)dataGridView1.SelectedRows[i].Cells[1].Value; //seleccionar numero estudiantes de un centro
+            return disponible.ToString();
         }
 
         private void bInsertarAula_Click(object sender, EventArgs e)
@@ -80,10 +94,29 @@ namespace WindowsFormsApplication1
                     int idAula = (int)dataGridView.SelectedRows[0].Cells[0].Value;
                     seleccionado = new Aula(idAula);
                 }
+                toggleButton();
             }
             catch (Exception ex)
             {
                 MessageBox.Show("ERROR: " + ex.Message);
+            }
+        }
+
+        private void toggleButton()
+        {
+            if (seleccionado != null)
+            {
+                bModificarAula.Enabled = true;
+                bModificarAula.BackColor = SystemColors.Control;
+                bEliminarAula.Enabled = true;
+                bEliminarAula.BackColor = SystemColors.Control;
+            }
+            else
+            {
+                bModificarAula.Enabled = false;
+                bModificarAula.BackColor = SystemColors.ControlDark;
+                bEliminarAula.Enabled = false;
+                bEliminarAula.BackColor = SystemColors.ControlDark;
             }
         }
 

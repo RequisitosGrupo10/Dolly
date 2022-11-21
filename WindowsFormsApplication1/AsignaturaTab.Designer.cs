@@ -99,7 +99,6 @@
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "AsignaturaTab";
             this.Text = "Asignaturas";
-            this.Load += new System.EventHandler(this.AsignaturaTab_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.asignaturaBindingSource)).EndInit();
             this.ResumeLayout(false);

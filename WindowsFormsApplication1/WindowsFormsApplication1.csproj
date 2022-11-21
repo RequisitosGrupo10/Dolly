@@ -90,12 +90,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AdminCentroTab.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="AdminCentroTab.Designer.cs">
-      <DependentUpon>AdminCentroTab.cs</DependentUpon>
-    </Compile>
     <Compile Include="AdminSedeTab.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -175,9 +169,6 @@
     </Compile>
     <EmbeddedResource Include="AddFranjasTab.resx">
       <DependentUpon>AddFranjasTab.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="AdminCentroTab.resx">
-      <DependentUpon>AdminCentroTab.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AdminSedeTab.resx">
       <DependentUpon>AdminSedeTab.cs</DependentUpon>

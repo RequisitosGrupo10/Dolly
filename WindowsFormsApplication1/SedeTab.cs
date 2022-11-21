@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
 
@@ -72,10 +73,6 @@ namespace WindowsFormsApplication1
                 AdminSedeTab ventana = new AdminSedeTab(seleccionado);
                 ventana.ShowDialog();
             }
-            else
-            {
-                MessageBox.Show("Selecciona una sede para modificar", "Error", MessageBoxButtons.OK);
-            }
         }
 
         private void bEliminarSede_Click(object sender, EventArgs e)
@@ -86,10 +83,6 @@ namespace WindowsFormsApplication1
                 seleccionado.borrarSede();
                 seleccionado = null;
                 MostrarSedes();
-            }
-            else
-            {
-                MessageBox.Show("Selecciona una sede para borrar", "Error", MessageBoxButtons.OK);
             }
         }
 
@@ -102,10 +95,29 @@ namespace WindowsFormsApplication1
                     int idSede = (int)dataGridView.SelectedRows[0].Cells[0].Value;
                     seleccionado = new Sede(idSede);
                 }
+                toggleButton();
             }
             catch (Exception ex)
             {
                 MessageBox.Show("ERROR: " + ex.Message);
+            }
+        }
+
+        private void toggleButton()
+        {
+            if (seleccionado != null)
+            {
+                bModificarSede.Enabled = true;
+                bModificarSede.BackColor = SystemColors.Control;
+                bEliminarSede.Enabled = true;
+                bEliminarSede.BackColor = SystemColors.Control;
+            }
+            else
+            {
+                bModificarSede.Enabled = false;
+                bModificarSede.BackColor = SystemColors.ControlDark;
+                bEliminarSede.Enabled = false;
+                bEliminarSede.BackColor = SystemColors.ControlDark;
             }
         }
 

@@ -45,10 +45,5 @@ namespace WindowsFormsApplication1
         {
             this.Close();
         }
-
-        private void Menu_Load(object sender, EventArgs e)
-        {
-
-        }
     }
 }
