@@ -176,7 +176,7 @@
             this.Controls.Add(this.lAforo);
             this.Controls.Add(this.lNombreSede);
             this.Name = "ResponsableSedeTab";
-            this.Text = "ResponsableSedeTab";
+            this.Text = "Gestionar Sede";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

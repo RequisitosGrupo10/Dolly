@@ -213,7 +213,7 @@
             this.Controls.Add(this.lAforo);
             this.Controls.Add(this.dataGridView);
             this.Name = "AdminSedeTab";
-            this.Text = "Form1";
+            this.Text = "Gestionar Sede";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

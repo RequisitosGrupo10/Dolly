@@ -113,7 +113,7 @@
             this.Controls.Add(this.tAula);
             this.Controls.Add(this.lAula);
             this.Name = "AulaTab";
-            this.Text = "AulaTab";
+            this.Text = "Gestionar Aula";
             this.ResumeLayout(false);
             this.PerformLayout();
 
