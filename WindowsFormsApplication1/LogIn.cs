@@ -37,13 +37,9 @@ namespace WindowsFormsApplication1
                 if (usuario != null)
                 {                           
                     if (usuario.checkPassword(tContrasena.Text))
-                    {
                         loginCorrecto();
-                    }
                     else
-                    {
                         MessageBox.Show("Nombre o contraseña incorrecta");
-                    }
                 }
                 else
                 {
@@ -65,7 +61,8 @@ namespace WindowsFormsApplication1
                 menu.ShowDialog();
                 this.Close();
                 
-            }else if (this.usuario.Rol == 2)
+            }
+            else if (this.usuario.Rol == 2)
             {
                 Sede sede = checkSede();
                 if (sede != null)

@@ -13,37 +13,27 @@ namespace WindowsFormsApplication1
         private string apellido2;
         private string dni_nif;
         private List<Asignatura> materias;
-
-        public static List<Alumno> ListaEstudiantes()
+        private Alumno()
         {
-            List<Alumno> lista = new List<Alumno>();
-
-            foreach (Object[] tupla in miBD.Select("SELECT DNI FROM Alumno;"))
-            {
-                Alumno aux = new Alumno((string)tupla[0]);
-                lista.Add(aux);
-            }
-            return lista;
-
         }
-
         public Alumno(string dni_nif)
         {
-            // TODO: Complete member initialization
-            Object[] tupla = miBD.Select("SELECT DNI, nombre, apellido1, apellido2, idCentro FROM Alumno WHERE DNI = '" + dni_nif + "';")[0];
-            this.dni_nif = (string)tupla[0];
-            this.nombre = (string)tupla[1];
-            this.apellido1 = (string)tupla[2];
-            this.apellido2 = (string)tupla[3];
-            this.centro = null;
-            this.materias = null;
+            try {
+                object[] tupla = miBD.Select("SELECT DNI, nombre, apellido1, apellido2, idCentro FROM Alumno WHERE DNI = '" + dni_nif + "';")[0];
+                this.dni_nif = (string)tupla[0];
+                this.nombre = (string)tupla[1];
+                this.apellido1 = (string)tupla[2];
+                this.apellido2 = (string)tupla[3];
+                this.centro = null;
+                this.materias = null;
+            } catch (Exception ex) {
+                Console.WriteLine(ex.Message);
+            }
         }
 
         public Alumno(int idCentro, string nombre, string apellido1, string apellido2, string dni_nif, string[] materias)
         {
-            // TODO: Complete member initialization
-            try
-            {
+            try {
                 miBD.Insert("Insert Into Alumno(idCentro, DNI, nombre, apellido1, apellido2) VALUES ('"+ idCentro +"', '" + dni_nif + "',' " + nombre + "', '" + apellido1 + "', '"+ apellido2+"');");
                 this.centro = new Centro(idCentro);
                 this.nombre = nombre;
@@ -53,8 +43,7 @@ namespace WindowsFormsApplication1
                 this.materias = null;
                 foreach (var materia in materias)
                     this.addAsignatura(materia);
-            } catch (Exception ex)
-            {
+            } catch (Exception ex) {
                 Console.WriteLine(ex.Message);
             }
         }
@@ -65,18 +54,21 @@ namespace WindowsFormsApplication1
         }
 
 
-        public string Apellido
+        public string Apellido1
         {
-            get { return apellido1 + " " + apellido2; }
+            get { return apellido1; }
         }
 
+        public string Apellido2
+        {
+            get { return apellido2; }
+        }
 
         public string DNI
         {
             get { return this.dni_nif; }
             set
             {
-                // No actualizar
             }
         }
 
@@ -117,6 +109,25 @@ namespace WindowsFormsApplication1
         {
             string res = this.nombre + ";" + this.apellido1 + ";";
             return res;
+        }
+
+        public static List<Alumno> ListaEstudiantes()
+        {
+            List<Alumno> lista = new List<Alumno>();
+
+            foreach (object[] tupla in miBD.Select("SELECT DNI, nombre, apellido2, apellido2 FROM Alumno;"))
+            {
+                Alumno aux = new Alumno();
+                aux.dni_nif = (string)tupla[0];
+                aux.nombre = (string)tupla[1];
+                aux.apellido1 = (string)tupla[2];
+                aux.apellido2 = (string)tupla[3];
+                aux.centro = null;
+                aux.materias= null;
+                lista.Add(aux);
+            }
+            return lista;
+
         }
     }
 }

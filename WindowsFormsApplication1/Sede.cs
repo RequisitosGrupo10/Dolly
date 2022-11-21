@@ -12,18 +12,8 @@ namespace WindowsFormsApplication1
         private string nombre;
         private Usuario responsable;
 
-        public static List<Sede> ListaSede()
+        private Sede()
         {
-            List<Sede> lista = new List<Sede>();
-
-            foreach (Object[] tupla in miBD.Select("SELECT idSede FROM Sede;"))
-            {
-                Sede aux = new Sede((int)tupla[0]);
-                Usuario carga = aux.responsable;
-                lista.Add(aux);
-            }
-            return lista;
-            
         }
 
         public Sede(int idSede)
@@ -142,6 +132,18 @@ namespace WindowsFormsApplication1
         {
             return this.idSede.GetHashCode();
         }
+        public static List<Sede> ListaSede()
+        {
+            List<Sede> lista = new List<Sede>();
+            foreach (object[] tupla in miBD.Select("SELECT idSede, nombre, responsable FROM Sede;"))
+            {
+                Sede aux = new Sede();
+                aux.idSede = (int)tupla[0];
+                aux.nombre=(string)tupla[1];
+                aux.responsable = null;
+                lista.Add(aux);
+            }
+            return lista;
+        }
     }
-    
 }

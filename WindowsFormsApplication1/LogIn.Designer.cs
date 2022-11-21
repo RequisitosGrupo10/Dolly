@@ -40,9 +40,10 @@
             // tNombre
             // 
             this.tNombre.AccessibleName = "nombre";
-            this.tNombre.Location = new System.Drawing.Point(227, 200);
+            this.tNombre.Location = new System.Drawing.Point(498, 214);
+            this.tNombre.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tNombre.Name = "tNombre";
-            this.tNombre.Size = new System.Drawing.Size(100, 20);
+            this.tNombre.Size = new System.Drawing.Size(132, 22);
             this.tNombre.TabIndex = 0;
             this.tNombre.Click += new System.EventHandler(this.tNombre_Click);
             this.tNombre.Enter += new System.EventHandler(this.tNombre_Click);
@@ -50,10 +51,11 @@
             // tContrasena
             // 
             this.tContrasena.AccessibleName = "password";
-            this.tContrasena.Location = new System.Drawing.Point(500, 200);
+            this.tContrasena.Location = new System.Drawing.Point(498, 272);
+            this.tContrasena.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tContrasena.Name = "tContrasena";
             this.tContrasena.PasswordChar = '*';
-            this.tContrasena.Size = new System.Drawing.Size(100, 20);
+            this.tContrasena.Size = new System.Drawing.Size(132, 22);
             this.tContrasena.TabIndex = 1;
             this.tContrasena.Click += new System.EventHandler(this.tContrasena_Click);
             this.tContrasena.Enter += new System.EventHandler(this.tContrasena_Click);
@@ -61,26 +63,29 @@
             // lContraseña
             // 
             this.lContraseña.AutoSize = true;
-            this.lContraseña.Location = new System.Drawing.Point(420, 207);
+            this.lContraseña.Location = new System.Drawing.Point(394, 272);
+            this.lContraseña.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lContraseña.Name = "lContraseña";
-            this.lContraseña.Size = new System.Drawing.Size(64, 13);
+            this.lContraseña.Size = new System.Drawing.Size(79, 16);
             this.lContraseña.TabIndex = 2;
             this.lContraseña.Text = "Contraseña:";
             // 
             // lNombre
             // 
             this.lNombre.AutoSize = true;
-            this.lNombre.Location = new System.Drawing.Point(161, 207);
+            this.lNombre.Location = new System.Drawing.Point(394, 217);
+            this.lNombre.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lNombre.Name = "lNombre";
-            this.lNombre.Size = new System.Drawing.Size(47, 13);
+            this.lNombre.Size = new System.Drawing.Size(59, 16);
             this.lNombre.TabIndex = 3;
             this.lNombre.Text = "Nombre:";
             // 
             // bIniciarSesion
             // 
-            this.bIniciarSesion.Location = new System.Drawing.Point(316, 294);
+            this.bIniciarSesion.Location = new System.Drawing.Point(446, 342);
+            this.bIniciarSesion.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.bIniciarSesion.Name = "bIniciarSesion";
-            this.bIniciarSesion.Size = new System.Drawing.Size(146, 23);
+            this.bIniciarSesion.Size = new System.Drawing.Size(154, 66);
             this.bIniciarSesion.TabIndex = 4;
             this.bIniciarSesion.Text = "Iniciar Sesión";
             this.bIniciarSesion.UseVisualStyleBackColor = true;
@@ -89,19 +94,21 @@
             // lInicio
             // 
             this.lInicio.AutoSize = true;
-            this.lInicio.Font = new System.Drawing.Font("Microsoft Sans Serif", 35F);
-            this.lInicio.Location = new System.Drawing.Point(317, 65);
+            this.lInicio.Font = new System.Drawing.Font("Arial Black", 35F);
+            this.lInicio.Location = new System.Drawing.Point(264, 90);
+            this.lInicio.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lInicio.Name = "lInicio";
-            this.lInicio.Size = new System.Drawing.Size(167, 54);
+            this.lInicio.Size = new System.Drawing.Size(549, 83);
             this.lInicio.TabIndex = 5;
-            this.lInicio.Text = "INICIO";
+            this.lInicio.Text = "Inicio de Sesión";
             // 
             // cbVer
             // 
             this.cbVer.AutoSize = true;
-            this.cbVer.Location = new System.Drawing.Point(609, 204);
+            this.cbVer.Location = new System.Drawing.Point(638, 272);
+            this.cbVer.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cbVer.Name = "cbVer";
-            this.cbVer.Size = new System.Drawing.Size(42, 17);
+            this.cbVer.Size = new System.Drawing.Size(50, 20);
             this.cbVer.TabIndex = 6;
             this.cbVer.Text = "Ver";
             this.cbVer.UseVisualStyleBackColor = true;
@@ -110,9 +117,9 @@
             // LogIn
             // 
             this.AccessibleName = "LogIn";
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1042, 441);
             this.Controls.Add(this.cbVer);
             this.Controls.Add(this.lInicio);
             this.Controls.Add(this.bIniciarSesion);
@@ -120,6 +127,7 @@
             this.Controls.Add(this.lContraseña);
             this.Controls.Add(this.tContrasena);
             this.Controls.Add(this.tNombre);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "LogIn";
             this.Text = "DOLLY";
             this.ResumeLayout(false);

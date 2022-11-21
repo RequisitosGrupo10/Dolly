@@ -14,9 +14,12 @@ namespace WindowsFormsApplication1
         {
             List<Asignatura> lista = new List<Asignatura>();
 
-            foreach (Object[] tupla in miBD.Select("SELECT idAsignatura FROM Asignatura;"))
+            foreach (Object[] tupla in miBD.Select("SELECT idAsignatura, nombre FROM Asignatura;"))
             {
-                lista.Add(new Asignatura((int)tupla[0]));
+                Asignatura aux = new Asignatura();
+                aux.idAsignatura = (int)tupla[0];
+                aux.nombre = (string)tupla[1];
+                lista.Add(aux);
             }
             return lista;
         }
@@ -36,9 +39,12 @@ namespace WindowsFormsApplication1
         {
             List<Asignatura> lista = new List<Asignatura>();
 
-            foreach (Object[] tupla in miBD.Select("Select Asignatura.idAsignatura from Asignatura join AlumnoAsignatura on (Asignatura.idAsignatura = AlumnoAsignatura.idAsignatura) Where AlumnoAsignatura.DNI = '"+ alumno.DNI +"';"))
+            foreach (Object[] tupla in miBD.Select("Select Asignatura.idAsignatura, Asignatura.nombre from Asignatura join AlumnoAsignatura on (Asignatura.idAsignatura = AlumnoAsignatura.idAsignatura) Where AlumnoAsignatura.DNI = '" + alumno.DNI +"';"))
             {
-                lista.Add(new Asignatura((int)tupla[0]));
+                Asignatura aux = new Asignatura();
+                aux.idAsignatura = (int)tupla[0];
+                aux.nombre = (string)tupla[1];
+                lista.Add(aux);
             }
             return lista;
         }
@@ -52,8 +58,7 @@ namespace WindowsFormsApplication1
         {
             try
             {
-                Object[] tupla = miBD.Select("SELECT * FROM Asignatura WHERE idAsignatura=" + idAsignatura + ";")[0];
-
+                Object[] tupla = miBD.Select("SELECT idAsignatura, nombre FROM Asignatura WHERE idAsignatura=" + idAsignatura + ";")[0];
                 this.idAsignatura = (int)tupla[0];
                 this.nombre = (string)tupla[1];
             } catch (Exception e)

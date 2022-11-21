@@ -42,20 +42,16 @@ namespace WindowsFormsApplication1
         {
             int rows = dataGridView.RowCount;
             int disponible = int.Parse(tAforo.Text);
-            for (int i = 0; i < rows; i++)
-            {
-                //disponible -= (int)dataGridView1.SelectedRows[i].Cells[1].Value; //seleccionar numero estudiantes de un centro
-            }
+            //disponible -= (int)dataGridView1.SelectedRows[i].Cells[1].Value; //seleccionar numero estudiantes de un centro
             return disponible.ToString();
         }
 
         private String Responsable()
         {
             if (sede.Responsable == null)
-            {
                 return "";
-            }
-            return sede.Responsable.Username;
+            else
+                return sede.Responsable.Username;
         }
 
         private void dataGridView_SelectionChanged(object sender, EventArgs e)
@@ -111,6 +107,11 @@ namespace WindowsFormsApplication1
         private void bAtras_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void bAsignarCentros_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

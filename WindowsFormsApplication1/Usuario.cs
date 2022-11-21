@@ -1,5 +1,6 @@
 ﻿using BDLibrary;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Security.Cryptography.X509Certificates;
 
@@ -12,6 +13,10 @@ namespace WindowsFormsApplication1
         private string username;
         private int rol;
 
+        public Usuario()
+        {
+        }
+
         public Usuario(int idUsuario)
         {
             Object[] tupla = miBD.Select("SELECT * FROM Usuario WHERE idUsuario = " + idUsuario + ";")[0];
@@ -19,7 +24,16 @@ namespace WindowsFormsApplication1
             this.username = tupla[1].ToString();
             this.rol = (int) tupla[3];
         }
-
+        public Usuario (string nombre)
+        {
+            List<Object[]> list = miBD.Select("Select idUsuario, username, rol from Usuario where username = '" + nombre + "';");
+            foreach (Object[] user in list)
+            {
+                this.idUsuario = (int)user[0];
+                this.username = (string)user[1];
+                this.rol = (int)user[2];
+            }
+        }
         public Usuario(string username, int rol)
         {
             miBD.Insert("INSERT INTO Usuario (username, password, rol) VALUES ('" + username + "', '" + "" + "', " + rol + ");");
@@ -27,29 +41,6 @@ namespace WindowsFormsApplication1
             this.username = username;
             this.rol = rol;
         }
-
-        public Usuario (string nombre)
-        {
-            List<Object[]> list = miBD.Select("Select * from Usuario where username = '" + nombre + "';");
-            foreach (Object[] user in list)
-            {
-                this.idUsuario = (int)user[0];
-                this.username = user[1].ToString();
-                this.rol = (int) user[3];
-            }
-        }
-
-        public static List<Usuario> ListaUsuarios()
-        {
-            List <Usuario> lista = new List<Usuario>();
-            List<Object[]> users = miBD.Select("Select idUsuario from Usuario");
-            foreach (Object[] user in users)
-            {
-                lista.Add(new Usuario((int) user[0]));
-            }
-            return lista;
-        }
-
         public int IdUsuario
         {
             get { return idUsuario; }
@@ -77,14 +68,29 @@ namespace WindowsFormsApplication1
 
         public static List<Usuario> ListaResponsablesDisponibles()
         {
-            List<Usuario> res = new List<Usuario>();
-            foreach (object[] tupla in miBD.Select("SELECT Usuario.idUsuario FROM Usuario Join Rol On (Usuario.rol = Rol.idRol) WHERE Rol.nombre LIKE 'responsable' AND (Usuario.idUsuario Not in (Select responsable from Sede where responsable is not null));"))
+            List<Usuario> lista = new List<Usuario>();
+            foreach (object[] tupla in miBD.Select("SELECT Usuario.idUsuario, Usuario.username, Usuario.rol FROM Usuario Join Rol On (Usuario.rol = Rol.idRol) WHERE Rol.nombre LIKE 'responsable' AND (Usuario.idUsuario Not in (Select responsable from Sede where responsable is not null));"))
             {
-                res.Add(new Usuario((int)tupla[0]));
+                Usuario usuario = new Usuario();
+                usuario.idUsuario = (int)tupla[0];
+                usuario.username = (string)tupla[1];
+                usuario.rol = (int)tupla[2];
+                lista.Add(usuario);
             }
-            return res;
+            return lista;
         }
-
+        public static List<Usuario> ListaUsuarios()
+        {
+            List<Usuario> lista = new List<Usuario>();
+            foreach (object[] tupla in miBD.Select("Select idUsuario, username, rol from Usuario"))
+            {
+                Usuario usuario = new Usuario();
+                usuario.idUsuario = (int)tupla[0];
+                usuario.username = (string)tupla[1];
+                usuario.rol = (int)tupla[2];
+                lista.Add(usuario);
+            }
+            return lista;
+        }
     }
-
 }

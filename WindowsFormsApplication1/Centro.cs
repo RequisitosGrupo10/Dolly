@@ -10,19 +10,9 @@ namespace WindowsFormsApplication1
         private int idCentro;
         private string nombre;
         private Sede sede;
-
-        public static List<Centro> ListaCentro()
+        private Centro()
         {
-            List<Centro> lista = new List<Centro>();
-
-            foreach (Object[] tupla in miBD.Select("SELECT idCentro FROM Centro;"))
-            {
-                Centro aux = new Centro((int)tupla[0]);
-                lista.Add(aux);
-            }
-            return lista;
         }
-
         public Centro(int idCentro)
         {
             try
@@ -39,7 +29,6 @@ namespace WindowsFormsApplication1
             {
                 Console.WriteLine(e.Message);
             }
-
         }
 
         public Centro(String nombre)
@@ -118,6 +107,19 @@ namespace WindowsFormsApplication1
         public override int GetHashCode()
         {
             return this.Nombre.GetHashCode();
+        }
+        public static List<Centro> ListaCentro()
+        {
+            List<Centro> lista = new List<Centro>();
+
+            foreach (object[] tupla in miBD.Select("SELECT idCentro, nombre FROM Centro;"))
+            {
+                Centro centro = new Centro();
+                centro.idCentro = (int)tupla[0];
+                centro.nombre= (string)tupla[1];
+                lista.Add(centro);
+            }
+            return lista;
         }
     }
 }
