@@ -96,5 +96,12 @@ namespace WindowsFormsApplication1
             if (tContrasena.PasswordChar == '*') tContrasena.PasswordChar = '\0';
             else tContrasena.PasswordChar = '*';
         }
+
+        /* Enter en la contraseña = Presionar iniciar sesión */
+        private void tContrasena_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Return)
+                bIniciarSesion_Click(this, e);
+        }
     }
 }

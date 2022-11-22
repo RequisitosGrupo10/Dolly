@@ -41,7 +41,7 @@
             // 
             this.tNombre.AccessibleName = "nombre";
             this.tNombre.Location = new System.Drawing.Point(498, 214);
-            this.tNombre.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tNombre.Margin = new System.Windows.Forms.Padding(4);
             this.tNombre.Name = "tNombre";
             this.tNombre.Size = new System.Drawing.Size(132, 22);
             this.tNombre.TabIndex = 0;
@@ -52,13 +52,14 @@
             // 
             this.tContrasena.AccessibleName = "password";
             this.tContrasena.Location = new System.Drawing.Point(498, 272);
-            this.tContrasena.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tContrasena.Margin = new System.Windows.Forms.Padding(4);
             this.tContrasena.Name = "tContrasena";
             this.tContrasena.PasswordChar = '*';
             this.tContrasena.Size = new System.Drawing.Size(132, 22);
             this.tContrasena.TabIndex = 1;
             this.tContrasena.Click += new System.EventHandler(this.tContrasena_Click);
             this.tContrasena.Enter += new System.EventHandler(this.tContrasena_Click);
+            this.tContrasena.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tContrasena_KeyPress);
             // 
             // lContraseña
             // 
@@ -83,7 +84,7 @@
             // bIniciarSesion
             // 
             this.bIniciarSesion.Location = new System.Drawing.Point(446, 342);
-            this.bIniciarSesion.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.bIniciarSesion.Margin = new System.Windows.Forms.Padding(4);
             this.bIniciarSesion.Name = "bIniciarSesion";
             this.bIniciarSesion.Size = new System.Drawing.Size(154, 66);
             this.bIniciarSesion.TabIndex = 4;
@@ -106,7 +107,7 @@
             // 
             this.cbVer.AutoSize = true;
             this.cbVer.Location = new System.Drawing.Point(638, 272);
-            this.cbVer.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cbVer.Margin = new System.Windows.Forms.Padding(4);
             this.cbVer.Name = "cbVer";
             this.cbVer.Size = new System.Drawing.Size(50, 20);
             this.cbVer.TabIndex = 6;
@@ -127,7 +128,7 @@
             this.Controls.Add(this.lContraseña);
             this.Controls.Add(this.tContrasena);
             this.Controls.Add(this.tNombre);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "LogIn";
             this.Text = "DOLLY";
             this.ResumeLayout(false);
