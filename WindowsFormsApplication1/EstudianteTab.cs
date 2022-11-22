@@ -12,11 +12,11 @@ namespace WindowsFormsApplication1
         public EstudianteTab()
         {
             InitializeComponent();
-            Mostrar();
+            MostrarAlumnos();
             seleccionado = null;
         }
 
-        private void Mostrar()
+        private void MostrarAlumnos()
         {
             dataGridView.DataSource = Alumno.ListaAlumno();
         }
@@ -24,6 +24,7 @@ namespace WindowsFormsApplication1
         private void bImportarEstudiantes_Click(object sender, EventArgs e)
         {
             int n_line = 0;
+            int n_error = 0;
             var fileContent = string.Empty;
             var filePath = string.Empty;
 
@@ -42,9 +43,12 @@ namespace WindowsFormsApplication1
                     // Leer del fichero
                     var fileStream = openFileDialog.OpenFile();
                     using (StreamReader reader = new StreamReader(fileStream))
+                    using (StreamWriter errorLogger = new StreamWriter("Estudiante.log"))
                     {
                         string line;
 
+                        errorLogger.WriteLine("##################################");
+                        errorLogger.WriteLine(" Log de Errores - " + DateTime.Now);
                         // Se lee la primera línea
                         if (!reader.EndOfStream)
                             line = reader.ReadLine();
@@ -78,20 +82,25 @@ namespace WindowsFormsApplication1
                                         materias[m] = materias[m].Trim();
                                     }
                                     Alumno newEstudiante = new Alumno(centro.IdCentro, nombre, apellido1, apellido2, dni_nif, materias);
-                                    
                                 }
                                 else
+                                {
                                     throw new Exception("Not enough arguments in the line " + n_line);
+                                }
+                                    
                             }
                             catch (Exception)
                             {
-                                Console.WriteLine("Error found");
+                                Console.WriteLine("Error encontrado");
+                                errorLogger.WriteLine("·Error encontrado en la línea " + (n_line + 1));
+                                n_error++;
                             }
                             n_line++;
                         }
+                        errorLogger.WriteLine("##################################");
                     }
-                    MessageBox.Show("Se procesaron " + (n_line) + " líneas.", "File Content at path: " + filePath, MessageBoxButtons.OK);
-                    Mostrar();
+                    MessageBox.Show("Se procesaron " + (n_line) + " líneas, con " + (n_error) + " errores", "File Content at path: " + filePath, MessageBoxButtons.OK);
+                    MostrarAlumnos();
                 }
             }
         }
@@ -101,7 +110,7 @@ namespace WindowsFormsApplication1
             Centro centro;
             int i;
                 
-            i = 0;
+            i = 0; 
             while (i < centros.Count)
             {
                 if (s_centro.Equals(centros[i].Nombre))
@@ -130,7 +139,7 @@ namespace WindowsFormsApplication1
         {
             foreach (var estudiante in Alumno.ListaAlumno())
                 estudiante.borrarAlumno();
-            Mostrar();
+            MostrarAlumnos();
         }
 
         /* Borra el estudiante seleccionado */
@@ -139,7 +148,7 @@ namespace WindowsFormsApplication1
             if (seleccionado != null)
             {
                 seleccionado.borrarAlumno();
-                Mostrar();
+                MostrarAlumnos();
             }
         }
 

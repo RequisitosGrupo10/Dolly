@@ -33,7 +33,6 @@ namespace WindowsFormsApplication1
 
         public Alumno(int idCentro, string nombre, string apellido1, string apellido2, string dni_nif, string[] materias)
         {
-            try {
                 miBD.Insert("Insert Into Alumno(idCentro, DNI, nombre, apellido1, apellido2) VALUES ('"+ idCentro +"', '" + dni_nif + "',' " + nombre + "', '" + apellido1 + "', '"+ apellido2+"');");
                 this.centro = new Centro(idCentro);
                 this.nombre = nombre;
@@ -43,9 +42,6 @@ namespace WindowsFormsApplication1
                 this.materias = null;
                 foreach (var materia in materias)
                     this.addAsignatura(materia);
-            } catch (Exception ex) {
-                Console.WriteLine(ex.Message);
-            }
         }
 
         public string Nombre
