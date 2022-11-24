@@ -144,3 +144,4 @@ C:\Users\lucia\Documents\GitHub\Dolly\WindowsFormsApplication1\bin\Debug\System.
 C:\Users\lucia\Documents\GitHub\Dolly\WindowsFormsApplication1\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
 C:\Users\lucia\Documents\GitHub\Dolly\WindowsFormsApplication1\bin\Debug\System.Threading.Tasks.Extensions.xml
 C:\Users\lucia\Documents\GitHub\Dolly\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.csproj.CopyComplete
+C:\Users\jmsan\Documents\Visual Studio 2013\Projects\Dolly\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.ExamenTab.resources

@@ -40,10 +40,10 @@
             // 
             // bAtras
             // 
-            this.bAtras.Location = new System.Drawing.Point(796, 332);
-            this.bAtras.Margin = new System.Windows.Forms.Padding(2);
+            this.bAtras.Location = new System.Drawing.Point(1061, 409);
+            this.bAtras.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.bAtras.Name = "bAtras";
-            this.bAtras.Size = new System.Drawing.Size(56, 19);
+            this.bAtras.Size = new System.Drawing.Size(75, 23);
             this.bAtras.TabIndex = 0;
             this.bAtras.Text = "ATRÁS";
             this.bAtras.UseVisualStyleBackColor = true;
@@ -51,14 +51,15 @@
             // 
             // dataGridView
             // 
+            this.dataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView.Location = new System.Drawing.Point(204, 26);
-            this.dataGridView.Margin = new System.Windows.Forms.Padding(2);
+            this.dataGridView.Location = new System.Drawing.Point(272, 32);
+            this.dataGridView.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dataGridView.Name = "dataGridView";
             this.dataGridView.ReadOnly = true;
             this.dataGridView.RowHeadersWidth = 51;
             this.dataGridView.RowTemplate.Height = 24;
-            this.dataGridView.Size = new System.Drawing.Size(648, 292);
+            this.dataGridView.Size = new System.Drawing.Size(864, 359);
             this.dataGridView.TabIndex = 1;
             this.dataGridView.SelectionChanged += new System.EventHandler(this.dataGridView_SelectionChanged);
             // 
@@ -68,10 +69,10 @@
             // 
             // bImportarAsignaturas
             // 
-            this.bImportarAsignaturas.Location = new System.Drawing.Point(35, 87);
-            this.bImportarAsignaturas.Margin = new System.Windows.Forms.Padding(2);
+            this.bImportarAsignaturas.Location = new System.Drawing.Point(47, 107);
+            this.bImportarAsignaturas.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.bImportarAsignaturas.Name = "bImportarAsignaturas";
-            this.bImportarAsignaturas.Size = new System.Drawing.Size(147, 75);
+            this.bImportarAsignaturas.Size = new System.Drawing.Size(196, 92);
             this.bImportarAsignaturas.TabIndex = 2;
             this.bImportarAsignaturas.Text = "Importar Asignaturas";
             this.bImportarAsignaturas.UseVisualStyleBackColor = true;
@@ -79,10 +80,10 @@
             // 
             // bEliminarAsignatura
             // 
-            this.bEliminarAsignatura.Location = new System.Drawing.Point(35, 189);
-            this.bEliminarAsignatura.Margin = new System.Windows.Forms.Padding(2);
+            this.bEliminarAsignatura.Location = new System.Drawing.Point(47, 233);
+            this.bEliminarAsignatura.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.bEliminarAsignatura.Name = "bEliminarAsignatura";
-            this.bEliminarAsignatura.Size = new System.Drawing.Size(147, 75);
+            this.bEliminarAsignatura.Size = new System.Drawing.Size(196, 92);
             this.bEliminarAsignatura.TabIndex = 3;
             this.bEliminarAsignatura.Text = "Eliminar Asignatura";
             this.bEliminarAsignatura.UseVisualStyleBackColor = true;
@@ -90,14 +91,14 @@
             // 
             // AsignaturaTab
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(861, 361);
+            this.ClientSize = new System.Drawing.Size(1148, 444);
             this.Controls.Add(this.bEliminarAsignatura);
             this.Controls.Add(this.bImportarAsignaturas);
             this.Controls.Add(this.dataGridView);
             this.Controls.Add(this.bAtras);
-            this.Margin = new System.Windows.Forms.Padding(2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "AsignaturaTab";
             this.Text = "Asignaturas";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).EndInit();

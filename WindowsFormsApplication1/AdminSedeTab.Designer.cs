@@ -48,50 +48,54 @@
             // 
             // dataGridView
             // 
+            this.dataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView.Location = new System.Drawing.Point(338, 104);
-            this.dataGridView.Margin = new System.Windows.Forms.Padding(2);
+            this.dataGridView.Location = new System.Drawing.Point(451, 128);
+            this.dataGridView.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dataGridView.Name = "dataGridView";
             this.dataGridView.ReadOnly = true;
             this.dataGridView.RowHeadersWidth = 51;
             this.dataGridView.RowTemplate.Height = 24;
-            this.dataGridView.Size = new System.Drawing.Size(422, 289);
+            this.dataGridView.Size = new System.Drawing.Size(563, 356);
             this.dataGridView.TabIndex = 3;
             this.dataGridView.SelectionChanged += new System.EventHandler(this.dataGridView_SelectionChanged);
             // 
             // lAforo
             // 
             this.lAforo.AutoSize = true;
-            this.lAforo.Location = new System.Drawing.Point(385, 30);
+            this.lAforo.Location = new System.Drawing.Point(513, 37);
+            this.lAforo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lAforo.Name = "lAforo";
-            this.lAforo.Size = new System.Drawing.Size(32, 13);
+            this.lAforo.Size = new System.Drawing.Size(39, 16);
             this.lAforo.TabIndex = 5;
             this.lAforo.Text = "Aforo";
             // 
             // lDisponible
             // 
             this.lDisponible.AutoSize = true;
-            this.lDisponible.Location = new System.Drawing.Point(568, 30);
+            this.lDisponible.Location = new System.Drawing.Point(757, 37);
+            this.lDisponible.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lDisponible.Name = "lDisponible";
-            this.lDisponible.Size = new System.Drawing.Size(56, 13);
+            this.lDisponible.Size = new System.Drawing.Size(72, 16);
             this.lDisponible.TabIndex = 6;
             this.lDisponible.Text = "Disponible";
             // 
             // lResponsableDeSede
             // 
             this.lResponsableDeSede.AutoSize = true;
-            this.lResponsableDeSede.Location = new System.Drawing.Point(305, 71);
+            this.lResponsableDeSede.Location = new System.Drawing.Point(407, 87);
+            this.lResponsableDeSede.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lResponsableDeSede.Name = "lResponsableDeSede";
-            this.lResponsableDeSede.Size = new System.Drawing.Size(112, 13);
+            this.lResponsableDeSede.Size = new System.Drawing.Size(144, 16);
             this.lResponsableDeSede.TabIndex = 7;
             this.lResponsableDeSede.Text = "Responsable de Sede";
             // 
             // bAtras
             // 
-            this.bAtras.Location = new System.Drawing.Point(687, 410);
-            this.bAtras.Margin = new System.Windows.Forms.Padding(2);
+            this.bAtras.Location = new System.Drawing.Point(916, 505);
+            this.bAtras.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.bAtras.Name = "bAtras";
-            this.bAtras.Size = new System.Drawing.Size(56, 19);
+            this.bAtras.Size = new System.Drawing.Size(75, 23);
             this.bAtras.TabIndex = 8;
             this.bAtras.Text = "ATRÁS";
             this.bAtras.UseVisualStyleBackColor = true;
@@ -99,31 +103,34 @@
             // 
             // tAforo
             // 
-            this.tAforo.Location = new System.Drawing.Point(432, 27);
+            this.tAforo.Location = new System.Drawing.Point(576, 33);
+            this.tAforo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tAforo.Name = "tAforo";
-            this.tAforo.Size = new System.Drawing.Size(100, 20);
+            this.tAforo.Size = new System.Drawing.Size(132, 22);
             this.tAforo.TabIndex = 9;
             // 
             // tDisponible
             // 
-            this.tDisponible.Location = new System.Drawing.Point(643, 27);
+            this.tDisponible.Location = new System.Drawing.Point(857, 33);
+            this.tDisponible.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tDisponible.Name = "tDisponible";
-            this.tDisponible.Size = new System.Drawing.Size(100, 20);
+            this.tDisponible.Size = new System.Drawing.Size(132, 22);
             this.tDisponible.TabIndex = 10;
             // 
             // tResponsableDeSede
             // 
-            this.tResponsableDeSede.Location = new System.Drawing.Point(432, 68);
+            this.tResponsableDeSede.Location = new System.Drawing.Point(576, 84);
+            this.tResponsableDeSede.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tResponsableDeSede.Name = "tResponsableDeSede";
-            this.tResponsableDeSede.Size = new System.Drawing.Size(192, 20);
+            this.tResponsableDeSede.Size = new System.Drawing.Size(255, 22);
             this.tResponsableDeSede.TabIndex = 11;
             // 
             // bAsignarResponsableDeSede
             // 
-            this.bAsignarResponsableDeSede.Location = new System.Drawing.Point(23, 104);
-            this.bAsignarResponsableDeSede.Margin = new System.Windows.Forms.Padding(2);
+            this.bAsignarResponsableDeSede.Location = new System.Drawing.Point(31, 128);
+            this.bAsignarResponsableDeSede.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.bAsignarResponsableDeSede.Name = "bAsignarResponsableDeSede";
-            this.bAsignarResponsableDeSede.Size = new System.Drawing.Size(133, 41);
+            this.bAsignarResponsableDeSede.Size = new System.Drawing.Size(177, 50);
             this.bAsignarResponsableDeSede.TabIndex = 13;
             this.bAsignarResponsableDeSede.Text = "Asignar Responsable de Sede";
             this.bAsignarResponsableDeSede.UseVisualStyleBackColor = true;
@@ -131,10 +138,10 @@
             // 
             // bQuitarResponsableDeSede
             // 
-            this.bQuitarResponsableDeSede.Location = new System.Drawing.Point(178, 104);
-            this.bQuitarResponsableDeSede.Margin = new System.Windows.Forms.Padding(2);
+            this.bQuitarResponsableDeSede.Location = new System.Drawing.Point(237, 128);
+            this.bQuitarResponsableDeSede.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.bQuitarResponsableDeSede.Name = "bQuitarResponsableDeSede";
-            this.bQuitarResponsableDeSede.Size = new System.Drawing.Size(132, 41);
+            this.bQuitarResponsableDeSede.Size = new System.Drawing.Size(176, 50);
             this.bQuitarResponsableDeSede.TabIndex = 14;
             this.bQuitarResponsableDeSede.Text = "Quitar Responsable de Sede";
             this.bQuitarResponsableDeSede.UseVisualStyleBackColor = true;
@@ -143,10 +150,11 @@
             // listResponsableDeSede
             // 
             this.listResponsableDeSede.FormattingEnabled = true;
-            this.listResponsableDeSede.Location = new System.Drawing.Point(42, 160);
-            this.listResponsableDeSede.Margin = new System.Windows.Forms.Padding(2);
+            this.listResponsableDeSede.ItemHeight = 16;
+            this.listResponsableDeSede.Location = new System.Drawing.Point(56, 197);
+            this.listResponsableDeSede.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.listResponsableDeSede.Name = "listResponsableDeSede";
-            this.listResponsableDeSede.Size = new System.Drawing.Size(251, 82);
+            this.listResponsableDeSede.Size = new System.Drawing.Size(333, 100);
             this.listResponsableDeSede.TabIndex = 15;
             this.listResponsableDeSede.SelectedIndexChanged += new System.EventHandler(this.lResponsableDeSede_SelectedIndexChanged);
             // 
@@ -154,18 +162,19 @@
             // 
             this.lNombreSede.AutoSize = true;
             this.lNombreSede.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lNombreSede.Location = new System.Drawing.Point(20, 27);
+            this.lNombreSede.Location = new System.Drawing.Point(27, 33);
+            this.lNombreSede.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lNombreSede.Name = "lNombreSede";
-            this.lNombreSede.Size = new System.Drawing.Size(118, 20);
+            this.lNombreSede.Size = new System.Drawing.Size(144, 25);
             this.lNombreSede.TabIndex = 16;
             this.lNombreSede.Text = "Nombre Sede";
             // 
             // bAsignarCentro
             // 
-            this.bAsignarCentro.Location = new System.Drawing.Point(23, 272);
-            this.bAsignarCentro.Margin = new System.Windows.Forms.Padding(2);
+            this.bAsignarCentro.Location = new System.Drawing.Point(31, 335);
+            this.bAsignarCentro.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.bAsignarCentro.Name = "bAsignarCentro";
-            this.bAsignarCentro.Size = new System.Drawing.Size(132, 40);
+            this.bAsignarCentro.Size = new System.Drawing.Size(176, 49);
             this.bAsignarCentro.TabIndex = 19;
             this.bAsignarCentro.Text = "Asignar Centro";
             this.bAsignarCentro.UseVisualStyleBackColor = true;
@@ -173,10 +182,10 @@
             // 
             // bQuitarCentro
             // 
-            this.bQuitarCentro.Location = new System.Drawing.Point(178, 272);
-            this.bQuitarCentro.Margin = new System.Windows.Forms.Padding(2);
+            this.bQuitarCentro.Location = new System.Drawing.Point(237, 335);
+            this.bQuitarCentro.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.bQuitarCentro.Name = "bQuitarCentro";
-            this.bQuitarCentro.Size = new System.Drawing.Size(132, 40);
+            this.bQuitarCentro.Size = new System.Drawing.Size(176, 49);
             this.bQuitarCentro.TabIndex = 20;
             this.bQuitarCentro.Text = "Quitar Centro";
             this.bQuitarCentro.UseVisualStyleBackColor = true;
@@ -185,18 +194,19 @@
             // listCentros
             // 
             this.listCentros.FormattingEnabled = true;
-            this.listCentros.Location = new System.Drawing.Point(42, 326);
-            this.listCentros.Margin = new System.Windows.Forms.Padding(2);
+            this.listCentros.ItemHeight = 16;
+            this.listCentros.Location = new System.Drawing.Point(56, 401);
+            this.listCentros.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.listCentros.Name = "listCentros";
-            this.listCentros.Size = new System.Drawing.Size(251, 82);
+            this.listCentros.Size = new System.Drawing.Size(333, 100);
             this.listCentros.TabIndex = 21;
             this.listCentros.SelectedIndexChanged += new System.EventHandler(this.listCentros_SelectedIndexChanged);
             // 
             // AdminSedeTab
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1067, 554);
             this.Controls.Add(this.listCentros);
             this.Controls.Add(this.bQuitarCentro);
             this.Controls.Add(this.bAsignarCentro);
@@ -212,6 +222,7 @@
             this.Controls.Add(this.lDisponible);
             this.Controls.Add(this.lAforo);
             this.Controls.Add(this.dataGridView);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "AdminSedeTab";
             this.Text = "Gestionar Sede";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).EndInit();

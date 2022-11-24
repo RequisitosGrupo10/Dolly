@@ -118,6 +118,13 @@
     <Compile Include="AddFranjasTab.Designer.cs">
       <DependentUpon>AddFranjasTab.cs</DependentUpon>
     </Compile>
+    <Compile Include="Examen.cs" />
+    <Compile Include="ExamenTab.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ExamenTab.Designer.cs">
+      <DependentUpon>ExamenTab.cs</DependentUpon>
+    </Compile>
     <Compile Include="FranjaHoraria.cs" />
     <Compile Include="FranjasTab.cs">
       <SubType>Form</SubType>
@@ -181,6 +188,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="EstudianteTab.resx">
       <DependentUpon>EstudianteTab.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ExamenTab.resx">
+      <DependentUpon>ExamenTab.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FranjasTab.resx">
       <DependentUpon>FranjasTab.cs</DependentUpon>

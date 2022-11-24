@@ -45,5 +45,16 @@ namespace WindowsFormsApplication1
         {
             this.Close();
         }
+
+        private void richTextBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void bExamen_Click(object sender, EventArgs e)
+        {
+            ExamenTab ventana = new ExamenTab();
+            ventana.ShowDialog();
+        }
     }
 }

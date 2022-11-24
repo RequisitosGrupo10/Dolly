@@ -41,10 +41,10 @@
             // 
             // bImportarSedes
             // 
-            this.bImportarSedes.Location = new System.Drawing.Point(30, 61);
-            this.bImportarSedes.Margin = new System.Windows.Forms.Padding(2);
+            this.bImportarSedes.Location = new System.Drawing.Point(40, 75);
+            this.bImportarSedes.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.bImportarSedes.Name = "bImportarSedes";
-            this.bImportarSedes.Size = new System.Drawing.Size(297, 41);
+            this.bImportarSedes.Size = new System.Drawing.Size(396, 50);
             this.bImportarSedes.TabIndex = 0;
             this.bImportarSedes.Text = "Importar Sedes";
             this.bImportarSedes.UseVisualStyleBackColor = true;
@@ -52,10 +52,10 @@
             // 
             // bEliminarSede
             // 
-            this.bEliminarSede.Location = new System.Drawing.Point(30, 229);
-            this.bEliminarSede.Margin = new System.Windows.Forms.Padding(2);
+            this.bEliminarSede.Location = new System.Drawing.Point(40, 282);
+            this.bEliminarSede.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.bEliminarSede.Name = "bEliminarSede";
-            this.bEliminarSede.Size = new System.Drawing.Size(297, 42);
+            this.bEliminarSede.Size = new System.Drawing.Size(396, 52);
             this.bEliminarSede.TabIndex = 1;
             this.bEliminarSede.Text = "Eliminar Sede";
             this.bEliminarSede.UseVisualStyleBackColor = true;
@@ -63,14 +63,15 @@
             // 
             // dataGridView
             // 
+            this.dataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView.Location = new System.Drawing.Point(354, 22);
-            this.dataGridView.Margin = new System.Windows.Forms.Padding(2);
+            this.dataGridView.Location = new System.Drawing.Point(472, 27);
+            this.dataGridView.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dataGridView.Name = "dataGridView";
             this.dataGridView.ReadOnly = true;
             this.dataGridView.RowHeadersWidth = 51;
             this.dataGridView.RowTemplate.Height = 24;
-            this.dataGridView.Size = new System.Drawing.Size(496, 273);
+            this.dataGridView.Size = new System.Drawing.Size(661, 336);
             this.dataGridView.TabIndex = 2;
             this.dataGridView.SelectionChanged += new System.EventHandler(this.dataGridView_SelectionChanged);
             // 
@@ -80,10 +81,10 @@
             // 
             // bAtras
             // 
-            this.bAtras.Location = new System.Drawing.Point(755, 308);
-            this.bAtras.Margin = new System.Windows.Forms.Padding(2);
+            this.bAtras.Location = new System.Drawing.Point(1007, 379);
+            this.bAtras.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.bAtras.Name = "bAtras";
-            this.bAtras.Size = new System.Drawing.Size(56, 19);
+            this.bAtras.Size = new System.Drawing.Size(75, 23);
             this.bAtras.TabIndex = 6;
             this.bAtras.Text = "ATRÁS";
             this.bAtras.UseVisualStyleBackColor = true;
@@ -91,10 +92,10 @@
             // 
             // bModificarSede
             // 
-            this.bModificarSede.Location = new System.Drawing.Point(30, 143);
-            this.bModificarSede.Margin = new System.Windows.Forms.Padding(2);
+            this.bModificarSede.Location = new System.Drawing.Point(40, 176);
+            this.bModificarSede.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.bModificarSede.Name = "bModificarSede";
-            this.bModificarSede.Size = new System.Drawing.Size(297, 44);
+            this.bModificarSede.Size = new System.Drawing.Size(396, 54);
             this.bModificarSede.TabIndex = 7;
             this.bModificarSede.Text = "Modificar Sede";
             this.bModificarSede.UseVisualStyleBackColor = true;
@@ -102,15 +103,15 @@
             // 
             // SedeTab
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(868, 336);
+            this.ClientSize = new System.Drawing.Size(1157, 414);
             this.Controls.Add(this.bModificarSede);
             this.Controls.Add(this.bAtras);
             this.Controls.Add(this.dataGridView);
             this.Controls.Add(this.bEliminarSede);
             this.Controls.Add(this.bImportarSedes);
-            this.Margin = new System.Windows.Forms.Padding(2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "SedeTab";
             this.Text = "Sedes";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).EndInit();

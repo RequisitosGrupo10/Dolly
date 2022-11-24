@@ -19,8 +19,6 @@ namespace BDLibrary
             builder.Password = "6A9WnAAEaNcuYQfe";
             builder.Database = "grupo10DB";
             cadenaConexion = builder.ConnectionString;
-
-
         }
 
         public List<string> getColumnas(string tabla)
@@ -117,7 +115,6 @@ namespace BDLibrary
             if (cadenaInsert.Length == 0) return;
 
             MySqlConnection conexion = new MySqlConnection(cadenaConexion);
-
             MySqlCommand comando = new MySqlCommand(cadenaInsert, conexion);
 
             conexion.Open();
