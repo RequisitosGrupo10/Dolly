@@ -53,6 +53,23 @@ namespace WindowsFormsApplication1
 
         }
 
+        public static Dictionary<string, int> CentrosDiccionario()
+        {
+            Dictionary<string, int> ret = new Dictionary<string, int>();
+            List<Object[]> centros = miBD.Select("Select nombre, idCentro from Centro");
+            foreach (Object[] centro in centros)
+            {
+                ret[(string) centro[0]] = (int) centro[1];
+            }
+            return ret;
+        }
+
+        public static int InsertarCentro(string nombre)
+        {
+            miBD.Insert("INSERT INTO Centro(nombre) VALUES ('" + nombre + "');");
+            return (int)miBD.SelectScalar("SELECT MAX(idCentro) FROM Centro");
+        }
+
         public int IdCentro
         {
             get { return idCentro; }

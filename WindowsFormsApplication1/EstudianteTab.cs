@@ -28,6 +28,9 @@ namespace WindowsFormsApplication1
             var fileContent = string.Empty;
             var filePath = string.Empty;
 
+ //           Dictionary<string, int> asignaturas = Asignatura.AsignaturasDiccionario();
+            Dictionary<string, int> centros = Centro.CentrosDiccionario();
+
             using (OpenFileDialog openFileDialog = new OpenFileDialog())
             {
                 openFileDialog.InitialDirectory = "c:\\";
@@ -53,7 +56,7 @@ namespace WindowsFormsApplication1
                         if (!reader.EndOfStream)
                             line = reader.ReadLine();
                         // Comprobar para insertar nuevos Centros
-                        var centros = Centro.ListaCentro();
+                        //var centros = Centro.ListaCentro();
                         while (!reader.EndOfStream)
                         {
                             line = reader.ReadLine();
@@ -67,21 +70,35 @@ namespace WindowsFormsApplication1
                                     string apellido2;
                                     string dni_nif;
                                     string[] materias;
-                                    Centro centro;
                                     string s_centro;
 
                                     s_centro = attributes[0];
-                                    centro = GetOrAddCentro(s_centro, centros);
+                                    int idCentro;
+                                    try
+                                    {
+                                        idCentro = centros[s_centro];
+                                    }
+                                    catch (Exception)
+                                    {
+                                        // Centro no encontrado
+                                        idCentro = Centro.InsertarCentro(s_centro);
+                                        centros[s_centro] = idCentro;
+                                    }
+                                    //centro = GetOrAddCentro(s_centro, centros);
                                     nombre = attributes[1];
                                     apellido1 = attributes[2];
                                     apellido2 = (attributes[3].Equals("0")) ? "" : attributes[3];
                                     dni_nif = attributes[4];
                                     materias = attributes[5].Split(',');
+ //                                   Dictionary<string, int> examenes = new Dictionary<string, int>();
                                     for (int m = 0; m < materias.Length; m++)
                                     {
                                         materias[m] = materias[m].Trim();
+//                                        int id = asignaturas[materias[m]]; // Lanza una excepción en caso si la materia no está en la base de datos.
+//                                        examenes[materias[m]] = id;
                                     }
-                                    Alumno newEstudiante = new Alumno(centro.IdCentro, nombre, apellido1, apellido2, dni_nif, materias);
+                                    Alumno.InsertarAlumno(idCentro, nombre, apellido1, apellido2, dni_nif, materias);
+                                    //Alumno newEstudiante = new Alumno(centro.IdCentro, nombre, apellido1, apellido2, dni_nif, materias);
                                 }
                                 else
                                 {

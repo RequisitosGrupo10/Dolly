@@ -84,6 +84,20 @@ namespace WindowsFormsApplication1
             }
         }
 
+        /// <summary>
+        /// Devuelve un diccionario con el nombre de asignatura como clave y su identificador como valor
+        /// </summary>
+        public static Dictionary<string,int> AsignaturasDiccionario()
+        {
+            Dictionary<string, int> ret = new Dictionary<string, int>();
+            List<Object[]> list = miBD.Select("Select * from Asignatura");
+            foreach (Object[] obj in list)
+            {
+                ret[(string) obj[1]] = (int) obj[0];
+            }
+            return ret;
+        }
+
         public int IdAsignatura
         {
             get { return idAsignatura; }

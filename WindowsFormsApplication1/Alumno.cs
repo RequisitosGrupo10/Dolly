@@ -1,6 +1,9 @@
 ﻿using BDLibrary;
 using System;
 using System.Collections.Generic;
+using System.Drawing.Drawing2D;
+using System.Linq;
+using System.Text;
 
 namespace WindowsFormsApplication1
 {
@@ -42,6 +45,22 @@ namespace WindowsFormsApplication1
                 this.materias = null;
                 foreach (var materia in materias)
                     this.addAsignatura(materia);
+        }
+
+        public static void InsertarAlumno(int idCentro, string nombre, string apellido1, string apellido2, string dni_nif, string[] materias)
+        {
+            miBD.Insert("Insert Into Alumno(idCentro, DNI, nombre, apellido1, apellido2) VALUES ('" + idCentro + "', '" + dni_nif + "',' " + nombre + "', '" + apellido1 + "', '" + apellido2 + "');");
+            string[] subq = new string[materias.Length];
+            String ins = "insert into AlumnoAsignatura (DNI, idAsignatura) values";
+            for(int i = 0; i < materias.Length; i++)
+            {
+                subq[i] = "('" + dni_nif + "', (select idAsignatura from Asignatura where nombre = '" + materias[i] + "')) ";
+            }
+
+            //         miBD.Insert("Insert into AlumnoAsignatura(idAsignatura, DNI) values (" + materia.Value + ", '" + dni_nif + "');");
+
+            ins += String.Join(",", subq) + ";";
+            miBD.Insert(ins);
         }
 
         public string Nombre
@@ -111,7 +130,7 @@ namespace WindowsFormsApplication1
         {
             List<Alumno> lista = new List<Alumno>();
 
-            foreach (object[] tupla in miBD.Select("SELECT DNI, nombre, apellido2, apellido2 FROM Alumno;"))
+            foreach (object[] tupla in miBD.Select("SELECT DNI, nombre, apellido2, apellido2 FROM Alumno limit 200;"))
             {
                 Alumno aux = new Alumno();
                 aux.dni_nif = (string)tupla[0];
