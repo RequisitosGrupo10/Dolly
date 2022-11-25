@@ -575,11 +575,10 @@
             Summary description for CharSetMap.
             </summary>
         </member>
-        <member name="M:MySql.Data.MySqlClient.CharSetMap.GetEncoding(MySql.Data.Common.DBVersion,System.String)">
+        <member name="M:MySql.Data.MySqlClient.CharSetMap.GetEncoding(System.String)">
             <summary>
             Returns the text encoding for a given MySQL character set name
             </summary>
-            <param name="version">Version of the connection requesting the encoding</param>
             <param name="charSetName">Name of the character set to get the encoding for</param>
             <returns>Encoding object for the given character set name</returns>
         </member>
@@ -1195,11 +1194,6 @@
             Pings the server.
             </summary>
             <returns><c>true</c> if the ping was successful; otherwise, <c>false</c>.</returns>
-        </member>
-        <member name="M:MySql.Data.MySqlClient.MySqlConnection.OpenAsync(System.Threading.CancellationToken)">
-            <summary>
-            Executes the <see cref="M:MySql.Data.MySqlClient.MySqlConnection.Open"/> method as a Task.
-            </summary>
         </member>
         <member name="M:MySql.Data.MySqlClient.MySqlConnection.Open">
             <summary>Opens a database connection with the property settings specified by the <see cref="P:MySql.Data.MySqlClient.MySqlConnection.ConnectionString"/>.</summary>
@@ -4132,277 +4126,6 @@
              Parses out the elements of a procedure parameter data type.
             </summary>
         </member>
-        <member name="T:MySql.Data.MySqlClient.Memcached.BinaryClient">
-            <summary>
-            Implementation of memcached binary client protocol.
-            </summary>
-            <remarks>According to http://code.google.com/p/memcached/wiki/BinaryProtocolRevamped </remarks>
-        </member>
-        <member name="M:MySql.Data.MySqlClient.Memcached.BinaryClient.SendCommand(System.Byte,System.Byte,System.String,System.Object,System.TimeSpan,System.Boolean)">
-            <summary>
-            Sends an store command (add, replace, set).
-            </summary>
-            <param name="magic"></param>
-            <param name="opcode"></param>
-            <param name="key"></param>
-            <param name="data"></param>
-            <param name="expiration"></param>
-            <param name="hasExtra"></param> 
-        </member>
-        <member name="M:MySql.Data.MySqlClient.Memcached.BinaryClient.SendCommand(System.Byte,System.Byte,System.String,System.String@)">
-            <summary>
-            Sends a get command.
-            </summary>
-            <param name="magic"></param>
-            <param name="opcode"></param>
-            <param name="key"></param>
-            <param name="value"></param>
-        </member>
-        <member name="M:MySql.Data.MySqlClient.Memcached.BinaryClient.SendCommand(System.Byte,System.Byte,System.String)">
-            <summary>
-            Sends a delete command.
-            </summary>
-            <param name="magic"></param>
-            <param name="opcode"></param>
-            <param name="key"></param>    
-        </member>
-        <member name="M:MySql.Data.MySqlClient.Memcached.BinaryClient.SendCommand(System.Byte,System.Byte,System.TimeSpan)">
-            <summary>
-            Sends a command without args (like flush).
-            </summary>
-            <param name="magic"></param>
-            <param name="opcode"></param>    
-            <param name="expiration"></param>
-        </member>
-        <member name="M:MySql.Data.MySqlClient.Memcached.BinaryClient.SendCommand(System.Byte,System.Byte,System.String,System.Int32)">
-            <summary>
-            Sends a command with amount (INCR/DECR)
-            </summary>
-            <param name="magic"></param>
-            <param name="opcode"></param>
-            <param name="key"></param>
-            <param name="amount"></param>
-        </member>
-        <member name="M:MySql.Data.MySqlClient.Memcached.BinaryClient.EncodeStoreCommand(System.Byte,System.Byte,System.String,System.Object,System.TimeSpan,System.Boolean)">
-            <summary>
-            Encodes in the binary protocol the a command of the kind set, add or replace.
-            </summary>
-            <param name="magic"></param>
-            <param name="opcode"></param>
-            <param name="key"></param>
-            <param name="data"></param>
-            <param name="expiration"></param>
-            <param name="hasExtra">If true applies to set, add or replace commands; if false applies to append and prepend commands.</param>
-            <returns></returns>
-        </member>
-        <member name="T:MySql.Data.MySqlClient.Memcached.Client">
-            <summary>
-            An interface of the client memcached protocol. This class is abstract for 
-            implementation of the Memcached client interface see <see cref="T:MySql.Data.MySqlClient.Memcached.TextClient"/> for the 
-            text protocol version and <see cref="T:MySql.Data.MySqlClient.Memcached.BinaryClient"/> for the binary protocol version.
-            </summary>
-        </member>
-        <member name="F:MySql.Data.MySqlClient.Memcached.Client.port">
-            <summary>
-            The port used by the connection.
-            </summary>
-        </member>
-        <member name="F:MySql.Data.MySqlClient.Memcached.Client.server">
-            <summary>
-            The server DNS or IP address used by the connection.
-            </summary>
-        </member>
-        <member name="F:MySql.Data.MySqlClient.Memcached.Client.stream">
-            <summary>
-            The network stream used by the connecition.
-            </summary>
-        </member>
-        <member name="M:MySql.Data.MySqlClient.Memcached.Client.GetInstance(System.String,System.UInt32,MySql.Data.MySqlClient.Memcached.MemcachedFlags)">
-            <summary>
-            Factory method for creating  instances of <see cref="T:MySql.Data.MySqlClient.Memcached.Client"/> that implement a connection with the requested features.
-            The connection object returned must be explicitely opened see method <see cref="M:MySql.Data.MySqlClient.Memcached.Client.Open"/>.
-            </summary>
-            <param name="server">The Memcached server DNS or IP address.</param>
-            <param name="port">The port for the Memcached server</param>
-            <param name="flags">A set of flags indicating characterestics requested.</param>
-            <returns>An instance of a client connection ready to be used.</returns>
-        </member>
-        <member name="M:MySql.Data.MySqlClient.Memcached.Client.Open">
-            <summary>
-            Opens the client connection.
-            </summary>
-        </member>
-        <member name="M:MySql.Data.MySqlClient.Memcached.Client.Close">
-            <summary>
-            Closes the client connection.
-            </summary>
-        </member>
-        <member name="M:MySql.Data.MySqlClient.Memcached.Client.Add(System.String,System.Object,System.TimeSpan)">
-            <summary>
-            Adds a new key/value pair with the given TimeSpan expiration.
-            </summary>
-            <param name="key">The key for identifying the entry.</param>
-            <param name="data">The data to associate with the key.</param>
-            <param name="expiration">The interval of timespan, use TimeSpan.Zero for no expiration.</param>
-        </member>
-        <member name="M:MySql.Data.MySqlClient.Memcached.Client.Append(System.String,System.Object)">
-            <summary>
-            Appens the data to the existing data for the associated key.
-            </summary>
-            <param name="key">The key for identifying the entry.</param>
-            <param name="data">The data to append with the data associated with the key.</param>
-        </member>
-        <member name="M:MySql.Data.MySqlClient.Memcached.Client.Cas(System.String,System.Object,System.TimeSpan,System.UInt64)">
-            <summary>
-            Executes the Check-and-set Memcached operation.
-            </summary>
-            <param name="key">The key for identifying the entry.</param>
-            <param name="data">The data to use in the CAS.</param>
-            <param name="expiration">The interval of timespan, use TimeSpan.Zero for no expiration.</param>
-            <param name="casUnique">The CAS unique value to use.</param>
-            <exception cref="T:MySql.Data.MySqlClient.Memcached.MemcachedException"></exception>
-        </member>
-        <member name="M:MySql.Data.MySqlClient.Memcached.Client.Decrement(System.String,System.Int32)">
-            <summary>
-            Decrements the value associated with a key by the given amount.
-            </summary>
-            <param name="key">The key associated with the value to decrement.</param>
-            <param name="amount">The amount to decrement the value.</param>
-        </member>
-        <member name="M:MySql.Data.MySqlClient.Memcached.Client.Delete(System.String)">
-            <summary>
-            Removes they pair key/value given the specified key.
-            </summary>
-            <param name="key"></param>
-        </member>
-        <member name="M:MySql.Data.MySqlClient.Memcached.Client.FlushAll(System.TimeSpan)">
-            <summary>
-            Removes all entries from the storage, effectively invalidating the whole cache.
-            </summary>
-            <param name="delay">The interval after which the cache will be cleaned. Can be TimeSpan.Zero for immediately.</param>
-        </member>
-        <member name="M:MySql.Data.MySqlClient.Memcached.Client.Get(System.String)">
-            <summary>
-            Get the key/value pair associated with a given key.
-            </summary>
-            <param name="key">The key for which to returm the key/value.</param>
-            <returns>The key/value associated with the key or a MemcachedException if it does not exists.</returns>
-        </member>
-        <member name="M:MySql.Data.MySqlClient.Memcached.Client.Increment(System.String,System.Int32)">
-            <summary>
-            Increments the value associated with a key by the given amount.
-            </summary>
-            <param name="key">The key associated with the value to increment.</param>
-            <param name="amount">The amount to increment the value.</param>
-        </member>
-        <member name="M:MySql.Data.MySqlClient.Memcached.Client.Prepend(System.String,System.Object)">
-            <summary>
-            Prepends the data to the existing data for the associated key.
-            </summary>
-            <param name="key">The key for identifying the entry.</param>
-            <param name="data">The data to append with the data associated with the key.</param>
-        </member>
-        <member name="M:MySql.Data.MySqlClient.Memcached.Client.Replace(System.String,System.Object,System.TimeSpan)">
-            <summary>
-            Replaces the value associated with the given key with another value.
-            </summary>
-            <param name="key">The key for identifying the entry.</param>
-            <param name="data">The data to replace the value associated with the key.</param>
-            <param name="expiration">The interval of timespan, use TimeSpan.Zero for no expiration.</param>
-        </member>
-        <member name="M:MySql.Data.MySqlClient.Memcached.Client.Set(System.String,System.Object,System.TimeSpan)">
-            <summary>
-            Set the value of a given key.
-            </summary>
-            <param name="key">The key for identifying the entry.</param>
-            <param name="data">The data to associate with the given key.</param>
-            <param name="expiration">The interval of timespan, use TimeSpan.Zero for no expiration.</param>
-        </member>
-        <member name="T:MySql.Data.MySqlClient.Memcached.MemcachedFlags">
-            <summary>
-            A set of flags for requesting new instances of connections
-            </summary>
-        </member>
-        <member name="F:MySql.Data.MySqlClient.Memcached.MemcachedFlags.TextProtocol">
-            <summary>
-            Requests a connection implememting the text protocol.
-            </summary>
-        </member>
-        <member name="F:MySql.Data.MySqlClient.Memcached.MemcachedFlags.BinaryProtocol">
-            <summary>
-            Requests a connection implementing the binary protocol.
-            </summary>
-        </member>
-        <member name="F:MySql.Data.MySqlClient.Memcached.MemcachedFlags.Tcp">
-            <summary>
-            Requests a TCP connection. Currently UDP is not supported.
-            </summary>
-        </member>
-        <member name="T:MySql.Data.MySqlClient.Memcached.MemcachedException">
-            <summary>
-            The base exception class for all Memcached exceptions.
-            </summary>
-        </member>
-        <member name="T:MySql.Data.MySqlClient.Memcached.TextClient">
-            <summary>
-            Implementation of the Memcached text client protocol.
-            </summary>
-        </member>
-        <member name="M:MySql.Data.MySqlClient.Memcached.TextClient.SendCommand(System.String,System.String,System.Object,System.TimeSpan,System.UInt64)">
-            <summary>
-            Sends a command to the memcached server.
-            </summary>
-            <param name="cmd"></param>
-            <param name="key"></param>
-            <param name="data"></param>
-            <param name="expiration"></param>
-            <param name="casUnique"></param>
-            <remarks>This version is for commands that take a key, data, expiration and casUnique.</remarks>
-        </member>
-        <member name="M:MySql.Data.MySqlClient.Memcached.TextClient.SendCommand(System.String,System.String,System.Object,System.TimeSpan)">
-            <summary>
-            Sends a command to the memcached server.
-            </summary>
-            <param name="cmd"></param>
-            <param name="key"></param>
-            <param name="data"></param>
-            <param name="expiration"></param>
-            <remarks>This version is for commands that take a key, data and expiration</remarks>
-        </member>
-        <member name="M:MySql.Data.MySqlClient.Memcached.TextClient.SendCommand(System.String,System.String,System.Object)">
-            <summary>
-            Send a command to memcached server.
-            </summary>
-            <param name="cmd"></param>
-            <param name="key"></param>
-            <param name="data"></param>    
-            <remarks>This version is for commands that don't need flags neither expiration fields.</remarks>
-        </member>
-        <member name="M:MySql.Data.MySqlClient.Memcached.TextClient.SendCommand(System.String,System.String)">
-            <summary>
-            Sends a command to the server.
-            </summary>
-            <param name="cmd"></param>
-            <param name="key"></param>
-            <remarks>This version is for commands that only require a key</remarks>
-        </member>
-        <member name="M:MySql.Data.MySqlClient.Memcached.TextClient.SendCommand(System.String,System.String,System.Int32)">
-            <summary>
-            Sends a command to the server.
-            </summary>
-            <param name="cmd"></param>
-            <param name="key"></param>
-            <param name="amount"></param>
-            <remarks>This version is for commands that only require a key and an integer value.</remarks>
-        </member>
-        <member name="M:MySql.Data.MySqlClient.Memcached.TextClient.SendCommand(System.String,System.TimeSpan)">
-            <summary>
-            Sends a command to the server.
-            </summary>
-            <param name="cmd"></param>
-            <param name="expiration"></param>
-            <remarks>This version is for commands that only require a key and expiration.</remarks>
-        </member>
         <member name="T:MySql.Data.MySqlClient.MySqlAttribute">
             <summary>
             Represents a query attribute to a <see cref="T:MySql.Data.MySqlClient.MySqlCommand"/>.
@@ -4987,6 +4710,16 @@
             Gets or sets a connection option.
             </summary>
             <param name="keyword">The keyword that identifies the connection option to modify.</param>
+        </member>
+        <member name="M:MySql.Data.MySqlClient.MySqlConnectionStringBuilder.TryGetValue(System.String,System.Object@)">
+            <summary>
+            Retrieves the value corresponding to the supplied key from this <see cref="T:MySql.Data.MySqlClient.MySqlConnectionStringBuilder"/>.
+            </summary>
+            <param name="keyword">The key of the item to retrieve.</param>
+            <param name="value">The value corresponding to the <paramref name="keyword"/>.</param>
+            <returns><see langword="true"/> if <paramref name="keyword"/> was found within the connection string; 
+            otherwise, <see langword="false"/>.</returns>
+            <exception cref="T:System.ArgumentNullException"><paramref name="keyword"/> contains a null value.</exception>
         </member>
         <member name="T:MySql.Data.MySqlClient.ClientFlags">
             <summary>
@@ -8375,23 +8108,6 @@
             Gets or sets the switch to control tracing and debugging.
             </summary>
         </member>
-        <member name="P:MySql.Data.MySqlClient.MySqlTrace.QueryAnalysisEnabled">
-            <summary>
-            Gets or sets a flag indicating if query analysis is enabled.
-            </summary>
-        </member>
-        <member name="M:MySql.Data.MySqlClient.MySqlTrace.EnableQueryAnalyzer(System.String,System.Int32)">
-            <summary>
-            Enables query analysis.
-            </summary>
-            <param name="host">The host on which to enable query analysis.</param>
-            <param name="postInterval">The interval of time for logging trace information.</param>
-        </member>
-        <member name="M:MySql.Data.MySqlClient.MySqlTrace.DisableQueryAnalyzer">
-            <summary>
-            Disables query analysis.
-            </summary>
-        </member>
         <member name="T:MySql.Data.MySqlClient.UsageAdvisorWarningFlags">
             <summary>
             Specifies the types of warning flags.
@@ -8497,6 +8213,127 @@
             The query has been normalized.
             </summary>
         </member>
+        <member name="T:MySql.Data.MySqlClient.MySqlTransaction">
+            <summary>
+             Represents a SQL transaction to be made in a MySQL database. This class cannot be inherited.
+            </summary>
+            <remarks>
+             The application creates a <see cref="T:MySql.Data.MySqlClient.MySqlTransaction"/> object by calling <see cref="M:MySql.Data.MySqlClient.MySqlConnection.BeginTransaction"/>
+             on the <see cref="T:MySql.Data.MySqlClient.MySqlConnection"/> object. All subsequent operations associated with the
+             transaction (for example, committing or aborting the transaction), are performed on the
+             <see cref="T:MySql.Data.MySqlClient.MySqlTransaction"/> object.
+            </remarks>
+            <example>
+             The following example creates a <see cref="T:MySql.Data.MySqlClient.MySqlConnection"/> and a <see cref="T:MySql.Data.MySqlClient.MySqlTransaction"/>.
+             It also demonstrates how to use the <see cref="M:MySql.Data.MySqlClient.MySqlConnection.BeginTransaction"/>,
+             <see cref="M:MySql.Data.MySqlClient.MySqlTransaction.Commit"/>, and <see cref="M:MySql.Data.MySqlClient.MySqlTransaction.Rollback"/> methods.
+             <code>
+               public void RunTransaction(string myConnString)
+               {
+                 MySqlConnection myConnection = new MySqlConnection(myConnString);
+                 myConnection.Open();
+                 MySqlCommand myCommand = myConnection.CreateCommand();
+                 MySqlTransaction myTrans;
+                 // Start a local transaction
+                 myTrans = myConnection.BeginTransaction();
+                 // Must assign both transaction object and connection
+                 // to Command object for a pending local transaction
+                 myCommand.Connection = myConnection;
+                 myCommand.Transaction = myTrans;
+                 
+                 try
+                 {
+                   myCommand.CommandText = "Insert into Region (RegionID, RegionDescription) VALUES (100, 'Description')";
+                   myCommand.ExecuteNonQuery();
+                   myCommand.CommandText = "Insert into Region (RegionID, RegionDescription) VALUES (101, 'Description')";
+                   myCommand.ExecuteNonQuery();
+                   myTrans.Commit();
+                   Console.WriteLine("Both records are written to database.");
+                 }
+                 catch(Exception e)
+                 {
+                   try
+                   {
+                     myTrans.Rollback();
+                   }
+                   catch (MySqlException ex)
+                   {
+                     if (myTrans.Connection != null)
+                     {
+                       Console.WriteLine("An exception of type " + ex.GetType() +
+                       " was encountered while attempting to roll back the transaction.");
+                     }
+                   }
+                   
+                   Console.WriteLine("An exception of type " + e.GetType() +
+                   " was encountered while inserting the data.");
+                   Console.WriteLine("Neither record was written to database.");
+                 }
+                 finally
+                 {
+                   myConnection.Close();
+                 }
+               }
+             </code>
+            </example>
+        </member>
+        <member name="P:MySql.Data.MySqlClient.MySqlTransaction.Connection">
+            <summary>
+            Gets the <see cref="T:MySql.Data.MySqlClient.MySqlConnection"/> object associated with the transaction, or a null reference (Nothing in Visual Basic) if the transaction is no longer valid.
+            </summary>
+            <value>The <see cref="T:MySql.Data.MySqlClient.MySqlConnection"/> object associated with this transaction.</value>
+            <remarks>
+            A single application may have multiple database connections, each 
+            with zero or more transactions. This property enables you to 
+            determine the connection object associated with a particular 
+            transaction created by <see cref="M:MySql.Data.MySqlClient.MySqlConnection.BeginTransaction"/>.
+            </remarks>
+        </member>
+        <member name="P:MySql.Data.MySqlClient.MySqlTransaction.IsolationLevel">
+            <summary>
+            Specifies the <see cref="P:MySql.Data.MySqlClient.MySqlTransaction.IsolationLevel"/> for this transaction.
+            </summary>
+            <value>
+            The <see cref="P:MySql.Data.MySqlClient.MySqlTransaction.IsolationLevel"/> for this transaction. The default is <b>ReadCommitted</b>.
+            </value>
+            <remarks>
+            Parallel transactions are not supported. Therefore, the IsolationLevel 
+            applies to the entire transaction.
+            </remarks>
+        </member>
+        <member name="P:MySql.Data.MySqlClient.MySqlTransaction.DbConnection">
+            <summary>
+            Gets the <see cref="P:MySql.Data.MySqlClient.MySqlTransaction.DbConnection"/> object associated with the transaction,
+            or a null reference if the transaction is no longer valid.
+            </summary>
+        </member>
+        <member name="M:MySql.Data.MySqlClient.MySqlTransaction.Dispose(System.Boolean)">
+            <summary>
+            Releases the unmanaged resources used by the <see cref="T:MySql.Data.MySqlClient.MySqlTransaction"/>
+            and optionally releases the managed resources
+            </summary>
+            <param name="disposing">If true, this method releases all resources held by any managed objects that
+            this <see cref="T:MySql.Data.MySqlClient.MySqlTransaction"/> references.</param>
+        </member>
+        <member name="M:MySql.Data.MySqlClient.MySqlTransaction.Commit">
+            <summary>
+             Commits the database transaction.
+            </summary>
+            <remarks>
+             The <see cref="M:MySql.Data.MySqlClient.MySqlTransaction.Commit"/> method is equivalent to the MySQL SQL statement COMMIT.
+            </remarks>
+        </member>
+        <member name="M:MySql.Data.MySqlClient.MySqlTransaction.Rollback">
+            <summary>
+             Rolls back a transaction from a pending state.
+            </summary>
+            <remarks>
+             The <see cref="M:MySql.Data.MySqlClient.MySqlTransaction.Rollback"/> method is equivalent to the MySQL statement ROLLBACK.
+             The transaction can only be rolled back from a pending state
+             (after BeginTransaction has been called, but before Commit is
+             called).
+            </remarks>
+        </member>
         <member name="T:MySql.Data.MySqlClient.NativeDriver">
             <summary>
             Summary description for Driver.
@@ -8584,6 +8421,24 @@
             the parameterMap array list that includes all the paramter names in the
             order they appeared in the SQL
             </remarks>
+        </member>
+        <member name="M:MySql.Data.MySqlClient.ProcedureCache.SplitSchemaAndEntity(System.String,System.String@,System.String@)">
+            <summary>
+            Splits the schema and the entity from a syntactically correct "spName"; 
+            if there's no schema, then schema will be an empty string.
+            </summary>
+            <param name="spName">string to inspect.</param>
+            <param name="schema">The schema.</param>
+            <param name="entity">The entity.</param>
+        </member>
+        <member name="M:MySql.Data.MySqlClient.ProcedureCache.ExtractDotIndex(System.String,System.Int32)">
+            <summary>
+            Obtains the dot index that separates the schema from the entity if there's one; 
+            otherwise, returns -1. It expects a syntactically correct "spName".
+            </summary>
+            <param name="spName">string to inspect.</param>
+            <param name="dotIndex">Value of the dot index.</param>
+            <returns>The dot index.</returns>
         </member>
         <member name="T:MySql.Data.MySqlClient.ReplicationConfigurationElement">
             <summary>
@@ -8929,6 +8784,13 @@
             Summary description for StoredProcedure.
             </summary>
         </member>
+        <member name="M:MySql.Data.MySqlClient.StoredProcedure.IsSyntacticallyCorrect(System.String)">
+            <summary>
+            Verify if the string passed as argument is syntactically correct.
+            </summary>
+            <param name="spName">String to be analyzed</param>
+            <returns>true if is correct; otherwise, false.</returns>
+        </member>
         <member name="T:MySql.Data.MySqlClient.BaseTableCache">
             <summary>
             Defines the basic operations to be performed on the table cache.
@@ -9003,128 +8865,13 @@
             </summary>
             <param name="e">original exception</param>
         </member>
-        <member name="T:MySql.Data.MySqlClient.MySqlTransaction">
+        <member name="M:MySql.Data.MySqlClient.Utils.UnquoteString(System.String)">
             <summary>
-             Represents a SQL transaction to be made in a MySQL database. This class cannot be inherited.
+            Removes the outer backticks and replace the double-backticks to single-backtick
+            of inside the quotedString.
             </summary>
-            <remarks>
-             The application creates a <see cref="T:MySql.Data.MySqlClient.MySqlTransaction"/> object by calling <see cref="M:MySql.Data.MySqlClient.MySqlConnection.BeginTransaction"/>
-             on the <see cref="T:MySql.Data.MySqlClient.MySqlConnection"/> object. All subsequent operations associated with the
-             transaction (for example, committing or aborting the transaction), are performed on the
-             <see cref="T:MySql.Data.MySqlClient.MySqlTransaction"/> object.
-            </remarks>
-            <example>
-             The following example creates a <see cref="T:MySql.Data.MySqlClient.MySqlConnection"/> and a <see cref="T:MySql.Data.MySqlClient.MySqlTransaction"/>.
-             It also demonstrates how to use the <see cref="M:MySql.Data.MySqlClient.MySqlConnection.BeginTransaction"/>,
-             <see cref="M:MySql.Data.MySqlClient.MySqlTransaction.Commit"/>, and <see cref="M:MySql.Data.MySqlClient.MySqlTransaction.Rollback"/> methods.
-             <code>
-               public void RunTransaction(string myConnString)
-               {
-                 MySqlConnection myConnection = new MySqlConnection(myConnString);
-                 myConnection.Open();
-                 
-                 MySqlCommand myCommand = myConnection.CreateCommand();
-                 MySqlTransaction myTrans;
-                 
-                 // Start a local transaction
-                 myTrans = myConnection.BeginTransaction();
-                 // Must assign both transaction object and connection
-                 // to Command object for a pending local transaction
-                 myCommand.Connection = myConnection;
-                 myCommand.Transaction = myTrans;
-                 
-                 try
-                 {
-                   myCommand.CommandText = "Insert into Region (RegionID, RegionDescription) VALUES (100, 'Description')";
-                   myCommand.ExecuteNonQuery();
-                   myCommand.CommandText = "Insert into Region (RegionID, RegionDescription) VALUES (101, 'Description')";
-                   myCommand.ExecuteNonQuery();
-                   myTrans.Commit();
-                   Console.WriteLine("Both records are written to database.");
-                 }
-                 catch(Exception e)
-                 {
-                   try
-                   {
-                     myTrans.Rollback();
-                   }
-                   catch (MySqlException ex)
-                   {
-                     if (myTrans.Connection != null)
-                     {
-                       Console.WriteLine("An exception of type " + ex.GetType() +
-                       " was encountered while attempting to roll back the transaction.");
-                     }
-                   }
-                   
-                   Console.WriteLine("An exception of type " + e.GetType() +
-                   " was encountered while inserting the data.");
-                   Console.WriteLine("Neither record was written to database.");
-                 }
-                 finally
-                 {
-                   myConnection.Close();
-                 }
-               }
-             </code>
-            </example>
-        </member>
-        <member name="P:MySql.Data.MySqlClient.MySqlTransaction.Connection">
-            <summary>
-            Gets the <see cref="T:MySql.Data.MySqlClient.MySqlConnection"/> object associated with the transaction, or a null reference (Nothing in Visual Basic) if the transaction is no longer valid.
-            </summary>
-            <value>The <see cref="T:MySql.Data.MySqlClient.MySqlConnection"/> object associated with this transaction.</value>
-            <remarks>
-            A single application may have multiple database connections, each 
-            with zero or more transactions. This property enables you to 
-            determine the connection object associated with a particular 
-            transaction created by <see cref="M:MySql.Data.MySqlClient.MySqlConnection.BeginTransaction"/>.
-            </remarks>
-        </member>
-        <member name="P:MySql.Data.MySqlClient.MySqlTransaction.IsolationLevel">
-            <summary>
-            Specifies the <see cref="P:MySql.Data.MySqlClient.MySqlTransaction.IsolationLevel"/> for this transaction.
-            </summary>
-            <value>
-            The <see cref="P:MySql.Data.MySqlClient.MySqlTransaction.IsolationLevel"/> for this transaction. The default is <b>ReadCommitted</b>.
-            </value>
-            <remarks>
-            Parallel transactions are not supported. Therefore, the IsolationLevel 
-            applies to the entire transaction.
-            </remarks>
-        </member>
-        <member name="P:MySql.Data.MySqlClient.MySqlTransaction.DbConnection">
-            <summary>
-            Gets the <see cref="P:MySql.Data.MySqlClient.MySqlTransaction.DbConnection"/> object associated with the transaction,
-            or a null reference if the transaction is no longer valid.
-            </summary>
-        </member>
-        <member name="M:MySql.Data.MySqlClient.MySqlTransaction.Dispose(System.Boolean)">
-            <summary>
-            Releases the unmanaged resources used by the <see cref="T:MySql.Data.MySqlClient.MySqlTransaction"/>
-            and optionally releases the managed resources
-            </summary>
-            <param name="disposing">If true, this method releases all resources held by any managed objects that
-            this <see cref="T:MySql.Data.MySqlClient.MySqlTransaction"/> references.</param>
-        </member>
-        <member name="M:MySql.Data.MySqlClient.MySqlTransaction.Commit">
-            <summary>
-             Commits the database transaction.
-            </summary>
-            <remarks>
-             The <see cref="M:MySql.Data.MySqlClient.MySqlTransaction.Commit"/> method is equivalent to the MySQL SQL statement COMMIT.
-            </remarks>
-        </member>
-        <member name="M:MySql.Data.MySqlClient.MySqlTransaction.Rollback">
-            <summary>
-             Rolls back a transaction from a pending state.
-            </summary>
-            <remarks>
-             The <see cref="M:MySql.Data.MySqlClient.MySqlTransaction.Rollback"/> method is equivalent to the MySQL statement ROLLBACK.
-             The transaction can only be rolled back from a pending state
-             (after BeginTransaction has been called, but before Commit is
-             called).
-            </remarks>
+            <param name="quotedString">The string to unquote.</param>
+            <returns></returns>
         </member>
         <member name="T:MySql.Data.MySqlClient.X.XDevAPI.Common.ColumnType">
             <summary>
@@ -10520,89 +10267,435 @@
             https://msdn.microsoft.com/en-us/library/windows/desktop/aa380131(v=vs.85).aspx
             </summary>
         </member>
-        <member name="T:MySql.Data.Common.DnsResolver">
+        <member name="T:MySql.Data.Common.DnsSrv">
             <summary>
             DNS resolver that runs queries against a server.
             </summary>
         </member>
-        <member name="M:MySql.Data.Common.DnsResolver.CreateResolver(System.String)">
+        <member name="M:MySql.Data.Common.DnsSrv.CreateResolver(System.String)">
             <summary>
-            Initializes a new instance of the <see cref="T:Ubiety.Dns.Core.Resolver"/> class.
+            Initializes a new instance of the <see cref="!:Ubiety.Dns.Core.Resolver"/> class.
             </summary>
         </member>
-        <member name="M:MySql.Data.Common.DnsResolver.GetDnsSrvRecords(System.String)">
+        <member name="M:MySql.Data.Common.DnsSrv.GetDnsSrvRecords(System.String)">
             <summary>
             Gets the DNS SVR records of the service name that is provided.
             </summary>
-            <returns>A list of <see cref="T:MySql.Data.Common.DnsSrvRecord"/>s sorted as described in RFC2782.</returns>
+            <returns>A list of <see cref="T:MySql.Data.Common.DnsClient.DnsSrvRecord"/>s sorted as described in RFC2782.</returns>
         </member>
-        <member name="M:MySql.Data.Common.DnsResolver.SortSrvRecords(System.Collections.Generic.List{MySql.Data.Common.DnsSrvRecord})">
+        <member name="M:MySql.Data.Common.DnsSrv.SortSrvRecords(System.Collections.Generic.List{MySql.Data.Common.DnsClient.DnsSrvRecord})">
             <summary>
             Sorts a list of DNS SRV records according to the sorting rules described in RFC2782.
             </summary>
-            <param name="srvRecords">List of <see cref="T:MySql.Data.Common.DnsSrvRecord"/>s to sort.</param>
-            <returns>A new list of sorted <see cref="T:MySql.Data.Common.DnsSrvRecord"/>s.</returns>
+            <param name="srvRecords">List of <see cref="T:MySql.Data.Common.DnsClient.DnsSrvRecord"/>s to sort.</param>
+            <returns>A new list of sorted <see cref="T:MySql.Data.Common.DnsClient.DnsSrvRecord"/>s.</returns>
         </member>
-        <member name="M:MySql.Data.Common.DnsResolver.Reset">
+        <member name="M:MySql.Data.Common.DnsSrv.Reset">
             <summary>
             Resets the DnsSrvResolver
             </summary>
         </member>
-        <member name="T:MySql.Data.Common.DnsSrvRecord">
+        <member name="T:MySql.Data.Common.DnsClient.RecordType">
+            <summary>
+            DNS record type.
+            </summary>
+        </member>
+        <member name="T:MySql.Data.Common.DnsClient.QueryClass">
+            <summary>
+            CLASS fields appear in resource records.
+            </summary>
+        </member>
+        <member name="F:MySql.Data.Common.DnsClient.QueryClass.IN">
+            <summary>
+            The Internet.
+            </summary>
+        </member>
+        <member name="T:MySql.Data.Common.DnsClient.QueryType">
+            <summary>
+            DNS question type.
+            QueryType are a superset of RecordType.
+            </summary>
+        </member>
+        <member name="F:MySql.Data.Common.DnsClient.QueryType.SRV">
+            <summary>
+            A resource record which specifies the location of the server(s) for a specific protocol and domain.
+            </summary>
+            <seealso href="https://tools.ietf.org/html/rfc2782">RFC 2782</seealso>
+            <seealso cref="T:MySql.Data.Common.DnsClient.DnsSrvRecord"/>
+        </member>
+        <member name="T:MySql.Data.Common.DnsClient.OPCode">
+            <summary>
+            DNS Record OpCode.
+            A four bit field that specifies kind of query in this message.
+            This value is set by the originator of a query and copied into the response.
+            </summary>
+        </member>
+        <member name="F:MySql.Data.Common.DnsClient.OPCode.Query">
+            <summary>
+            A standard query (QUERY).
+            </summary>
+        </member>
+        <member name="F:MySql.Data.Common.DnsClient.OPCode.IQUERY">
+            <summary>
+            Retired IQUERY code.
+            </summary>
+        </member>
+        <member name="F:MySql.Data.Common.DnsClient.OPCode.Status">
+            <summary>
+            A server status request (STATUS).
+            </summary>
+        </member>
+        <member name="F:MySql.Data.Common.DnsClient.OPCode.Notify">
+            <summary>
+            Notify OpCode.
+            </summary>
+        </member>
+        <member name="F:MySql.Data.Common.DnsClient.OPCode.Update">
+            <summary>
+            Update OpCode.
+            </summary>
+        </member>
+        <member name="T:MySql.Data.Common.DnsClient.DnsQuestion">
+            <summary>
+            The <see cref="T:MySql.Data.Common.DnsClient.DnsQuestion"/> class transports information of the lookup query performed.
+            </summary>
+        </member>
+        <member name="P:MySql.Data.Common.DnsClient.DnsQuestion.DomainName">
+            <summary>
+            Gets the domain name
+            </summary>
+        </member>
+        <member name="P:MySql.Data.Common.DnsClient.DnsQuestion.QuestionType">
+            <summary>
+            Gets the type of the question.
+            </summary>
+        </member>
+        <member name="P:MySql.Data.Common.DnsClient.DnsQuestion.QuestionClass">
+            <summary>
+            Gets the question class.
+            </summary>
+        </member>
+        <member name="M:MySql.Data.Common.DnsClient.DnsQuestion.#ctor(System.String,MySql.Data.Common.DnsClient.QueryType,MySql.Data.Common.DnsClient.QueryClass)">
+            <summary>
+            Initializes a new instance of the <see cref="!:Question"/> class.
+            </summary>
+            <param name="domainName">Domain name.</param>
+            <param name="questionType">Type of the question.</param>
+            <param name="questionClass">The question class.</param>
+        </member>
+        <member name="M:MySql.Data.Common.DnsClient.DnsQuestion.#ctor(MySql.Data.Common.DnsClient.DnsRecordReader)">
+            <summary>
+            Initializes a new instance of the <see cref="T:MySql.Data.Common.DnsClient.DnsQuestion" /> class.
+            </summary>
+            <param name="reader"><see cref="T:MySql.Data.Common.DnsClient.DnsRecordReader" /> of the record.</param>
+        </member>
+        <member name="M:MySql.Data.Common.DnsClient.DnsQuestion.GetData">
+            <summary>
+            Gets the bytes in this collection.
+            </summary>
+        </member>
+        <member name="P:MySql.Data.Common.DnsClient.DnsRecordHeader.Id">
+            <summary>
+            Gets or sets the unique identifier of the record.
+            </summary>
+        </member>
+        <member name="P:MySql.Data.Common.DnsClient.DnsRecordHeader.QuestionCount">
+            <summary>
+            Gets or sets the number of questions in the record.
+            </summary>
+        </member>
+        <member name="P:MySql.Data.Common.DnsClient.DnsRecordHeader.AnswerCount">
+            <summary>
+            Gets or sets the number of answers in the record.
+            </summary>
+        </member>
+        <member name="P:MySql.Data.Common.DnsClient.DnsRecordHeader.NameserverCount">
+            <summary>
+            Gets or sets the number of name servers in the record.
+            </summary>
+        </member>
+        <member name="P:MySql.Data.Common.DnsClient.DnsRecordHeader.AdditionalRecordsCount">
+            <summary>
+            Gets or sets the number of additional records in the record.
+            </summary>
+        </member>
+        <member name="P:MySql.Data.Common.DnsClient.DnsRecordHeader.OperationCode">
+            <summary>
+            Specifies kind of query.
+            </summary>
+        </member>
+        <member name="P:MySql.Data.Common.DnsClient.DnsRecordHeader.RecursionDesired">
+            <summary>
+            Recursion Desired
+            </summary>
+        </member>
+        <member name="M:MySql.Data.Common.DnsClient.DnsRecordHeader.GetData">
+            <summary>
+            Represents the header as a byte array
+            </summary>
+        </member>
+        <member name="F:MySql.Data.Common.DnsClient.DnsRecord.ResourceRecord">
+            <summary>
+            The Resource Record this record data belongs to.
+            </summary>
+        </member>
+        <member name="T:MySql.Data.Common.DnsClient.DnsRecordReader">
+            <summary>
+            A DNS record reader.
+            </summary>
+        </member>
+        <member name="P:MySql.Data.Common.DnsClient.DnsRecordReader.Position">
+            <summary>
+            Gets or sets the position of the cursor in the record.
+            </summary>
+        </member>
+        <member name="M:MySql.Data.Common.DnsClient.DnsRecordReader.#ctor(System.Byte[],System.Int32)">
+            <summary>
+            Initializes a new instance of the <see cref="T:MySql.Data.Common.DnsClient.DnsRecordReader" /> class.
+            </summary>
+            <param name="data">Byte array of the record.</param>
+            <param name="position">Position of the cursor in the record.</param>
+        </member>
+        <member name="M:MySql.Data.Common.DnsClient.DnsRecordReader.#ctor(System.Byte[])">
+            <summary>
+                Initializes a new instance of the <see cref="T:MySql.Data.Common.DnsClient.DnsRecordReader" /> class.
+            </summary>
+            <param name="data">Byte array of the record.</param>
+        </member>
+        <member name="M:MySql.Data.Common.DnsClient.DnsRecordReader.ReadByte">
+            <summary>
+            Read a byte from the record.
+            </summary>
+        </member>
+        <member name="M:MySql.Data.Common.DnsClient.DnsRecordReader.ReadChar">
+            <summary>
+            Read a char from the record.
+            </summary>
+        </member>
+        <member name="M:MySql.Data.Common.DnsClient.DnsRecordReader.ReadUInt16">
+            <summary>
+            Read an unsigned int 16 from the record.
+            </summary>
+        </member>
+        <member name="M:MySql.Data.Common.DnsClient.DnsRecordReader.ReadUInt16(System.Int32)">
+            <summary>
+            Read an unsigned int 16 from the offset of the record.
+            </summary>
+            <param name="offset">Offset to start reading from.</param>
+        </member>
+        <member name="M:MySql.Data.Common.DnsClient.DnsRecordReader.ReadUInt32">
+            <summary>
+            Read an unsigned int 32 from the record.
+            </summary>
+        </member>
+        <member name="M:MySql.Data.Common.DnsClient.DnsRecordReader.ReadDomainName">
+            <summary>
+            Read the domain name from the record.
+            </summary>
+            <returns>Domain name of the record.</returns>
+        </member>
+        <member name="M:MySql.Data.Common.DnsClient.DnsRecordReader.ReadString">
+            <summary>
+            Read a string from the record.
+            </summary>
+        </member>
+        <member name="M:MySql.Data.Common.DnsClient.DnsRecordReader.ReadBytes(System.Int32)">
+            <summary>
+            Read a series of bytes from the record.
+            </summary>
+            <param name="length">Length to read from the record.</param>
+        </member>
+        <member name="M:MySql.Data.Common.DnsClient.DnsRecordReader.ReadRecord(MySql.Data.Common.DnsClient.RecordType)">
+            <summary>
+            Read record from the data.
+            </summary>
+            <param name="type">Type of the record to read.</param>
+            <returns>Record read from the data.</returns>
+        </member>
+        <member name="T:MySql.Data.Common.DnsClient.DnsRecordUnknown">
+            <summary>
+            A default Dns Record.
+            </summary>
+        </member>
+        <member name="T:MySql.Data.Common.DnsClient.DnsRequest">
+            <summary>
+            A DNS request.
+            </summary>
+        </member>
+        <member name="P:MySql.Data.Common.DnsClient.DnsRequest.Header">
+            <summary> Gets the header. </summary>
+        </member>
+        <member name="F:MySql.Data.Common.DnsClient.DnsResolver.DefaultPort">
+            <summary>
+            The default DNS server port.
+            </summary>
+        </member>
+        <member name="M:MySql.Data.Common.DnsClient.DnsResolver.AddLocalServers">
+            <summary>
+            Fills a list of the endpoints in the local network configuration.
+            </summary>
+        </member>
+        <member name="M:MySql.Data.Common.DnsClient.DnsResolver.Query(System.String)">
+            <summary> Execute a query on a DNS server. </summary>
+            <param name="domainName">Domain name to look up. </param>
+            <returns> DNS response for request. </returns>
+        </member>
+        <member name="P:MySql.Data.Common.DnsClient.DnsResourceRecord.Name">
+            <summary>
+            Gets the name of the node to which this resource record pertains.
+            </summary>
+        </member>
+        <member name="P:MySql.Data.Common.DnsClient.DnsResourceRecord.Type">
+            <summary>
+            Gets the type of resource record.
+            </summary>
+        </member>
+        <member name="P:MySql.Data.Common.DnsClient.DnsResourceRecord.Class">
+            <summary>
+            Gets the type class of resource record, mostly IN but can be CS, CH or HS.
+            </summary>
+        </member>
+        <member name="P:MySql.Data.Common.DnsClient.DnsResourceRecord.TimeToLive">
+            <summary>
+            Gets the time to live, in seconds, that the resource record may be cached.
+            </summary>
+        </member>
+        <member name="P:MySql.Data.Common.DnsClient.DnsResourceRecord.RecordLength">
+            <summary>
+            Gets the record length.
+            </summary>
+        </member>
+        <member name="P:MySql.Data.Common.DnsClient.DnsResourceRecord.Record">
+            <summary>
+            Gets one of the Record* classes.
+            </summary>
+        </member>
+        <member name="T:MySql.Data.Common.DnsClient.AnswerResourceRecord">
+            <summary>
+            Answer resource record.
+            </summary>
+        </member>
+        <member name="T:MySql.Data.Common.DnsClient.AuthorityResourceRecord">
+            <summary>
+            Authority resource record.
+            </summary>
+        </member>
+        <member name="T:MySql.Data.Common.DnsClient.AdditionalResourceRecord">
+            <summary>
+            Additional resource record.
+            </summary>
+        </member>
+        <member name="P:MySql.Data.Common.DnsClient.DnsResponse.Questions">
+            <summary>
+            List of Question records.
+            </summary>
+        </member>
+        <member name="P:MySql.Data.Common.DnsClient.DnsResponse.Answers">
+            <summary>
+            List of AnswerResourceRecord records.
+            </summary>
+        </member>
+        <member name="P:MySql.Data.Common.DnsClient.DnsResponse.Authorities">
+            <summary>
+            List of AuthorityResourceRecord records.
+            </summary>
+        </member>
+        <member name="P:MySql.Data.Common.DnsClient.DnsResponse.Additionals">
+            <summary>
+            List of AdditionalResourceRecord records.
+            </summary>
+        </member>
+        <member name="P:MySql.Data.Common.DnsClient.DnsResponse.Header">
+            <summary>
+            The record header.
+            </summary>
+        </member>
+        <member name="P:MySql.Data.Common.DnsClient.DnsResponse.Server">
+            <summary>
+            Server which delivered this response.
+            </summary>
+        </member>
+        <member name="P:MySql.Data.Common.DnsClient.DnsResponse.MessageSize">
+            <summary>
+            The Size of the message.
+            </summary>
+        </member>
+        <member name="P:MySql.Data.Common.DnsClient.DnsResponse.Error">
+            <summary>
+            Error message, empty when no error.
+            </summary>
+        </member>
+        <member name="P:MySql.Data.Common.DnsClient.DnsResponse.TimeStamp">
+            <summary>
+            TimeStamp when cached.
+            </summary>
+        </member>
+        <member name="M:MySql.Data.Common.DnsClient.DnsResponse.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:MySql.Data.Common.DnsClient.DnsResponse" /> class.
+            </summary>
+        </member>
+        <member name="M:MySql.Data.Common.DnsClient.DnsResponse.#ctor(System.Net.IPEndPoint,System.Byte[])">
+            <summary>
+            Initializes a new instance of the <see cref="T:MySql.Data.Common.DnsClient.DnsResponse" /> class.
+            </summary>
+            <param name="iPEndPoint"><see cref="T:System.Net.IPEndPoint" /> of the DNS server that responded to the query.</param>
+            <param name="data"><see cref="T:System.Byte" /> array of the response data.</param>
+        </member>
+        <member name="P:MySql.Data.Common.DnsClient.DnsResponse.RecordsSRV">
+            <summary>
+            List of RecordSRV in Response.Answers
+            </summary>
+        </member>
+        <member name="T:MySql.Data.Common.DnsClient.DnsSrvRecord">
             <summary>
             Class that represents a DNS SRV record.
             RFC 2782 (https://tools.ietf.org/html/rfc2782)
             </summary>
         </member>
-        <member name="P:MySql.Data.Common.DnsSrvRecord.Port">
+        <member name="P:MySql.Data.Common.DnsClient.DnsSrvRecord.Port">
             <summary>
             Gets the port.
             </summary>
         </member>
-        <member name="P:MySql.Data.Common.DnsSrvRecord.Priority">
+        <member name="P:MySql.Data.Common.DnsClient.DnsSrvRecord.Priority">
             <summary>
             Gets the priority.
             </summary>
         </member>
-        <member name="P:MySql.Data.Common.DnsSrvRecord.Target">
+        <member name="P:MySql.Data.Common.DnsClient.DnsSrvRecord.Target">
             <summary>
             Gets the target domain name.
             </summary>
         </member>
-        <member name="P:MySql.Data.Common.DnsSrvRecord.Weight">
+        <member name="P:MySql.Data.Common.DnsClient.DnsSrvRecord.Weight">
             <summary>
             Gets the weight.
             </summary>
         </member>
-        <member name="M:MySql.Data.Common.DnsSrvRecord.#ctor(System.Int32,System.Int32,System.String,System.Int32)">
+        <member name="M:MySql.Data.Common.DnsClient.DnsSrvRecord.#ctor(System.Int32,System.Int32,System.String,System.Int32)">
             <summary>
-            Initializes a new instance of <see cref="T:MySql.Data.Common.DnsSrvRecord"/> class.
+            Initializes a new instance of <see cref="T:MySql.Data.Common.DnsClient.DnsSrvRecord"/> class.
             </summary>
             <param name="port">The port.</param>
             <param name="priority">The priority.</param>
             <param name="target">The target.</param>
             <param name="weight">The weight.</param>
         </member>
-        <member name="M:MySql.Data.Common.DnsSrvRecord.#ctor(Ubiety.Dns.Core.Records.RecordSrv)">
+        <member name="M:MySql.Data.Common.DnsClient.DnsSrvRecord.#ctor(MySql.Data.Common.DnsClient.DnsRecordReader)">
             <summary>
-            Initializes a new instance of <see cref="T:MySql.Data.Common.DnsSrvRecord"/> class.
+            Initializes a new instance of <see cref="T:MySql.Data.Common.DnsClient.DnsSrvRecord"/> class.
             </summary>
-            <param name="recordSRV">The DNS SRV record.</param>
+            <param name="recordReader"><see cref="T:MySql.Data.Common.DnsClient.DnsRecordReader"/> of the record data.</param>
         </member>
-        <member name="M:MySql.Data.Common.DnsSrvRecord.Compare(MySql.Data.Common.DnsSrvRecord,MySql.Data.Common.DnsSrvRecord)">
+        <member name="M:MySql.Data.Common.DnsClient.DnsSrvRecord.Compare(MySql.Data.Common.DnsClient.DnsSrvRecord,MySql.Data.Common.DnsClient.DnsSrvRecord)">
             <summary>
-            Compare two <see cref="T:MySql.Data.Common.DnsSrvRecord"/> objects. First, using their priority and
+            Compare two <see cref="T:MySql.Data.Common.DnsClient.DnsSrvRecord"/> objects. First, using their priority and
             if both have the same, then using their weights.
             </summary>
-            <param name="x">A <see cref="T:MySql.Data.Common.DnsSrvRecord"/> to compare.</param>
-            <param name="y">A <see cref="T:MySql.Data.Common.DnsSrvRecord"/> to compare.</param>
+            <param name="x">A <see cref="T:MySql.Data.Common.DnsClient.DnsSrvRecord"/> to compare.</param>
+            <param name="y">A <see cref="T:MySql.Data.Common.DnsClient.DnsSrvRecord"/> to compare.</param>
             <returns></returns>
-        </member>
-        <member name="M:MySql.Data.Common.DnsSrvRecord.op_Implicit(Ubiety.Dns.Core.Records.RecordSrv)~MySql.Data.Common.DnsSrvRecord">
-            <summary>
-            Initializes a new instance of the <see cref="T:MySql.Data.Common.DnsSrvRecord"/> class from a <see cref="T:Ubiety.Dns.Core.Records.RecordSrv"/>.
-            </summary>
-            <param name="recordSRV">The DNS SRV record.</param>
         </member>
         <member name="T:MySql.Data.Common.LowResolutionStopwatch">
             <summary>
@@ -12055,6 +12148,11 @@
         <member name="P:MySql.Data.ResourcesX.DnsSrvInvalidScheme">
             <summary>
               Looks up a localized string similar to Scheme &apos;{0}&apos; is not valid..
+            </summary>
+        </member>
+        <member name="P:MySql.Data.ResourcesX.DocPathNullOrEmpty">
+            <summary>
+              Looks up a localized string similar to The document path cannot be null or an empty string..
             </summary>
         </member>
         <member name="P:MySql.Data.ResourcesX.DuplicateUserDefinedAttribute">
@@ -14533,6 +14631,16 @@
             Gets or sets a connection option.
             </summary>
             <param name="keyword">The keyword that identifies the connection option to modify.</param>
+        </member>
+        <member name="M:MySqlX.XDevAPI.MySqlXConnectionStringBuilder.TryGetValue(System.String,System.Object@)">
+            <summary>
+            Retrieves the value corresponding to the supplied key from this <see cref="T:MySqlX.XDevAPI.MySqlXConnectionStringBuilder"/>.
+            </summary>
+            <param name="keyword">The key of the item to retrieve.</param>
+            <param name="value">The value corresponding to the <paramref name="keyword"/>.</param>
+            <returns><see langword="true"/> if <paramref name="keyword"/> was found within the connection string; 
+            otherwise, <see langword="false"/>.</returns>
+            <exception cref="T:System.ArgumentNullException"><paramref name="keyword"/> contains a null value.</exception>
         </member>
         <member name="T:MySqlX.XDevAPI.Relational.Column">
             <summary>
