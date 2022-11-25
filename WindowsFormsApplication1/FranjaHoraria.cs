@@ -11,48 +11,30 @@ namespace WindowsFormsApplication1
 {
     public class FranjaHoraria
     {
-        private DateTime franja;
+        private String franja;
 
         public FranjaHoraria(string franja)
         {
-            this.franja = DateTime.ParseExact(franja, "dd-MM-yyyy:HH:mm", CultureInfo.InvariantCulture);
             try
             {
-                
                 MySqlBD db = new MySqlBD();
-                string s = toSQLFormat(this.franja);
-                db.Insert("Insert into FranjaHoraria values( '" + s + "');");
+                db.Insert("Insert into FranjaHoraria values( '" + franja + "');");
+                this.franja = franja;
             } catch (Exception)
             {
                 // Its already in DB;
             }
         }
 
-        public FranjaHoraria(DateTime franja)
+        public static List<string> ListarFranjas()
         {
-
-            this.franja = franja;
+            List<string> list = new List<String>();
             MySqlBD db = new MySqlBD();
-            try
-            {
-                string s = toSQLFormat(this.franja);
-                db.Insert("Insert into FranjaHoraria values( '" + s + "');");
-            }
-            catch (Exception)
-            {
-                // Its already in DB;
-            }
-        }
+            List<object[]> fh = db.Select("Select * from FranjaHoraria");
 
-        public static List<DateTime> ListarFranjas()
-        {
-            List<DateTime> list = new List<DateTime>();
-            MySqlBD db = new MySqlBD();
-            List<Object[]> fh = db.Select("Select * from FranjaHoraria");
-
-            foreach (Object[] franja in fh)
+            foreach (object[] franja in fh)
             {
-                list.Add((DateTime) franja[0]);
+                list.Add((string) franja[0]);
             }
 
             return list;
@@ -61,22 +43,18 @@ namespace WindowsFormsApplication1
         public void EliminarFranja()
         {
             MySqlBD db = new MySqlBD();
-            string s = toSQLFormat(franja);
-            db.Delete("Delete from FranjaHoraria where franja = '" + s + "';");
+            db.Delete("Delete from FranjaHoraria where franja = '" + this.franja + "';");
+            this.franja = null;
         }
 
-        public static string toSQLFormat(DateTime franja)
-        {
-            return franja.Year.ToString() + "-" + franja.Month.ToString() + "-" + franja.Day.ToString() + " " + franja.Hour.ToString() + ":" + franja.Minute.ToString() + ";" + franja.Second.ToString();
-        }
-        public DateTime Franja
+        public String Franja
         {
             get { return this.franja; }
         }
 
         public override string ToString()
         {
-            return franja.ToString();
+            return this.franja;
         }
     }
 }

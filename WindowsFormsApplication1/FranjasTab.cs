@@ -25,12 +25,10 @@ namespace WindowsFormsApplication1
         private void Mostrar()
         {
             dataGridView.Rows.Clear();
-            List<DateTime> list = FranjaHoraria.ListarFranjas();
-            foreach (DateTime date in list)
+            List<string> list = FranjaHoraria.ListarFranjas();
+            foreach (string date in list)
             {
-                string dia = date.ToString("dd-MM-yyyy");
-                string hora = date.ToString("HH:mm");
-                dataGridView.Rows.Add(new object[] {hora, dia});
+                dataGridView.Rows.Add(date);
             }
         }
 

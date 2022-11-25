@@ -153,11 +153,11 @@ namespace WindowsFormsApplication1
             return lista;
         }
 
-        public static List<DateTime> DisponibilidadHorarias(Aula aula)
+        public static List<string> DisponibilidadHorarias(Aula aula)
         {
             List<object[]> datesAssignedAux = miBD.Select("SELECT franja FROM DisponibilidadAulas WHERE idAula = " + aula.IdAula + ";");
-            List<DateTime> datesAssigned = new List<DateTime>();
-            foreach (object[] date in datesAssignedAux) { datesAssigned.Add((DateTime)date[0]); }
+            List<string> datesAssigned = new List<string>();
+            foreach (object[] date in datesAssignedAux) { datesAssigned.Add((string)date[0]); }
             return datesAssigned;
         }
     }

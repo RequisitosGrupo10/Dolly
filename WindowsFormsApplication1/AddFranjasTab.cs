@@ -68,12 +68,11 @@ namespace WindowsFormsApplication1
         private void bAccept_Click(object sender, EventArgs e)
         {
             int count = 0;
-            foreach (string franjaText in listHoras.Items)
+            /*foreach (string franjaText in listHoras.Items)
             {
-                string date = ParseToFormat(franjaText);
-                new FranjaHoraria(DateTime.Parse(date));
+                string date = new FranjaHoraria(franjaText.ToString());
                 count++;
-            }
+            }*/
             MessageBox.Show("Se ha añadido " + count + " franjas horarias en el sistema");
             this.Close();
         }

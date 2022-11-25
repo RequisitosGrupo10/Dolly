@@ -18,7 +18,6 @@ C:\Users\jmsan\Documents\Visual Studio 2013\Projects\Dolly\WindowsFormsApplicati
 C:\Users\jmsan\Documents\Visual Studio 2013\Projects\Dolly\WindowsFormsApplication1\bin\Debug\ZstdNet.dll
 C:\Users\jmsan\Documents\Visual Studio 2013\Projects\Dolly\WindowsFormsApplication1\bin\Debug\K4os.Compression.LZ4.Streams.dll
 C:\Users\jmsan\Documents\Visual Studio 2013\Projects\Dolly\WindowsFormsApplication1\bin\Debug\BouncyCastle.Crypto.dll
-C:\Users\jmsan\Documents\Visual Studio 2013\Projects\Dolly\WindowsFormsApplication1\bin\Debug\Ubiety.Dns.Core.dll
 C:\Users\jmsan\Documents\Visual Studio 2013\Projects\Dolly\WindowsFormsApplication1\bin\Debug\K4os.Compression.LZ4.dll
 C:\Users\jmsan\Documents\Visual Studio 2013\Projects\Dolly\WindowsFormsApplication1\bin\Debug\K4os.Hash.xxHash.dll
 C:\Users\jmsan\Documents\Visual Studio 2013\Projects\Dolly\WindowsFormsApplication1\bin\Debug\MySql.Data.xml
@@ -153,3 +152,5 @@ C:\Users\Usuario\Documents\GitHub\Dolly\WindowsFormsApplication1\bin\Debug\Syste
 C:\Users\Usuario\Documents\GitHub\Dolly\WindowsFormsApplication1\bin\Debug\System.Security.AccessControl.xml
 C:\Users\Usuario\Documents\GitHub\Dolly\WindowsFormsApplication1\bin\Debug\System.Security.Principal.Windows.xml
 C:\Users\Usuario\Documents\GitHub\Dolly\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.ExamenTab.resources
+C:\Users\jmsan\Documents\Visual Studio 2013\Projects\Dolly\WindowsFormsApplication1\bin\Debug\System.Security.AccessControl.xml
+C:\Users\jmsan\Documents\Visual Studio 2013\Projects\Dolly\WindowsFormsApplication1\bin\Debug\System.Security.Principal.Windows.xml

@@ -50,15 +50,13 @@ namespace WindowsFormsApplication1
         public static void InsertarAlumno(int idCentro, string nombre, string apellido1, string apellido2, string dni_nif, string[] materias)
         {
             miBD.Insert("Insert Into Alumno(idCentro, DNI, nombre, apellido1, apellido2) VALUES ('" + idCentro + "', '" + dni_nif + "',' " + nombre + "', '" + apellido1 + "', '" + apellido2 + "');");
-            string[] subq = new string[materias.Length];
-            String ins = "insert into AlumnoAsignatura (DNI, idAsignatura) values";
+            string ins = "insert into AlumnoAsignatura (DNI, idAsignatura) values";
+            string []subq = new string[materias.Length];
             for(int i = 0; i < materias.Length; i++)
             {
                 subq[i] = "('" + dni_nif + "', (select idAsignatura from Asignatura where nombre = '" + materias[i] + "')) ";
             }
-
-            //         miBD.Insert("Insert into AlumnoAsignatura(idAsignatura, DNI) values (" + materia.Value + ", '" + dni_nif + "');");
-
+            // miBD.Insert("Insert into AlumnoAsignatura(idAsignatura, DNI) values (" + materia.Value + ", '" + dni_nif + "');");
             ins += String.Join(",", subq) + ";";
             miBD.Insert(ins);
         }

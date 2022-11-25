@@ -20,24 +20,28 @@ namespace WindowsFormsApplication1
         public Usuario(int idUsuario)
         {
             try { 
-                object[] tupla = miBD.Select("SELECT * FROM Usuario WHERE idUsuario = " + idUsuario + ";")[0];
+                object[] tupla = miBD.Select("SELECT username, rol FROM Usuario WHERE idUsuario = " + idUsuario + ";")[0];
                 this.idUsuario = idUsuario;
-                this.username = tupla[1].ToString();
-                this.rol = (int) tupla[3];
+                this.username = (string)tupla[0];
+                this.rol = (int) tupla[1];
             } catch (Exception ex){
                 Console.WriteLine("ERROR:" + ex.Message);
             }
         }
         public Usuario (string nombre)
         {
-            try { 
-                foreach (object[] user in miBD.Select("Select idUsuario, username, rol from Usuario where username = '" + nombre + "';"))
+            try {
+                var tupla = miBD.Select("Select idUsuario, username, rol from Usuario where username = '" + nombre + "';");
+                if (tupla.Count == 1) {
+                        var user = tupla[0];
+                        this.idUsuario = (int)user[0];
+                        this.username = (string)user[1];
+                        this.rol = (int)user[2];
+                } else
                 {
-                    this.idUsuario = (int)user[0];
-                    this.username = (string)user[1];
-                    this.rol = (int)user[2];
+                    throw new Exception("El usuario no está en la base de datos");
                 }
-            } catch (Exception ex){
+               }catch (Exception ex){
                 Console.WriteLine("ERROR:" + ex.Message);
             }
         }

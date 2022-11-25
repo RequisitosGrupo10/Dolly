@@ -20,9 +20,9 @@ namespace WindowsFormsApplication1
             tAula.Text = aula.Nombre;
             tAforo.Text = aula.Aforo.ToString();
             
-            List<DateTime> dates = FranjaHoraria.ListarFranjas();
-            List<DateTime> datesAssigned = Aula.DisponibilidadHorarias(aula);
-            foreach (DateTime date in dates)
+            List<string> dates = FranjaHoraria.ListarFranjas();
+            List<string> datesAssigned = Aula.DisponibilidadHorarias(aula);
+            foreach (string date in dates)
             {
                 cbFranjasHorarias.Items.Add(date);
                 if (datesAssigned.Contains(date))
@@ -51,17 +51,17 @@ namespace WindowsFormsApplication1
             }
 
 
-            List<DateTime> dates = FranjaHoraria.ListarFranjas();
+            List<String> dates = FranjaHoraria.ListarFranjas();
             MySqlBD myBD = new MySqlBD();
-            foreach (DateTime date in dates)
+            foreach (string date in dates)
             {
                 if (cbFranjasHorarias.CheckedItems.Contains(date))
                 {
-                    myBD.Insert("INSERT INTO DisponibilidadAulas VALUES (" + aula.IdAula + ", '" + FranjaHoraria.toSQLFormat(date) + "' )");
+                    myBD.Insert("INSERT INTO DisponibilidadAulas VALUES (" + aula.IdAula + ", '" + date + "' )");
                 }
                 else
                 {
-                    myBD.Delete("DELETE FROM DisponibilidadAulas WHERE idAula = " + aula.IdAula + " AND franja = '" + FranjaHoraria.toSQLFormat(date) + "';");
+                    myBD.Delete("DELETE FROM DisponibilidadAulas WHERE idAula = " + aula.IdAula + " AND franja = '" + date + "';");
                 }
             }
 
