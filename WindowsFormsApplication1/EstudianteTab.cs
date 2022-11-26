@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
+using System.Text;
 using System.Windows.Forms;
 
 namespace WindowsFormsApplication1
@@ -57,6 +58,8 @@ namespace WindowsFormsApplication1
                             line = reader.ReadLine();
                         // Comprobar para insertar nuevos Centros
                         //var centros = Centro.ListaCentro();
+                        int cnt = 0;
+                        StringBuilder query = new StringBuilder();
                         while (!reader.EndOfStream)
                         {
                             line = reader.ReadLine();
@@ -81,7 +84,17 @@ namespace WindowsFormsApplication1
                                     catch (Exception)
                                     {
                                         // Centro no encontrado
-                                        idCentro = Centro.InsertarCentro(s_centro);
+                                        if (s_centro.Contains("'"))
+                                        {
+                                            int idx = s_centro.IndexOf("'");
+                                            string s_centro_new;
+                                            s_centro_new = s_centro.Substring(0, idx) + "\\'" + s_centro.Substring(idx+ 1);
+                                            idCentro = Centro.InsertarCentro(s_centro_new);
+                                        }
+                                        else
+                                        {
+                                            idCentro = Centro.InsertarCentro(s_centro);
+                                        }
                                         centros[s_centro] = idCentro;
                                     }
                                     //centro = GetOrAddCentro(s_centro, centros);
@@ -97,7 +110,14 @@ namespace WindowsFormsApplication1
 //                                        int id = asignaturas[materias[m]]; // Lanza una excepción en caso si la materia no está en la base de datos.
 //                                        examenes[materias[m]] = id;
                                     }
-                                    Alumno.InsertarAlumno(idCentro, nombre, apellido1, apellido2, dni_nif, materias);
+                                    query.Append(BuildQuery(idCentro, nombre, apellido1, apellido2, dni_nif, materias));
+                                    cnt++;
+                                    if (cnt >= 500)
+                                    {
+                                        Alumno.Isertar(query.ToString());
+                                        query.Clear();
+                                        cnt = 0;
+                                    }
                                     //Alumno newEstudiante = new Alumno(centro.IdCentro, nombre, apellido1, apellido2, dni_nif, materias);
                                 }
                                 else
@@ -114,6 +134,7 @@ namespace WindowsFormsApplication1
                             }
                             n_line++;
                         }
+                        Alumno.Isertar(query.ToString());
                         errorLogger.WriteLine("##################################");
                     }
                     MessageBox.Show("Se procesaron " + (n_line) + " líneas, con " + (n_error) + " errores", "File Content at path: " + filePath, MessageBoxButtons.OK);
@@ -122,6 +143,21 @@ namespace WindowsFormsApplication1
             }
         }
 
+        private string BuildQuery(int idCentro, string nombre, string apellido1, string apellido2, string dni_nif, string[] materias)
+        {
+            string ins = "Insert IGNORE into Alumno(idCentro, DNI, nombre, apellido1, apellido2) VALUES ('" + idCentro + "', '" + dni_nif + "',' " + nombre + "', '" + apellido1 + "', '" + apellido2 + "');\n";
+            ins += "insert IGNORE into AlumnoAsignatura (DNI, idAsignatura) values";
+            string[] subq = new string[materias.Length];
+            for (int i = 0; i < materias.Length; i++)
+            {
+                subq[i] = "('" + dni_nif + "', (select idAsignatura from Asignatura where nombre = '" + materias[i] + "')) ";
+            }
+            ins += String.Join(",", subq) + ";\n";
+            return ins;
+        }
+
+        // TODO: Remove if not used;
+        /*
         private Centro GetOrAddCentro(string s_centro, List<Centro> centros)
         {
             Centro centro;
@@ -145,7 +181,7 @@ namespace WindowsFormsApplication1
             }
             return (centro);
         }
-
+        */
         private void bAtras_Click(object sender, EventArgs e)
         {
             this.Close();

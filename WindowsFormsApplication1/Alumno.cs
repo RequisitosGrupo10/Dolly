@@ -93,6 +93,10 @@ namespace WindowsFormsApplication1
                 return materias;
             }
         }
+        internal static void Isertar(string query)
+        {
+            miBD.Insert(query);
+        }
 
         public void addAsignatura(string s_asignatura)
         {
@@ -142,5 +146,7 @@ namespace WindowsFormsApplication1
             return lista;
 
         }
+
+
     }
 }
