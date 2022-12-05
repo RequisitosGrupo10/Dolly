@@ -67,9 +67,9 @@ namespace WindowsFormsApplication1
                 Sede sede = checkSede();
                 if (sede != null)
                 {
-                    ResponsableSedeTab responsableSedeTab = new ResponsableSedeTab(sede);
+                    MenuResponsable menuResponsable = new MenuResponsable(sede);
                     this.Hide();
-                    responsableSedeTab.ShowDialog();
+                    menuResponsable.ShowDialog();
                     this.Close();
                 }
             }

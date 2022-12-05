@@ -4,13 +4,13 @@ using System.Windows.Forms;
 
 namespace WindowsFormsApplication1
 {
-    public partial class ResponsableSedeTab : Form
+    public partial class GestionarSedeTab : Form
     {
         //FALTA HACER MODIFICAR AULA Y RELLENAR DISPONIBLE
         Aula seleccionado;
         Sede sede; 
         //Obtener el Usuario que está conectado, hace falta login. De ahí obtener la sede a la que está asignado
-        public ResponsableSedeTab(Sede sede)
+        public GestionarSedeTab(Sede sede)
         {
             this.sede = sede;
             InitializeComponent();
@@ -125,7 +125,7 @@ namespace WindowsFormsApplication1
             }
         }
 
-        private void bSalir_Click(object sender, EventArgs e)
+        private void bAtras_Click(object sender, EventArgs e)
         {
             this.Close();
         }
