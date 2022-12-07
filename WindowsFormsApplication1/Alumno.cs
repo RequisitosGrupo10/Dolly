@@ -121,7 +121,14 @@ namespace WindowsFormsApplication1
             apellido1 = null;
             apellido2 = null;
         }
-
+internal static void BorrarTodos()
+        {
+            String del;
+            del = "SET sql_safe_updates = 0;\n" +
+                "delete from Alumno;\n" +
+                "SET sql_safe_updates = 1;";
+            miBD.Delete(del);
+        }
         public override string ToString()
         {
             string res = this.nombre + ";" + this.apellido1 + ";";
@@ -146,7 +153,5 @@ namespace WindowsFormsApplication1
             return lista;
 
         }
-
-
     }
 }

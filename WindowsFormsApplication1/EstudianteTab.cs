@@ -29,7 +29,7 @@ namespace WindowsFormsApplication1
             var fileContent = string.Empty;
             var filePath = string.Empty;
 
- //           Dictionary<string, int> asignaturas = Asignatura.AsignaturasDiccionario();
+            Dictionary<string, int> asignaturas = Asignatura.AsignaturasDiccionario();
             Dictionary<string, int> centros = Centro.CentrosDiccionario();
 
             using (OpenFileDialog openFileDialog = new OpenFileDialog())
@@ -103,14 +103,13 @@ namespace WindowsFormsApplication1
                                     apellido2 = (attributes[3].Equals("0")) ? "" : attributes[3];
                                     dni_nif = attributes[4];
                                     materias = attributes[5].Split(',');
- //                                   Dictionary<string, int> examenes = new Dictionary<string, int>();
+                                    int[] mat = new int[materias.Length];
                                     for (int m = 0; m < materias.Length; m++)
                                     {
                                         materias[m] = materias[m].Trim();
-//                                        int id = asignaturas[materias[m]]; // Lanza una excepción en caso si la materia no está en la base de datos.
-//                                        examenes[materias[m]] = id;
+                                        mat[m] = asignaturas[materias[m]]; // Lanza una excepción en caso si la materia no está en la base de datos.
                                     }
-                                    query.Append(BuildQuery(idCentro, nombre, apellido1, apellido2, dni_nif, materias));
+                                    query.Append(BuildQuery(idCentro, nombre, apellido1, apellido2, dni_nif, mat));
                                     cnt++;
                                     if (cnt >= 500)
                                     {
@@ -143,14 +142,14 @@ namespace WindowsFormsApplication1
             }
         }
 
-        private string BuildQuery(int idCentro, string nombre, string apellido1, string apellido2, string dni_nif, string[] materias)
+        private string BuildQuery(int idCentro, string nombre, string apellido1, string apellido2, string dni_nif, int[] materias)
         {
             string ins = "Insert IGNORE into Alumno(idCentro, DNI, nombre, apellido1, apellido2) VALUES ('" + idCentro + "', '" + dni_nif + "',' " + nombre + "', '" + apellido1 + "', '" + apellido2 + "');\n";
             ins += "insert IGNORE into AlumnoAsignatura (DNI, idAsignatura) values";
             string[] subq = new string[materias.Length];
             for (int i = 0; i < materias.Length; i++)
             {
-                subq[i] = "('" + dni_nif + "', (select idAsignatura from Asignatura where nombre = '" + materias[i] + "')) ";
+                subq[i] = "('" + dni_nif + "', " + materias[i] + ") ";
             }
             ins += String.Join(",", subq) + ";\n";
             return ins;
@@ -190,8 +189,7 @@ namespace WindowsFormsApplication1
         /* Borra todos los estudiantes de la base de datos*/
         private void bEliminarTodosLosEstudiantes_Click(object sender, EventArgs e)
         {
-            foreach (var estudiante in Alumno.ListaAlumno())
-                estudiante.borrarAlumno();
+            Alumno.BorrarTodos();
             MostrarAlumnos();
         }
 

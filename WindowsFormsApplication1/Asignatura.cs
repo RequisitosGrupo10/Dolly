@@ -86,7 +86,7 @@ namespace WindowsFormsApplication1
         
         // TODO: Remove if not used;
         
-        /*
+        
         /// <summary>
         /// Devuelve un diccionario con el nombre de asignatura como clave y su identificador como valor
         /// </summary>
@@ -100,7 +100,7 @@ namespace WindowsFormsApplication1
             }
             return ret;
         }
-        */
+        
         public int IdAsignatura
         {
             get { return idAsignatura; }
