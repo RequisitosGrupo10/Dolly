@@ -35,7 +35,7 @@ namespace WindowsFormsApplication1
         public Usuario (string nombre)
         {
             try {
-                var tupla = miBD.Select("Select idUsuario, username, rol from Usuario where username = '" + nombre + "';");
+                var tupla = miBD.Select("Select idUsuario, username, rol, trabajaEn from Usuario where username = '" + nombre + "';");
                 if (tupla.Count == 1) {
                         var user = tupla[0];
                         this.idUsuario = (int)user[0];

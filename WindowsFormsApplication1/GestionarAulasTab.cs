@@ -16,5 +16,21 @@ namespace WindowsFormsApplication1
         {
             InitializeComponent();
         }
+
+        private void lResponsable_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void bModificar_Click(object sender, EventArgs e)
+        {
+            ModificarAulaTab modificarAulaTab = new ModificarAulaTab();
+            modificarAulaTab.ShowDialog();
+        }
+
+        private void bAtras_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }
