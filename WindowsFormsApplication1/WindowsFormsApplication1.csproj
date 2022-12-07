@@ -132,6 +132,24 @@
     <Compile Include="FranjasTab.Designer.cs">
       <DependentUpon>FranjasTab.cs</DependentUpon>
     </Compile>
+    <Compile Include="GestionarAulasTab.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GestionarAulasTab.Designer.cs">
+      <DependentUpon>GestionarAulasTab.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GestionarExamenesTab.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GestionarExamenesTab.Designer.cs">
+      <DependentUpon>GestionarExamenesTab.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GestionarProfesoresTab.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GestionarProfesoresTab.Designer.cs">
+      <DependentUpon>GestionarProfesoresTab.cs</DependentUpon>
+    </Compile>
     <Compile Include="Log.cs" />
     <Compile Include="LogIn.cs">
       <SubType>Form</SubType>
@@ -139,11 +157,17 @@
     <Compile Include="LogIn.Designer.cs">
       <DependentUpon>LogIn.cs</DependentUpon>
     </Compile>
-    <Compile Include="ResponsableSedeTab.cs">
+    <Compile Include="MenuResponsable.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ResponsableSedeTab.Designer.cs">
-      <DependentUpon>ResponsableSedeTab.cs</DependentUpon>
+    <Compile Include="MenuResponsable.Designer.cs">
+      <DependentUpon>MenuResponsable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GestionarSedeTab.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GestionarSedeTab.Designer.cs">
+      <DependentUpon>GestionarSedeTab.cs</DependentUpon>
     </Compile>
     <Compile Include="Usuario.cs" />
     <Compile Include="EstudianteTab.cs">
@@ -195,11 +219,23 @@
     <EmbeddedResource Include="FranjasTab.resx">
       <DependentUpon>FranjasTab.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="GestionarAulasTab.resx">
+      <DependentUpon>GestionarAulasTab.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GestionarExamenesTab.resx">
+      <DependentUpon>GestionarExamenesTab.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GestionarProfesoresTab.resx">
+      <DependentUpon>GestionarProfesoresTab.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="LogIn.resx">
       <DependentUpon>LogIn.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Menu.resx">
       <DependentUpon>Menu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MenuResponsable.resx">
+      <DependentUpon>MenuResponsable.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -211,8 +247,8 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="ResponsableSedeTab.resx">
-      <DependentUpon>ResponsableSedeTab.cs</DependentUpon>
+    <EmbeddedResource Include="GestionarSedeTab.resx">
+      <DependentUpon>GestionarSedeTab.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SedeTab.resx">
       <DependentUpon>SedeTab.cs</DependentUpon>

@@ -83,7 +83,6 @@ C:\Users\Usuario\Documents\GitHub\Dolly\WindowsFormsApplication1\obj\Debug\Windo
 C:\Users\Usuario\Documents\GitHub\Dolly\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.LogIn.resources
 C:\Users\Usuario\Documents\GitHub\Dolly\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Menu.resources
 C:\Users\Usuario\Documents\GitHub\Dolly\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Properties.Resources.resources
-C:\Users\Usuario\Documents\GitHub\Dolly\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.ResponsableSedeTab.resources
 C:\Users\Usuario\Documents\GitHub\Dolly\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.SedeTab.resources
 C:\Users\Usuario\Documents\GitHub\Dolly\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.UsuariosTab.resources
 C:\Users\Usuario\Documents\GitHub\Dolly\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.csproj.GenerateResource.cache
@@ -143,10 +142,6 @@ C:\Users\lucia\Documents\GitHub\Dolly\WindowsFormsApplication1\bin\Debug\System.
 C:\Users\lucia\Documents\GitHub\Dolly\WindowsFormsApplication1\bin\Debug\System.Threading.Tasks.Extensions.xml
 C:\Users\lucia\Documents\GitHub\Dolly\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.csproj.CopyComplete
 C:\Users\jmsan\Documents\Visual Studio 2013\Projects\Dolly\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.ExamenTab.resources
-C:\Users\Usuario\Documents\GitHub\Dolly\WindowsFormsApplication1\bin\Debug\Devart.Data.dll
-C:\Users\Usuario\Documents\GitHub\Dolly\WindowsFormsApplication1\bin\Debug\Devart.Data.MySql.dll
-C:\Users\Usuario\Documents\GitHub\Dolly\WindowsFormsApplication1\bin\Debug\Microsoft.Win32.Registry.dll
-C:\Users\Usuario\Documents\GitHub\Dolly\WindowsFormsApplication1\bin\Debug\System.Diagnostics.PerformanceCounter.dll
 C:\Users\Usuario\Documents\GitHub\Dolly\WindowsFormsApplication1\bin\Debug\System.Security.AccessControl.dll
 C:\Users\Usuario\Documents\GitHub\Dolly\WindowsFormsApplication1\bin\Debug\System.Security.Principal.Windows.dll
 C:\Users\Usuario\Documents\GitHub\Dolly\WindowsFormsApplication1\bin\Debug\System.Security.AccessControl.xml
@@ -154,3 +149,9 @@ C:\Users\Usuario\Documents\GitHub\Dolly\WindowsFormsApplication1\bin\Debug\Syste
 C:\Users\Usuario\Documents\GitHub\Dolly\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.ExamenTab.resources
 C:\Users\jmsan\Documents\Visual Studio 2013\Projects\Dolly\WindowsFormsApplication1\bin\Debug\System.Security.AccessControl.xml
 C:\Users\jmsan\Documents\Visual Studio 2013\Projects\Dolly\WindowsFormsApplication1\bin\Debug\System.Security.Principal.Windows.xml
+C:\Users\Usuario\Documents\GitHub\Dolly\WindowsFormsApplication1\bin\Debug\Ubiety.Dns.Core.dll
+C:\Users\Usuario\Documents\GitHub\Dolly\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.GestionarAulasTab.resources
+C:\Users\Usuario\Documents\GitHub\Dolly\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.GestionarExamenesTab.resources
+C:\Users\Usuario\Documents\GitHub\Dolly\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.GestionarProfesoresTab.resources
+C:\Users\Usuario\Documents\GitHub\Dolly\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.MenuResponsable.resources
+C:\Users\Usuario\Documents\GitHub\Dolly\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.GestionarSedeTab.resources
