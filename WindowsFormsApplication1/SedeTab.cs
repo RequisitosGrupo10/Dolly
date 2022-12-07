@@ -67,7 +67,6 @@ namespace WindowsFormsApplication1
 
         private void bModificarSede_Click(object sender, EventArgs e)
         {
-
             if (seleccionado != null)
             {
                 AdminSedeTab ventana = new AdminSedeTab(seleccionado);

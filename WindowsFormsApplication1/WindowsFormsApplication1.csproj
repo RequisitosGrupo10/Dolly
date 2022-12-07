@@ -138,12 +138,6 @@
     <Compile Include="GestionarAulasTab.Designer.cs">
       <DependentUpon>GestionarAulasTab.cs</DependentUpon>
     </Compile>
-    <Compile Include="GestionarExamenesTab.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="GestionarExamenesTab.Designer.cs">
-      <DependentUpon>GestionarExamenesTab.cs</DependentUpon>
-    </Compile>
     <Compile Include="GestionarProfesoresTab.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -221,9 +215,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GestionarAulasTab.resx">
       <DependentUpon>GestionarAulasTab.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="GestionarExamenesTab.resx">
-      <DependentUpon>GestionarExamenesTab.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GestionarProfesoresTab.resx">
       <DependentUpon>GestionarProfesoresTab.cs</DependentUpon>

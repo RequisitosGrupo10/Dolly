@@ -1,6 +1,7 @@
 ﻿using BDLibrary;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Runtime.CompilerServices;
 
 namespace WindowsFormsApplication1
@@ -99,10 +100,14 @@ namespace WindowsFormsApplication1
 
         public Usuario ResponsableSede()
         {
-            object[] tupla = miBD.Select("SELECT Usuario.idUsuario FROM Usuario JOIN Sede ON(Usuario.trabajaEn = Sede.idSede) JOIN Rol ON(Usuario.rol = Rol.idRol) WHERE Lower(Rol.nombre) like 'responsable';")[0];
-            Usuario usuario = new Usuario((int)tupla[0]);
+            var o = miBD.Select("SELECT Usuario.idUsuario FROM Usuario JOIN Sede ON(Usuario.trabajaEn = Sede.idSede) JOIN Rol ON(Usuario.rol = Rol.idRol) WHERE Lower(Rol.nombre) like 'responsable';");
+            if (o.Count() > 0) {
+                object[] tupla = o[0];
+                Usuario usuario = new Usuario((int)tupla[0]);
+                return usuario;
+            }
 
-            return usuario;
+            return null;
         }
     }
 }

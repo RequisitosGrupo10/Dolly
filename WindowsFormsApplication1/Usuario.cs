@@ -133,7 +133,7 @@ namespace WindowsFormsApplication1
         public static List<Usuario> ListaResponsablesDisponibles()
         {
             List<Usuario> lista = new List<Usuario>();
-            foreach (object[] tupla in miBD.Select("SELECT Usuario.idUsuario, Usuario.username, Usuario.rol FROM Usuario Join Rol On (Usuario.rol = Rol.idRol) WHERE Rol.nombre LIKE 'responsable' AND (Usuario.idUsuario Not in (Select responsable from Sede where responsable is not null));"))
+            foreach (object[] tupla in miBD.Select("SELECT Usuario.idUsuario, Usuario.username, Usuario.rol FROM Usuario Join Rol On (Usuario.rol = Rol.idRol) WHERE Rol.nombre LIKE 'responsable' AND Usuario.trabajaEn is null;"))
             {
                 Usuario usuario = new Usuario();
                 usuario.idUsuario = (int)tupla[0];
