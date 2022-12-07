@@ -59,10 +59,10 @@ namespace WindowsFormsApplication1
 
         private String Responsable()
         {
-            if (sede.Responsable == null)
+            if (sede.ResponsableSede() == null)
                 return "";
             else
-                return sede.Responsable.Username;
+                return sede.ResponsableSede().Username;
         }
 
         private void dataGridView_SelectionChanged(object sender, EventArgs e)
@@ -102,15 +102,15 @@ namespace WindowsFormsApplication1
             if (responsableSeleccionado != null)
             {
                 Console.WriteLine("Añadiendo a " + responsableSeleccionado);
-                sede.Responsable = responsableSeleccionado;
+                responsableSeleccionado.TrabajaEn = sede;
                 Mostrar();
             }
         }
 
         private void bQuitarResponsableDeSede_Click(object sender, EventArgs e)
         {
-            Console.WriteLine("Eliminando a " + sede.Responsable);
-            sede.Responsable = null;
+            Console.WriteLine("Eliminando a " + sede.ResponsableSede());
+            sede.ResponsableSede().TrabajaEn = null;
             Mostrar();
         }
 

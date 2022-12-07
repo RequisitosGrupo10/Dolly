@@ -8,11 +8,11 @@ namespace WindowsFormsApplication1
     {
         //FALTA HACER MODIFICAR AULA Y RELLENAR DISPONIBLE
         Aula seleccionado;
-        Sede sede; 
+        Usuario usuario;
         //Obtener el Usuario que está conectado, hace falta login. De ahí obtener la sede a la que está asignado
-        public GestionarSedeTab(Sede sede)
+        public GestionarSedeTab(Usuario usuario)
         {
-            this.sede = sede;
+            this.usuario = usuario;
             InitializeComponent();
             Mostrar();
             seleccionado = null;
@@ -20,20 +20,20 @@ namespace WindowsFormsApplication1
 
         private void Mostrar()
         {
-            dataGridView.DataSource = Aula.ListaAula(sede);
-            lNombreSede.Text = sede.Nombre;
+            dataGridView.DataSource = Aula.ListaAula(usuario.TrabajaEn);
+            lNombreSede.Text = usuario.TrabajaEn.Nombre;
             tAforo.Text = Aforo();
             tAforo.Enabled = false;
             tDisponible.Text = Disponible();
             tDisponible.Enabled = false;
-            tResponsableDeSede.Text = sede.Responsable.Username;
+            tResponsableDeSede.Text = usuario.Username;
             tResponsableDeSede.Enabled = false;
         }
 
         private String Aforo()
         {
             int aforo = 0;
-            foreach (Aula aula in Aula.ListaAula(sede))
+            foreach (Aula aula in Aula.ListaAula(usuario.TrabajaEn))
             {
                 aforo += aula.Aforo;
             }
@@ -55,7 +55,7 @@ namespace WindowsFormsApplication1
 
         private void bInsertarAula_Click(object sender, EventArgs e)
         {
-            Aula aula = new Aula("Nueva aula",0, sede.IdSede);
+            Aula aula = new Aula("Nueva aula",0, usuario.TrabajaEn.IdSede);
             AulaTab ventana = new AulaTab(aula); //Crear tab insertar aula
             ventana.ShowDialog();
             Mostrar();

@@ -18,13 +18,11 @@ namespace WindowsFormsApplication1
         private void Mostrar()
         {
             MySqlBD miDB = new MySqlBD();
-            List<Object[]> list = miDB.Select("Select idUsuario, username, nombre from Usuario join Rol on (Usuario.rol = Rol.idRol);");
+            List<Object[]> list = miDB.Select("Select idUsuario, username, nombre from Usuario join Rol on (Usuario.rol = Rol.idRol) where Lower(Rol.nombre) like 'responsable';");
             foreach (Object[] u in list)
             {
                 dataGridView.Rows.Add(new object[] { u[0], u[1], u[2] });
             }
-            
-            //dataGridView.DataSource = Usuario.ListaUsuarios();
         }
 
         private void bImportarUsuarios_Click(object sender, EventArgs e)

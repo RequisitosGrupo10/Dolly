@@ -32,7 +32,7 @@
             this.bGestionarEstudiantes = new System.Windows.Forms.Button();
             this.bGestionarSedes = new System.Windows.Forms.Button();
             this.bSalir = new System.Windows.Forms.Button();
-            this.bGestionarUsuarios = new System.Windows.Forms.Button();
+            this.bGestionarResponsablesDeSede = new System.Windows.Forms.Button();
             this.bGestionarFranjasHorarias = new System.Windows.Forms.Button();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.bExamen = new System.Windows.Forms.Button();
@@ -40,10 +40,10 @@
             // 
             // bGestionarAsignaturas
             // 
-            this.bGestionarAsignaturas.Location = new System.Drawing.Point(52, 43);
-            this.bGestionarAsignaturas.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.bGestionarAsignaturas.Location = new System.Drawing.Point(39, 35);
+            this.bGestionarAsignaturas.Margin = new System.Windows.Forms.Padding(2);
             this.bGestionarAsignaturas.Name = "bGestionarAsignaturas";
-            this.bGestionarAsignaturas.Size = new System.Drawing.Size(225, 44);
+            this.bGestionarAsignaturas.Size = new System.Drawing.Size(169, 36);
             this.bGestionarAsignaturas.TabIndex = 0;
             this.bGestionarAsignaturas.Text = "Gestionar Asignaturas";
             this.bGestionarAsignaturas.UseVisualStyleBackColor = true;
@@ -51,10 +51,10 @@
             // 
             // bGestionarEstudiantes
             // 
-            this.bGestionarEstudiantes.Location = new System.Drawing.Point(52, 231);
-            this.bGestionarEstudiantes.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.bGestionarEstudiantes.Location = new System.Drawing.Point(39, 188);
+            this.bGestionarEstudiantes.Margin = new System.Windows.Forms.Padding(2);
             this.bGestionarEstudiantes.Name = "bGestionarEstudiantes";
-            this.bGestionarEstudiantes.Size = new System.Drawing.Size(225, 43);
+            this.bGestionarEstudiantes.Size = new System.Drawing.Size(169, 35);
             this.bGestionarEstudiantes.TabIndex = 1;
             this.bGestionarEstudiantes.Text = "Gestionar Estudiantes";
             this.bGestionarEstudiantes.UseVisualStyleBackColor = true;
@@ -62,10 +62,10 @@
             // 
             // bGestionarSedes
             // 
-            this.bGestionarSedes.Location = new System.Drawing.Point(351, 293);
-            this.bGestionarSedes.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.bGestionarSedes.Location = new System.Drawing.Point(263, 238);
+            this.bGestionarSedes.Margin = new System.Windows.Forms.Padding(2);
             this.bGestionarSedes.Name = "bGestionarSedes";
-            this.bGestionarSedes.Size = new System.Drawing.Size(528, 46);
+            this.bGestionarSedes.Size = new System.Drawing.Size(396, 37);
             this.bGestionarSedes.TabIndex = 2;
             this.bGestionarSedes.Text = "Gestionar Sedes";
             this.bGestionarSedes.UseVisualStyleBackColor = true;
@@ -73,32 +73,30 @@
             // 
             // bSalir
             // 
-            this.bSalir.Location = new System.Drawing.Point(957, 306);
-            this.bSalir.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.bSalir.Location = new System.Drawing.Point(718, 249);
+            this.bSalir.Margin = new System.Windows.Forms.Padding(2);
             this.bSalir.Name = "bSalir";
-            this.bSalir.Size = new System.Drawing.Size(75, 23);
+            this.bSalir.Size = new System.Drawing.Size(56, 19);
             this.bSalir.TabIndex = 3;
             this.bSalir.Text = "SALIR";
             this.bSalir.UseVisualStyleBackColor = true;
             this.bSalir.Click += new System.EventHandler(this.bSalir_Click);
             // 
-            // bGestionarUsuarios
+            // bGestionarResponsablesDeSede
             // 
-            this.bGestionarUsuarios.Location = new System.Drawing.Point(52, 293);
-            this.bGestionarUsuarios.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.bGestionarUsuarios.Name = "bGestionarUsuarios";
-            this.bGestionarUsuarios.Size = new System.Drawing.Size(225, 46);
-            this.bGestionarUsuarios.TabIndex = 4;
-            this.bGestionarUsuarios.Text = "Gestionar Usuarios";
-            this.bGestionarUsuarios.UseVisualStyleBackColor = true;
-            this.bGestionarUsuarios.Click += new System.EventHandler(this.bGestionarUsuarios_Click);
+            this.bGestionarResponsablesDeSede.Location = new System.Drawing.Point(39, 238);
+            this.bGestionarResponsablesDeSede.Name = "bGestionarResponsablesDeSede";
+            this.bGestionarResponsablesDeSede.Size = new System.Drawing.Size(169, 37);
+            this.bGestionarResponsablesDeSede.TabIndex = 4;
+            this.bGestionarResponsablesDeSede.Text = "Gestionar Responsables de Sede";
+            this.bGestionarResponsablesDeSede.UseVisualStyleBackColor = true;
+            this.bGestionarResponsablesDeSede.Click += new System.EventHandler(this.bGestionarResponsablesDeSede_Click);
             // 
             // bGestionarFranjasHorarias
             // 
-            this.bGestionarFranjasHorarias.Location = new System.Drawing.Point(52, 166);
-            this.bGestionarFranjasHorarias.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.bGestionarFranjasHorarias.Location = new System.Drawing.Point(39, 135);
             this.bGestionarFranjasHorarias.Name = "bGestionarFranjasHorarias";
-            this.bGestionarFranjasHorarias.Size = new System.Drawing.Size(225, 48);
+            this.bGestionarFranjasHorarias.Size = new System.Drawing.Size(169, 39);
             this.bGestionarFranjasHorarias.TabIndex = 5;
             this.bGestionarFranjasHorarias.Text = "Gestionar Franjas Horarias";
             this.bGestionarFranjasHorarias.UseVisualStyleBackColor = true;
@@ -107,21 +105,21 @@
             // richTextBox1
             // 
             this.richTextBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.richTextBox1.Location = new System.Drawing.Point(365, 43);
+            this.richTextBox1.Location = new System.Drawing.Point(274, 35);
+            this.richTextBox1.Margin = new System.Windows.Forms.Padding(2);
             this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(632, 187);
+            this.richTextBox1.Size = new System.Drawing.Size(475, 153);
             this.richTextBox1.TabIndex = 7;
             this.richTextBox1.Text = "Bienvenid@ al sistema de gestión de PEvAU, recomendamos que importe los datos ant" +
     "es de gestionar las sedes";
-            this.richTextBox1.TextChanged += new System.EventHandler(this.richTextBox1_TextChanged);
             // 
             // bExamen
             // 
             this.bExamen.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bExamen.Location = new System.Drawing.Point(52, 106);
-            this.bExamen.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.bExamen.Location = new System.Drawing.Point(39, 86);
+            this.bExamen.Margin = new System.Windows.Forms.Padding(2);
             this.bExamen.Name = "bExamen";
-            this.bExamen.Size = new System.Drawing.Size(225, 44);
+            this.bExamen.Size = new System.Drawing.Size(169, 36);
             this.bExamen.TabIndex = 8;
             this.bExamen.Text = "Gestionar Exámenes";
             this.bExamen.UseVisualStyleBackColor = true;
@@ -129,18 +127,18 @@
             // 
             // Menu
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1059, 353);
+            this.ClientSize = new System.Drawing.Size(794, 287);
             this.Controls.Add(this.bExamen);
             this.Controls.Add(this.richTextBox1);
             this.Controls.Add(this.bGestionarFranjasHorarias);
-            this.Controls.Add(this.bGestionarUsuarios);
+            this.Controls.Add(this.bGestionarResponsablesDeSede);
             this.Controls.Add(this.bSalir);
             this.Controls.Add(this.bGestionarSedes);
             this.Controls.Add(this.bGestionarEstudiantes);
             this.Controls.Add(this.bGestionarAsignaturas);
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Menu";
             this.Text = "MENU";
             this.ResumeLayout(false);
@@ -153,7 +151,7 @@
         private System.Windows.Forms.Button bGestionarEstudiantes;
         private System.Windows.Forms.Button bGestionarSedes;
         private System.Windows.Forms.Button bSalir;
-        private System.Windows.Forms.Button bGestionarUsuarios;
+        private System.Windows.Forms.Button bGestionarResponsablesDeSede;
         private System.Windows.Forms.Button bGestionarFranjasHorarias;
         private System.Windows.Forms.RichTextBox richTextBox1;
         private System.Windows.Forms.Button bExamen;

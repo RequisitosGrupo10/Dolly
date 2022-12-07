@@ -12,6 +12,7 @@ namespace WindowsFormsApplication1
         private int idUsuario;
         private string username;
         private int rol;
+        private Sede trabajaEn;
 
         private Usuario()
         {
@@ -20,10 +21,13 @@ namespace WindowsFormsApplication1
         public Usuario(int idUsuario)
         {
             try { 
-                object[] tupla = miBD.Select("SELECT username, rol FROM Usuario WHERE idUsuario = " + idUsuario + ";")[0];
+                object[] tupla = miBD.Select("SELECT username, rol, IFNULL(trabajaEn,-1) FROM Usuario WHERE idUsuario = " + idUsuario + ";")[0];
                 this.idUsuario = idUsuario;
                 this.username = (string)tupla[0];
                 this.rol = (int) tupla[1];
+                int trabajaEnID = Int32.Parse(tupla[2].ToString());
+                if (trabajaEnID > 0)
+                    this.trabajaEn = new Sede(trabajaEnID);
             } catch (Exception ex){
                 Console.WriteLine("ERROR:" + ex.Message);
             }
@@ -37,6 +41,7 @@ namespace WindowsFormsApplication1
                         this.idUsuario = (int)user[0];
                         this.username = (string)user[1];
                         this.rol = (int)user[2];
+                        this.trabajaEn = new Sede((int)user[3]);
                 } else
                 {
                     throw new Exception("El usuario no está en la base de datos");
@@ -51,6 +56,7 @@ namespace WindowsFormsApplication1
             this.idUsuario = (int) miBD.Select("SELECT MAX(idUsuario) from Usuario where username = '" + username + "' and rol = " + rol + ";")[0][0];
             this.username = username;
             this.rol = rol;
+            this.trabajaEn = null;
         }
         public int IdUsuario
         {
@@ -72,9 +78,56 @@ namespace WindowsFormsApplication1
             get { return rol; }
         }
 
+        public Sede TrabajaEn
+        {
+            get
+            {
+                if (trabajaEn == null)
+                {
+                    MySqlBD miBD = new MySqlBD();
+                    var query = miBD.Select("SELECT idSede FROM Usuario Join Sede ON (Usuario.trabajaEn = Sede.idSede) WHERE Usuario.idUsuario = " + this.idUsuario + ";");
+                    if (query.Count > 0)
+                        trabajaEn = new Sede((int)query[0][0]);
+                    else
+                        trabajaEn = null;
+
+                }
+                return trabajaEn;
+            }
+            set
+            {
+                try
+                {
+                    if (value == null)
+                    {
+                        miBD.Update("UPDATE Usuario SET trabajaEn = null WHERE idUsuario =" + this.idUsuario + ";");
+                    }
+                    else
+                    {
+                        miBD.Update("UPDATE Sede SET trabajaEn = " + value.IdSede + " WHERE idUsuario =" + this.idUsuario + ";");
+                    }
+                    trabajaEn = value;
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("ERROR: " + ex.Message);
+                }
+
+
+            }
+        }
+
         public override string ToString()
         {
             return username;
+        }
+
+        public void borrarUsuario()
+        {
+            miBD.Insert("DELETE FROM Usuario WHERE idUsuario =" + this.idUsuario + ";");
+            this.idUsuario = -1;
+            this.username = null;
+            this.rol = -1;
         }
 
         public static List<Usuario> ListaResponsablesDisponibles()

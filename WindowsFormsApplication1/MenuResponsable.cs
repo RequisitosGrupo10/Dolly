@@ -12,27 +12,27 @@ namespace WindowsFormsApplication1
 {
     public partial class MenuResponsable : Form
     {
-        Sede sede;
-        public MenuResponsable(Sede sede)
+        Usuario usuario;
+        public MenuResponsable(Usuario usuario)
         {
-            this.sede = sede;
+            this.usuario = usuario;
             InitializeComponent();
             Mostrar();
         }
 
         private void Mostrar()
         {
-            lNombreSede.Text = sede.Nombre;
+            lNombreSede.Text = usuario.TrabajaEn.Nombre;
             tAforo.Text = Aforo();
             tAforo.Enabled = false;
-            tResponsableDeSede.Text = sede.Responsable.Username;
+            tResponsableDeSede.Text = usuario.Username;
             tResponsableDeSede.Enabled = false;
         }
 
         private String Aforo()
         {
             int aforo = 0;
-            foreach (Aula aula in Aula.ListaAula(sede))
+            foreach (Aula aula in Aula.ListaAula(usuario.TrabajaEn))
             {
                 aforo += aula.Aforo;
             }
@@ -41,7 +41,7 @@ namespace WindowsFormsApplication1
 
         private void bGestionarSede_Click(object sender, EventArgs e)
         {
-            GestionarSedeTab gestionarSedeTab = new GestionarSedeTab(sede);
+            GestionarSedeTab gestionarSedeTab = new GestionarSedeTab(usuario);
             gestionarSedeTab.ShowDialog();
             this.Close();
         }
@@ -55,15 +55,8 @@ namespace WindowsFormsApplication1
 
         private void bGestionarProfesores_Click(object sender, EventArgs e)
         {
-            GestionarProfesoresTab gestionarProfesoresTab = new GestionarProfesoresTab(sede);
+            GestionarProfesoresTab gestionarProfesoresTab = new GestionarProfesoresTab(usuario);
             gestionarProfesoresTab.ShowDialog();
-            this.Close();
-        }
-
-        private void bGestionarExamenes_Click(object sender, EventArgs e)
-        {
-            GestionarExamenesTab gestionarExamenesTab = new GestionarExamenesTab();
-            gestionarExamenesTab.ShowDialog();
             this.Close();
         }
     }

@@ -123,7 +123,6 @@
             this.bGestionarExamenes.TabIndex = 26;
             this.bGestionarExamenes.Text = "Gestionar Exámenes";
             this.bGestionarExamenes.UseVisualStyleBackColor = true;
-            this.bGestionarExamenes.Click += new System.EventHandler(this.bGestionarExamenes_Click);
             // 
             // MenuResponsable
             // 

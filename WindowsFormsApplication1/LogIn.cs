@@ -64,10 +64,10 @@ namespace WindowsFormsApplication1
             }
             else if (this.usuario.Rol == 2)
             {
-                Sede sede = checkSede();
+                Sede sede = this.usuario.TrabajaEn;
                 if (sede != null)
                 {
-                    MenuResponsable menuResponsable = new MenuResponsable(sede);
+                    MenuResponsable menuResponsable = new MenuResponsable(this.usuario);
                     this.Hide();
                     menuResponsable.ShowDialog();
                     this.Close();
@@ -75,22 +75,6 @@ namespace WindowsFormsApplication1
             }
         }
 
-        private Sede checkSede()
-        {
-            List<Sede> sedes = Sede.ListaSede();
-            foreach(Sede sede in sedes)
-            {
-                if (sede.Responsable!= null)
-                {
-                    if (sede.Responsable.IdUsuario == this.usuario.IdUsuario)
-                    {
-                        return sede;
-                    }
-                }
-                
-            }
-            return null;
-        }
         private void cbVer_CheckedChanged(object sender, EventArgs e)
         {
             if (tContrasena.PasswordChar == '*') tContrasena.PasswordChar = '\0';

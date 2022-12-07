@@ -74,6 +74,7 @@
             this.bEliminarProfesores.TabIndex = 20;
             this.bEliminarProfesores.Text = "Eliminar Profesores";
             this.bEliminarProfesores.UseVisualStyleBackColor = true;
+            this.bEliminarProfesores.Click += new System.EventHandler(this.bEliminarProfesores_Click);
             // 
             // dataGridView
             // 
@@ -87,6 +88,7 @@
             this.dataGridView.RowTemplate.Height = 24;
             this.dataGridView.Size = new System.Drawing.Size(481, 301);
             this.dataGridView.TabIndex = 21;
+            this.dataGridView.SelectionChanged += new System.EventHandler(this.dataGridView_SelectionChanged);
             // 
             // GestionarProfesoresTab
             // 

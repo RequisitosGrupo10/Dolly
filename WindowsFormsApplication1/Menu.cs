@@ -35,7 +35,7 @@ namespace WindowsFormsApplication1
             ventana.ShowDialog();
         }
 
-        private void bGestionarUsuarios_Click(object sender, EventArgs e)
+        private void bGestionarResponsablesDeSede_Click(object sender, EventArgs e)
         {
             UsuariosTab ventana = new UsuariosTab();
             ventana.ShowDialog();
@@ -44,11 +44,6 @@ namespace WindowsFormsApplication1
         private void bSalir_Click(object sender, EventArgs e)
         {
             this.Close();
-        }
-
-        private void richTextBox1_TextChanged(object sender, EventArgs e)
-        {
-
         }
 
         private void bExamen_Click(object sender, EventArgs e)
