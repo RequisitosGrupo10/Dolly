@@ -163,9 +163,12 @@ namespace WindowsFormsApplication1
         public static List<Centro> ListaCentrosDisponibles()
         {
             List<Centro> lista = new List<Centro>();
-            foreach (object[] tupla in miBD.Select("SELECT idCentro FROM Centro WHERE idSede is null;"))
+            foreach (object[] tupla in miBD.Select("SELECT idCentro, nombre FROM Centro WHERE idSede is null;"))
             {
-                Centro centro = new Centro((int)tupla[0]);
+                Centro centro = new Centro();
+                centro.idCentro = (int)tupla[0];
+                centro.nombre = (string)tupla[1];
+                centro.sede = null;
                 lista.Add(centro);
             }
             return lista;
