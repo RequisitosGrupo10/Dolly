@@ -15,14 +15,14 @@ namespace WindowsFormsApplication1
         Aula aula;
         Usuario responsableDeSede;
         Usuario responsableDeAula;
-        public ModificarAulaTab(Aula aula, Usuario responsableDeSede, object idResponsableDeAula)
+        public ModificarAulaTab(Aula aula, Usuario responsableDeSede, string idResponsableDeAula)
         {
             InitializeComponent();
             this.aula = aula;
             this.responsableDeSede = responsableDeSede;
-            if (idResponsableDeAula != null )
+            if (idResponsableDeAula.Length > 0 )
             {
-                this.responsableDeAula = new Usuario((int)idResponsableDeAula);
+                this.responsableDeAula = new Usuario(int.Parse(idResponsableDeAula));
             }
         }
 
