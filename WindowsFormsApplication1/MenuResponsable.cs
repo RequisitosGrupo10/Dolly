@@ -48,7 +48,7 @@ namespace WindowsFormsApplication1
 
         private void bGestionarAulas_Click(object sender, EventArgs e)
         {
-            GestionarAulasTab gestionarAulasTab = new GestionarAulasTab();
+            GestionarAulasTab gestionarAulasTab = new GestionarAulasTab(usuario, tAforo.Text);
             gestionarAulasTab.ShowDialog();
             this.Close();
         }
