@@ -23,6 +23,7 @@ namespace WindowsFormsApplication1
         {
             lNombreSede.Text = usuario.TrabajaEn.Nombre;
             MySqlBD miDB = new MySqlBD();
+            dataGridView.Rows.Clear();
             List<Object[]> list = miDB.Select("Select idUsuario, username, nombre from Usuario join Rol on (Usuario.rol = Rol.idRol) where Lower(Rol.nombre) like 'profesor';");
             foreach (Object[] u in list)
             {
@@ -81,7 +82,7 @@ namespace WindowsFormsApplication1
             }
             Mostrar();
 
-            string filename = @".\Errores en importar usuarios.txt";
+            string filename = @".\Errores en importar profesores.txt";
 
             string msg = errors == 0 ? "Se ha añadido " + added + " usuarios nuevos." : "Se ha añadido " + added + " usuarios nuevos.\nNo he podido importar " + errors + " usuarios.\nConsulte el fichero:\n" + filename;
             MessageBox.Show(msg);

@@ -29,8 +29,8 @@ namespace WindowsFormsApplication1
             tDisponible.Enabled = false;
             tResponsableDeSede.Text = Responsable();
             tResponsableDeSede.Enabled = false;
-            listResponsableDeSede.DataSource = Usuario.ListaResponsablesDisponibles(); // TODO: Hay que cambiar la query tarda mucho
-            listCentros.DataSource = Centro.ListaCentrosDisponibles();
+            listResponsableDeSede.DataSource = Usuario.ListaResponsablesDisponibles();
+            listCentros.DataSource = Centro.ListaCentrosDisponibles(); // TODO: Hay que cambiar la query tarda mucho
         }
 
         private String Aforo()

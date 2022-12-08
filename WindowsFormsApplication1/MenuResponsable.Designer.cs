@@ -37,13 +37,14 @@
             this.bGestionarAulas = new System.Windows.Forms.Button();
             this.bGestionarProfesores = new System.Windows.Forms.Button();
             this.bGestionarExamenes = new System.Windows.Forms.Button();
+            this.bSalir = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lNombreSede
             // 
             this.lNombreSede.AutoSize = true;
             this.lNombreSede.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lNombreSede.Location = new System.Drawing.Point(312, 65);
+            this.lNombreSede.Location = new System.Drawing.Point(219, 68);
             this.lNombreSede.Name = "lNombreSede";
             this.lNombreSede.Size = new System.Drawing.Size(191, 31);
             this.lNombreSede.TabIndex = 17;
@@ -124,11 +125,23 @@
             this.bGestionarExamenes.Text = "Gestionar Exámenes";
             this.bGestionarExamenes.UseVisualStyleBackColor = true;
             // 
+            // bSalir
+            // 
+            this.bSalir.Location = new System.Drawing.Point(714, 410);
+            this.bSalir.Margin = new System.Windows.Forms.Padding(2);
+            this.bSalir.Name = "bSalir";
+            this.bSalir.Size = new System.Drawing.Size(56, 19);
+            this.bSalir.TabIndex = 27;
+            this.bSalir.Text = "SALIR";
+            this.bSalir.UseVisualStyleBackColor = true;
+            this.bSalir.Click += new System.EventHandler(this.bSalir_Click);
+            // 
             // MenuResponsable
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.bSalir);
             this.Controls.Add(this.bGestionarExamenes);
             this.Controls.Add(this.bGestionarProfesores);
             this.Controls.Add(this.bGestionarAulas);
@@ -156,5 +169,6 @@
         private System.Windows.Forms.Button bGestionarAulas;
         private System.Windows.Forms.Button bGestionarProfesores;
         private System.Windows.Forms.Button bGestionarExamenes;
+        private System.Windows.Forms.Button bSalir;
     }
 }

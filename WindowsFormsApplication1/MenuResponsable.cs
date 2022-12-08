@@ -43,20 +43,22 @@ namespace WindowsFormsApplication1
         {
             GestionarSedeTab gestionarSedeTab = new GestionarSedeTab(usuario);
             gestionarSedeTab.ShowDialog();
-            this.Close();
         }
 
         private void bGestionarAulas_Click(object sender, EventArgs e)
         {
             GestionarAulasTab gestionarAulasTab = new GestionarAulasTab(usuario, tAforo.Text);
             gestionarAulasTab.ShowDialog();
-            this.Close();
         }
 
         private void bGestionarProfesores_Click(object sender, EventArgs e)
         {
             GestionarProfesoresTab gestionarProfesoresTab = new GestionarProfesoresTab(usuario);
             gestionarProfesoresTab.ShowDialog();
+        }
+
+        private void bSalir_Click(object sender, EventArgs e)
+        {
             this.Close();
         }
     }

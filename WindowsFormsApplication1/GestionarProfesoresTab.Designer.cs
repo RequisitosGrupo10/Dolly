@@ -33,6 +33,9 @@
             this.bImportarProfesores = new System.Windows.Forms.Button();
             this.bEliminarProfesores = new System.Windows.Forms.Button();
             this.dataGridView = new System.Windows.Forms.DataGridView();
+            this.idUsuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.rol = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -80,6 +83,10 @@
             // 
             this.dataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.idUsuario,
+            this.nombre,
+            this.rol});
             this.dataGridView.Location = new System.Drawing.Point(261, 70);
             this.dataGridView.Margin = new System.Windows.Forms.Padding(2);
             this.dataGridView.Name = "dataGridView";
@@ -89,6 +96,24 @@
             this.dataGridView.Size = new System.Drawing.Size(481, 301);
             this.dataGridView.TabIndex = 21;
             this.dataGridView.SelectionChanged += new System.EventHandler(this.dataGridView_SelectionChanged);
+            // 
+            // idUsuario
+            // 
+            this.idUsuario.HeaderText = "idUsuario";
+            this.idUsuario.Name = "idUsuario";
+            this.idUsuario.ReadOnly = true;
+            // 
+            // nombre
+            // 
+            this.nombre.HeaderText = "nombre";
+            this.nombre.Name = "nombre";
+            this.nombre.ReadOnly = true;
+            // 
+            // rol
+            // 
+            this.rol.HeaderText = "rol";
+            this.rol.Name = "rol";
+            this.rol.ReadOnly = true;
             // 
             // GestionarProfesoresTab
             // 
@@ -115,5 +140,8 @@
         private System.Windows.Forms.Button bImportarProfesores;
         private System.Windows.Forms.Button bEliminarProfesores;
         private System.Windows.Forms.DataGridView dataGridView;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idUsuario;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nombre;
+        private System.Windows.Forms.DataGridViewTextBoxColumn rol;
     }
 }
