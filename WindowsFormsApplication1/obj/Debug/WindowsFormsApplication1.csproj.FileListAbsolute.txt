@@ -154,3 +154,4 @@ C:\Users\Usuario\Documents\GitHub\Dolly\WindowsFormsApplication1\obj\Debug\Windo
 C:\Users\Usuario\Documents\GitHub\Dolly\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.GestionarProfesoresTab.resources
 C:\Users\Usuario\Documents\GitHub\Dolly\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.MenuResponsable.resources
 C:\Users\Usuario\Documents\GitHub\Dolly\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.GestionarSedeTab.resources
+C:\Users\Usuario\Documents\GitHub\Dolly\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.ModificarAulaTab.resources

@@ -163,6 +163,12 @@
     <Compile Include="GestionarSedeTab.Designer.cs">
       <DependentUpon>GestionarSedeTab.cs</DependentUpon>
     </Compile>
+    <Compile Include="ModificarAulaTab.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ModificarAulaTab.designer.cs">
+      <DependentUpon>ModificarAulaTab.cs</DependentUpon>
+    </Compile>
     <Compile Include="Usuario.cs" />
     <Compile Include="EstudianteTab.cs">
       <SubType>Form</SubType>
@@ -227,6 +233,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MenuResponsable.resx">
       <DependentUpon>MenuResponsable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ModificarAulaTab.resx">
+      <DependentUpon>ModificarAulaTab.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
