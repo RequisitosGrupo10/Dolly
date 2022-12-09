@@ -69,6 +69,7 @@ namespace WindowsFormsApplication1
             {
                 ModificarAulaTab modificarAulaTab = new ModificarAulaTab(new Aula((int)seleccionado[0]), seleccionado[2].ToString(), franja);
                 modificarAulaTab.ShowDialog();
+                Mostrar();
             }
         }
 

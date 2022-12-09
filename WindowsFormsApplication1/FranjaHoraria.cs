@@ -19,11 +19,11 @@ namespace WindowsFormsApplication1
             {
                 MySqlBD db = new MySqlBD();
                 db.Insert("Insert into FranjaHoraria values( '" + franja + "');");
-                this.franja = franja;
             } catch (Exception)
             {
                 // Its already in DB;
             }
+            this.franja = franja;
         }
 
         public static List<string> ListarFranjas()

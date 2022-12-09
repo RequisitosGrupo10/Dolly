@@ -24,7 +24,7 @@ namespace WindowsFormsApplication1
                 this.idAula = (int)tupla[0];
                 this.nombre = (string)tupla[1];
                 this.aforo = (int)tupla[2];
-                this.sede = null;
+                this.sede = new Sede((int)tupla[3]);
             } catch (Exception e) {
                 Console.WriteLine(e.Message);
             }

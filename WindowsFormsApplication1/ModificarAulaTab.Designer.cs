@@ -72,6 +72,7 @@
             this.listProfesores.Name = "listProfesores";
             this.listProfesores.Size = new System.Drawing.Size(276, 124);
             this.listProfesores.TabIndex = 4;
+            this.listProfesores.SelectedIndexChanged += new System.EventHandler(this.listProfesores_SelectedIndexChanged);
             // 
             // bAsignarResponsable
             // 
@@ -81,6 +82,7 @@
             this.bAsignarResponsable.TabIndex = 5;
             this.bAsignarResponsable.Text = "Asignar Responsable";
             this.bAsignarResponsable.UseVisualStyleBackColor = true;
+            this.bAsignarResponsable.Click += new System.EventHandler(this.bAsignarResponsable_Click);
             // 
             // bEliminarResponsable
             // 
@@ -90,6 +92,7 @@
             this.bEliminarResponsable.TabIndex = 6;
             this.bEliminarResponsable.Text = "Eliminar Responsable";
             this.bEliminarResponsable.UseVisualStyleBackColor = true;
+            this.bEliminarResponsable.Click += new System.EventHandler(this.bEliminarResponsable_Click);
             // 
             // bAsignarVigilante
             // 
@@ -117,6 +120,7 @@
             this.bConfirmar.TabIndex = 9;
             this.bConfirmar.Text = "Confirmar Cambios";
             this.bConfirmar.UseVisualStyleBackColor = true;
+            this.bConfirmar.Click += new System.EventHandler(this.bConfirmar_Click);
             // 
             // lProfesoresDisponibles
             // 
