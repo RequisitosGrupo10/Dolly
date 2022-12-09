@@ -29,9 +29,7 @@
         private void InitializeComponent()
         {
             this.lAula = new System.Windows.Forms.Label();
-            this.listResponsable = new System.Windows.Forms.ListBox();
             this.lResponsable = new System.Windows.Forms.Label();
-            this.listFranja = new System.Windows.Forms.ListBox();
             this.listProfesores = new System.Windows.Forms.ListBox();
             this.bAsignarResponsable = new System.Windows.Forms.Button();
             this.bEliminarResponsable = new System.Windows.Forms.Button();
@@ -40,6 +38,8 @@
             this.bConfirmar = new System.Windows.Forms.Button();
             this.lProfesoresDisponibles = new System.Windows.Forms.Label();
             this.dataGridVigilantes = new System.Windows.Forms.DataGridView();
+            this.tFranja = new System.Windows.Forms.TextBox();
+            this.tResponsableAula = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridVigilantes)).BeginInit();
             this.SuspendLayout();
             // 
@@ -53,16 +53,6 @@
             this.lAula.TabIndex = 0;
             this.lAula.Text = "lAula";
             // 
-            // listResponsable
-            // 
-            this.listResponsable.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.listResponsable.FormattingEnabled = true;
-            this.listResponsable.ItemHeight = 20;
-            this.listResponsable.Location = new System.Drawing.Point(496, 66);
-            this.listResponsable.Name = "listResponsable";
-            this.listResponsable.Size = new System.Drawing.Size(267, 24);
-            this.listResponsable.TabIndex = 1;
-            // 
             // lResponsable
             // 
             this.lResponsable.AutoSize = true;
@@ -72,18 +62,6 @@
             this.lResponsable.Size = new System.Drawing.Size(168, 20);
             this.lResponsable.TabIndex = 2;
             this.lResponsable.Text = "Responsable De Aula:";
-            // 
-            // listFranja
-            // 
-            this.listFranja.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.listFranja.Enabled = false;
-            this.listFranja.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.listFranja.FormattingEnabled = true;
-            this.listFranja.ItemHeight = 20;
-            this.listFranja.Location = new System.Drawing.Point(496, 12);
-            this.listFranja.Name = "listFranja";
-            this.listFranja.Size = new System.Drawing.Size(267, 24);
-            this.listFranja.TabIndex = 3;
             // 
             // listProfesores
             // 
@@ -158,11 +136,29 @@
             this.dataGridVigilantes.Size = new System.Drawing.Size(437, 299);
             this.dataGridVigilantes.TabIndex = 11;
             // 
+            // tFranja
+            // 
+            this.tFranja.Location = new System.Drawing.Point(496, 12);
+            this.tFranja.Name = "tFranja";
+            this.tFranja.ReadOnly = true;
+            this.tFranja.Size = new System.Drawing.Size(267, 20);
+            this.tFranja.TabIndex = 12;
+            // 
+            // tResponsableAula
+            // 
+            this.tResponsableAula.Location = new System.Drawing.Point(496, 70);
+            this.tResponsableAula.Name = "tResponsableAula";
+            this.tResponsableAula.ReadOnly = true;
+            this.tResponsableAula.Size = new System.Drawing.Size(267, 20);
+            this.tResponsableAula.TabIndex = 13;
+            // 
             // ModificarAulaTab
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.tResponsableAula);
+            this.Controls.Add(this.tFranja);
             this.Controls.Add(this.dataGridVigilantes);
             this.Controls.Add(this.lProfesoresDisponibles);
             this.Controls.Add(this.bConfirmar);
@@ -171,9 +167,7 @@
             this.Controls.Add(this.bEliminarResponsable);
             this.Controls.Add(this.bAsignarResponsable);
             this.Controls.Add(this.listProfesores);
-            this.Controls.Add(this.listFranja);
             this.Controls.Add(this.lResponsable);
-            this.Controls.Add(this.listResponsable);
             this.Controls.Add(this.lAula);
             this.Name = "ModificarAulaTab";
             this.Text = "ModificarAulaTab";
@@ -186,9 +180,7 @@
         #endregion
 
         private System.Windows.Forms.Label lAula;
-        private System.Windows.Forms.ListBox listResponsable;
         private System.Windows.Forms.Label lResponsable;
-        private System.Windows.Forms.ListBox listFranja;
         private System.Windows.Forms.ListBox listProfesores;
         private System.Windows.Forms.Button bAsignarResponsable;
         private System.Windows.Forms.Button bEliminarResponsable;
@@ -197,5 +189,7 @@
         private System.Windows.Forms.Button bConfirmar;
         private System.Windows.Forms.Label lProfesoresDisponibles;
         private System.Windows.Forms.DataGridView dataGridVigilantes;
+        private System.Windows.Forms.TextBox tFranja;
+        private System.Windows.Forms.TextBox tResponsableAula;
     }
 }

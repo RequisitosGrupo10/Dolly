@@ -1,6 +1,7 @@
 ﻿using BDLibrary;
 using System;
 using System.Collections.Generic;
+using System.Data.Common;
 using System.Windows.Forms;
 
 namespace WindowsFormsApplication1
@@ -57,7 +58,15 @@ namespace WindowsFormsApplication1
             {
                 if (cbFranjasHorarias.CheckedItems.Contains(date))
                 {
-                    myBD.Insert("INSERT INTO DisponibilidadAulas VALUES (" + aula.IdAula + ", '" + date + "' )");
+                    try
+                    {
+                        myBD.Insert("INSERT INTO DisponibilidadAulas (idAula,franja) VALUES (" + aula.IdAula + ", '" + date + "' )");
+                    }
+                    catch (DbException)
+                    {
+                        Console.WriteLine("Error found");
+                    }
+                    
                 }
                 else
                 {

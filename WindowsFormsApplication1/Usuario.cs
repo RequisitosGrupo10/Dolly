@@ -2,6 +2,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Security.Cryptography;
 using System.Security.Cryptography.X509Certificates;
 
 namespace WindowsFormsApplication1
@@ -152,6 +153,17 @@ namespace WindowsFormsApplication1
                 usuario.idUsuario = (int)tupla[0];
                 usuario.username = (string)tupla[1];
                 usuario.rol = (int)tupla[2];
+                lista.Add(usuario);
+            }
+            return lista;
+        }
+
+        public static List<Usuario> ListaProfesoresLibres(FranjaHoraria franja)
+        {
+            List<Usuario> lista = new List<Usuario>();
+            foreach (object[] tupla in miBD.Select("Select idUsuario from (Select idUsuario from Usuario where rol = 3 AND idUsuario NOT IN (Select responsable from DisponibilidadAulas Where franja = '"+franja.Franja+"' and responsable is not null))U where U.idUsuario not in (Select idVigilante from vigilante inner join DisponibilidadAulas where franja = '"+franja.Franja+"' and idVigilante is not null);"))
+            {
+                Usuario usuario = new Usuario((int)tupla[0]);
                 lista.Add(usuario);
             }
             return lista;

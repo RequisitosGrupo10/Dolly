@@ -13,19 +13,42 @@ namespace WindowsFormsApplication1
     public partial class ModificarAulaTab : Form
     {
         Aula aula;
-        Usuario responsableDeSede;
         Usuario responsableDeAula;
-        public ModificarAulaTab(Aula aula, Usuario responsableDeSede, string idResponsableDeAula)
+        string franja;
+        public ModificarAulaTab(Aula aula, string idResponsableDeAula, String franja)
         {
             InitializeComponent();
+            this.franja= franja;
             this.aula = aula;
-            this.responsableDeSede = responsableDeSede;
             if (idResponsableDeAula.Length > 0 )
             {
                 this.responsableDeAula = new Usuario(int.Parse(idResponsableDeAula));
             }
+            tFranja.Text = franja; //Invariable, así que lo pongo aquí
+
+            mostrar();
         }
 
+        private void mostrar()
+        {
+            if (responsableDeAula != null)
+            {
+                tResponsableAula.Text = responsableDeAula.Username;
+            }else
+            {
+                tResponsableAula.Text = "";
+            }
+
+            listProfesores.Items.Clear();
+            List<Usuario> profesoresLibres = Usuario.ListaProfesoresLibres(new FranjaHoraria(franja));
+            foreach (Usuario u in profesoresLibres)
+            {
+                listProfesores.Items.Add(u);
+            }
+
+            //TODO Datagridvigilantes
+
+        }
 
         private void button3_Click(object sender, EventArgs e)
         {

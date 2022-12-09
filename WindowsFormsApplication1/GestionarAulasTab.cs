@@ -65,9 +65,11 @@ namespace WindowsFormsApplication1
 
         private void bModificar_Click(object sender, EventArgs e)
         {
-
-            ModificarAulaTab modificarAulaTab = new ModificarAulaTab(new Aula((int)seleccionado[0]), usuario, seleccionado[2].ToString());
-            modificarAulaTab.ShowDialog();
+            if (seleccionado[0] != null)
+            {
+                ModificarAulaTab modificarAulaTab = new ModificarAulaTab(new Aula((int)seleccionado[0]), seleccionado[2].ToString(), franja);
+                modificarAulaTab.ShowDialog();
+            }
         }
 
         private void bAtras_Click(object sender, EventArgs e)
@@ -78,7 +80,7 @@ namespace WindowsFormsApplication1
         private List<object[]> ObtenerDatos()
         {
             MySqlBD bd = new MySqlBD();
-            string sel = "select distinct A.idAula, A.nombre, D.responsable, AA.nombre, D.franja " +
+            string sel = "SELECT DISTINCT A.idAula, A.nombre, D.responsable, AA.nombre, D.franja " +
                         "from Aula A join DisponibilidadAulas D on (A.idAula = D.idAula) " +
                         "join Examen E on (E.franja = D.franja) " +
                         "join Asignatura AA on (E.idAsignatura = AA.idAsignatura) " +
