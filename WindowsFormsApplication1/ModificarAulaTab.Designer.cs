@@ -70,6 +70,7 @@
             this.listProfesores.ItemHeight = 20;
             this.listProfesores.Location = new System.Drawing.Point(23, 305);
             this.listProfesores.Name = "listProfesores";
+            this.listProfesores.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
             this.listProfesores.Size = new System.Drawing.Size(276, 124);
             this.listProfesores.TabIndex = 4;
             this.listProfesores.SelectedIndexChanged += new System.EventHandler(this.listProfesores_SelectedIndexChanged);

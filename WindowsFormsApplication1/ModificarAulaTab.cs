@@ -62,12 +62,12 @@ namespace WindowsFormsApplication1
 
         private void bAsignarResponsable_Click(object sender, EventArgs e)
         {
-            if (profesorSeleccionado!=null)
+            if (profesorSeleccionado.Count>0)
             {
                 if (!tResponsableAula.Text.Equals(""))
                     listProfesores.Items.Add(new Usuario(tResponsableAula.Text));
-                tResponsableAula.Text = profesorSeleccionado.Username;
-                listProfesores.Items.Remove(profesorSeleccionado);
+                tResponsableAula.Text = profesorSeleccionado[0].Username;
+                listProfesores.Items.Remove(profesorSeleccionado[0]);
             }
         }
 
@@ -82,7 +82,10 @@ namespace WindowsFormsApplication1
 
         private void listProfesores_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //profesorSeleccionado = (List<Usuario>) listProfesores.SelectedItems.CopyTo(profesorSeleccionado,0);
+            profesorSeleccionado = new List<Usuario>();
+            foreach (Usuario u in listProfesores.SelectedItems){
+                profesorSeleccionado.Add(u);
+            }
         }
 
         private void bConfirmar_Click(object sender, EventArgs e)
