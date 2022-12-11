@@ -18,7 +18,7 @@ namespace WindowsFormsApplication1
         Usuario responsableDeAula;
         string franja;
 
-        Usuario profesorSeleccionado;
+        List<Usuario> profesorSeleccionado;
 
         public ModificarAulaTab(Aula aula, string idResponsableDeAula, String franja)
         {
@@ -64,9 +64,11 @@ namespace WindowsFormsApplication1
         {
             if (profesorSeleccionado!=null)
             {
+                if (!tResponsableAula.Text.Equals(""))
+                    listProfesores.Items.Add(new Usuario(tResponsableAula.Text));
                 tResponsableAula.Text = profesorSeleccionado.Username;
+                listProfesores.Items.Remove(profesorSeleccionado);
             }
-            listProfesores.Items.Remove(profesorSeleccionado);
         }
 
         private void bEliminarResponsable_Click(object sender, EventArgs e)
@@ -80,7 +82,7 @@ namespace WindowsFormsApplication1
 
         private void listProfesores_SelectedIndexChanged(object sender, EventArgs e)
         {
-            profesorSeleccionado = (Usuario)listProfesores.SelectedItem;
+            //profesorSeleccionado = (List<Usuario>) listProfesores.SelectedItems.CopyTo(profesorSeleccionado,0);
         }
 
         private void bConfirmar_Click(object sender, EventArgs e)
@@ -90,7 +92,7 @@ namespace WindowsFormsApplication1
             if (responsableDeAula == null && !tResponsableAula.Text.Equals(""))
             {
                 responsableDeAula = new Usuario(tResponsableAula.Text);
-                bd.Insert("INSERT INTO DisponibilidadAulas (idAula,franja,responsable) VALUES ("+aula.IdAula+", '"+franja+"',"+ responsableDeAula.IdUsuario+ " )");
+                bd.Insert("UPDATE DisponibilidadAulas SET responsable = "+responsableDeAula.IdUsuario+" WHERE idAula = " + aula.IdAula+" AND franja = '"+franja+"';");
             }
             else if (!responsableDeAula.Username.Equals(tResponsableAula.Text))
             {
@@ -104,10 +106,10 @@ namespace WindowsFormsApplication1
                     responsableDeAula = null;
                     bd.Update("UPDATE DisponibilidadAulas SET responsable = null WHERE franja = '" + franja + "' AND idAula = " + aula.IdAula + ";");
                 }
-
             }
 
             //Comprobar cambios en vigilantes
+            this.Close();
         }
     }
 }

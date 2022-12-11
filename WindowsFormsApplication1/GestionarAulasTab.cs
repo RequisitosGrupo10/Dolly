@@ -13,6 +13,7 @@ namespace WindowsFormsApplication1
 {
     public partial class GestionarAulasTab : Form
     {
+        private static MySqlBD miBD = new MySqlBD();
         private Usuario usuario;
         private string franja;
         Object[] seleccionado;
@@ -40,7 +41,6 @@ namespace WindowsFormsApplication1
             {
                 dataGridListaAulas.Rows.Add(new object[] { aula[0], aula[1], aula[2], aula[3] });
             }
-
         }
 
         private void comboFranja_SelectedIndexChanged(object sender, EventArgs e)
@@ -61,6 +61,10 @@ namespace WindowsFormsApplication1
                 seleccionado[3] = dataGridListaAulas.SelectedRows[0].Cells[3].Value;
                 toggleButton(bModificar);
             }
+            else
+            {
+                seleccionado = null;
+            }
         }
 
         private void bModificar_Click(object sender, EventArgs e)
@@ -78,16 +82,15 @@ namespace WindowsFormsApplication1
             this.Close();
         }
 
-        private List<object[]> ObtenerDatos()
+        private List<Object[]> ObtenerDatos()
         {
-            MySqlBD bd = new MySqlBD();
-            string sel = "SELECT DISTINCT A.idAula, A.nombre, D.responsable, AA.nombre, D.franja " +
+            string sel = "select distinct A.idAula, A.nombre, D.responsable, AA.nombre, D.franja " +
                         "from Aula A join DisponibilidadAulas D on (A.idAula = D.idAula) " +
                         "join Examen E on (E.franja = D.franja) " +
                         "join Asignatura AA on (E.idAsignatura = AA.idAsignatura) " +
                         "where idSede = " + usuario.TrabajaEn.IdSede +
-                        " and D.franja = '" + franja + "';" ;
-            return bd.Select(sel);
+                        " and D.franja = '" + franja + "';";
+            return miBD.Select(sel);
         }
 
 

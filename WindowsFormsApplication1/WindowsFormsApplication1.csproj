@@ -96,6 +96,7 @@
     <Compile Include="AdminSedeTab.Designer.cs">
       <DependentUpon>AdminSedeTab.cs</DependentUpon>
     </Compile>
+    <Compile Include="DisponibilidadAulas.cs" />
     <Compile Include="Asignatura.cs" />
     <Compile Include="AsignaturaTab.cs">
       <SubType>Form</SubType>
@@ -118,6 +119,7 @@
     <Compile Include="AddFranjasTab.Designer.cs">
       <DependentUpon>AddFranjasTab.cs</DependentUpon>
     </Compile>
+    <Compile Include="Prueba.cs" />
     <Compile Include="Examen.cs" />
     <Compile Include="ExamenTab.cs">
       <SubType>Form</SubType>
