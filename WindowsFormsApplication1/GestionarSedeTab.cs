@@ -55,7 +55,7 @@ namespace WindowsFormsApplication1
 
         private void bInsertarAula_Click(object sender, EventArgs e)
         {
-            Aula aula = new Aula("Nueva aula",0, usuario.TrabajaEn.IdSede);
+            Aula aula = new Aula("Aula " + DateTime.Now.ToString(), 0, usuario.TrabajaEn.IdSede);
             AulaTab ventana = new AulaTab(aula); //Crear tab insertar aula
             ventana.ShowDialog();
             Mostrar();

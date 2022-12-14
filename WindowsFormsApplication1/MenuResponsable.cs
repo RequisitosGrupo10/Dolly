@@ -12,27 +12,32 @@ namespace WindowsFormsApplication1
 {
     public partial class MenuResponsable : Form
     {
-        Usuario usuario;
+        Usuario responsableDeSede;
         public MenuResponsable(Usuario usuario)
         {
-            this.usuario = usuario;
+            this.responsableDeSede = usuario;
             InitializeComponent();
             Mostrar();
         }
 
         private void Mostrar()
         {
-            lNombreSede.Text = usuario.TrabajaEn.Nombre;
+            lNombreSede.Text = responsableDeSede.TrabajaEn.Nombre;
             tAforo.Text = Aforo();
             tAforo.Enabled = false;
-            tResponsableDeSede.Text = usuario.Username;
+            tResponsableDeSede.Text = responsableDeSede.Username;
             tResponsableDeSede.Enabled = false;
+        }
+
+        private void lResponsableDeSede_Enter(object sender, EventArgs e)
+        {
+            Mostrar();
         }
 
         private String Aforo()
         {
             int aforo = 0;
-            foreach (Aula aula in Aula.ListaAula(usuario.TrabajaEn))
+            foreach (Aula aula in Aula.ListaAula(responsableDeSede.TrabajaEn))
             {
                 aforo += aula.Aforo;
             }
@@ -41,19 +46,19 @@ namespace WindowsFormsApplication1
 
         private void bGestionarSede_Click(object sender, EventArgs e)
         {
-            GestionarSedeTab gestionarSedeTab = new GestionarSedeTab(usuario);
+            GestionarSedeTab gestionarSedeTab = new GestionarSedeTab(responsableDeSede);
             gestionarSedeTab.ShowDialog();
         }
 
         private void bGestionarAulas_Click(object sender, EventArgs e)
         {
-            GestionarAulasTab gestionarAulasTab = new GestionarAulasTab(usuario, tAforo.Text);
+            GestionarAulasTab gestionarAulasTab = new GestionarAulasTab(responsableDeSede, tAforo.Text);
             gestionarAulasTab.ShowDialog();
         }
 
         private void bGestionarProfesores_Click(object sender, EventArgs e)
         {
-            GestionarProfesoresTab gestionarProfesoresTab = new GestionarProfesoresTab(usuario);
+            GestionarProfesoresTab gestionarProfesoresTab = new GestionarProfesoresTab(responsableDeSede);
             gestionarProfesoresTab.ShowDialog();
         }
 

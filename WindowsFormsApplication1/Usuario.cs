@@ -51,13 +51,16 @@ namespace WindowsFormsApplication1
                 Console.WriteLine("ERROR:" + ex.Message);
             }
         }
-        public Usuario(string username, int rol)
+        public Usuario(string username, int rol, int trabajaEn)
         {
-            miBD.Insert("INSERT INTO Usuario (username, password, rol) VALUES ('" + username + "', '" + "" + "', " + rol + ");");
+            if(trabajaEn == -1)
+                miBD.Insert("INSERT INTO Usuario (username, password, rol) VALUES ('" + username + "', '" + "" + "', " + rol + ");");
+            else
+                miBD.Insert("INSERT INTO Usuario (username, password, rol, trabajaEn) VALUES ('" + username + "', '" + "" + "', " + rol + ", " + trabajaEn + ");");
             this.idUsuario = (int) miBD.Select("SELECT MAX(idUsuario) from Usuario where username = '" + username + "' and rol = " + rol + ";")[0][0];
             this.username = username;
             this.rol = rol;
-            this.trabajaEn = null;
+            this.trabajaEn = trabajaEn == -1 ? null: new Sede(trabajaEn);
         }
         public int IdUsuario
         {

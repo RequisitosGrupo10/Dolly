@@ -35,7 +35,6 @@ namespace WindowsFormsApplication1
         {
             try {
                 miBD.Insert("INSERT INTO Aula (nombre,aforo, idSede) VALUES ('" + nombre + "', "+aforo+", "+ idSede + ");");
-                Console.WriteLine("Se insertó correctamente");
                 this.idAula = (int)miBD.SelectScalar("SELECT MAX(idAula) FROM Aula");
                 this.nombre = nombre;
                 this.aforo = 0;
@@ -44,6 +43,22 @@ namespace WindowsFormsApplication1
                 Console.WriteLine(e.Message);
             }
 
+        }
+
+        public Aula(string nombre, int idSede )
+        {
+            try
+            {
+                Object[] ret = miBD.Select("Select * from Aula where nombre = '" + nombre + "' and idSede = " + idSede + ";")[0];
+                this.idAula = (int)ret[0];
+                this.nombre = (string) ret[1];
+                this.aforo = (int)ret[2];
+                this.sede = new Sede((int)ret[3]);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
         }
 
         public int IdAula

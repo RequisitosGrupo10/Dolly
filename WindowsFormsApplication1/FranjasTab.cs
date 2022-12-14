@@ -13,8 +13,8 @@ namespace WindowsFormsApplication1
 {
     public partial class FranjasTab : Form
     {
-        //FALTA HACER EL INSERTAR FRANJA HORARIA
         private FranjaHoraria seleccionado;
+        private int cnt = 0;
         public FranjasTab()
         {
             InitializeComponent();
@@ -24,9 +24,11 @@ namespace WindowsFormsApplication1
 
         private void Mostrar()
         {
+            cnt++;
+            Console.WriteLine(cnt);
             dataGridView.Rows.Clear();
-            List<string> list = FranjaHoraria.ListarFranjas();
-            foreach (string date in list)
+            List<FranjaHoraria> list = FranjaHoraria.ListarFranjas();
+            foreach (FranjaHoraria date in list)
             {
                 dataGridView.Rows.Add(date);
             }
@@ -38,20 +40,7 @@ namespace WindowsFormsApplication1
             {
                 if (dataGridView.SelectedRows.Count > 0)
                 {
-
-                    var cell = (string)dataGridView.SelectedRows[0].Cells[0].Value;
-                    if (cell != null)
-                    {
-                        string hora = dataGridView.SelectedRows[0].Cells[0].Value.ToString();
-                        string dia = dataGridView.SelectedRows[0].Cells[1].Value.ToString();
-                        string s = dia + ":" + hora;
-                        seleccionado = new FranjaHoraria(s);
-                    }
-                    else
-                    {
-                        seleccionado = null;
-                    }
-
+                    seleccionado = (FranjaHoraria) dataGridView.SelectedRows[0].Cells[0].Value;      
                 }
                 toggleButton();
             }

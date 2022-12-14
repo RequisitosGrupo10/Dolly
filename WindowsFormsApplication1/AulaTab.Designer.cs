@@ -51,7 +51,7 @@
             // 
             this.tAula.Location = new System.Drawing.Point(325, 38);
             this.tAula.Name = "tAula";
-            this.tAula.Size = new System.Drawing.Size(100, 20);
+            this.tAula.Size = new System.Drawing.Size(193, 20);
             this.tAula.TabIndex = 1;
             // 
             // lAforo
@@ -68,7 +68,7 @@
             // 
             this.tAforo.Location = new System.Drawing.Point(329, 75);
             this.tAforo.Name = "tAforo";
-            this.tAforo.Size = new System.Drawing.Size(100, 20);
+            this.tAforo.Size = new System.Drawing.Size(189, 20);
             this.tAforo.TabIndex = 3;
             // 
             // lFranjaHoraria

@@ -15,28 +15,33 @@ namespace WindowsFormsApplication1
 
         public FranjaHoraria(string franja)
         {
+            this.franja = franja;
+        }
+
+        public static FranjaHoraria Insertar(string franja)
+        {
             try
             {
                 MySqlBD db = new MySqlBD();
                 db.Insert("Insert into FranjaHoraria values( '" + franja + "');");
-            } catch (Exception)
+            }
+            catch (Exception)
             {
                 // Its already in DB;
             }
-            this.franja = franja;
+            return new FranjaHoraria(franja);
         }
 
-        public static List<string> ListarFranjas()
+        public static List<FranjaHoraria> ListarFranjas()
         {
-            List<string> list = new List<String>();
+            List<FranjaHoraria> list = new List<FranjaHoraria>();
             MySqlBD db = new MySqlBD();
             List<object[]> fh = db.Select("Select * from FranjaHoraria");
 
             foreach (object[] franja in fh)
             {
-                list.Add((string) franja[0]);
+                list.Add(new FranjaHoraria ((string) franja[0]));
             }
-
             return list;
         }
 

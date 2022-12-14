@@ -16,21 +16,19 @@ namespace WindowsFormsApplication1
         Aula aula;
         Sede sede;
         Usuario responsableDeAula;
-        string franja;
+        FranjaHoraria franja;
 
         List<Usuario> profesorSeleccionado;
 
-        public ModificarAulaTab(Aula aula, string idResponsableDeAula, String franja)
+        public ModificarAulaTab(Aula aula, Usuario responsableDeAula, FranjaHoraria franja)
         {
             InitializeComponent();
             this.sede = aula.Sede;
             this.franja= franja;
             this.aula = aula;
-            if (idResponsableDeAula.Length > 0 )
-            {
-                this.responsableDeAula = new Usuario(int.Parse(idResponsableDeAula));
-            }
-            tFranja.Text = franja; //Invariable, así que lo pongo aquí
+            if (responsableDeAula != null)
+                this.responsableDeAula = responsableDeAula;            
+            tFranja.Text = franja.ToString(); //Invariable, así que lo pongo aquí
 
             mostrar();
         }
@@ -46,7 +44,7 @@ namespace WindowsFormsApplication1
             }
 
             listProfesores.Items.Clear();
-            List<Usuario> profesoresLibres = Usuario.ListaProfesoresLibres(sede,new FranjaHoraria(franja));
+            List<Usuario> profesoresLibres = Usuario.ListaProfesoresLibres(sede,franja);
             foreach (Usuario u in profesoresLibres)
             {
                 listProfesores.Items.Add(u);
@@ -113,6 +111,15 @@ namespace WindowsFormsApplication1
 
             //Comprobar cambios en vigilantes
             this.Close();
+        }
+
+        private void bAsignarVigilante_Click(object sender, EventArgs e)
+        {
+            if(listProfesores.SelectedItems.Count > 0)
+            {
+                var profesoresSeleccionados = listProfesores.SelectedItems;
+
+            }
         }
     }
 }

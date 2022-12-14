@@ -21,12 +21,12 @@ namespace WindowsFormsApplication1
             tAula.Text = aula.Nombre;
             tAforo.Text = aula.Aforo.ToString();
             
-            List<string> dates = FranjaHoraria.ListarFranjas();
+            List<FranjaHoraria> dates = FranjaHoraria.ListarFranjas();
             List<string> datesAssigned = Aula.DisponibilidadHorarias(aula);
-            foreach (string date in dates)
+            foreach (FranjaHoraria date in dates)
             {
                 cbFranjasHorarias.Items.Add(date);
-                if (datesAssigned.Contains(date))
+                if (datesAssigned.Contains(date.ToString()))
                 {
                     cbFranjasHorarias.SetItemChecked(cbFranjasHorarias.Items.Count-1, true);
                 }
@@ -52,15 +52,15 @@ namespace WindowsFormsApplication1
             }
 
 
-            List<String> dates = FranjaHoraria.ListarFranjas();
+            List<FranjaHoraria> dates = FranjaHoraria.ListarFranjas();
             MySqlBD myBD = new MySqlBD();
-            foreach (string date in dates)
+            foreach (FranjaHoraria date in dates)
             {
                 if (cbFranjasHorarias.CheckedItems.Contains(date))
                 {
                     try
                     {
-                        myBD.Insert("INSERT INTO DisponibilidadAulas (idAula,franja) VALUES (" + aula.IdAula + ", '" + date + "' )");
+                        myBD.Insert("INSERT INTO DisponibilidadAulas (idAula,franja) VALUES (" + aula.IdAula + ", '" + date.ToString() + "' )");
                     }
                     catch (DbException)
                     {
@@ -70,7 +70,7 @@ namespace WindowsFormsApplication1
                 }
                 else
                 {
-                    myBD.Delete("DELETE FROM DisponibilidadAulas WHERE idAula = " + aula.IdAula + " AND franja = '" + date + "';");
+                    myBD.Delete("DELETE FROM DisponibilidadAulas WHERE idAula = " + aula.IdAula + " AND franja = '" + date.ToString() + "';");
                 }
             }
 

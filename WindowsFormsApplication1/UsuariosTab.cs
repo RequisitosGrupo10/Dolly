@@ -61,7 +61,7 @@ namespace WindowsFormsApplication1
                             var line = reader.ReadLine();
                             try
                             {
-                                new Usuario(line, role);
+                                new Usuario(line, role, -1);
                                 added++;
                             }
                             catch (Exception)

@@ -103,6 +103,7 @@
             this.bAsignarVigilante.TabIndex = 7;
             this.bAsignarVigilante.Text = "Asignar Vigilante";
             this.bAsignarVigilante.UseVisualStyleBackColor = true;
+            this.bAsignarVigilante.Click += new System.EventHandler(this.bAsignarVigilante_Click);
             // 
             // bEliminarVigilante
             // 
