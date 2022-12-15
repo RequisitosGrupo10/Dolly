@@ -126,6 +126,16 @@ namespace WindowsFormsApplication1
             return username;
         }
 
+        public override bool Equals(object obj)
+        {
+            if(obj != null && obj is Usuario)
+            {
+                Usuario u = (Usuario)obj;
+                return this.idUsuario == u.idUsuario && u.username.Equals(this.username);
+            }
+            return false;
+        }
+
         public void borrarUsuario()
         {
             miBD.Insert("DELETE FROM Usuario WHERE idUsuario =" + this.idUsuario + ";");
@@ -164,9 +174,22 @@ namespace WindowsFormsApplication1
         public static List<Usuario> ListaProfesoresLibres(Sede sede, FranjaHoraria franja)
         {
             List<Usuario> lista = new List<Usuario>();
-            foreach (object[] tupla in miBD.Select("Select idUsuario from (Select idUsuario from Usuario where rol = 3  AND (trabajaEn is null OR trabajaEn = "+sede.IdSede+")  AND idUsuario NOT IN (Select responsable from DisponibilidadAulas Where franja = '" + franja.Franja+"' and responsable is not null))U where U.idUsuario not in (Select idVigilante from vigilante inner join DisponibilidadAulas where franja = '"+franja.Franja+"' and idVigilante is not null);"))
+            foreach (object[] tupla in miBD.Select("Select idUsuario from (Select idUsuario from Usuario where rol = 3  AND (trabajaEn = "+sede.IdSede+")  AND idUsuario NOT IN (Select responsable from DisponibilidadAulas Where franja = '" + franja.Franja+"' and responsable is not null))U where U.idUsuario not in (Select idVigilante from vigilante inner join DisponibilidadAulas where franja = '"+franja.Franja+"' and idVigilante is not null);"))
             {
                 Usuario usuario = new Usuario((int)tupla[0]);
+                lista.Add(usuario);
+            }
+            return lista;
+        }
+        public static List<Usuario> ListaVigilantes(FranjaHoraria franja, Aula aula)
+        {
+            List<Usuario> lista = new List<Usuario>();
+            string sel = "select V.idVigilante " +
+                        "from DisponibilidadAulas D join vigilante V on ( D.idDisponibilidad = V.disponibilidad) " +
+                        "where D.franja = '" + franja.ToString() + "' and D.idAula = " + aula.IdAula + ";";
+            foreach (Object[] o in miBD.Select(sel))
+            {
+                Usuario usuario = new Usuario((int)o[0]);
                 lista.Add(usuario);
             }
             return lista;

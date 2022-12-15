@@ -39,7 +39,10 @@ namespace WindowsFormsApplication1
             List<Object[]> listaAulas = ObtenerDatos();
             foreach (Object[] aula in listaAulas)
             {
-                dataGridListaAulas.Rows.Add(new object[] { aula[0], aula[1], aula[2], aula[3] });
+                string nombreDeResponsable = null;
+                if (aula[2].ToString().Length != 0)
+                    nombreDeResponsable = new Usuario((int)aula[2]).Username;                
+                dataGridListaAulas.Rows.Add(new object[] { aula[0], aula[1], nombreDeResponsable, aula[3] });
             }
         }
 
@@ -71,7 +74,9 @@ namespace WindowsFormsApplication1
         {
             if (seleccionado[0] != null)
             {
-                Usuario responsableDeAula = new Usuario(seleccionado[2].ToString());
+                Usuario responsableDeAula = null;
+                if(seleccionado[2] != null)
+                    responsableDeAula = new Usuario(seleccionado[2].ToString());                
                 Aula aula = new Aula((string)seleccionado[0], responsableDeSede.TrabajaEn.IdSede);
                 ModificarAulaTab modificarAulaTab = new ModificarAulaTab(aula, responsableDeAula, franja);
                 modificarAulaTab.ShowDialog();
@@ -86,13 +91,12 @@ namespace WindowsFormsApplication1
 
         private List<Object[]> ObtenerDatos()
         {
-            string sel = "select distinct A.nombre, A.aforo, U.username, AA.nombre " +
+            string sel = "select distinct A.nombre, A.aforo, D.responsable, AA.nombre " +
                         "from Aula A join DisponibilidadAulas D on (A.idAula = D.idAula) " +
                         "join Examen E on (E.franja = D.franja) " +
                         "join Asignatura AA on (E.idAsignatura = AA.idAsignatura) " +
-                        "join Usuario U on (U.idUsuario = D.responsable) " +
                         "where idSede = " + responsableDeSede.TrabajaEn.IdSede +
-                        " and D.franja = '" + franja + "';";
+                        " and D.franja = '" + franja.ToString() + "';";
             return miBD.Select(sel);
         }
 

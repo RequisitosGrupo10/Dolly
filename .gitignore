@@ -55,8 +55,8 @@ x64/
 .builds
 *.pidb
 *.scc
-obj/
-bin/
+**/bin/
+**/obj/
 
 # Visual C++ cache files
 ipch/

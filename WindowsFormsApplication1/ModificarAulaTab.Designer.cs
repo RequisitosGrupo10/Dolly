@@ -40,6 +40,7 @@
             this.dataGridVigilantes = new System.Windows.Forms.DataGridView();
             this.tFranja = new System.Windows.Forms.TextBox();
             this.tResponsableAula = new System.Windows.Forms.TextBox();
+            this.Vigilante = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridVigilantes)).BeginInit();
             this.SuspendLayout();
             // 
@@ -113,6 +114,7 @@
             this.bEliminarVigilante.TabIndex = 8;
             this.bEliminarVigilante.Text = "Eliminar Vigilante";
             this.bEliminarVigilante.UseVisualStyleBackColor = true;
+            this.bEliminarVigilante.Click += new System.EventHandler(this.bEliminarVigilante_Click);
             // 
             // bConfirmar
             // 
@@ -136,9 +138,14 @@
             // 
             // dataGridVigilantes
             // 
+            this.dataGridVigilantes.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridVigilantes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridVigilantes.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Vigilante});
             this.dataGridVigilantes.Location = new System.Drawing.Point(326, 129);
             this.dataGridVigilantes.Name = "dataGridVigilantes";
+            this.dataGridVigilantes.ReadOnly = true;
+            this.dataGridVigilantes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridVigilantes.Size = new System.Drawing.Size(437, 299);
             this.dataGridVigilantes.TabIndex = 11;
             // 
@@ -157,6 +164,11 @@
             this.tResponsableAula.ReadOnly = true;
             this.tResponsableAula.Size = new System.Drawing.Size(267, 20);
             this.tResponsableAula.TabIndex = 13;
+            // 
+            // Vigilante
+            // 
+            this.Vigilante.HeaderText = "Vigilante";
+            this.Vigilante.Name = "Vigilante";
             // 
             // ModificarAulaTab
             // 
@@ -197,5 +209,6 @@
         private System.Windows.Forms.DataGridView dataGridVigilantes;
         private System.Windows.Forms.TextBox tFranja;
         private System.Windows.Forms.TextBox tResponsableAula;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Vigilante;
     }
 }

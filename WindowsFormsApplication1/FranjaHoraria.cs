@@ -61,5 +61,15 @@ namespace WindowsFormsApplication1
         {
             return this.franja;
         }
+
+        public override bool Equals(object obj)
+        {
+            if(obj is FranjaHoraria)
+            {
+                FranjaHoraria f = (FranjaHoraria)obj;
+                return f.franja.Equals(this.franja);
+            }
+            return false;
+        }
     }
 }
