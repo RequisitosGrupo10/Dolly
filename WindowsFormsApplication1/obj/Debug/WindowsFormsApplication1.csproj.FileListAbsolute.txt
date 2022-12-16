@@ -37,7 +37,6 @@ C:\Users\jmsan\Documents\Visual Studio 2013\Projects\Dolly\WindowsFormsApplicati
 C:\Users\jmsan\Documents\Visual Studio 2013\Projects\Dolly\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.LogIn.resources
 C:\Users\jmsan\Documents\Visual Studio 2013\Projects\Dolly\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Menu.resources
 C:\Users\jmsan\Documents\Visual Studio 2013\Projects\Dolly\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Properties.Resources.resources
-C:\Users\jmsan\Documents\Visual Studio 2013\Projects\Dolly\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.ResponsableSedeTab.resources
 C:\Users\jmsan\Documents\Visual Studio 2013\Projects\Dolly\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.SedeTab.resources
 C:\Users\jmsan\Documents\Visual Studio 2013\Projects\Dolly\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.UsuariosTab.resources
 C:\Users\jmsan\Documents\Visual Studio 2013\Projects\Dolly\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.csproj.GenerateResource.Cache
@@ -162,3 +161,8 @@ C:\Users\lucia\Documents\GitHub\Dolly\WindowsFormsApplication1\obj\Debug\Windows
 C:\Users\lucia\Documents\GitHub\Dolly\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.MenuResponsable.resources
 C:\Users\lucia\Documents\GitHub\Dolly\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.ModificarAulaTab.resources
 C:\Users\lucia\Documents\GitHub\Dolly\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.GestionarSedeTab.resources
+C:\Users\jmsan\Documents\Visual Studio 2013\Projects\Dolly\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.GestionarAulasTab.resources
+C:\Users\jmsan\Documents\Visual Studio 2013\Projects\Dolly\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.GestionarProfesoresTab.resources
+C:\Users\jmsan\Documents\Visual Studio 2013\Projects\Dolly\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.MenuResponsable.resources
+C:\Users\jmsan\Documents\Visual Studio 2013\Projects\Dolly\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.ModificarAulaTab.resources
+C:\Users\jmsan\Documents\Visual Studio 2013\Projects\Dolly\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.GestionarSedeTab.resources

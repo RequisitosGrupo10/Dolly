@@ -2,6 +2,7 @@
 using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
+using WindowsFormsApplication1.CSVParser;
 
 namespace WindowsFormsApplication1
 {
@@ -22,6 +23,8 @@ namespace WindowsFormsApplication1
 
         private void bImportarAsignaturas_Click(object sender, EventArgs e)
         {
+            // CSVParser csvParser = new CSVParser(new EstudianteStrategy);
+
             int n_line = 0;
             var fileContent = string.Empty;
             var filePath = string.Empty;

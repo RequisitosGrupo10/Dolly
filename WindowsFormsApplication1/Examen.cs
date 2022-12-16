@@ -14,6 +14,18 @@ namespace WindowsFormsApplication1
         private Asignatura asignatura;
         private FranjaHoraria franja;
 
+
+       public static List<Examen> ListaExamenes()
+        {
+            List<Examen> res = new List<Examen>();
+            foreach (var tupla in miBD.Select("SELECT idExamen FROM Examen"))
+            {
+                Examen examen = new Examen(Int32.Parse(tupla[0].ToString()));
+                res.Add(examen);
+            }
+            return res;
+        }
+
         public Examen(int idExamen)
         {
             try
@@ -23,9 +35,9 @@ namespace WindowsFormsApplication1
                 this.franja = new FranjaHoraria((string)tupla[1]);
                 this.idExamen = idExamen;
             }
-            catch (Exception e)
+            catch (Exception ex)
             {
-                Console.WriteLine(e.Message);
+                Console.WriteLine("Error de carga" + ex.Message);
             }
         }
 
@@ -36,15 +48,14 @@ namespace WindowsFormsApplication1
                 if (miBD.Select("SELECT idExamen FROM Examen WHERE franja = '" + franja.Franja + "' AND idAsignatura = " + asignatura.IdAsignatura + ";").Count == 0)
                 {
                     miBD.Insert("INSERT INTO Examen(idAsignatura,franja) VALUES (" + asignatura.IdAsignatura + ",'" + franja.Franja + "');");
-                    Console.WriteLine("Se insertó correctamente");
-                    this.idExamen = (int)miBD.SelectScalar("SELECT MAX(idExamen) FROM Examen");
+                    this.idExamen = Int32.Parse(miBD.SelectScalar("SELECT MAX(idExamen) FROM Examen").ToString());
                     this.franja = franja;
                     this.asignatura = asignatura;
                 }
             }
-            catch (Exception e)
+            catch (Exception ex)
             {
-                Console.WriteLine("ERROR: " + e.Message);
+                Console.WriteLine("Error de inserción" + ex.Message);
             }
         }
 
@@ -76,6 +87,14 @@ namespace WindowsFormsApplication1
         public override int GetHashCode()
         {
             return asignatura.GetHashCode() + franja.GetHashCode();
+        }
+
+        internal void BorrarExamen()
+        {
+            miBD.Delete("DELETE FROM Examen WHERE idExamen =" + this.idExamen + ";");
+            idExamen = -1;
+            asignatura = null;
+            franja= null;
         }
     }
 }

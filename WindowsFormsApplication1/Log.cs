@@ -22,9 +22,9 @@ namespace WindowsFormsApplication1
                     fs.Write(info, 0, info.Length);
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-
+                Console.WriteLine("Error: " + ex.Message);
             }
         }
         public static void EliminarLog(string filename)

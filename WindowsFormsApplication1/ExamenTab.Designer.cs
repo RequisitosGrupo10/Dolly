@@ -46,7 +46,7 @@
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(556, 237);
+            this.dataGridView1.Size = new System.Drawing.Size(800, 237);
             this.dataGridView1.TabIndex = 0;
             // 
             // bImportar
@@ -57,19 +57,21 @@
             this.bImportar.TabIndex = 1;
             this.bImportar.Text = "Importar examen";
             this.bImportar.UseVisualStyleBackColor = true;
+            this.bImportar.Click += new System.EventHandler(this.bImportar_Click);
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(21, 213);
+            this.button1.Location = new System.Drawing.Point(21, 160);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(144, 82);
             this.button1.TabIndex = 2;
             this.button1.Text = "Eliminar examen";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // bExit
             // 
-            this.bExit.Location = new System.Drawing.Point(565, 384);
+            this.bExit.Location = new System.Drawing.Point(932, 327);
             this.bExit.Name = "bExit";
             this.bExit.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.bExit.Size = new System.Drawing.Size(75, 23);
@@ -82,7 +84,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1038, 364);
             this.Controls.Add(this.bExit);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.bImportar);

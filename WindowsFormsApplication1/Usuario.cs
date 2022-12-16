@@ -88,7 +88,7 @@ namespace WindowsFormsApplication1
                     MySqlBD miBD = new MySqlBD();
                     var query = miBD.Select("SELECT idSede FROM Usuario Join Sede ON (Usuario.trabajaEn = Sede.idSede) WHERE Usuario.idUsuario = " + this.idUsuario + ";");
                     if (query.Count > 0)
-                        trabajaEn = new Sede((int)query[0][0]);
+                        trabajaEn = new Sede(Int32.Parse(query[0][0].ToString()));
                     else
                         trabajaEn = null;
 

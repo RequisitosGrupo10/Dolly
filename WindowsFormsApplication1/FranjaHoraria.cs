@@ -17,13 +17,16 @@ namespace WindowsFormsApplication1
         {
             try
             {
-                MySqlBD db = new MySqlBD();
-                db.Insert("Insert into FranjaHoraria values( '" + franja + "');");
-            } catch (Exception)
+                MySqlBD miBd = new MySqlBD();
+                var query = miBd.Select("SELECT franja FROM FranjaHoraria WHERE franja = '" + franja +"';"); ;
+                if (query.Count == 0)
+                    miBd.Insert("Insert into FranjaHoraria values( '" + franja + "');");
+                this.franja = franja;
+            } catch (Exception ex)
             {
-                // Its already in DB;
+                Console.WriteLine("Error:" + ex.Message);
             }
-            this.franja = franja;
+            
         }
 
         public static List<string> ListarFranjas()

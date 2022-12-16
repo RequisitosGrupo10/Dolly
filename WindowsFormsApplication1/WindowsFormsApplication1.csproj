@@ -96,6 +96,12 @@
     <Compile Include="AdminSedeTab.Designer.cs">
       <DependentUpon>AdminSedeTab.cs</DependentUpon>
     </Compile>
+    <Content Include="CSVParser\ExamenStrategy.cs">
+      <CustomToolNamespace>ExamenStrategy</CustomToolNamespace>
+    </Content>
+    <Compile Include="CSVParser\EstudianteStrategy.cs" />
+    <Compile Include="CSVParser\CSVParser.cs" />
+    <Compile Include="CSVParser\ParserStrategy.cs" />
     <Compile Include="DisponibilidadAulas.cs" />
     <Compile Include="Asignatura.cs" />
     <Compile Include="AsignaturaTab.cs">

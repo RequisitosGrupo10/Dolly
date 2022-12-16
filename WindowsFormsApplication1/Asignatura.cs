@@ -72,11 +72,16 @@ namespace WindowsFormsApplication1
         {
             try
             {
-                if (miBD.Select("SELECT nombre FROM Asignatura WHERE nombre = '" + nombre + "';").Count == 0)
+                var query = miBD.Select("SELECT idAsignatura FROM Asignatura WHERE nombre = '" + nombre + "';");
+                if (query.Count == 0)
                 {
                     miBD.Insert("INSERT INTO Asignatura(nombre) VALUES ('" + nombre + "');");
                     Console.WriteLine("Se insertó correctamente");
                     this.idAsignatura = (int)miBD.SelectScalar("SELECT MAX(idAsignatura) FROM Asignatura");
+                    this.nombre = nombre;
+                } else
+                {
+                    this.idAsignatura = Int32.Parse(query[0][0].ToString());
                     this.nombre = nombre;
                 }
             } catch (Exception e) {
@@ -138,9 +143,7 @@ namespace WindowsFormsApplication1
 
         public override string ToString()
         {
-            string res = this.idAsignatura + ";" + this.nombre + ";";
-
-            return res;
+            return this.nombre;
         }
 
         public override bool Equals(object obj)
