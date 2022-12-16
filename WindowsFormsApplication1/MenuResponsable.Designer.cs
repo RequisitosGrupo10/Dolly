@@ -74,6 +74,7 @@
             this.lResponsableDeSede.Size = new System.Drawing.Size(112, 13);
             this.lResponsableDeSede.TabIndex = 20;
             this.lResponsableDeSede.Text = "Responsable de Sede";
+            this.lResponsableDeSede.Enter += new System.EventHandler(this.lResponsableDeSede_Enter);
             // 
             // tAforo
             // 

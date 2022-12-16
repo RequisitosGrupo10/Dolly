@@ -15,6 +15,11 @@ namespace WindowsFormsApplication1
 
         public FranjaHoraria(string franja)
         {
+            this.franja = franja;
+        }
+
+        public static FranjaHoraria Insertar(string franja)
+        {
             try
             {
                 MySqlBD miBd = new MySqlBD();
@@ -29,17 +34,16 @@ namespace WindowsFormsApplication1
             
         }
 
-        public static List<string> ListarFranjas()
+        public static List<FranjaHoraria> ListarFranjas()
         {
-            List<string> list = new List<String>();
+            List<FranjaHoraria> list = new List<FranjaHoraria>();
             MySqlBD db = new MySqlBD();
             List<object[]> fh = db.Select("Select * from FranjaHoraria");
 
             foreach (object[] franja in fh)
             {
-                list.Add((string) franja[0]);
+                list.Add(new FranjaHoraria ((string) franja[0]));
             }
-
             return list;
         }
 
@@ -58,6 +62,16 @@ namespace WindowsFormsApplication1
         public override string ToString()
         {
             return this.franja;
+        }
+
+        public override bool Equals(object obj)
+        {
+            if(obj is FranjaHoraria)
+            {
+                FranjaHoraria f = (FranjaHoraria)obj;
+                return f.franja.Equals(this.franja);
+            }
+            return false;
         }
     }
 }

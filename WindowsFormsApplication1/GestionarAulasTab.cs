@@ -14,19 +14,19 @@ namespace WindowsFormsApplication1
     public partial class GestionarAulasTab : Form
     {
         private static MySqlBD miBD = new MySqlBD();
-        private Usuario usuario;
-        private string franja;
+        private Usuario responsableDeSede;
+        private FranjaHoraria franja;
         Object[] seleccionado;
 
         public GestionarAulasTab(Usuario usuario, string aforo)
         {
             InitializeComponent();
-            this.usuario = usuario;
+            this.responsableDeSede = usuario;
             this.textAforo.Text = aforo;
             this.textResponsable.Text = usuario.Username;
-            this.comboFranja.DataSource = ListaFranjas();
+            this.comboFranja.DataSource = FranjaHoraria.ListarFranjas();
             this.comboFranja.SelectedIndex = 1;
-            franja = this.comboFranja.Items[1].ToString();
+            franja = (FranjaHoraria)this.comboFranja.Items[1];
             Mostrar();
         }
 
@@ -39,14 +39,17 @@ namespace WindowsFormsApplication1
             List<Object[]> listaAulas = ObtenerDatos();
             foreach (Object[] aula in listaAulas)
             {
-                dataGridListaAulas.Rows.Add(new object[] { aula[0], aula[1], aula[2], aula[3] });
+                string nombreDeResponsable = null;
+                if (aula[2].ToString().Length != 0)
+                    nombreDeResponsable = new Usuario((int)aula[2]).Username;                
+                dataGridListaAulas.Rows.Add(new object[] { aula[0], aula[1], nombreDeResponsable, aula[3] });
             }
         }
 
         private void comboFranja_SelectedIndexChanged(object sender, EventArgs e)
         {
-            franja = this.comboFranja.Items[comboFranja.SelectedIndex].ToString();
-            lFranjaSeleccionada.Text = franja;
+            franja = (FranjaHoraria) this.comboFranja.Items[comboFranja.SelectedIndex];
+            lFranjaSeleccionada.Text = franja.ToString();
             Mostrar();
         }
 
@@ -71,7 +74,11 @@ namespace WindowsFormsApplication1
         {
             if (seleccionado[0] != null)
             {
-                ModificarAulaTab modificarAulaTab = new ModificarAulaTab(new Aula((int)seleccionado[0]), seleccionado[2].ToString(), franja);
+                Usuario responsableDeAula = null;
+                if(seleccionado[2] != null)
+                    responsableDeAula = new Usuario(seleccionado[2].ToString());                
+                Aula aula = new Aula((string)seleccionado[0], responsableDeSede.TrabajaEn.IdSede);
+                ModificarAulaTab modificarAulaTab = new ModificarAulaTab(aula, responsableDeAula, franja);
                 modificarAulaTab.ShowDialog();
                 Mostrar();
             }
@@ -84,12 +91,12 @@ namespace WindowsFormsApplication1
 
         private List<Object[]> ObtenerDatos()
         {
-            string sel = "select distinct A.idAula, A.nombre, D.responsable, AA.nombre, D.franja " +
+            string sel = "select distinct A.nombre, A.aforo, D.responsable, AA.nombre " +
                         "from Aula A join DisponibilidadAulas D on (A.idAula = D.idAula) " +
                         "join Examen E on (E.franja = D.franja) " +
                         "join Asignatura AA on (E.idAsignatura = AA.idAsignatura) " +
-                        "where idSede = " + usuario.TrabajaEn.IdSede +
-                        " and D.franja = '" + franja + "';";
+                        "where idSede = " + responsableDeSede.TrabajaEn.IdSede +
+                        " and D.franja = '" + franja.ToString() + "';";
             return miBD.Select(sel);
         }
 

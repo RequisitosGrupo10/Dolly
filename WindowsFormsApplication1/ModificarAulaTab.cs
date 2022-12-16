@@ -16,22 +16,21 @@ namespace WindowsFormsApplication1
         Aula aula;
         Sede sede;
         Usuario responsableDeAula;
-        string franja;
+        FranjaHoraria franja;
+        MySqlBD bd;
 
         List<Usuario> profesorSeleccionado;
 
-        public ModificarAulaTab(Aula aula, string idResponsableDeAula, String franja)
+        public ModificarAulaTab(Aula aula, Usuario responsableDeAula, FranjaHoraria franja)
         {
             InitializeComponent();
             this.sede = aula.Sede;
             this.franja= franja;
             this.aula = aula;
-            if (idResponsableDeAula.Length > 0 )
-            {
-                this.responsableDeAula = new Usuario(int.Parse(idResponsableDeAula));
-            }
-            tFranja.Text = franja; //Invariable, así que lo pongo aquí
-
+            if (responsableDeAula != null)
+                this.responsableDeAula = responsableDeAula;            
+            tFranja.Text = franja.ToString(); //Invariable, así que lo pongo aquí
+            bd = new MySqlBD();
             mostrar();
         }
 
@@ -46,18 +45,16 @@ namespace WindowsFormsApplication1
             }
 
             listProfesores.Items.Clear();
-            List<Usuario> profesoresLibres = Usuario.ListaProfesoresLibres(sede,new FranjaHoraria(franja));
+            List<Usuario> profesoresLibres = Usuario.ListaProfesoresLibres(sede,franja);
             foreach (Usuario u in profesoresLibres)
             {
                 listProfesores.Items.Add(u);
             }
-            MySqlBD bd = new MySqlBD();
-            List<Usuario> vigilantes = new List<Usuario>();
-            foreach (Object[] v in bd.Select("SELECT idVigilante from vigilante INNER JOIN DisponibilidadAulas WHERE franja = '" + franja + "';"))
+            foreach(Usuario u in Usuario.ListaVigilantes(franja,aula))
             {
-                vigilantes.Add(new Usuario((int) v[0]));
+                dataGridVigilantes.Rows.Add(u);
             }
-            dataGridVigilantes.DataSource = vigilantes;
+            dataGridVigilantes.ClearSelection();
         }
 
         private void bAsignarResponsable_Click(object sender, EventArgs e)
@@ -90,29 +87,78 @@ namespace WindowsFormsApplication1
 
         private void bConfirmar_Click(object sender, EventArgs e)
         {
-            MySqlBD bd = new MySqlBD();
             //Comprobar cambio responsable
-            if (responsableDeAula == null && !tResponsableAula.Text.Equals(""))
+            if(responsableDeAula != null)
             {
-                responsableDeAula = new Usuario(tResponsableAula.Text);
-                bd.Insert("UPDATE DisponibilidadAulas SET responsable = "+responsableDeAula.IdUsuario+" WHERE idAula = " + aula.IdAula+" AND franja = '"+franja+"';");
-            }
-            else if (!responsableDeAula.Username.Equals(tResponsableAula.Text))
-            {
-                if (!tResponsableAula.Text.Equals(""))
-                {
-                    responsableDeAula = new Usuario(tResponsableAula.Text);
-                    bd.Update("UPDATE DisponibilidadAulas SET responsable = " + responsableDeAula.IdUsuario + " WHERE franja = '" + franja + "' AND idAula = " + aula.IdAula + ";");
-                }
-                else
+                if (tResponsableAula.Text.Equals("")) // responsable eliminado
                 {
                     responsableDeAula = null;
-                    bd.Update("UPDATE DisponibilidadAulas SET responsable = null WHERE franja = '" + franja + "' AND idAula = " + aula.IdAula + ";");
+                    bd.Update("UPDATE DisponibilidadAulas SET responsable = null WHERE franja = '" + franja.ToString() + "' AND idAula = " + aula.IdAula + ";");
+                }
+                else if (!responsableDeAula.Username.Equals(tResponsableAula.Text)) // responsable cambiado
+                {
+                    responsableDeAula = new Usuario(tResponsableAula.Text);
+                    bd.Update("UPDATE DisponibilidadAulas SET responsable = " + responsableDeAula.IdUsuario + " WHERE franja = '" + franja.ToString() + "' AND idAula = " + aula.IdAula + ";");
                 }
             }
-
+            else if (!tResponsableAula.Text.Equals("")) // nuevo responsable
+            {
+                responsableDeAula = new Usuario(tResponsableAula.Text);
+                bd.Insert("UPDATE DisponibilidadAulas SET responsable = " + responsableDeAula.IdUsuario + " WHERE idAula = " + aula.IdAula + " AND franja = '" + franja.ToString() + "';");
+            }
             //Comprobar cambios en vigilantes
+            int idDisponibilidad = (int) bd.SelectScalar("Select idDisponibilidad from DisponibilidadAulas where franja = '" + franja.ToString() + "' and idAula = " + aula.IdAula + ";");
+            bd.Delete("delete from vigilante where disponibilidad = " + idDisponibilidad + ";");
+            string vigilantes = GuardarVigilantesAsignados(idDisponibilidad);
+            if(vigilantes.Length > 0)
+                MessageBox.Show("Agregado\n" + vigilantes + "como vigilante/s");
             this.Close();
+        }
+
+        private string GuardarVigilantesAsignados(int idDisponibilidad)
+        {
+            string nobmres = "";
+            for(int i = 0; i < dataGridVigilantes.Rows.Count - 1; i++)
+            {
+                DataGridViewRow row = dataGridVigilantes.Rows[i];
+                Usuario u = (Usuario)row.Cells[0].Value;
+                bd.Insert("insert into vigilante(idVigilante, disponibilidad) values(" + u.IdUsuario + ", " + idDisponibilidad + ");");
+                nobmres += u.Username + "\n";
+            }
+            return nobmres;
+        }
+
+        private void bAsignarVigilante_Click(object sender, EventArgs e)
+        {
+            if(listProfesores.SelectedItems.Count > 0)
+            {
+                foreach(Usuario u in listProfesores.SelectedItems)
+                {
+                    dataGridVigilantes.Rows.Add(u);
+                }
+                foreach(DataGridViewRow r in dataGridVigilantes.Rows)
+                {
+                    listProfesores.Items.Remove(r.Cells[0].Value);
+                }
+            }
+            dataGridVigilantes.ClearSelection();
+        }
+
+        private void bEliminarVigilante_Click(object sender, EventArgs e)
+        {
+            if(dataGridVigilantes.SelectedRows.Count > 0)
+            {
+                foreach (DataGridViewRow r in dataGridVigilantes.SelectedRows)
+                {
+                    listProfesores.Items.Add(r.Cells[0].Value);
+                }
+                var rows = dataGridVigilantes.SelectedRows;
+                foreach (DataGridViewRow row in rows)
+                {
+                    dataGridVigilantes.Rows.Remove(row);
+                }
+            }
+            dataGridVigilantes.ClearSelection();
         }
     }
 }

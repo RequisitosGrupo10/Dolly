@@ -118,8 +118,9 @@
         private System.Windows.Forms.Button bImportarUsuarios;
         private System.Windows.Forms.DataGridView dataGridView;
         private System.Windows.Forms.Button bAtras;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idUsuarioDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn usernameDataGridViewTextBoxColumn;
+        // TODO: eliminar por no utilizar;
+        //       private System.Windows.Forms.DataGridViewTextBoxColumn idUsuarioDataGridViewTextBoxColumn;
+        //       private System.Windows.Forms.DataGridViewTextBoxColumn usernameDataGridViewTextBoxColumn;  
         private System.Windows.Forms.DataGridViewTextBoxColumn idUsuario;
         private System.Windows.Forms.DataGridViewTextBoxColumn nombre;
         private System.Windows.Forms.DataGridViewTextBoxColumn rol;
