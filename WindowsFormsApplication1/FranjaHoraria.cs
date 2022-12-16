@@ -12,13 +12,7 @@ namespace WindowsFormsApplication1
     public class FranjaHoraria
     {
         private String franja;
-
         public FranjaHoraria(string franja)
-        {
-            this.franja = franja;
-        }
-
-        public static FranjaHoraria Insertar(string franja)
         {
             try
             {
