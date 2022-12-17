@@ -24,7 +24,7 @@ namespace WindowsFormsApplication1
             lNombreSede.Text = responsableDeSede.TrabajaEn.Nombre;
             MySqlBD miDB = new MySqlBD();
             dataGridView.Rows.Clear();
-            List<Object[]> list = miDB.Select("Select idUsuario, username, nombre from Usuario join Rol on (Usuario.rol = Rol.idRol) where Lower(Rol.nombre) like 'profesor';");
+            List<Object[]> list = miDB.Select("Select idUsuario, username, nombre from Usuario join Rol on (Usuario.rol = Rol.idRol) where Lower(Rol.nombre) like 'profesor' and trabajaEn =" + responsableDeSede.TrabajaEn.IdSede + "; ");
             foreach (Object[] u in list)
             {
                 dataGridView.Rows.Add(new object[] { u[0], u[1], u[2] });
