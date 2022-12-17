@@ -42,7 +42,7 @@ namespace WindowsFormsApplication1
                 string nombreDeResponsable = null;
                 if (aula[2].ToString().Length != 0)
                     nombreDeResponsable = new Usuario((int)aula[2]).Username;                
-                dataGridListaAulas.Rows.Add(new object[] { aula[0], aula[1], nombreDeResponsable, aula[3] });
+                dataGridListaAulas.Rows.Add(new object[] { aula[0], aula[1], nombreDeResponsable});
             }
         }
 
@@ -57,11 +57,10 @@ namespace WindowsFormsApplication1
         {
             if (dataGridListaAulas.SelectedRows.Count > 0)
             {
-                seleccionado = new Object[4];
+                seleccionado = new Object[3];
                 seleccionado[0] = dataGridListaAulas.SelectedRows[0].Cells[0].Value;
                 seleccionado[1] = dataGridListaAulas.SelectedRows[0].Cells[1].Value;
                 seleccionado[2] = dataGridListaAulas.SelectedRows[0].Cells[2].Value;
-                seleccionado[3] = dataGridListaAulas.SelectedRows[0].Cells[3].Value;
                 toggleButton(bModificar);
             }
             else
@@ -91,10 +90,8 @@ namespace WindowsFormsApplication1
 
         private List<Object[]> ObtenerDatos()
         {
-            string sel = "select distinct A.nombre, A.aforo, D.responsable, AA.nombre " +
+            string sel = "select distinct A.nombre, A.aforo, D.responsable " +
                         "from Aula A join DisponibilidadAulas D on (A.idAula = D.idAula) " +
-                        "join Examen E on (E.franja = D.franja) " +
-                        "join Asignatura AA on (E.idAsignatura = AA.idAsignatura) " +
                         "where idSede = " + responsableDeSede.TrabajaEn.IdSede +
                         " and D.franja = '" + franja.ToString() + "';";
             return miBD.Select(sel);

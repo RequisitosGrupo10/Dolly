@@ -33,14 +33,13 @@
             this.lAforo = new System.Windows.Forms.Label();
             this.lResponsable = new System.Windows.Forms.Label();
             this.dataGridListaAulas = new System.Windows.Forms.DataGridView();
-            this.Aula = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Aforo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ResponsabledeAula = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Examen = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.bModificar = new System.Windows.Forms.Button();
             this.textAforo = new System.Windows.Forms.TextBox();
             this.textResponsable = new System.Windows.Forms.TextBox();
             this.lFranjaSeleccionada = new System.Windows.Forms.Label();
+            this.Aula = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Aforo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ResponsabledeAula = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridListaAulas)).BeginInit();
             this.SuspendLayout();
             // 
@@ -91,8 +90,7 @@
             this.dataGridListaAulas.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Aula,
             this.Aforo,
-            this.ResponsabledeAula,
-            this.Examen});
+            this.ResponsabledeAula});
             this.dataGridListaAulas.Location = new System.Drawing.Point(188, 180);
             this.dataGridListaAulas.MultiSelect = false;
             this.dataGridListaAulas.Name = "dataGridListaAulas";
@@ -100,30 +98,6 @@
             this.dataGridListaAulas.Size = new System.Drawing.Size(582, 207);
             this.dataGridListaAulas.TabIndex = 10;
             this.dataGridListaAulas.SelectionChanged += new System.EventHandler(this.dataGridListaAulas_SelectionChanged);
-            // 
-            // Aula
-            // 
-            this.Aula.HeaderText = "Aula";
-            this.Aula.Name = "Aula";
-            this.Aula.ReadOnly = true;
-            // 
-            // Aforo
-            // 
-            this.Aforo.HeaderText = "Aforo";
-            this.Aforo.Name = "Aforo";
-            this.Aforo.ReadOnly = true;
-            // 
-            // ResponsabledeAula
-            // 
-            this.ResponsabledeAula.HeaderText = "ResponsabledeAula";
-            this.ResponsabledeAula.Name = "ResponsabledeAula";
-            this.ResponsabledeAula.ReadOnly = true;
-            // 
-            // Examen
-            // 
-            this.Examen.HeaderText = "Examen";
-            this.Examen.Name = "Examen";
-            this.Examen.ReadOnly = true;
             // 
             // bModificar
             // 
@@ -166,6 +140,24 @@
             this.lFranjaSeleccionada.Size = new System.Drawing.Size(0, 20);
             this.lFranjaSeleccionada.TabIndex = 14;
             // 
+            // Aula
+            // 
+            this.Aula.HeaderText = "Aula";
+            this.Aula.Name = "Aula";
+            this.Aula.ReadOnly = true;
+            // 
+            // Aforo
+            // 
+            this.Aforo.HeaderText = "Aforo";
+            this.Aforo.Name = "Aforo";
+            this.Aforo.ReadOnly = true;
+            // 
+            // ResponsabledeAula
+            // 
+            this.ResponsabledeAula.HeaderText = "ResponsabledeAula";
+            this.ResponsabledeAula.Name = "ResponsabledeAula";
+            this.ResponsabledeAula.ReadOnly = true;
+            // 
             // GestionarAulasTab
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -196,12 +188,11 @@
         private System.Windows.Forms.Label lResponsable;
         private System.Windows.Forms.DataGridView dataGridListaAulas;
         private System.Windows.Forms.Button bModificar;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Aula;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Aforo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ResponsabledeAula;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Examen;
         private System.Windows.Forms.TextBox textAforo;
         private System.Windows.Forms.TextBox textResponsable;
         private System.Windows.Forms.Label lFranjaSeleccionada;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Aula;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Aforo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ResponsabledeAula;
     }
 }
