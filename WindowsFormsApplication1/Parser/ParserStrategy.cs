@@ -5,10 +5,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace WindowsFormsApplication1.CSVParser
+namespace WindowsFormsApplication1.Parser
 {
-    internal interface ParserStrategy
+    public interface ParserStrategy
     {
         string getLoggerFilename();
+        string getTypeOfFile();
+        int Parse(StreamReader reader, StreamWriter logger);
     }
 }

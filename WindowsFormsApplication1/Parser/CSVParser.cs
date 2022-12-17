@@ -7,20 +7,26 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace WindowsFormsApplication1.CSVParser
+namespace WindowsFormsApplication1.Parser
 {
-    internal class CSVParser
+    public class CSVParser
     {
         private String filePath;
         StreamReader reader;
         StreamWriter logger;
         private ParserStrategy strategy;
 
-        CSVParser(ParserStrategy strategy)
+        public CSVParser(ParserStrategy strategy)
+        {
+            this.strategy = strategy;
+            getFilepathDialog();
+        }
+
+        private void getFilepathDialog()
         {
             OpenFileDialog openFileDialog = new OpenFileDialog();
             openFileDialog.InitialDirectory = "c:\\";
-            openFileDialog.Filter = "txt files (*.txt) | *.txt | csv files (*.csv)|*.csv";
+            openFileDialog.Filter = strategy.getTypeOfFile();
             openFileDialog.FilterIndex = 1;
             openFileDialog.RestoreDirectory = true;
             if (openFileDialog.ShowDialog() == DialogResult.OK
@@ -29,18 +35,19 @@ namespace WindowsFormsApplication1.CSVParser
                 filePath = openFileDialog.FileName;
             }
             else
-            {
                 throw new Exception("Archivo de texto no válido");
-            }
-            this.strategy = strategy;
         }
 
-        public void openReaderAndWriter()
+        public void Parse()
         {
+            int lineasProcesadas;
+            
             reader = new StreamReader(filePath);
             logger = new StreamWriter(strategy.getLoggerFilename());
+            lineasProcesadas = strategy.Parse(reader, logger);
+            MessageBox.Show("Se procesaron" + (lineasProcesadas) + " líneas.",
+                    "File Content at path: " + filePath, MessageBoxButtons.OK);
         }
-
 
         ~CSVParser()
         {

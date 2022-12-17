@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using WindowsFormsApplication1.Parser;
 
 namespace WindowsFormsApplication1
 {
@@ -31,53 +32,9 @@ namespace WindowsFormsApplication1
 
         private void bImportar_Click(object sender, EventArgs e)
         {
-            // CSVParser csvParser = new CSVParser(new EstudianteStrategy);
-
-            int n_line = 0;
-            var fileContent = string.Empty;
-            var filePath = string.Empty;
-
-            using (OpenFileDialog openFileDialog = new OpenFileDialog())
-            {
-                openFileDialog.InitialDirectory = "c:\\";
-                openFileDialog.Filter = "txt files (*.txt) | *.txt | csv files (*.csv)|*.csv";
-                openFileDialog.FilterIndex = 1;
-                openFileDialog.RestoreDirectory = true;
-
-                if (openFileDialog.ShowDialog() == DialogResult.OK
-                    && !openFileDialog.FileName.Equals(""))
-                {
-                    //Get the path of specified file
-                    filePath = openFileDialog.FileName;
-                    //Read the contents of the file into a stream
-                    var fileStream = openFileDialog.OpenFile();
-                    using (StreamReader reader = new StreamReader(fileStream))
-                    {
-                        string line;
-
-                        while (!reader.EndOfStream)
-                        {
-                            line = reader.ReadLine();
-                            try
-                            {
-                                var split = line.Split(';');
-                                if (split.Length != 2)
-                                    throw new Exception("No hay suficientes argumentos en la línea");
-                                Asignatura asignatura = new Asignatura(split[0].ToString().Trim());
-                                FranjaHoraria franja = new FranjaHoraria(split[1].ToString().Trim());
-                                Examen examen = new Examen(asignatura, franja);
-                            }
-                            catch (Exception ex)
-                            {
-                                Console.WriteLine("Error:" + ex.Message);
-                            }
-                            n_line++;
-                        }
-                    }
-                    MessageBox.Show("Se procesaron" + (n_line) + " líneas.", "File Content at path: " + filePath, MessageBoxButtons.OK);
-                }
-                MostrarExamenes();
-            }
+            CSVParser parser = new CSVParser(new ExamenStrategy());
+            parser.Parse();
+            MostrarExamenes();
         }
 
         private void button1_Click(object sender, EventArgs e)

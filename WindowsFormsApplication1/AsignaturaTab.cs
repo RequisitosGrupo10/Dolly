@@ -2,7 +2,6 @@
 using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
-using WindowsFormsApplication1.CSVParser;
 
 namespace WindowsFormsApplication1
 {
