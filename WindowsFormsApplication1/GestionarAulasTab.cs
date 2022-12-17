@@ -25,8 +25,8 @@ namespace WindowsFormsApplication1
             this.textAforo.Text = aforo;
             this.textResponsable.Text = usuario.Username;
             this.comboFranja.DataSource = FranjaHoraria.ListarFranjas();
-            this.comboFranja.SelectedIndex = 1;
-            franja = (FranjaHoraria)this.comboFranja.Items[1];
+            this.comboFranja.SelectedIndex = 0;
+            franja = (FranjaHoraria)this.comboFranja.Items[0];
             Mostrar();
         }
 
