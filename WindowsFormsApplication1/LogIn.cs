@@ -35,11 +35,12 @@ namespace WindowsFormsApplication1
             {
                 usuario = new Usuario(tNombre.Text);
                 if (usuario != null && tNombre.Text.Equals(usuario.Username))
-                {                           
+                {
                     if (usuario.checkPassword(tContrasena.Text))
                         loginCorrecto();
                     else
                         MessageBox.Show("Nombre o contraseña incorrecta");
+                    
                 }
                 else
                 {

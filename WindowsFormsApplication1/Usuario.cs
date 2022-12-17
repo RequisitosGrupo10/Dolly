@@ -38,11 +38,11 @@ namespace WindowsFormsApplication1
             try {
                 var tupla = miBD.Select("Select idUsuario, username, rol, trabajaEn from Usuario where username = '" + nombre + "';");
                 if (tupla.Count == 1) {
-                        var user = tupla[0];
-                        this.idUsuario = (int)user[0];
-                        this.username = (string)user[1];
-                        this.rol = (int)user[2];
-                        this.trabajaEn = new Sede((int)user[3]);
+                    var user = tupla[0];
+                    this.idUsuario = (int)user[0];
+                    this.username = (string)user[1];
+                    this.rol = (int)user[2];
+                    this.trabajaEn = null;
                 } else
                 {
                     throw new Exception("El usuario no está en la base de datos");
@@ -67,7 +67,7 @@ namespace WindowsFormsApplication1
             get { return idUsuario; }
         }
 
-        public String Username
+        public string Username
         {
             get { return username; }
         }

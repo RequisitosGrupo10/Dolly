@@ -83,7 +83,7 @@
             // 
             // bIniciarSesion
             // 
-            this.bIniciarSesion.Location = new System.Drawing.Point(446, 342);
+            this.bIniciarSesion.Location = new System.Drawing.Point(450, 341);
             this.bIniciarSesion.Margin = new System.Windows.Forms.Padding(4);
             this.bIniciarSesion.Name = "bIniciarSesion";
             this.bIniciarSesion.Size = new System.Drawing.Size(154, 66);
