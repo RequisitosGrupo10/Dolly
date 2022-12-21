@@ -45,7 +45,7 @@ namespace WindowsFormsApplication1.Parser
             reader = new StreamReader(filePath);
             logger = new StreamWriter(strategy.getLoggerFilename());
             lineasProcesadas = strategy.Parse(reader, logger);
-            MessageBox.Show("Se procesaron" + (lineasProcesadas) + " líneas.",
+            MessageBox.Show("Se procesaron " + (lineasProcesadas) + " líneas.",
                     "File Content at path: " + filePath, MessageBoxButtons.OK);
         }
 
