@@ -174,17 +174,11 @@ namespace WindowsFormsApplication1
         public static List<Usuario> ListaProfesoresLibres(Sede sede, FranjaHoraria franja)
         {
             List<Usuario> lista = new List<Usuario>();
-            /*string sel = "Select idUsuario from (Select idUsuario from Usuario where rol = 3 " +
-                "AND (trabajaEn = " + sede.IdSede + ") AND idUsuario NOT IN " +
-                "(Select responsable from DisponibilidadAulas Where franja = '" + franja.Franja + "' and responsable is not null))U " +
-                "where U.idUsuario not in (Select idVigilante from vigilante " +
-                "inner join DisponibilidadAulas where franja = '" + franja.Franja + "' and idVigilante is not null);";*/
-            string sel = "Select * from Usuario where trabajaEn = " + sede.IdSede + " and rol = 3 " +
-                "and idUsuario not in (Select responsable from (Select * from vigilante V join DisponibilidadAulas D on " +
-                "(V.disponibilidad = D.idDisponibilidad) where idDisponibilidad in (Select idDisponibilidad from DisponibilidadAulas " +
-                "where franja = '" + franja.Franja + "')) U union Select idVigilante from " +
-                "(Select * from vigilante V join DisponibilidadAulas D on (V.disponibilidad = D.idDisponibilidad) " +
-                "where idDisponibilidad in (Select idDisponibilidad from DisponibilidadAulas where franja = '" + franja.Franja + "')) V);";
+            string sel = "Select * from Usuario where idUsuario not in " +
+                "(select idVigilante from vigilante where disponibilidad in " +
+                "(select idDisponibilidad from DisponibilidadAulas where franja = '" + franja.Franja + "') " +
+                "union select responsable from DisponibilidadAulas where franja = '" + franja.Franja +
+                "' and responsable is not null) and rol = 3 and trabajaEn = " + sede.IdSede + ";";
             foreach (object[] tupla in miBD.Select(sel))
             {
                 Usuario usuario = new Usuario((int)tupla[0]);
